@@ -1,9 +1,8 @@
-This is the source code of the traditional Hello World program.
+ここでは伝統的な"Hello World!"プログラムのソースを紹介します
 
 {hello.play}
 
-`println!` is a [*macro*][macros] that prints text to the
-console.
+`println!` は文字列をコンソールにプリントするための [*マクロ*][macros]です。
 
 A binary can be generated using the Rust compiler: `rustc`.
 
