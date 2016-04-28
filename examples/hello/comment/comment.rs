@@ -1,26 +1,24 @@
 fn main() {
-    // This is an example of a line comment
-    // Notice how there are two slashes at the beginning of the line
-    // And that nothing written inside these will be read by the compiler
+    // こちらはラインコメントです
+    // 一番左にスラッシュが2つある行と、何も書かれていない行は
+    // どちらもコンパイラによって無視されます。試しに実行してみてください
 
     // println!("Hello, world!");
 
-    // Run it. See? Now try deleting the two slashes, and run it again.
+    // でしょ？では次に、左のスラッシュを消去してから実行してください
 
-    /* 
-     * This is another type of comment, the block comment. In general,
-     * the line comment is the recommended comment style however the
-     * block comment is extremely useful for debugging
+    /*
+     * こちらはもう一つのタイプのコメントでブロックコメントと呼ばれます。
+     * 普通はラインコメントの方が優れているのですが、こちらはデバッグ時に
+     * 役立つ場合があります。
      */
 
      /*
-     Note, the previous column of `*` was entirely for style. There's
-     no actual need for it.
+     このように、`*`は、実際にはコメントの前後に１つずつあれば十分です。
      */
 
-     // Observe how block comments allow easy expression manipulation
-     // which line comments do not. Deleting the comment delimiters
-     // will change the result:
+     // ではブロックコメントがどのようにデバッグに役立つか見てみましょう。
+     // 例えば下の例の場合、ブロックコメントがなくなれば結果が変わります。
      let x = 5 + /* 90 + */ 5;
      println!("Is `x` 10 or 100? x = {}", x);
 }
