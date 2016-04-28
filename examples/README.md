@@ -1,12 +1,20 @@
 # Rust by Example
 
+<!--- [Rust][rust] is a modern systems programming language focusing on safety, speed, --->
+<!--- and concurrency. It accomplishes these goals by being memory safe without using --->
+<!--- garbage collection. --->
+
 [Rust][rust] は安全性、速度、並列性にフォーカスした現代的なシステムプログラミング
 用のプログラミング言語です。
 ガベージコレクション無しでメモリ安全であることで、上記の目標を達成しています。
 
+<!--- Rust by Example (RBE) is a collection of runnable examples that illustrate various Rust --->
 Rust by Example(RBE)はRustの実行可能なサンプルスクリプト集で、ここではRustの様々な
 コンセプトと標準ライブラリを紹介していきます。
 
+<!--- concepts and standard libraries. To get even more out of these examples, don't forget --->
+<!--- to [install Rust locally][install] and check out the [official docs][std]. --->
+<!--- Additionally for the curious, you can also [check out the source code for this site][home]. --->
 この例をより活用するためには[Rustをローカルにインストール][install]し、[公式ドキュメント][std]をチェックすることをおすすめします。
 興味がある方は[このサイト自体のソースb][home]のチェックもどうぞ。
 

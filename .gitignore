@@ -6,3 +6,4 @@ node_modules/gitbook-plugin-rust-playpen/book/mode-rust.js
 node_modules/gitbook-plugin-rust-playpen/book/ace
 target
 rust-playgen
+*.swp
