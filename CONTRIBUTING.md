@@ -1,4 +1,4 @@
-基本的には(rust-lang-ja)[https://github.com/rust-lang-ja/the-rust-programming-language-ja]と一緒だが
+基本的には[rust-lang-ja](https://github.com/rust-lang-ja/the-rust-programming-language-ja)と一緒だが
 
 - `rustbook`ではなく`gitbook`を使用している。
 - `markdwonとコードが別々のファイルなっている`

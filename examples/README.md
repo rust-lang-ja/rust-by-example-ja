@@ -6,7 +6,7 @@
 
 [Rust][rust] は安全性、速度、並列性にフォーカスした現代的なシステムプログラミング
 用のプログラミング言語です。
-ガベージコレクション無しでメモリ安全であることで、上記の目標を達成しています。
+これは、ガベージコレクション無しでメモリ安全であることで可能になります。
 
 <!--- Rust by Example (RBE) is a collection of runnable examples that illustrate various Rust --->
 Rust by Example(RBE)はRustの実行可能なサンプルスクリプト集で、ここではRustの様々な
@@ -16,12 +16,12 @@ Rust by Example(RBE)はRustの実行可能なサンプルスクリプト集で�
 <!--- to [install Rust locally][install] and check out the [official docs][std]. --->
 <!--- Additionally for the curious, you can also [check out the source code for this site][home]. --->
 この例をより活用するためには[Rustをローカルにインストール][install]し、[公式ドキュメント][std]をチェックすることをおすすめします。
-興味がある方は[このサイト自体のソースb][home]のチェックもどうぞ。
+興味がある方は[このサイト自体のソース][home]のチェックもどうぞ。
 
 それでははじめましょう!
 
 > 訳注:
-> 日本語版の文書は以下から入手できます。(Github)[https://github.com/rust-lang-ja/rust-by-example-ja]
+> 日本語版の文書は以下から入手できます。[Github](https://github.com/rust-lang-ja/rust-by-example-ja)
 
 [rust]: http://www.rust-lang.org/
 [install]: http://www.rust-lang.org/install.html
