@@ -20,6 +20,9 @@ Rust by Example(RBE)はRustの実行可能なサンプルスクリプト集で�
 
 それでははじめましょう!
 
+> 訳注:
+> 日本語版の文書は以下から入手できます。(Github)[https://github.com/rust-lang-ja/rust-by-example-ja]
+
 [rust]: http://www.rust-lang.org/
 [install]: http://www.rust-lang.org/install.html
 [std]: http://doc.rust-lang.org/std/
