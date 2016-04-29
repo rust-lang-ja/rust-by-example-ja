@@ -204,3 +204,5 @@
 | wildcard                         | ワイルドカード
 | wrapper                          | ラッパ
 | activity                         | 実践
+| cutsom type                      | カスタム型
+| argument type                    | 引数タイプ

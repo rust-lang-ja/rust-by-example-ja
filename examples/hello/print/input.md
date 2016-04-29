@@ -3,21 +3,21 @@
 プリント関係の機能は[`std::fmt`][fmt]で定義される幾つかの[マクロ][macros]によって扱われます。このマクロには以下が含まれます。
 
 <!--- * `format!`: write formatted text to [`String`][string] --->
-* `format!`: フォーマットされたテキストを文字列(String)型に書き込みます
+* `format!`: フォーマットされたテキストを文字列(String)型に書き込みます。
 <!--- * `print!`: same as `format!` but the text is printed to the console. --->
-* `print!`: `format!` と同様ですが、コンソールにそのテキストを出力します
+* `print!`: `format!` と同様ですが、コンソールにそのテキストを出力します。
 <!--- * `println!`: same as `print!` but a newline is appended. --->
 * `println!`: `print!`: と同じですが改行が付け加えられます。
 
 <!--- All parse text in the same fashion. A plus is that the formatting correctness will --->
 <!--- be checked at compile time. --->
-すべて同じやり方でテキストをパースし、正しくフォーマットできるかコンパイル時にチェックします
+すべて同じやり方でテキストをパースし、正しくフォーマットできるかコンパイル時にチェックします。
 
 {print.play}
 
 <!--- [`std::fmt`][fmt] contains many [`traits`][traits] which govern the display --->
 <!--- of text. The base form of two important ones are listed below: --->
-[`std::fmt`][fmt]はいくつもの[トレイト][traits]を持ち、それによってどのようにディスプレイに表示されるかが決まります
+[`std::fmt`][fmt]はいくつもの[トレイト][traits]を持ち、それによってどのようにディスプレイに表示されるかが決まります。
 特に大事な形式は以下の２つです。
 
 <!--- * `fmt::Debug`: Uses the `{:?}` marker. Format text for debugging purposes. --->
@@ -45,8 +45,8 @@
 
 ### See also
 
-[`std::fmt`][fmt], [`macros`][macros], [`struct`][structs],
-and [`traits`][traits]
+[`std::fmt`][fmt],[マクロ][macros],[構造体][structs],
+and [トレイト][traits]
 
 [fmt]: http://doc.rust-lang.org/std/fmt/
 [macros]: /macros.html
