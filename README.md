@@ -1,6 +1,6 @@
 # rust-by-example-ja
 
-rust-by-exampleの和訳リポジトリ
+[rust-by-example](https://github.com/rust-lang/rust-by-example)の和訳リポジトリ
 
 # ビルド方法
 
