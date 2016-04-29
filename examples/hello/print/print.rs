@@ -32,7 +32,6 @@ fn main() {
     // `i32`保持する `Structure` という名の構造体を定義します.
     struct Structure(i32);
 
-    // However, custom types such as this structure require more complicated
     // このようにカスタム型を用いる場合、少々扱いが複雑になります。
     // 以下は動作しません。
     println!("This struct `{}` won't print...", Structure(3));
