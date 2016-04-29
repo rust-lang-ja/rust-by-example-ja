@@ -6,7 +6,7 @@
 
 [Rust][rust] は安全性、速度、並列性にフォーカスした現代的なシステムプログラミング
 用のプログラミング言語です。
-これは、ガベージコレクション無しでメモリ安全であることで可能になります。
+ガベージコレクション無しでメモリ安全であることが、これを可能にしています。
 
 <!--- Rust by Example (RBE) is a collection of runnable examples that illustrate various Rust --->
 Rust by Example(RBE)はRustの実行可能なサンプルスクリプト集で、ここではRustの様々な
