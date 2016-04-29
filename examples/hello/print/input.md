@@ -45,8 +45,8 @@
 
 ### See also
 
-[`std::fmt`][fmt], [`macros`][macros], [`struct`][structs],
-and [`traits`][traits]
+[`std::fmt`][fmt],[マクロ][macros],[構造体][structs],
+and [トレイト][traits]
 
 [fmt]: http://doc.rust-lang.org/std/fmt/
 [macros]: /macros.html
