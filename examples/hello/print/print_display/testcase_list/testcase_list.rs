@@ -20,7 +20,6 @@ impl fmt::Display for List {
             try!(write!(f, "{}", v));
         }
 
-        // Close the opened bracket and return a fmt::Result value
         // 開きっぱなしのブラケットを閉じて、`fmt::Result`の値を返す。
         write!(f, "]")
     }
