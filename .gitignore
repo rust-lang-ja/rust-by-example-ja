@@ -7,3 +7,4 @@ node_modules/gitbook-plugin-rust-playpen/book/ace
 target
 rust-playgen
 *.swp
+count_table
