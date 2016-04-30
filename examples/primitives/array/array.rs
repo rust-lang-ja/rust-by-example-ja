@@ -31,7 +31,6 @@ fn main() {
     println!("borrow a section of the array as a slice");
     analyze_slice(&ys[1 .. 4]);
 
-    // Out of bound indexing yields a panic
     // インデックスの範囲が配列のサイズを超えた場合パニックする
     println!("{}", xs[5]);
 }
