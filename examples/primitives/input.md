@@ -1,4 +1,5 @@
-Rust provides access to a wide variety of `primitives`. A sample includes:
+<!--- Rust provides access to a wide variety of `primitives`. A sample includes: --->
+Rustは様々な基本データ型(`primitives`)の使用をサポートしています。以下がその例です。
 
 * signed integers: `i8`, `i16`, `i32`, `i64` and `isize` (pointer size)
 * unsigned integers: `u8`, `u16`, `u32`, `u64` and `usize` (pointer size)
