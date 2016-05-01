@@ -59,7 +59,7 @@ impl fmt::Display for Structure {
 `fmt::Display`は実装されていますが、`fmt::Binary`はされていないので使用できません。
 `std::fmt`はそのような[トレイト][traits]が数多くあり、それぞれに独自の実装が必要です。詳しくは[`std::fmt`][fmt]を参照してください。
 
-### 実践
+### 演習
 
 <!--- After checking the output of the above example, use the `Point2` struct as --->
 <!--- guide to add a Complex struct to the example. When printed in the same --->

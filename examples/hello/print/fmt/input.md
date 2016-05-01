@@ -24,7 +24,7 @@
 フォーマット用トレイトの全リスト、及び引数の型は[こちら][fmt_traits]から、引数の型については[`std::fmt`のドキュメンテーション][fmt]から参照できます。
 
 <!--- ### Activity --->
-### 実践
+### 演習
 
 <!--- Add an implementation of the `fmt::Display` trait for the `Color` struct above --->
 <!--- so that the output displays as: --->

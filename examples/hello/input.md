@@ -23,7 +23,7 @@ Hello World!
 ```
 
 <!--- ### Activity --->
-### 実践
+### 演習
 
 <!--- Click 'Run' above to see the expected output. Next, add a new --->
 <!--- line with a second `println!` macro so that the output --->
