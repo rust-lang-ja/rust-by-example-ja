@@ -6,7 +6,7 @@
 
 {tuples.play}
 
-### 実践
+### 演習
 
 <!---  1. *Recap*: Add the `fmt::Display` trait to the Matrix `struct` in the above example, --->
 <!--- so that if you switch from printing the debug format `{:?}` to the display --->
