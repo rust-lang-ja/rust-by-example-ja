@@ -31,7 +31,7 @@
 <!--- for these types. To print text for custom types, more steps are required. --->
 この例で用いられている型は、標準ライブラリに含まれているため、ここでは`fmt::Display`を使用しています。他の型の場合、もうちょっと複雑なステップが要求される場合があります。
 
-### 実践
+### 演習
 
 <!---  * Fix the two issues in the above code (see FIXME) so that it runs without --->
    <!--- error. --->
