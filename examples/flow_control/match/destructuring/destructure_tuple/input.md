@@ -1,7 +1,8 @@
-Tuples can be destructured in a `match` as follows:
+<!--- Tuples can be destructured in a `match` as follows: --->
+以下のように、タプルは`match`を用いてデストラクトすることができます。
 
 {tuples.play}
 
 ### See also:
 
-[Tuples](/primitives/tuples.html)
+[タプル](/primitives/tuples.html)
