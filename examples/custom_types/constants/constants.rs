@@ -3,7 +3,6 @@ static LANGUAGE: &'static str = "Rust";
 const  THRESHOLD: i32 = 10;
 
 fn is_big(n: i32) -> bool {
-    // Access constant in some function
     // 関数内から定数を参照
     n > THRESHOLD
 }
@@ -16,7 +15,6 @@ fn main() {
     println!("The threshold is {}", THRESHOLD);
     println!("{} is {}", n, if is_big(n) { "big" } else { "small" });
 
-    // Error! Cannot modify a `const`.
     // エラー!`const`は変更できません。
     THRESHOLD = 5;
     // FIXME ^ この行をコメントアウトしましょう
