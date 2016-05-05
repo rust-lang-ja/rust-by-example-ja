@@ -1,33 +1,33 @@
-// An attribute to hide warnings for unused code.
+// 使用されていないコードによる警告を隠すアトリビュート
 #![allow(dead_code)]
 
-// Create an `enum` to classify someone. Note how both names
-// and type information together specify the variant:
-// `Skinny != Fat` and `Height(i32) != Weight(i32)`. Each
-// is different and independent.
+// 人間を分類するための`enum`を作成。要素の名前と型の情報の両方が
+// 変数の内容を同定するために、使用されていることに注目、つまり
+// `Skinny != Fat`であり、`Height(i32) != Weight(i32)`である。
 enum Person {
-    // An `enum` may either be `unit-like`,
+    // `enum`の要素は以下の用に様々な型を取れる
+    // ユニットライクな型
     Skinny,
     Fat,
-    // like tuple structs,
+    // タプル
     Height(i32),
     Weight(i32),
-    // or like structures.
+    // 構造体
     Info { name: String, height: i32 }
 }
 
-// A function which takes a `Person` enum as an argument and
-// returns nothing.
+// `Person`型のEnumを引数にとり、返り値のない関数。
 fn inspect(p: Person) {
-    // Usage of an `enum` must cover all cases (irrefutable)
-    // so a `match` is used to branch over it.
+    // `match`が`enum`型を精査する場合、その型について網羅的
+    // でなくてはならない。
+    // （訳注: `enum`の内容が定かでない場合は`_`を使用する）
     match p {
         Person::Skinny    => println!("Is skinny!"),
         Person::Fat       => println!("Is fat!"),
-        // Destructure `i` from inside the `enum`.
+        // `Person`の中から`i`をデストラクトする。
         Person::Height(i) => println!("Has a height of {}.", i),
         Person::Weight(i) => println!("Has a weight of {}.", i),
-        // Destructure `Info` into `name` and `height`.
+        // `info`を`height`と`name`にデストラクトする。
         Person::Info { name, height } => {
             println!("{} is {} tall!", name, height);
         },
@@ -37,7 +37,7 @@ fn inspect(p: Person) {
 fn main() {
     let person = Person::Height(18);
     let danny  = Person::Weight(10);
-    // `to_owned()` creates an owned `String` from a string slice.
+    // `to_owned()`は文字列のスライスから、新しい所有権の`String`を作成する。
     let dave   = Person::Info { name: "Dave".to_owned(), height: 72 };
     let john   = Person::Fat;
     let larry  = Person::Skinny;

@@ -1,16 +1,16 @@
-// A unit struct
+// ユニット
 struct Nil;
 
-// A tuple struct
+// タプル
 struct Pair(i32, f64);
 
-// A struct with two fields
+// 2つのフィールドを持つ（クラシックな）構造体
 struct Point {
     x: f64,
     y: f64,
 }
 
-// Structs can be reused as fields of another struct
+// 構造体は他の構造体のフィールドになることができる
 #[allow(dead_code)]
 struct Rectangle {
     p1: Point,
@@ -18,28 +18,28 @@ struct Rectangle {
 }
 
 fn main() {
-    // Instantiate a `Point`
+    // `Point`型のインスタンスを作成
     let point: Point = Point { x: 0.3, y: 0.4 };
 
-    // Access the fields of the point
+    // pointのフィールドにアクセスする。
     println!("point coordinates: ({}, {})", point.x, point.y);
 
-    // Destructure the point using a `let` binding
+    // `let`を使用してpointをデストラクトする。
     let Point { x: my_x, y: my_y } = point;
 
     let _rectangle = Rectangle {
-        // struct instantiation is an expression too
+        // 構造体の定義とインスタンスの作成を同時に行う
         p1: Point { x: my_y, y: my_x },
         p2: point,
     };
 
-    // Instantiate a unit struct
+    // ユニットをインスタンス化
     let _nil = Nil;
 
-    // Instantiate a tuple struct
+    // タプルをインスタンス化
     let pair = Pair(1, 0.1);
 
-    // Destructure a tuple struct
+    // タプルをデストラクト
     let Pair(integer, decimal) = pair;
 
     println!("pair contains {:?} and {:?}", integer, decimal);
