@@ -11,5 +11,5 @@ fn main() {
 
     // Error!
     _immutable_binding += 1;
-    // FIXME ^ Comment out this line
+    // FIXME ^ この行をコメントアウトしましょう
 }
