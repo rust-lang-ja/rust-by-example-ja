@@ -206,3 +206,6 @@
 | activity                         | 実践
 | cutsom type                      | カスタム型
 | argument type                    | 引数タイプ
+| primitive type                   | プリミティブ型
+| casting                          | キャスティング
+| least significant bit            | 最下位ビット
