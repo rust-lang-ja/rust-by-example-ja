@@ -211,3 +211,4 @@
 | least significant bit            | 最下位ビット
 | numeric riteral                  | 数値リテラル
 | full path                        | 絶対パス
+| r-value                          | 右辺値
