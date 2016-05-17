@@ -13,16 +13,17 @@ fn main() {
         if n < 10 && n > -10 {
             println!(", and is a small number, increase ten-fold");
 
-            // This expression returns an `i32`.
+            // この式は`i32`を返す。
             10 * n
         } else {
             println!(", and is a big number, reduce by two");
 
-            // This expression must return an `i32` as well.
+            // ここでも返り値の型は`i32`でなくてはならない。
             n / 2
-            // TODO ^ Try suppressing this expression with a semicolon.
+            // TODO ^ セミコロン(`;`)をつけて、返り値を返さないようにしてみましょう
         };
-    //   ^ Don't forget to put a semicolon here! All `let` bindings need it.
+    //   ここにセミコロンを付けるのを忘れないように!
+    //   `let`による変数束縛の際には必ず必要です!
 
     println!("{} -> {}", n, big_n);
 }
