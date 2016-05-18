@@ -1,7 +1,8 @@
-Similarly, a `struct` can be destructured as shown:
+<!-- Similarly, a `struct` can be destructured as shown: -->
+以下のようにして、構造体(`struct`)も同様にデストラクトすることができる。
 
 {struct.play}
 
 ### See also:
 
-[Structs](/custom_types/structs.html), [The ref pattern](/scope/borrow/ref.html)
+[構造体](/custom_types/structs.html), [refによるパターンマッチ](/scope/borrow/ref.html)

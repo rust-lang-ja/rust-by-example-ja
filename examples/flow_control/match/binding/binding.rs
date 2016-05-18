@@ -1,4 +1,4 @@
-// A function `age` which returns a `u32`.
+// `age`関数は`u32`の値を返します。
 fn age() -> u32 {
     15
 }
@@ -8,12 +8,13 @@ fn main() {
 
     match age() {
         0             => println!("I'm not born yet I guess"),
-        // Could `match` 1 ... 12 directly but then what age
-        // would the child be? Instead, bind to `n` for the
-        // sequence of 1 .. 12. Now the age can be reported.
+
+        // `1 ... 12`の値を一挙に`match`させることができます。
+        // しかしその場合、子供は正確には何歳なのでしょう?
+        // マッチした値を`n`にバインディングすることで値を使用できます。
         n @ 1  ... 12 => println!("I'm a child of age {:?}", n),
         n @ 13 ... 19 => println!("I'm a teen of age {:?}", n),
-        // Nothing bound. Return the result.
+        // マッチしなかった場合の処理
         n             => println!("I'm an old person of age {:?}", n),
     }
 }

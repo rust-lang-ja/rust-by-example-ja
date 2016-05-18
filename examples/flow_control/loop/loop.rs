@@ -3,14 +3,14 @@ fn main() {
 
     println!("Let's count until infinity!");
 
-    // Infinite loop
+    // 無限ループ
     loop {
         count += 1;
 
         if count == 3 {
             println!("three");
 
-            // Skip the rest of this iteration
+            // 残りの処理をスキップ
             continue;
         }
 
@@ -20,6 +20,7 @@ fn main() {
             println!("OK, that's enough");
 
             // Exit this loop
+            // ループを抜ける。
             break;
         }
     }
