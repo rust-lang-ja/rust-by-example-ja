@@ -214,3 +214,4 @@
 | r-value                          | 右辺値
 | color model                      | カラーモデル
 | higher order functions           | 高階関数
+| designator                       | 識別子
