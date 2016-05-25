@@ -1,21 +1,21 @@
-// Unlike C/C++, there's no restriction on the order of function definitions
+// C/C++とは違い、関数の定義を行う順番に制限はない。
 fn main() {
-    // We can use this function here, and define it somewhere later
+    // ここで関数を使用し、後ほど定義してもかまわない。
     fizzbuzz_to(100);
 }
 
-// Function that returns a boolean value
+// ブーリアン型を返す関数
 fn is_divisible_by(lhs: u32, rhs: u32) -> bool {
-    // Corner case, early return
+    // 例外的な引数を受けた場合、早めに返す。
     if rhs == 0 {
         return false;
     }
 
-    // This is an expression, the `return` keyword is not necessary here
+    // これは式文であり、`return`キーワードは必要ではない。
     lhs % rhs == 0
 }
 
-// Functions that "don't" return a value, actually return the unit type `()`
+// 値を「返さない」関数、実際にはユニット型(`()`)を返している。
 fn fizzbuzz(n: u32) -> () {
     if is_divisible_by(n, 15) {
         println!("fizzbuzz");
@@ -28,8 +28,7 @@ fn fizzbuzz(n: u32) -> () {
     }
 }
 
-// When a function returns `()`, the return type can be omitted from the
-// signature
+// 関数が`()`を返すとき、返り値の方を書く必要はない。
 fn fizzbuzz_to(n: u32) {
     for n in 1..n + 1 {
         fizzbuzz(n);

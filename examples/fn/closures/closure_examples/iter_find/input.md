@@ -1,18 +1,19 @@
-`Iterator::find` is a function which when passed an iterator, will return
+<!-- `Iterator::find` is a function which when passed an iterator, will return
 the first element which satisfies the predicate as an `Option`. Its
-signature:
+signature: -->
+`Iterator::find`はイテレータに渡される関数で、条件を満たす最初の値を`Option`として返します。型シグネチャは以下のようになります。
 
 ```rust
 pub trait Iterator {
-    // The type being iterated over.
+    // イテレートされる値の型
     type Item;
 
-    // `find` takes `&mut self` meaning the caller may be borrowed
-    // and modified, but not consumed.
+    // `find`は`&mut self`を取るため、イテレータを呼び出した値を借用し
+    // 変更しますが、消費し尽くすことはありません。
     fn find<P>(&mut self, predicate: P) -> Option<Self::Item> where
-        // `FnMut` meaning any captured variable may at most be
-        // modified, not consumed. `&Self::Item` states it takes
-        // arguments to the closure by reference.
+        // `FnMut`はクロージャによって補足される変数が変更される
+        // 事はあっても消費されることはないということを示します。
+        // `&Self::Item`はクロージャが変数を参照として取ることを示します。
         P: FnMut(&Self::Item) -> bool {}
 }
 ```

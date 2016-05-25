@@ -213,3 +213,4 @@
 | full path                        | 絶対パス
 | r-value                          | 右辺値
 | color model                      | カラーモデル
+| higher order functions           | 高階関数

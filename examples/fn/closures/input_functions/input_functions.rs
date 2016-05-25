@@ -1,17 +1,17 @@
-// Define a function which takes a function as an argument and calls it.
+// 関数を引数として取り、即座に実行する関数を定義
 fn call_function<F: Fn()>(f: F) {
     f()
 }
 
-// Define a simple function to be used as an input.
+// 引数として渡すための簡単な関数を定義
 fn print() {
     println!("I'm a function!")
 }
 
 fn main() {
-    // Define a closure similar to the `print()` function above.
+    // 上で定義した`print()`に似たクロージャを定義
     let closure = || println!("I'm a closure!");
-    
+
     call_function(closure);
     call_function(print);
 }
