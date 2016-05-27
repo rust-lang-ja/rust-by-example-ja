@@ -1,6 +1,5 @@
-// Similarly `mod inaccessible` and `mod nested` will locate the `nested.rs`
-// and `inaccessible.rs` files and insert them here under their respective
-// modules
+// 同様に`mod inaccessible`、`mod nested`によって、`nested.rs`、`inaccessible.rs`の内容をこの中で使用することができるようになる。
+// 訳注: `pub`をつけないかぎり、この中でしか使用できない。
 mod inaccessible;
 pub mod nested;
 
