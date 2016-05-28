@@ -1,17 +1,17 @@
 mod my {
-    // A public struct with a public field of generic type `T`
+    // パブリックなフィールド`T`(ジェネリック型)を持つパブリックな構造体
     pub struct WhiteBox<T> {
         pub contents: T,
     }
 
-    // A public struct with a private field of generic type `T`
+    // プライベートなフィールド`T`（ジェネリック型）を持つパブリックな構造体
     #[allow(dead_code)]
     pub struct BlackBox<T> {
         contents: T,
     }
 
     impl<T> BlackBox<T> {
-        // A public constructor method
+        // パブリックなコンストラクタメソッドを持つ構造体
         pub fn new(contents: T) -> BlackBox<T> {
             BlackBox {
                 contents: contents,
@@ -21,23 +21,26 @@ mod my {
 }
 
 fn main() {
-    // Public structs with public fields can be constructed as usual
+    // パブリックなフィールドを持つパブリックな構造体は、通常通り
+    // インスタンス化できる。
     let white_box = my::WhiteBox { contents: "public information" };
 
-    // and their fields can be normally accessed.
+    // フィールドにも普通にアクセスできる。
     println!("The white box contains: {}", white_box.contents);
 
-    // Public structs with private fields cannot be constructed using field names.
-    // Error! `BlackBox` has private fields
+    // プライベートなフィールドを持つ構造体は、インスタンス化する際に
+    // フィールド名を指定することができない。
+    // エラー!`BlackBox`にはプライベートな属性が存在します。
     //let black_box = my::BlackBox { contents: "classified information" };
-    // TODO ^ Try uncommenting this line
+    // TODO ^ 試しにここをアンコメントしてみましょう。
 
-    // However, structs with private fields can be created using
-    // public constructors
+    // そのような場合でも、パブリックなコンストラクタを介して作成
+    // することは可能。
     let _black_box = my::BlackBox::new("classified information");
 
-    // and the private fields of a public struct cannot be accessed.
-    // Error! The `contents` field is private
+    // たとえパブリックな構造体でも、プライベートなフィールドには
+    // アクセス出来ない。
+    // エラー!`contents`フィールドはプライベートです。
     //println!("The black box contains: {}", _black_box.contents);
-    // TODO ^ Try uncommenting this line
+    // TODO ^ ここをアンコメントしてみましょう。
 }
