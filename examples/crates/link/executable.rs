@@ -1,10 +1,10 @@
-// Link to `library`, import items under the `rary` module
+// `library`にリンクし、`rary`モジュール内の要素を全てインポートする。
 extern crate rary;
 
 fn main() {
     rary::public_function();
 
-    // Error! `private_function` is private
+    // エラー！`private_function`はプライベート
     //rary::private_function();
 
     rary::indirect_access();
