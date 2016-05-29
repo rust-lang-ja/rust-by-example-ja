@@ -7,6 +7,6 @@ names: -->
 {binding.play}
 
 ### See also:
-[関a(`functions`)数][functions]
+[関数][functions]
 
-[functions]: /fn.html
+[functions]: ../../../fn.html

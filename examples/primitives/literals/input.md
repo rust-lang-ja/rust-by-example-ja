@@ -16,7 +16,7 @@
 コンパイラに、どのリテラルを使用するのかを教えてあげなくてはなりません。現在の仕様では、リテラルが32ビット符号無し整数であることを伝える場合、`u32`サフィックスを、符号付き32ビット整数であれば`i32`を使用します。
 
 <!--- The operators available and their precedence [in Rust][rust op-prec] are similar to other --->
-Rustで使用可能な演算子と、[その実行順序][http://doc.rust-lang.org/reference.html#operator-precedence]は、[Cなどの言語のもの][op-prec]とほぼ同じです。
+Rustで使用可能な演算子と、[その実行順序](http://doc.rust-lang.org/reference.html#operator-precedence)は、[Cなどの言語のもの][op-prec]とほぼ同じです。
 
 {literals.play}
 

@@ -1,9 +1,9 @@
 fn main() {
-    // Make `optional` of type `Option<i32>`
+    // `Option<i32>`の`optional`を作成
     let mut optional = Some(0);
 
-    // This reads: "while `let` destructures `optional` into
-    // `Some(i)`, evaluate the block (`{}`). Else `break`.
+    // これは次のように読める。「`let`が`optional`を`Some(i)`にデストラクトしている間は
+    // ブロック内(`{}`)を評価せよ。さもなくば`break`せよ。」
     while let Some(i) = optional {
         if i > 9 {
             println!("Greater than 9, quit!");
@@ -12,9 +12,8 @@ fn main() {
             println!("`i` is `{:?}`. Try again.", i);
             optional = Some(i + 1);
         }
-        // ^ Less rightward drift and doesn't require
-        // explicitly handling the failing case.
+        // ^ インデントが少なく、デストラクト失敗時の処理を追加で書く必要がない。
     }
-    // ^ `if let` had additional optional `else`/`else if`
-    // clauses. `while let` does not have these.
+    // ^ `if let`の場合は`else`/`else if`句が一つ余分にあったが、
+    // `while let`では必要が無い。
 }

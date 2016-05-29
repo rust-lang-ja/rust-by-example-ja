@@ -6,7 +6,7 @@ requires [generics], which is necessary because of how they are defined: -->
 もちろんです。関数内でクロージャを使う場合、[ジェネリック]型を使用する必要があります。詳しく見ていきましょう。
 
 ```rust
-// `F` must be generic.
+// `F` はジェネリック型でなくてはならない
 fn apply<F>(f: F) where
     F: FnOnce() {
     f()
@@ -35,7 +35,7 @@ and not be allowed. Thus, bounding by one of the `traits`: `Fn`, `FnMut`, or
 [A thorough analysis][thorough_analysis], [`Fn`][fn], [`FnMut`][fn_mut],
 and [`FnOnce`][fn_once]
 
-[ジェネリック]: /generics.html
+[ジェネリック]: ../../generics.html
 [fn]: http://doc.rust-lang.org/std/ops/trait.Fn.html
 [fn_mut]: http://doc.rust-lang.org/std/ops/trait.FnMut.html
 [fn_once]: http://doc.rust-lang.org/std/ops/trait.FnOnce.html

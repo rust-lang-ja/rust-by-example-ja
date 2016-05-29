@@ -15,6 +15,6 @@
 
 [アトリビュート(`attributes`)][attributes] and [デストラクト][destructuring]
 
-[attributes]: /attribute.html
+[attributes]: ./attribute.html
 [c_struct]: http://en.wikipedia.org/wiki/Struct_(C_programming_language)
-[destructuring]: /flow_control/match/destructuring.html
+[destructuring]: ./flow_control/match/destructuring.html
