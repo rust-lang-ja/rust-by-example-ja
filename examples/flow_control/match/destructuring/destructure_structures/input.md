@@ -5,4 +5,4 @@
 
 ### See also:
 
-[構造体](/custom_types/structs.html), [refによるパターンマッチ](/scope/borrow/ref.html)
+[構造体](../../../custom_types/structs.html), [refによるパターンマッチ](../../../scope/borrow/ref.html)

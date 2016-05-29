@@ -23,4 +23,4 @@
 
 [ライブラリドキュメンテーション][docs]
 
-[docs]: /meta/doc.html
+[docs]: ../meta/doc.html

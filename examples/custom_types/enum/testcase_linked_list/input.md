@@ -7,5 +7,5 @@
 
 [ボックス(`Box`)][box] and [メソッド][methods]
 
-[box]: /std/box.html
-[methods]: /fn/methods.html
+[box]: ./std/box.html
+[methods]: ./fn/methods.html

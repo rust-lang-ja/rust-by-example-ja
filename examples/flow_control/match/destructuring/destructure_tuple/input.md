@@ -5,4 +5,4 @@
 
 ### See also:
 
-[タプル](/primitives/tuples.html)
+[タプル](../../../primitives/tuples.html)

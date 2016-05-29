@@ -9,4 +9,4 @@ names: -->
 ### See also:
 [関a(`functions`)数][functions]
 
-[functions]: /fn.html
+[functions]: ../../../fn.html

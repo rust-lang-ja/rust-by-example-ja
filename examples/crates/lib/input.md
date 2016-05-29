@@ -14,4 +14,4 @@ crate file, but this default name can be overridden using the [`crate_name`
 attribute][crate-name]. -->
 ライブラリは「lib」が頭につき、デフォルトでは、その後ろに元となったクレイトファイル名をつけます。(訳注: ここでは`lib` + `rary`)この振る舞いは[`crate_name`アトリビュート][crate-name]を用いてオーバーライドできます。
 
-[crate-name]: /attribute/crate.html
+[crate-name]: ../attribute/crate.html

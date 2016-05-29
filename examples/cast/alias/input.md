@@ -12,4 +12,4 @@ is an alias for the `Result<T, IoError>` type. -->
 
 ### See also:
 
-[アトリビュート](/attribute.html)
+[アトリビュート](../attribute.html)

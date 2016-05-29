@@ -8,4 +8,4 @@
 
 [借用 (`&`)][borrow]
 
-[borrow]: /borrow.html
+[borrow]: ../../../borrow.html

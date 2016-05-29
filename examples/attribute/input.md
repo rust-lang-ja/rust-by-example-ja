@@ -30,6 +30,6 @@ and when they apply to a module or item, the syntax is `#[item_attribute]`
 * `#[attribute(key = "value")]`
 * `#[attribute(value)]`
 
-[cfg]: /attribute/cfg.html
-[crate]: /attribute/crate.html
+[cfg]: ./attribute/cfg.html
+[crate]: ./attribute/crate.html
 [lint]: https://en.wikipedia.org/wiki/Lint_%28software%29
