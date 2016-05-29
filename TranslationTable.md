@@ -215,3 +215,6 @@
 | color model                      | カラーモデル
 | higher order functions           | 高階関数
 | designator                       | 識別子
+| field                            | フィールド
+| public                           | パブリック
+| private                          | プライベート
