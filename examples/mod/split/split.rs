@@ -1,5 +1,5 @@
-// This declaration will look for a file named `my.rs` or `my/mod.rs` and will
-// insert its contents inside a module named `my` under this scope
+// このように宣言すると、`my.rs`または、`my/mod.rs`という名のファイルを探し、
+// その内容をこのファイル中で`my`という名から使用することができるようにします。
 mod my;
 
 fn function() {
