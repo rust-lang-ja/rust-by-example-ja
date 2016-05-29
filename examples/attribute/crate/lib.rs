@@ -1,6 +1,6 @@
-// This crate is a library
+// このクレイトはライブラリである。
 #![crate_type = "lib"]
-// The library is named "rary"
+// このライブラリの名前は「rary」である。
 #![crate_name = "rary"]
 
 pub fn public_function() {
