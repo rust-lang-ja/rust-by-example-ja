@@ -19,8 +19,7 @@ Rustには2種類の定数があり、いずれもグローバルスコープを
 
 ### See also:
 
-[`const` 及び `static` の RFC][
-https://github.com/rust-lang/rfcs/blob/master/text/0246-const-vs-static.md),
+[`const` 及び `static` の RFC][https://github.com/rust-lang/rfcs/blob/master/text/0246-const-vs-static.md],
 [`'static` ライフタイム][static]
 
 [static]: /scope/lifetime/static_lifetime.html
