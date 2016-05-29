@@ -1,7 +1,7 @@
 <!-- `Iterator::any` is a function which when passed an iterator, will return
 `true` if any element satisfies the predicate. Otherwise `false`. Its
 signature: -->
-Iiterator::any`は、イテレータ内に一つでも条件を満たす要素があれば、`true`を返し、さもなくば`false`を返すイテレータです。以下がそのシグネチャです
+`iterator::any`は、イテレータ内に一つでも条件を満たす要素があれば、`true`を返し、さもなくば`false`を返すイテレータです。以下がそのシグネチャです
 
 ```rust
 pub trait Iterator {

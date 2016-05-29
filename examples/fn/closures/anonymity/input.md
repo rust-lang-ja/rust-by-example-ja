@@ -6,7 +6,7 @@ requires [generics], which is necessary because of how they are defined: -->
 もちろんです。関数内でクロージャを使う場合、[ジェネリック]型を使用する必要があります。詳しく見ていきましょう。
 
 ```rust
-// `F` must be generic.
+// `F` はジェネリック型でなくてはならない
 fn apply<F>(f: F) where
     F: FnOnce() {
     f()
