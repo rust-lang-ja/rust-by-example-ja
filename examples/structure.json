@@ -93,7 +93,7 @@
             { "id": "custom", "title": "条件の追加", "children": null }
         ] }
     ] },
-    { "id": "generics", "title": "Generics", "children": [
+    { "id": "generics", "title": "ジェネリクス", "children": [
         { "id": "gen_fn", "title": "Functions", "children": null },
         { "id": "impl", "title": "Implementation", "children": null },
         { "id": "gen_trait", "title": "Traits", "children": null },
