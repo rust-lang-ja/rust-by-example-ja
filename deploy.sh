@@ -12,6 +12,7 @@ git fetch upstream && git reset upstream/gh-pages
 
 # echo "rustbyexample.com" > CNAME
 cp -r ../../vendor/gitbook/* gitbook/
+echo "rust-lang-ja.org" > CNAME
 
 touch .
 
