@@ -94,7 +94,7 @@
         ] }
     ] },
     { "id": "generics", "title": "ジェネリクス", "children": [
-        { "id": "gen_fn", "title": "Functions", "children": null },
+        { "id": "gen_fn", "title": "関数", "children": null },
         { "id": "impl", "title": "Implementation", "children": null },
         { "id": "gen_trait", "title": "Traits", "children": null },
         { "id": "bounds", "title": "Bounds", "children": [
