@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 rev=$(git rev-parse --short HEAD)
 

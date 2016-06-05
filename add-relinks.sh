@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 for example in $(ls examples); do
   if [[ -d examples/${example} ]]; then
