@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ace_repository='https://github.com/ajaxorg/ace-builds/trunk/src-min'
 ace_playpen_local='node_modules/gitbook-plugin-rust-playpen'

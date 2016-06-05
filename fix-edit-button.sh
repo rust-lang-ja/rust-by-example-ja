@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 for example in $(find examples -type d -name "*"); do
   html=stage/_book/${example#examples/}.html

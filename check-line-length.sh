@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 WHITELIST=(
   ./examples/lifetime/borrow/borrow.rs

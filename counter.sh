@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 echo "counting total line number foreach chapters"
 echo "output file is count_table"
 echo "" > count_table
