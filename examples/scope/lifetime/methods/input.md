@@ -1,10 +1,11 @@
-Methods are annotated similarly to functions:
+<!-- Methods are annotated similarly to functions: -->
+メソッドのライフタイムは関数に似ている。
 
 {methods.play}
 
 ### See also:
 
-[methods][methods]
+[メソッド][methods]
 
 
 [methods]: /fn/methods.html
