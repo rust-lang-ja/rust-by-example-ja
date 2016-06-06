@@ -1,4 +1,5 @@
-Annotation of lifetimes in structures are also similar to functions:
+<!-- Annotation of lifetimes in structures are also similar to functions: -->
+構造体におけるライフタイムも関数のそれと似ている。
 
 {struct.play}
 
