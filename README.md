@@ -14,4 +14,4 @@
 - `make serve` ... ローカルのhtmlをブラウザ上で確認
 - `./deploy.sh` ... Github-pagesに反映
 
-翻訳文書は[こちら](http://rust-lang-ja.github.io/rust-by-example-ja/index.html)
+翻訳文書は[こちら](http://rust-lang-ja.org/rust-by-example/index.html)
