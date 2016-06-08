@@ -110,26 +110,26 @@
             { "id": "testcase_units", "title": "Testcase: unit conversions", "children": null }
         ] }
     ] },
-    { "id": "scope", "title": "Scoping rules", "children": [
+    { "id": "scope", "title": "スコーピングの規則", "children": [
         { "id": "raii", "title": "RAII", "children": null },
-        { "id": "move", "title": "Ownership and moves", "children": [
-            { "id": "mut", "title": "Mutability", "children": null }
+        { "id": "move", "title": "所有権とムーブ", "children": [
+            { "id": "mut", "title": "ミュータビリティ", "children": null }
         ] },
-        { "id": "borrow", "title": "Borrowing", "children": [
-            { "id": "mut", "title": "Mutability", "children": null },
-            { "id": "freeze", "title": "Freezing", "children": null },
-            { "id": "alias", "title": "Aliasing", "children": null },
-            { "id": "ref", "title": "The ref pattern", "children": null }
+        { "id": "borrow", "title": "借用", "children": [
+            { "id": "mut", "title": "ミュータビリティ", "children": null },
+            { "id": "freeze", "title": "値のフリーズ", "children": null },
+            { "id": "alias", "title": "エイリアス", "children": null },
+            { "id": "ref", "title": "refパターン", "children": null }
         ] },
-        { "id": "lifetime", "title": "Lifetimes", "children": [
-            { "id": "explicit", "title": "Explicit annotation", "children": null },
-            { "id": "fn", "title": "Functions", "children": null },
-            { "id": "methods", "title": "Methods", "children": null },
-            { "id": "struct", "title": "Structs", "children": null },
-            { "id": "lifetime_bounds", "title": "Bounds", "children": null },
-            { "id": "lifetime_coercion", "title": "Coercion", "children": null },
-            { "id": "static_lifetime", "title": "static", "children": null },
-            { "id": "elision", "title": "elision", "children": null }
+        { "id": "lifetime", "title": "ライフタイム", "children": [
+            { "id": "explicit", "title": "明示的アノテーション", "children": null },
+            { "id": "fn", "title": "関数", "children": null },
+            { "id": "methods", "title": "メソッド", "children": null },
+            { "id": "struct", "title": "構造体", "children": null },
+            { "id": "lifetime_bounds", "title": "ライフタイム境界", "children": null },
+            { "id": "lifetime_coercion", "title": "圧縮", "children": null },
+            { "id": "static_lifetime", "title": "スタティックライフタイム", "children": null },
+            { "id": "elision", "title": "省略", "children": null }
         ] }
     ] },
     { "id": "trait", "title": "Traits", "children": [
