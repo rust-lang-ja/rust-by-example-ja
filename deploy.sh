@@ -3,6 +3,7 @@
 rev=$(git rev-parse --short HEAD)
 
 cd stage/_book
+rm -rf rust-by-example
 mkdir rust-by-example
 mv ./* rust-by-example
 
