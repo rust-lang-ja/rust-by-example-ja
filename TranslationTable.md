@@ -106,6 +106,7 @@
 | lifetime                         | ライフタイム
 | lifetime elision                 | ライフタイムの省略
 | lifetime parameter               | ライフタイムパラメータ
+| lifetime coercion                | ライフタイムの圧縮
 | link                             | リンク
 | lint                             | リント
 | mangling                         | マングリング
@@ -218,3 +219,4 @@
 | field                            | フィールド
 | public                           | パブリック
 | private                          | プライベート
+| borrow  checker                  | 借用チェッカー
