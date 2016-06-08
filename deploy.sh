@@ -3,6 +3,11 @@
 rev=$(git rev-parse --short HEAD)
 
 cd stage/_book
+mkdir rust-by-example
+mv ./* rust-by-example
+
+# dirty hack for enable syntax highlight in local
+sed -i  -e 's!/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!/rust-by-example/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!' rust-by-example/gitbook/plugins/gitbook-plugin-rust-playpen/editor.js
 
 git init
 git config user.name "joemphilips"
