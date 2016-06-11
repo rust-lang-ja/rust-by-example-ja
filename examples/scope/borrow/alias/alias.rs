@@ -7,39 +7,39 @@ fn main() {
         let borrowed_point = &point;
         let another_borrow = &point;
 
-        // Data can be accessed via the references and the original owner
+        // データは元々の持ち主と参照の両方からアクセスすることができます。
         println!("Point has coordinates: ({}, {}, {})",
                  borrowed_point.x, another_borrow.y, point.z);
 
-        // Error! Can't borrow point as mutable because it's currently
-        // borrowed as immutable.
+        // エラー！pointはすでにイミュータブルに借用されているため、
+        // ミュータブルに借用することができない。
         //let mutable_borrow = &mut point;
-        // TODO ^ Try uncommenting this line
+        // TODO ^ この行をアンコメントしてみましょう。
 
-        // Immutable references go out of scope
+        // ここでイミュータブルな参照がスコープを抜ける。
     }
 
     {
         let mutable_borrow = &mut point;
 
-        // Change data via mutable reference
+        // ミュータブルなリファレンスを介してデータを変更する
         mutable_borrow.x = 5;
         mutable_borrow.y = 2;
         mutable_borrow.z = 1;
 
-        // Error! Can't borrow `point` as immutable because it's currently
-        // borrowed as mutable.
+        // エラー！`point`はすでにミュータブルに借用されているため、
+        // イミュータブルに借用することはできない。
         //let y = &point.y;
-        // TODO ^ Try uncommenting this line
+        // TODO ^ この行をアンコメントしてみましょう。
 
-        // Error! Can't print because `println!` takes an immutable reference.
+        // エラー！`println!`はイミュータブルなリファレンスを取るため、printできません。
         //println!("Point Z coordinate is {}", point.z);
-        // TODO ^ Try uncommenting this line
+        // TODO ^ この行をアンコメントしてみましょう。
 
-        // Mutable reference goes out of scope
+        // ここでミュータブルな参照がスコープを抜ける。
     }
 
-    // Immutable references to point are allowed again
+    // pointへのイミュータブルな参照を使うことが再び許される。
     println!("Point now has coordinates: ({}, {}, {})",
              point.x, point.y, point.z);
 }
