@@ -20,6 +20,14 @@ git fetch upstream && git reset upstream/gh-pages
 cp -r ../../vendor/gitbook/* gitbook/
 echo "rust-lang-ja.org" > CNAME
 
+# Create circle.yml to disable CI on gh-pages branch.
+cat > circle.yml <<EOF
+general:
+  branches:
+    ignore:
+      - gh-pages
+EOF
+
 touch .
 
 git add -A .
