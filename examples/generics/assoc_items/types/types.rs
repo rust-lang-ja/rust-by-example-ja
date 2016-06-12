@@ -14,7 +14,7 @@ trait Contains {
 
 impl Contains for Container {
     // `A`と`B`がどの型であるかを明示。インプットの型(訳注: つまり`Self`の型)
-    // が`Container(i32, i32)`である場合、アウトプットの型は`i32`と`i32`となる。
+    // が`Container(i32, i32)`である場合、出力型は`i32`と`i32`となる。
     type A = i32;
     type B = i32;
 

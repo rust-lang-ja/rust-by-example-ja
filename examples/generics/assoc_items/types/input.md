@@ -1,7 +1,7 @@
 <!-- The use of "Associated types" improves the overall readability of code
 by moving inner types locally into a trait as *output* types. Syntax
 for the `trait` definition is as follows: -->
-関連型を使用すると、コンテナ型の中の要素をトレイトの中に*アウトプット型*として書くことで、全体の可読性を上げることができます。トレイトを定義する際の構文は以下のようになります。
+関連型を使用すると、コンテナ型の中の要素をトレイトの中に*出力型*として書くことで、全体の可読性を上げることができます。トレイトを定義する際の構文は以下のようになります。
 
 ```rust
 // `A`と`B`は`type`キーワードを用いてトレイト内で宣言されている。
