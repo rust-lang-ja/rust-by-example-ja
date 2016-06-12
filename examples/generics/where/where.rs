@@ -4,12 +4,13 @@ trait PrintInOption {
     fn print_in_option(self);
 }
 
-// Because we would otherwise have to express this as `T: Debug` or 
-// use another method of indirect approach, this requires a `where` clause:
+// `where`句を用いない場合、以下と等価な機能を実装するには、
+// `<T: Debug>`という形で表現するか、もう一つメソッドを追加するか
+// しなくてはならない。
 impl<T> PrintInOption for T where
     Option<T>: Debug {
-    // We want `Option<T>: Debug` as our bound because that is what's
-    // being printed. Doing otherwise would be using the wrong bound.
+    // プリントされるのが`Some(self)`であるため、この関数の
+    // ジェネリック境界として`Option<T>: Debug`を使用したい。
     fn print_in_option(self) {
         println!("{:?}", Some(self));
     }
