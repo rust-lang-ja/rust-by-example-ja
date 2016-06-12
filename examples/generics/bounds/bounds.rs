@@ -1,4 +1,4 @@
-// A trait which implements the print marker: `{:?}`.
+// プリント時のマーカー`{:?}`を実装するトレイト
 use std::fmt::Debug;
 
 trait HasArea {
@@ -14,14 +14,14 @@ struct Rectangle { length: f64, height: f64 }
 #[allow(dead_code)]
 struct Triangle  { length: f64, height: f64 }
 
-// The generic `T` must implement `Debug`. Regardless
-// of the type, this will work properly.
+// ジェネリック型`T`は`Debug`トレイトを実装していなくてはならない。
+// その限りにおいて、`T`がどのような具象型であろうとも次の関数は動作する。
 fn print_debug<T: Debug>(t: &T) {
     println!("{:?}", t);
 }
 
-// `T` must implement `HasArea`. Any function which meets
-// the bound can access `HasArea`'s function `area`.
+// 「`T`は`HasArea`を実装していなくてはならない」という境界条件を
+// 満たしていれば、`HasArea`の関数`area`にアクセスできる。
 fn area<T: HasArea>(t: &T) -> f64 { t.area() }
 
 fn main() {
@@ -33,6 +33,6 @@ fn main() {
 
     //print_debug(&_triangle);
     //println!("Area: {}", area(&_triangle));
-    // ^ TODO: Try uncommenting these.
-    // | Error: Does not implement either `Debug` or `HasArea`. 
+    // ^ TODO: これらの行をアンコメントしてみましょう。
+    // | Error: `Debug` も `HasArea`もどちらも実装されていません!
 }
