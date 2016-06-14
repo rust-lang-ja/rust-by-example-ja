@@ -224,3 +224,4 @@
 | borrow  checker                  | 借用チェッカー
 | endpoint                         | エンドポイント
 | transmute                        | トランスミュート
+| output type                      | 出力型
