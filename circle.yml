@@ -1,9 +1,53 @@
 general:
   branches:
     ignore:
-      # https://circleci.com/docs/configuration/#branches
-      - /.*/ # ignore all branches (regex)
+      - gh-pages
 
 machine:
   timezone:
     Asia/Tokyo
+  environment:
+    RUST_NIGHTLY_RELEASE_DATE: "2016-06-01"
+    RUST_HOME: $HOME/rust/nightly-$RUST_NIGHTLY_RELEASE_DATE
+    PATH: $RUST_HOME/bin:$PATH
+    LD_LIBRARY_PATH: $RUST_HOME/lib
+
+dependencies:
+  post:
+    - sudo apt-get update
+    - sudo apt-get install curl file gcc git make openssh-client subversion
+    - mkdir -p $HOME/rust
+    # Install rustc and cargo, or use cached ones.
+    - ./tools/circleci/setup-rust.sh $RUST_HOME $RUST_NIGHTLY_RELEASE_DATE
+    # Record versions
+    - rustc --version --verbose
+    - cargo --version --verbose
+    - node --version
+    - npm --version
+  cache_directories:
+    - "~/rust"
+
+test:
+  override:
+    - make clean
+    - make all
+    - make book
+
+  post:
+    # Save artifacts
+    - mkdir $CIRCLE_ARTIFACTS/rust-by-example
+    - cp -rp ./stage/_book/* $CIRCLE_ARTIFACTS/rust-by-example/
+    - cp -rp ./gitbook/* $CIRCLE_ARTIFACTS/rust-by-example/gitbook/
+    # Fix fonts path
+    - sed -i -e 's!.//fonts/!./fonts/!g' $CIRCLE_ARTIFACTS/rust-by-example/gitbook/style.css
+    # Change mode-rust.js path
+    - sed -i -e "s!/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!/gh/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BUILD_NUM}/artifacts/${CIRCLE_NODE_INDEX}${CIRCLE_ARTIFACTS}/rust-by-example/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!" $CIRCLE_ARTIFACTS/rust-by-example/gitbook/plugins/gitbook-plugin-rust-playpen/editor.js
+    - cd $CIRCLE_ARTIFACTS; tar cJf rust-by-example-ja.txz rust-by-example
+
+# deployment:
+#   publish:
+#     branch: master
+#     commands:
+#       - git config user.name "Tatsuya Kawano (CircleCI)"
+#       - git config user.email "tatsuya@hibaridb.org"
+#       - ./tools/circleci/publish-to-gh-pages.sh
