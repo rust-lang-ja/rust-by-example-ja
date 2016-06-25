@@ -10,7 +10,7 @@
 # - The current git branch must be `master` branch. (See circle.yml's
 #   deployment -> branch)
 
-set -e
+set -ex
 
 # Get the revision of this branch (master branch)
 REVISION=$(git rev-parse --short HEAD)
