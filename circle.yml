@@ -44,10 +44,10 @@ test:
     - sed -i -e "s!/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!/gh/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BUILD_NUM}/artifacts/${CIRCLE_NODE_INDEX}${CIRCLE_ARTIFACTS}/rust-by-example/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!" $CIRCLE_ARTIFACTS/rust-by-example/gitbook/plugins/gitbook-plugin-rust-playpen/editor.js
     - cd $CIRCLE_ARTIFACTS; tar cJf rust-by-example-ja.txz rust-by-example
 
-# deployment:
-#   publish:
-#     branch: master
-#     commands:
-#       - git config user.name "Tatsuya Kawano (CircleCI)"
-#       - git config user.email "tatsuya@hibaridb.org"
-#       - ./tools/circleci/publish-to-gh-pages.sh
+deployment:
+  publish:
+    branch: master
+    commands:
+      - git config user.name "joemphilips"
+      - git config user.email "joemphilips@gmail.com"
+      - ./tools/circleci/publish-to-gh-pages.sh
