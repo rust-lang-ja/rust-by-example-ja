@@ -31,15 +31,12 @@ all:
 book: node_modules/gitbook
 	$(GITBOOK) build stage
 	./fix-edit-button.sh
-	./add-relinks.sh
 
 clean:
 	rm -rf bin stage
 
 test:
-	@$(foreach src,$(srcs),$(RUSTC_NT) $(src) || exit;)
-	./check-line-length.sh
-	./check-links.sh
+	./tools/test/check-line-length.sh
 
 serve: node_modules/gitbook
 	$(GITBOOK) serve stage

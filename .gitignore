@@ -8,3 +8,4 @@ target
 rust-playgen
 *.swp
 count_table
+gh-pages

@@ -10,7 +10,7 @@
 # - The current git branch must be `master` branch. (See circle.yml's
 #   deployment -> branch)
 
-set -e
+set -ex
 
 # Get the revision of this branch (master branch)
 REVISION=$(git rev-parse --short HEAD)
@@ -24,11 +24,11 @@ git branch gh-pages origin/gh-pages
 git worktree add ./gh-pages gh-pages
 
 # Copy the contents of stage/_book to gh-pages/rust-by-example
-cp -rp -rp ./stage/_book ./gh-pages/rust-by-example
+cp -rp ./stage/_book ./gh-pages/rust-by-example
 
 cd ./gh-pages
 
-# Dirty hack for enable syntax highlight in local
+# Dirty hack to enable syntax highlight in local
 sed -i -e 's!/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!/rust-by-example/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!' ./rust-by-example/gitbook/plugins/gitbook-plugin-rust-playpen/editor.js
 
 cp -r ../gitbook/* rust-by-example/gitbook/
