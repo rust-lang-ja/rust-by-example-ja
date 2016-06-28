@@ -1,5 +1,5 @@
 GITBOOK = node_modules/.bin/gitbook
-RUSTC = rustc
+eRUSTC = rustc
 STRICT = -D deprecated
 QUIET = -A unused-variables -A dead-code -A unused-assignments
 RUSTC_NT = $(RUSTC) -Z no-trans --test $(QUIET) # ${STRICT}
@@ -37,9 +37,7 @@ clean:
 	rm -rf bin stage
 
 test:
-	@$(foreach src,$(srcs),$(RUSTC_NT) $(src) || exit;)
-	./check-line-length.sh
-	./check-links.sh
+	./tools/test/check-line-length.sh
 
 serve: node_modules/gitbook
 	$(GITBOOK) serve stage
