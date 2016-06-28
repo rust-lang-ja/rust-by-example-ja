@@ -1,5 +1,5 @@
 GITBOOK = node_modules/.bin/gitbook
-eRUSTC = rustc
+RUSTC = rustc
 STRICT = -D deprecated
 QUIET = -A unused-variables -A dead-code -A unused-assignments
 RUSTC_NT = $(RUSTC) -Z no-trans --test $(QUIET) # ${STRICT}
