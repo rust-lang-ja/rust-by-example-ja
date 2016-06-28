@@ -31,7 +31,6 @@ all:
 book: node_modules/gitbook
 	$(GITBOOK) build stage
 	./fix-edit-button.sh
-	./add-relinks.sh
 
 clean:
 	rm -rf bin stage
