@@ -41,8 +41,9 @@ test:
     - cp -rp ./gitbook/* $CIRCLE_ARTIFACTS/rust-by-example/gitbook/
     # Fix fonts path
     - sed -i -e 's!.//fonts/!./fonts/!g' $CIRCLE_ARTIFACTS/rust-by-example/gitbook/style.css
-    # Change mode-rust.js path
-    - sed -i -e "s!/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!/gh/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BUILD_NUM}/artifacts/${CIRCLE_NODE_INDEX}${CIRCLE_ARTIFACTS}/rust-by-example/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!" $CIRCLE_ARTIFACTS/rust-by-example/gitbook/plugins/gitbook-plugin-rust-playpen/editor.js
+    # Change mode-rust.js path. An example of CircleCI artifact URI:
+    # "https://33-57046702-circle-artifacts.com/0/tmp/circle-artifacts.lFIlXxM/"
+    - sed -i -e "s!/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!/${CIRCLE_NODE_INDEX}${CIRCLE_ARTIFACTS}/rust-by-example/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!" $CIRCLE_ARTIFACTS/rust-by-example/gitbook/plugins/gitbook-plugin-rust-playpen/editor.js
     - cd $CIRCLE_ARTIFACTS; tar cJf rust-by-example-ja.txz rust-by-example
 
 deployment:
