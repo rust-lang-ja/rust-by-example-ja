@@ -132,12 +132,12 @@
             { "id": "elision", "title": "省略", "children": null }
         ] }
     ] },
-    { "id": "trait", "title": "Traits", "children": [
-        { "id": "derive", "title": "Derive", "children": null },
-        { "id": "ops", "title": "Operator Overloading", "children": null },
-        { "id": "drop", "title": "Drop", "children": null },
-        { "id": "iter", "title": "Iterators", "children": null },
-        { "id": "clone", "title": "Clone", "children": null }
+    { "id": "trait", "title": "トレイト", "children": [
+        { "id": "derive", "title": "継承(Derive)", "children": null },
+        { "id": "ops", "title": "演算子のオーバーロード", "children": null },
+        { "id": "drop", "title": "メモリ解放", "children": null },
+        { "id": "iter", "title": "イテレータ", "children": null },
+        { "id": "clone", "title": "クローン", "children": null }
     ] },
     { "id": "error", "title": "Error handling", "children": [
         { "id": "unwrap", "title": "Option & unwrap", "children": null },
