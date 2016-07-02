@@ -4,15 +4,14 @@ struct Fibonacci {
 }
 
 // `Iterator`を`Fibonacci`に対して実装する。
-// `Iterator`トレイトが実装を要求するのは`next`というフィールド
-// を決定するメソッドのみ。
+// `Iterator`トレイトは次(`next`)の要素を取得するメソッドの定義だけを要求する。
 impl Iterator for Fibonacci {
     type Item = u32;
 
     // ここではイテレーションの流れを`.curr`と`.next`を使用して定義している。
     // 返り値の型は`Option<T>`で、これは:
     //     * `Iterator`が終了した時は`None`を返し、
-    //     * そうでなければ値をラップした`Some`を返す。
+    //     * そうでなければ`Some`でラップされた値を返す。
     fn next(&mut self) -> Option<u32> {
         let new_next = self.curr + self.next;
 
