@@ -10,7 +10,7 @@ is actually considered valid. -->
 typically represented as `<T>`. In Rust, "generic" also describes anything that
 accepts one or more generic type parameters `<T>`. Any type specified as a
 generic type parameter is generic, and everything else is concrete (non-generic). -->
-ジェネリック型の型パラメータにはかぎ括弧(`angle brackets`)と[キャメルケース(`camel case`)][camelcase]が使われます。: `<Aaa, Bbb, ...>`ジェネリックな型パラメータはたいていの場合`<T>`で示されます。Rustの場合、「ジェネリクス」には「１つ以上のジェネリック型を受け付けるもの」という意味もあります。ジェネリックな型パラメータを指定された場合、それは必ずジェネリック型になり、そうでなければ必ず非ジェネリック型、すなわち具象型(`concrete`)になります。
+ジェネリック型の型パラメータにはかぎ括弧(`angle brackets`)と[キャメルケース(`camel case`)][camelcase]が使われます。: `<Aaa, Bbb, ...>`ジェネリックな型パラメータはたいていの場合`<T>`で示されます。Rustの場合、「ジェネリクス」には「１つ以上のジェネリックな型パラメータ`<T>`を受け付けるもの」という意味もあります。ジェネリックな型パラメータを指定された場合、それは必ずジェネリック型になり、そうでなければ必ず非ジェネリック型、すなわち具象型(`concrete`)になります。
 
 <!-- For example, defining a *generic function* named `foo` that takes an argument
 `T` of any type: -->
@@ -23,7 +23,7 @@ fn foo<T>(T) { ... }
 <!-- Because `T` has been specified as a generic type parameter, it is considered
 generic when used here as `(T)`. This is the case even if `T` has previously
 been defined as a `struct`. -->
-となります。`T`はジェネリックな型パラメータを付与されているので、`T`として使用するとジェネリック型として扱われます。これは`T`という構造体がそれ以前に定義されていても同様です。
+となります。`T`はジェネリックな型パラメータに指定されているので、この場所で(`T`)として使用するとジェネリック型として扱われます。これは`T`という構造体がそれ以前に定義されていても同様です。
 
 <!-- This example shows some of the syntax in action: -->
  では、手を動かしながらジェネリック型の構文を体験していきましょう。
@@ -34,5 +34,5 @@ been defined as a `struct`. -->
 
 [構造体][structs]
 
-[structs]: ./custom_types/structs.html
+[structs]: ../custom_types/structs.html
 [camelcase]: https://en.wikipedia.org/wiki/CamelCase
