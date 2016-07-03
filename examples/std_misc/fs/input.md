@@ -1,9 +1,11 @@
-The `std::io::fs` module contains several functions that deal with the
-filesystem.
+<!-- The `std::io::fs` module contains several functions that deal with the
+filesystem. -->
+`std::io::fs`モジュールはファイルシステムとやり取りするための関数をいくつか持っています。
 
 {fs.rs}
 
-Here's the expected successful output:
+<!-- Here's the expected successful output: -->
+以下が成功時に期待されるアウトプットです。
 
 ```
 $ rustc fs.rs && ./fs
@@ -27,7 +29,8 @@ $ rustc fs.rs && ./fs
 `rmdir a/c/d`
 ```
 
-And the final state of the `a` directory is:
+<!-- And the final state of the `a` directory is: -->
+最終的な`a`ディレクトリの状態は以下です。
 
 ```
 $ tree a
@@ -43,4 +46,4 @@ a
 
 [`cfg!`][cfg]
 
-[cfg]: /attribute/cfg.html
+[cfg]: ../attribute/cfg.html
