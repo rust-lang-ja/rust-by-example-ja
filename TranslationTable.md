@@ -220,3 +220,4 @@
 | public                           | パブリック
 | private                          | プライベート
 | borrow  checker                  | 借用チェッカー
+| endpoint                         | エンドポイント
