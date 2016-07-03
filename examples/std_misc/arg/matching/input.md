@@ -1,4 +1,5 @@
-Matching can be used to parse simple arguments:
+<!-- Matching can be used to parse simple arguments: -->
+matchを用いて簡単な引数をパースできます。
 
 {match_args.play}
 
