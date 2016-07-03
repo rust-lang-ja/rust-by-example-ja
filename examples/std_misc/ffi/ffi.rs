@@ -1,10 +1,10 @@
 use std::fmt;
 
-// this extern block links to the libm library
+// このexternブロックはlibmライブラリをリンクする。
 #[link(name = "m")]
 extern {
-    // this is a foreign function
-    // that computes the square root of a single precision complex number
+    // 他言語の関数宣言。
+    // この関数は単精度浮動小数の複素数型の平方根を計算するためのもの
     fn csqrtf(z: Complex) -> Complex;
 }
 
@@ -12,7 +12,7 @@ fn main() {
     // z = -1 + 0i
     let z = Complex { re: -1., im: 0. };
 
-    // calling a foreign function is an unsafe operation
+    // 安全でない方法で他言語関数を呼び出す。
     let z_sqrt = unsafe {
         csqrtf(z)
     };
@@ -20,7 +20,7 @@ fn main() {
     println!("the square root of {:?} is {:?}", z, z_sqrt);
 }
 
-// Minimal implementation of single precision complex numbers
+// 単精度浮動小数の複素数型の最小限の実装
 #[repr(C)]
 #[derive(Clone, Copy)]
 struct Complex {
