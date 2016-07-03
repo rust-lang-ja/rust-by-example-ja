@@ -1,17 +1,17 @@
 use std::path::Path;
 
 fn main() {
-    // Create a `Path` from an `&'static str`
+    // `&'static str`から`Path`を作成
     let path = Path::new(".");
 
-    // The `display` method returns a `Show`able structure
+    // `display`メソッドは`Show`可能な構造体を返す。
     let display = path.display();
 
-    // `join` merges a path with a byte container using the OS specific
-    // separator, and returns the new path
+    // `join`はOS固有のセパレータによってバイトのコンテナ型であるパス
+    // を結合し、新しいパスを返す。
     let new_path = path.join("a").join("b");
 
-    // Convert the path into a string slice
+    // パスを文字列のスライスに変換する。
     match new_path.to_str() {
         None => panic!("new path is not a valid UTF-8 sequence"),
         Some(s) => println!("new path is {}", s),
