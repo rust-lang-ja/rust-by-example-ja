@@ -169,23 +169,23 @@
             { "id": "hashset", "title": "HashSet", "children": null }
         ] }
     ] },
-    { "id": "std_misc", "title": "Std misc", "children": [
-        { "id": "threads", "title": "Threads", "children": null },
-        { "id": "channels", "title": "Channels", "children": null },
+    { "id": "std_misc", "title": "標準ライブラリのその他", "children": [
+        { "id": "threads", "title": "スレッド", "children": null },
+        { "id": "channels", "title": "チャネル", "children": null },
         { "id": "path", "title": "Path", "children": null },
-        { "id": "file", "title": "File I/O", "children": [
+        { "id": "file", "title": "ファイル I/O", "children": [
             { "id": "open", "title": "`open`", "children": null },
             { "id": "create", "title": "`create`", "children": null }
         ] },
-        { "id": "process", "title": "Child processes", "children": [
-            { "id": "pipe", "title": "Pipes", "children": null },
-            { "id": "wait", "title": "Wait", "children": null }
+        { "id": "process", "title": "子プロセス", "children": [
+            { "id": "pipe", "title": "パイプ", "children": null },
+            { "id": "wait", "title": "dropの延期", "children": null }
         ] },
-        { "id": "fs", "title": "Filesystem Operations", "children": null },
-        { "id": "arg", "title": "Program arguments", "children": [
-            { "id": "matching", "title": "Argument parsing", "children": null }
+        { "id": "fs", "title": "ファイルシステムとのやり取り", "children": null },
+        { "id": "arg", "title": "引数処理", "children": [
+            { "id": "matching", "title": "引数のパース", "children": null }
         ] },
-        { "id": "ffi", "title": "Foreign Function Interface", "children": null  }
+        { "id": "ffi", "title": "他言語関数インターフェイス", "children": null  }
     ] },
     { "id": "meta", "title": "Meta", "children": [
         { "id": "doc", "title": "Documentation", "children": null },
