@@ -181,6 +181,7 @@
 | tick                             | クオート
 | trait                            | トレイト
 | tuple                            | タプル
+| tuple struct                     | タプル
 | token trees                      | トークン木
 | type alias                       | 型エイリアス
 | type erasure                     | 型消去
