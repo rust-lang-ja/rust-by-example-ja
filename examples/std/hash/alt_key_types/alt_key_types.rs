@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-// Eq requires that you derive PartialEq on the type.
+// Eqトレイトを使用する時は、PartialEqをderiveする必要があります。
 #[derive(PartialEq, Eq, Hash)]
 struct Account<'a>{
     username: &'a str,
