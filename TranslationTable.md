@@ -85,6 +85,7 @@
 | guard                            | ガード
 | handle                           | ハンドル
 | hash                             | ハッシュ
+| hash set                         | ハッシュ集合
 | identifier                       | 識別子
 | immutable                        | イミュータブル
 | immutability                     | イミュータビリティ
