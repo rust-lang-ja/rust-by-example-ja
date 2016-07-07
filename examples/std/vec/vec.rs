@@ -1,30 +1,31 @@
 fn main() {
-    // Iterators can be collected into vectors
+    // イテレータは要素を収集してベクタにすることができる。
     let collected_iterator: Vec<i32> = (0..10).collect();
     println!("Collected (0..10) into: {:?}", collected_iterator);
 
-    // The `vec!` macro can be used to initialize a vector
+    // ベクタの初期化には`vec!`マクロが使用できる。
     let mut xs = vec![1i32, 2, 3];
     println!("Initial vector: {:?}", xs);
 
-    // Insert new element at the end of the vector
+    // 新しい要素をベクタの最後に挿入することができる。
     println!("Push 4 into the vector");
     xs.push(4);
     println!("Vector: {:?}", xs);
 
-    // Error! Immutable vectors can't grow
+    // エラー！イミュータブルなベクタは成長できない
     collected_iterator.push(0);
-    // FIXME ^ Comment out this line
+    // FIXME ^ この行をコメントアウトしましょう。
 
-    // The `len` method yields the current size of the vector
+    // `len`メソッドは現在のベクタのサイズを返す。
     println!("Vector size: {}", xs.len());
 
-    // Indexing is done using the square brackets (indexing starts at 0)
+    // 鍵括弧(`[]`)を用いてインデックスによる要素へのアクセスができる
+    // (インデックスは0から開始する)
     println!("Second element: {}", xs[1]);
 
-    // `pop` removes the last element from the vector and returns it
+    // `pop`はベクタの最後の要素を削除すると同時に返す。
     println!("Pop last element: {:?}", xs.pop());
 
-    // Out of bounds indexing yields a panic
+    // 不正なインデックスアクセスはpanicを引き起こします。
     println!("Fourth element: {}", xs[3]);
 }

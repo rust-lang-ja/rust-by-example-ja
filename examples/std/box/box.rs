@@ -17,29 +17,30 @@ fn origin() -> Point {
 }
 
 fn boxed_origin() -> Box<Point> {
-    // Allocate this point in the heap, and return a pointer to it
+    // このPointをヒープ上に割り当て、ポインタを返す。
     Box::new(Point { x: 0.0, y: 0.0 })
 }
 
 fn main() {
-    // (all the type annotations are superfluous)
-    // Stack allocated variables
+
+    // (以下では型を全て明示していますが、必須ではありません。)
+    // この変数ははすべてスタック上に割り当てられる。
     let point: Point = origin();
     let rectangle: Rectangle = Rectangle {
         p1: origin(),
         p2: Point { x: 3.0, y: 4.0 }
     };
 
-    // Heap allocated rectangle
+    // ヒープ上に割り当てられたRectangle
     let boxed_rectangle: Box<Rectangle> = Box::new(Rectangle {
         p1: origin(),
         p2: origin()
     });
 
-    // The output of functions can be boxed
+    // 関数の返り値をボックス化
     let boxed_point: Box<Point> = Box::new(origin());
 
-    // Double indirection
+    // 間にもう一つポインタを挟む
     let box_in_a_box: Box<Box<Point>> = Box::new(boxed_origin());
 
     println!("Point occupies {} bytes in the stack",
@@ -47,7 +48,7 @@ fn main() {
     println!("Rectangle occupies {} bytes in the stack",
              mem::size_of_val(&rectangle));
 
-    // box size = pointer size
+    // ボックスのサイズはポインタのサイズに等しい
     println!("Boxed point occupies {} bytes in the stack",
              mem::size_of_val(&boxed_point));
     println!("Boxed rectangle occupies {} bytes in the stack",
@@ -55,7 +56,7 @@ fn main() {
     println!("Boxed box occupies {} bytes in the stack",
              mem::size_of_val(&box_in_a_box));
 
-    // Copy the data contained in `boxed_point` into `unboxed_point`
+    // `boxed_point`の保持するデータを`unboxed_point`にコピーする
     let unboxed_point: Point = *boxed_point;
     println!("Unboxed point occupies {} bytes in the stack",
              mem::size_of_val(&unboxed_point));

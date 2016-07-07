@@ -32,12 +32,12 @@ mod checked {
         }
     }
 
-    // Intermediate function
+    // `op`と、他の3つの関数との間の関数
     fn op_(x: f64, y: f64) -> MathResult {
-        // if `div` "fails", then `DivisionByZero` will be `return`ed
+        // もし`div`が「失敗」したら、`DivisionByZero`が返される。
         let ratio = try!(div(x, y));
 
-        // if `ln` "fails", then `NegativeLogarithm` will be `return`ed
+        // もし`ln`が「失敗」したら、`NegativeLogarithm`が返される
         let ln = try!(ln(ratio));
 
         sqrt(ln)
