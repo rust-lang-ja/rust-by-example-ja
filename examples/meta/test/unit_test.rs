@@ -1,10 +1,10 @@
-// Conditionally compile `main` only when the test-suite is *not* being run.
+// テストを実行しない時に限り、`main`をコンパイルする。
 #[cfg(not(test))]
 fn main() {
     println!("If you see this, the tests were not compiled nor ran!");
 }
 
-// Conditionally compile the module `test` only when the test-suite is run.
+// テストを実行するときのみ`test`モジュールをコンパイルする。
 #[cfg(test)]
 mod test {
     // A helper function `distance_test` will need.
@@ -19,7 +19,7 @@ mod test {
     fn distance_test() {
         assert!(distance((0f32, 0f32), (1f32, 1f32)) == (2f32).sqrt());
     }
-    
+
     #[test]
     #[should_panic]
     fn failing_test() {
