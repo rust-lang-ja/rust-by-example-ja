@@ -1,21 +1,23 @@
-/// A human being is represented here
+/// あらゆる人物はここに代表されます。
 pub struct Person {
-    /// A person must have a name, no matter how much Juliet may hate it
+    /// ジュリエットがどんなに名前というものを嫌っていようと、
+    /// 人物には名前が必要です。
     name: String,
 }
 
 impl Person {
-    /// Returns a person with the name given them
+    /// 与えられた名前を持つpersonをを返します。
     ///
     /// # Arguments
     ///
-    /// * `name` - A string slice that holds the name of the person
+    /// * `name` - `person`の名前を表す文字列のスライス
     ///
     /// # Example
     ///
     /// ```
-    /// // You can have rust code between fences inside the comments
-    /// // If you pass --test to Rustdoc, it will even test it for you!
+    /// // バッククォートによってRustのコードをコメント中に挟むこと
+    /// // もできます。Rustdocに--testを渡せば、テストも行えます！
+    /// // (訳注: pythonのdoctestと同じです。)
     /// let person = Person::new("name");
     /// ```
     pub fn new(name: &str) -> Person {
@@ -24,9 +26,10 @@ impl Person {
         }
     }
 
-    /// Gives a friendly hello!
+    /// フレンドリーに挨拶しましょう！
     ///
-    /// Says "Hello, [name]" to the `Person` it is called on.
+    /// このメソッドを呼び出した`Person`に対して"Hello, [name]"
+    /// と話しかけます。
     pub fn hello(& self) {
         println!("Hello, {}!", self.name);
     }
