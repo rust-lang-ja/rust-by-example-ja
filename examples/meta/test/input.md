@@ -4,7 +4,7 @@
 <!-- * `#[test]` marks a function as a unit test. The function must take zero
 parameters and return nothing.
 * `#[should_panic]` marks a function as a panicking test. -->
-* `#[test]`は関数をユニットテスト化します。その場合その関数は引数と返り値がからでなくてはなりません。
+* `#[test]`は関数をユニットテスト化します。その場合その関数は引数と返り値が空でなくてはなりません。
 * `#[should_panic]`はパニックを引き起こすようなテストに用います。
 
 {unit_test.rs}

@@ -9,4 +9,6 @@ everyone. These topics include: -->
 library does exactly what it's supposed to.
 * Benchmarking: Create benchmarks for functionality to be confident that
 they run quickly. -->
-* ドキュメンテーション: `rustdoc`ライブラリのドキュメントを
+* ドキュメンテーション: Rust付属コマンド`rustdoc`を用いて、ライブラリのドキュメントを生成します。
+* テスト: 自作ライブラリが、想定する動作をしていることを保証するためのテストスイートを作成します。
+* ベンチマーク: 関数の実行速度が要件を満たすことに確信を持つためのベンチマークを作成します。

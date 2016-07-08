@@ -7,7 +7,7 @@ fn main() {
 // テストを実行するときのみ`test`モジュールをコンパイルする。
 #[cfg(test)]
 mod test {
-    // A helper function `distance_test` will need.
+    // `distance_test`が必要とするヘルパーメソッド
     fn distance(a: (f32, f32), b: (f32, f32)) -> f32 {
         (
             (b.0 - a.0).powi(2) +
