@@ -5,7 +5,8 @@
 # ビルド方法
 
 [nightly](http://www.rust-lang.org/install.html)版のRustをインストールしてください。
-[multirust](https://github.com/brson/multirust)がオススメです。
+
+[rustup][https://www.rustup.rs/]がオススメです。
 `node`,`npm`,`subversion`を予めインストールしておく必要があります。
 
 
