@@ -191,5 +191,5 @@
         { "id": "doc", "title": "ドキュメンテーション", "children": null },
         { "id": "test", "title": "テスト", "children": null  }
     ] },
-    { "id": "unsafe", "title": "Unsafe operations", "children": null  }
+    { "id": "unsafe", "title": "安全でない操作", "children": null  }
 ]
