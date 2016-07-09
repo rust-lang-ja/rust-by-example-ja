@@ -187,9 +187,9 @@
         ] },
         { "id": "ffi", "title": "他言語関数インターフェイス", "children": null  }
     ] },
-    { "id": "meta", "title": "Meta", "children": [
-        { "id": "doc", "title": "Documentation", "children": null },
-        { "id": "test", "title": "Testing", "children": null  }
+    { "id": "meta", "title": "周辺情報", "children": [
+        { "id": "doc", "title": "ドキュメンテーション", "children": null },
+        { "id": "test", "title": "テスト", "children": null  }
     ] },
     { "id": "unsafe", "title": "Unsafe operations", "children": null  }
 ]
