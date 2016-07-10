@@ -24,7 +24,7 @@ git branch gh-pages origin/gh-pages
 git worktree add ./gh-pages gh-pages
 
 # Copy the contents of stage/_book to gh-pages/rust-by-example
-cp -rp ./stage/_book ./gh-pages/rust-by-example
+cp -rp ./stage/_book/ ./gh-pages/rust-by-example
 
 cd ./gh-pages
 
