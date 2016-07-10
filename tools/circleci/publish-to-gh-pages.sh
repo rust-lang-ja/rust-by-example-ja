@@ -54,5 +54,5 @@ if [ $ret -eq 0 ] ; then
 else
     git commit -m "ci: publish pages at ${REVISION}"
     echo "Pushing to gh-pages..."
-    git push origin gh-pages
+    git push -f origin gh-pages
 fi
