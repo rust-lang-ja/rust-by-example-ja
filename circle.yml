@@ -50,6 +50,7 @@ deployment:
   publish:
     branch: master
     commands:
+      - make && make book
       - git config user.name "joemphilips"
       - git config user.email "joemphilips@gmail.com"
       - ./tools/circleci/publish-to-gh-pages.sh
