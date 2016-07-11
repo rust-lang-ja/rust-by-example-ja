@@ -6,7 +6,7 @@
 
 [nightly](http://www.rust-lang.org/install.html)版のRustをインストールしてください。
 
-[rustup][https://www.rustup.rs/]がオススメです。
+[rustup](https://www.rustup.rs/)がオススメです。
 `node`,`npm`,`subversion`を予めインストールしておく必要があります。
 
 
