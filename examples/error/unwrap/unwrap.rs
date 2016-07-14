@@ -1,5 +1,5 @@
-// The commoner has seen it all, and handles situations well.
-// All gifts are handled manually using `match`.
+// 庶民(commoner)は経験豊富なので、大体どんな状況にも対処できます。
+// あらゆる贈り物は`match`を用いて手動で処理されます。
 fn give_commoner(gift: Option<&str>) {
     // Specify a course of action for each case.
     match gift {
@@ -9,9 +9,9 @@ fn give_commoner(gift: Option<&str>) {
     }
 }
 
-// Our sheltered princess will `panic` at the sight of snakes.
+// 温室育ちのお姫様はヘビを見ると`panic`します。
 fn give_princess(gift: Option<&str>) {
-    // Using `unwrap` returns a `panic` when it receives a `None`.
+    // `unwrap`を使用すると値が`None`だった際に`panic`を返します。。
     let inside = gift.unwrap();
     if inside == "snake" { panic!("AAAaaaaa!!!!"); }
 
