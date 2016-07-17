@@ -24,3 +24,7 @@ cases where there may not be a gift. In this chapter, we will learn to use
 `Option` to take care of this condition, as well as various functions to
 deal with the results of one or more uses of `Option`. -->
 こういった状況に対処するため、贈り物が存在しないかもしれない場合というのをコンパイラに教えてあげたくなりますね。この章では`Option`を用いてこういった状況に対処する方法を学びます。1つ以上の`Option`の結果を扱う関数群も紹介します。
+
+> 訳注: こちらのQiitaの日本語記事も参考になります。[「RustでOption値やResult値を上手に扱う」][qiita]
+
+[qiita]: http://qiita.com/tatsuya6502/items/cd41599291e2e5f38a4a
