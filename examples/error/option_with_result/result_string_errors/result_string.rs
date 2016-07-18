@@ -2,15 +2,15 @@ type Result<T> = std::result::Result<T, String>;
 
 fn double_first(vec: Vec<&str>) -> Result<i32> {
     vec.first()
-       // Convert the `Option` to a `Result` if there is a value; otherwise
-       // use an `Err` containing this `String`.
+       // `Option`が値を持つ場合`Result`に変換する。
+       // `None`の場合、引数として与えた以下の文字列を持つ`Err`となる。
        .ok_or("Please use a vector with at least one element.".to_owned())
-       // `parse` returns a `Result<T, ParseIntError>`.
+       // `parse`は`Result<T, ParseIntError>`を返す。
        .and_then(|s| s.parse::<i32>()
-                      //  The return type is `Result<T, String>`. We need
-                      //  to map only the errors `parse` yields to `String`.
+                      //  返り値の型は`Result<T, String>`なので、`parse`
+                      //  により生じたエラーにのみmapを行い、`String`に変換する
                       .map_err(|e| e.to_string())
-                      // Apply the double to the number inside.
+                      // 中の値を２倍する
                       .map(|i| 2 * i))
 }
 
