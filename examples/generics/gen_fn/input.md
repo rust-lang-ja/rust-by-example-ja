@@ -9,7 +9,7 @@ the necessary type parameters. -->
 ジェネリック関数を使用する際、以下の様な場合には型パラメータを明示する必要があります。
 
 * 返り値がジェネリック型である場合。
-* コンパイラが型を推論するのに十分な情報がない場合
+* コンパイラが型パラメータを推論するのに十分な情報がない場合
 
 <!-- A function call with explicitly specified type parameters looks like:
 `fun::<A, B, ...>()`. -->

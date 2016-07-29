@@ -23,7 +23,7 @@ fn foo<T>(T) { ... }
 <!-- Because `T` has been specified as a generic type parameter, it is considered
 generic when used here as `(T)`. This is the case even if `T` has previously
 been defined as a `struct`. -->
-となります。`T`はジェネリックな型パラメータに指定されているので、この場所で(`T`)として使用するとジェネリック型として扱われます。これは`T`という構造体がそれ以前に定義されていても同様です。
+となります。`T`はジェネリックな型パラメータに指定されているので、この場所で`(T)`のように使用するとジェネリック型として扱われます。これは`T`という構造体がそれ以前に定義されていても同様です。
 
 <!-- This example shows some of the syntax in action: -->
  では、手を動かしながらジェネリック型の構文を体験していきましょう。
