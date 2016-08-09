@@ -29,8 +29,7 @@ dependencies:
 
 test:
   override:
-    - rm -f ~/.gitconfig
-    - eval `ssh-agent` && ssh-add /home/ubuntu/.ssh/id_circleci_github && cargo test
+    - rm -f ~/.gitconfig # since cargo doesn't support ssh authorization
     - make clean
     - make all
     - make book
