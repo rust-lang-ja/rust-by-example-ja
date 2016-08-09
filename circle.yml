@@ -29,6 +29,7 @@ dependencies:
 
 test:
   override:
+    - rm -f ~/.gitconfig # since cargo doesn't support ssh authorization
     - make clean
     - make all
     - make book
