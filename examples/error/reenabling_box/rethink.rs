@@ -2,7 +2,7 @@ use std::error;
 use std::fmt;
 use std::num::ParseIntError;
 
-// Change the alias to `Box<error::Error>`.
+// `Box<error::Error>`へのエイリアスに変更
 type Result<T> = std::result::Result<T, Box<error::Error>>;
 
 #[derive(Debug)]
@@ -30,21 +30,21 @@ impl fmt::Display for DoubleError {
 impl error::Error for DoubleError {
     fn description(&self) -> &str {
         match *self {
-            // A very short description of the error. Doesn't need to be the
-            // same as `Display`.
+            // エラー内容の非常に簡潔な説明。
+            // `Display`と同じである必要はない。
             DoubleError::EmptyVec => "empty vectors not allowed",
-            // This already impls `Error`, so defer to its own implementation.
+            // これはすでに`Error`を実装しているので、その実装を用いる。
             DoubleError::Parse(ref e) => e.description(),
         }
     }
 
     fn cause(&self) -> Option<&error::Error> {
         match *self {
-            // No underlying cause so return `None`.
+            // 隠れた原因があるわけではないので`None`を返す。
             DoubleError::EmptyVec => None,
-            // The cause is the underlying implementation error type. Is implicitly
-            // cast to the trait object `&error::Error`. This works because the
-            // underlying type already implements the `Error` trait.
+            // 原因はParseIntError。`&error::Error`というトレイトオブジェクトに
+            // 暗黙的に変換される。これが可能なのはParseIntErrorがすでに`Error`
+            // トレイトを実装しているため。
             DoubleError::Parse(ref e) => Some(e),
         }
     }

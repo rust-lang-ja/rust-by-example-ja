@@ -1,15 +1,15 @@
 use std::num::ParseIntError;
 use std::result;
 
-// A generic alias for any `Result` with this specific `Err` type.
+// `ParseIntError`を`Err`の型として持つ全ての`Result`のジェネリックエイリアス
 type Result<T> = result::Result<T, ParseIntError>;
 
-// Use the alias defined above referring to our specific `Result` type.
+// 上で定義したエイリアス(この場所特有の`Result`型)を使用
 fn double_number(number_str: &str) -> Result<i32> {
     number_str.parse::<i32>().map(|n| 2 * n)
 }
 
-// Again, the alias saved us from defining it again.
+// もう一度使用。エイリアスによって再度明記する必要性がない。
 fn print(result: Result<i32>) {
     match result {
         Ok(n)  => println!("n is {}", n),

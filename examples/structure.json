@@ -139,21 +139,21 @@
         { "id": "iter", "title": "イテレータ", "children": null },
         { "id": "clone", "title": "クローン", "children": null }
     ] },
-    { "id": "error", "title": "Error handling", "children": [
-        { "id": "unwrap", "title": "Option & unwrap", "children": null },
+    { "id": "error", "title": "エラーハンドリング", "children": [
+        { "id": "unwrap", "title": "Optionとunwrap", "children": null },
         { "id": "map", "title": "map", "children": null },
         { "id": "and_then", "title": "and_then", "children": null },
         { "id": "result", "title": "Result", "children": null },
-        { "id": "result_map", "title": "map for Result", "children": null },
-        { "id": "result_alias", "title": "Result as an alias", "children": null },
-        { "id": "option_with_result", "title": "Options with Results", "children": [
-            { "id": "result_string_errors", "title": "Errors as strings", "children": null },
-            { "id": "combinator_combinations", "title": "Combining separate combinators", "children": null },
-            { "id": "enter_try", "title": "Enter try!", "children": null }
+        { "id": "result_map", "title": "Resultにmapする", "children": null },
+        { "id": "result_alias", "title": "Resultのエイリアス", "children": null },
+        { "id": "option_with_result", "title": "OptionとResultを同時に扱う", "children": [
+            { "id": "result_string_errors", "title": "Stringをエラーとして扱う", "children": null },
+            { "id": "combinator_combinations", "title": "コンビネータを組み合わせる", "children": null },
+            { "id": "enter_try", "title": "try!入門", "children": null }
         ] },
-        { "id": "limits_of_strings", "title": "The limits of strings", "children": null },
-        { "id": "reenter_try", "title": "Re-enter try!", "children": null },
-        { "id": "reenabling_box", "title": "Re-enabling box", "children": null }
+        { "id": "limits_of_strings", "title": "stringの限界","children": null },
+        { "id": "reenter_try", "title": "try!再入門", "children": null },
+        { "id": "reenabling_box", "title": "box化を再度可能にする", "children": null }
     ] },
     { "id": "std", "title": "標準ライブラリの型", "children": [
         { "id": "box", "title": "Box, スタックとヒープ", "children": null },

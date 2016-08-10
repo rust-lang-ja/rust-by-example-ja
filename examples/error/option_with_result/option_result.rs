@@ -1,10 +1,10 @@
-// The first attempt conveniently uses `unwrap` with the aforementioned
-// bad errors it results in.
+// まずは単純に`unwrap`を用いてみましょう。これは前述の好ましくない
+// エラーメッセージを引き起こします。
 fn double_first(vec: Vec<&str>) -> i32 {
-    // What if the vector is empty?
+    // ベクタが空の場合どうなる？
     let first = vec.first().unwrap();
 
-    // What if the element doesn't parse to a number?
+    // 要素が数値にパースできない場合、どうなる？
     2 * first.parse::<i32>().unwrap()
 }
 
@@ -15,6 +15,6 @@ fn main() {
 
     println!("The first doubled is {}", double_first(numbers));
     println!("The first doubled is {}", double_first(empty));
-    // ^ Comment out this line to see the second error.
+    // ^ ２つ目のエラーを見たければこの行をコメントアウトしましょう。
     println!("The first doubled is {}", double_first(strings));
 }

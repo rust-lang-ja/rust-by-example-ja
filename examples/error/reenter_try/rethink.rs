@@ -9,9 +9,9 @@ enum DoubleError {
     Parse(ParseIntError),
 }
 
-// Implement the conversion from `ParseIntError` to `DoubleError`. This will be
-// automatically called by `try!` if a `ParseIntError` needs converting into
-// a `DoubleError`.
+// `ParseIntError`から`DoubleError`への変換を実装する。
+// これは`try!`が呼ばれた際に`ParseIntError`が`DoubleError`
+// に変換する必要があれば自動的に実行される。
 impl From<ParseIntError> for DoubleError {
     fn from(err: ParseIntError) -> DoubleError {
         DoubleError::Parse(err)
@@ -28,8 +28,8 @@ impl fmt::Display for DoubleError {
     }
 }
 
-// The same structure as before but rather than chain all `Results`
-// and `Options` along, we `try!` to get the inner value out immediately.
+// 前と同じ構成だが、全`Result`と`Option`をチェインしていく代わりに、
+// いきなり中の値を取り出すことに`try!`している。
 fn double_first(vec: Vec<&str>) -> Result<i32> {
     // Still convert to `Result` by stating how to convert `None`.
     let first = try!(vec.first().ok_or(DoubleError::EmptyVec));
