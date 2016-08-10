@@ -27,7 +27,7 @@ types. In order to define a valid `Result<T, E>` type, the user has a few choice
 <!-- Boxing it is a common choice. The only penalty is that the underlying error type is only known
 at runtime and not [statically determined][dynamic_dispatch]. All that needs to be done to enable
 this is implement the `Error` trait: -->
-普通はボックス化する方法を用います。唯一のペナルティは実際の(訳注: Box内の`Error`トレイトを実装している)エラー型が[静的に決定されているわけではない][dynamic_dispath]ため、ランタイムまでわからないという点です。これを可能にするために唯一必要なのは、`Error`トレイトを実装することです。
+普通はボックス化する方法を用います。唯一のペナルティは実際の(訳注: Box内の`Error`トレイトを実装している)エラー型が[静的に決定されているわけではない][dynamic_dispatch]ため、ランタイムまでわからないという点です。これを可能にするために唯一必要なのは、`Error`トレイトを実装することです。
 
 ```rust
 trait Error: Debug + Display {
