@@ -1,7 +1,7 @@
 <!--- An array is a collection of objects of the same type `T`, stored in contiguous --->
 <!--- memory. Arrays are created using brackets `[]`, and their size, which is known --->
 <!--- at compile time, is part of their type signature `[T; size]`. --->
-配列は`T`という単一の型(訳注: [ジェネリック型](https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/generics.html)でも可)のオブジェクトの集合です。それらのオブジェクトはメモリ上の連続した領域に保存されます。配列は`[]`を用いて生成されます。サイズはコンパイル時には決定されていて、`[T: size]`という形で指定できます。
+配列は`T`という単一の型(訳注: [ジェネリック型](https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/generics.html)でも可)のオブジェクトの集合です。それらのオブジェクトはメモリ上の連続した領域に保存されます。配列は`[]`を用いて生成されます。サイズはコンパイル時には決定されていて、`[T; size]`という形で指定できます。
 
 <!--- Slices are similar to arrays, but their size is not known at compile time. --->
 <!--- Instead, a slice is a two-word object, the first word is a pointer to the data, --->
