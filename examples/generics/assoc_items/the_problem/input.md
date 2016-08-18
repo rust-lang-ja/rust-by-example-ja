@@ -11,7 +11,7 @@ specifying `i32` for `A` and `B` so that it can be used with `fn difference()`. 
 generic types for `fn difference()`. In practice, we want a way to express that
 `A` and `B` are determined by the *input* `C`. As you will see in the next
 section, associated types provide exactly that capability. -->
-`Contains`はジェネリックトレイトなので、`fn difference()`では*全ての*ジェネリック型を宣言しなくてはなりません。実際のところ、`A`と`B`は*引数*である`C`によって決定されていて欲しいにも関わらず、です。これは次のページで紹介する関連型と呼ばれる機能によって可能です。
+`Contains`はジェネリックトレイトなので、`fn difference()`では**全ての**ジェネリック型を宣言しなくてはなりません。実際のところ、`A`と`B`は**引数**である`C`によって決定されていて欲しいにも関わらず、です。これは次のページで紹介する関連型と呼ばれる機能によって可能です。
 
 {problem.play}
 

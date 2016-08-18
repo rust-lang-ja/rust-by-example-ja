@@ -5,7 +5,7 @@ but is checked statically (and only) at compile time. -->
 <!-- Data types can use extra generic type parameters to act as markers
 or to perform compile-time type checking. These extra parameters
 hold no storage values, and have no run-time behavior. -->
-構造体などのデータ型は、ジェネリック型パラメータを一つ余分に持ち、それをマーカーとして使うことでコンパイル時に型チェックを行うことができます。このマーカーは実際の値を何も持たず、したがって実行時の挙動そのものにはいかなる影響ももたらしません。
+構造体などのデータ型は、ジェネリック型パラメータを一つ余分に持ち、それをマーカーとして使ったりコンパイル時の型検査に使ったりすることができます。このマーカーは実際の値を何も持たず、したがって実行時の挙動そのものにはいかなる影響ももたらしません。
 
 <!-- In the following example, we combine [std::marker::PhantomData]
 with the phantom type parameter concept to create tuples containing

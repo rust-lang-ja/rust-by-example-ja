@@ -2,7 +2,7 @@
 before the opening `{`, rather than at the type's first mention.
 Additionally, `where` clauses can apply bounds to arbitrary types,
 rather than just to type parameters. -->
-トレイト境界は、`{`の直前に`where`句を導入することでも設けることができます。`where`はさらに、任意の型に対してのみ境界を設けることもできます。
+トレイト境界は、`{`の直前に`where`句を導入することでも設けることができます。`where`はさらに、型パラメータだけでなく任意の型に対してのみ適用できます。
 
 <!-- Some cases that a `where` clause is useful: -->
 `where`句のほうが有効なケースには例えば
@@ -22,7 +22,7 @@ impl <A, D> MyTrait<A, D> for YourType where
 
 <!-- * When using a `where` clause is more expressive than using normal syntax.
 The `impl` in this example cannot be directly expressed without a `where` clause: -->
-* `where`句を用いた方が通常の構文より読みやすい場合
+* `where`句の方が通常の構文より表現力が高い場合
 
 があります。
 
@@ -32,7 +32,7 @@ The `impl` in this example cannot be directly expressed without a `where` clause
 
 ### See also:
 
-[RFC][where], [構造体][struct], [トレイト][trait], [][unwrap_option]
+[RFC][where], [構造体][struct], [トレイト][trait], [エラーハンドリングの日本語による解説記事][unwrap_option]
 
 [struct]: ../custom_types/structs.html
 [trait]: ../trait.html

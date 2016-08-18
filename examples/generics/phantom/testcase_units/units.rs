@@ -7,7 +7,7 @@ enum Inch {}
 #[derive(Debug, Clone, Copy)]
 enum Mm {}
 
-/// `Length`は`Unit`という幽霊型パラメータを持つ構造体
+/// `Length`は`Unit`という幽霊型パラメータを持つ型
 ///
 /// `f64`ははじめから`Clone`、`Copy`トレイトを持っている。
 #[derive(Debug, Clone, Copy)]

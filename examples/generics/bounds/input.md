@@ -2,7 +2,7 @@
 stipulate what functionality a type implements. For example, the following
 example uses the trait `Display` to print and so it requires `T` to be bound
 by `Display`; that is, `T` *must* implement `Display`. -->
-ジェネリックプログラミングをしていると、型パラメータが特定の機能を持っていることを規定するため、トレイトに境界(`bound`)を設けたくなることがあります。例えば、以下の例では、引数の`Display`トレイトを用いてプリントを行うため、`T`が`Display`を持っていることを規定しています。つまり、「`T`は`Display`を実装*していなくてはならない*」という意味です。
+ジェネリックプログラミングをしていると、型パラメータが特定の機能を持っていることを規定するため、トレイトに境界(`bound`)を設ける必要があることがよくあります。例えば、以下の例では、引数の`Display`トレイトを用いてプリントを行うため、`T`が`Display`を持っていることを規定しています。つまり、「`T`は`Display`を実装*していなくてはならない*」という意味です。
 
 ```rust
 // `Display`トレイトを実装している`T`を引数として取る

@@ -5,7 +5,7 @@ of various types. It is an extension to `trait` generics, and allows
 
 <!-- One such item is called an *associated type*, providing simpler usage
 patterns when the `trait` is generic over its container type. -->
-そのように定義する要素の一つに*関連型*があります。これにより、ジェネリックなコンテナ型に対するトレイトを定義する際に、よりシンプルな書き方ができるようになります。
+そのように定義する要素の一つに**関連型**があります。これにより、ジェネリックなコンテナ型に対するトレイトを使用する際に、よりシンプルな書き方ができるようになります。
 
 ### See also:
 
