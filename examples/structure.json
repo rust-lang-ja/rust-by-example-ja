@@ -93,21 +93,21 @@
             { "id": "custom", "title": "条件の追加", "children": null }
         ] }
     ] },
-    { "id": "generics", "title": "Generics", "children": [
-        { "id": "gen_fn", "title": "Functions", "children": null },
-        { "id": "impl", "title": "Implementation", "children": null },
-        { "id": "gen_trait", "title": "Traits", "children": null },
-        { "id": "bounds", "title": "Bounds", "children": [
-            { "id": "testcase_empty", "title": "Testcase: empty bounds", "children": null }
+    { "id": "generics", "title": "ジェネリクス", "children": [
+        { "id": "gen_fn", "title": "関数", "children": null },
+        { "id": "impl", "title": "メソッド", "children": null },
+        { "id": "gen_trait", "title": "ジェネリックトレイト", "children": null },
+        { "id": "bounds", "title": "ジェネリック境界", "children": [
+            { "id": "testcase_empty", "title": "テストケース: 空トレイト", "children": null }
         ] },
-        { "id": "multi_bounds", "title": "Multiple bounds", "children": null },
-        { "id": "where", "title": "Where clauses", "children": null },
-        { "id": "assoc_items", "title": "Associated items", "children": [
-            { "id": "the_problem", "title": "The Problem", "children": null },
-            { "id": "types", "title": "Associated types", "children": null }
+        { "id": "multi_bounds", "title": "複数のジェネリック境界", "children": null },
+        { "id": "where", "title": "Where句", "children": null },
+        { "id": "assoc_items", "title": "関連型", "children": [
+            { "id": "the_problem", "title": "関連型が必要になる状況", "children": null },
+            { "id": "types", "title": "関連型", "children": null }
         ] },
-        { "id": "phantom", "title": "Phantom type parameters", "children": [
-            { "id": "testcase_units", "title": "Testcase: unit conversions", "children": null }
+        { "id": "phantom", "title": "幽霊型パラメータ", "children": [
+            { "id": "testcase_units", "title": "テストケース: 単位を扱う", "children": null }
         ] }
     ] },
     { "id": "scope", "title": "スコーピングの規則", "children": [

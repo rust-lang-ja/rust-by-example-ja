@@ -17,7 +17,7 @@ fn main() {
 
     compare_prints(&string);
     //compare_prints(&array);
-    // TODO ^ Try uncommenting this.
+    // TODO ^ ここをアンコメントしてみましょう。
 
     compare_types(&array, &vec);
 }

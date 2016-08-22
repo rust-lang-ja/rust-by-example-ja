@@ -1,37 +1,41 @@
-A useful method of unit conversions can be examined by implementing `Add`
-with a phantom type parameter. The `Add` `trait` is examined below:
+<!-- A useful method of unit conversions can be examined by implementing `Add`
+with a phantom type parameter. The `Add` `trait` is examined below: -->
+共通の単位同士を扱う際のチェックのために、`Add`を幽霊型を用いた実装にすると便利な場合があります。その場合`Add`トレイトは以下のようになります。
+
+> 訳注: RHSはRight Hand Side、つまりAdd(`+`)演算時の右辺のことです
 
 ```rust
-// This construction would impose: `Self + RHS = Output`
-// where RHS defaults to Self if not specified in the implementation.
+// このように定義しておくと、`Self + RHS = Output`であることが保証され、
+// かつ、impl時にRHSの型が明示されていない場合、デフォルトでSelfと同じに
+// なる。
 pub trait Add<RHS = Self> {
     type Output;
 
     fn add(self, rhs: RHS) -> Self::Output;
 }
 
-// `Output` must be `T<U>` so that `T<U> + T<U> = T<U>`.
+// `Output`は`T<U>`でなくてはならないので`T<U> + T<U> = T<U>`となる。
 impl<U> Add for T<U> {
     type Output = T<U>;
     ...
 }
 ```
 
-The whole implementation:
+以下は全体を示した例です。:
 
 {units.play}
 
 ### See also:
 
-[Borrowing (`&`)], [Bounds (`X: Y`)], [enum], [impl & self],
-[Overloading], [ref], [Traits (`X for Y`)], and [TupleStructs].
+[借用(`&`)][Borrow], [トレイトバウンド][bound], [列挙型][enum], [impl & self],
+[演算子のオーバーロード][Overloading], [参照][ref], [トレイト (`X for Y`)][trait], [タプル][Tuple].
 
-[Borrowing (`&`)]: /scope/borrow.html
-[Bounds (`X: Y`)]: /trait/bounds.html
-[enum]: /custom_types/enum.html
-[impl & self]: /fn/methods.html
-[Overloading]: /trait/ops.html
-[ref]: /scope/borrow/ref.html
-[Traits (`X for Y`)]: /trait.html
-[TupleStructs]: /custom_types/structs.html
+[Borrow]: ../scope/borrow.html
+[bound]: ../trait/bounds.html
+[enum]: ../custom_types/enum.html
+[impl & self]: ../fn/methods.html
+[Overloading]: ../trait/ops.html
+[ref]: ../scope/borrow/ref.html
+[trait]: ../trait.html
+[Tuple]: ../custom_types/structs.html
 [std::marker::PhantomData]: https://doc.rust-lang.org/std/marker/struct.PhantomData.html
