@@ -18,7 +18,7 @@
         { "id": "structs", "title": "構造体", "children": null },
         { "id": "enum", "title": "列挙型", "children": [
             { "id": "enum_use", "title": "use", "children": null },
-            { "id": "c_like", "title": "C言語ライクな構造体", "children": null },
+            { "id": "c_like", "title": "C言語ライクな列挙型", "children": null },
             { "id": "testcase_linked_list", "title": "テストケース: 連結リスト", "children": null }
         ] },
         { "id": "constants", "title": "定数", "children": null }
