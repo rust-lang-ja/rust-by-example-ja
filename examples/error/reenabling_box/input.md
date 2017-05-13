@@ -6,7 +6,7 @@ capability: the ability to easily `box` our error type. -->
 <!-- Namely, the std library will automatically convert from any type which implements the
 `Error` trait into the trait object `Box<Error>` via `From`. To a library user, this
 conveniently allows the following: -->
-すなわち、標準ライブラリは`From`によって、`Error`トレイトを実装している型あらゆる型を`Box<Error>`というトレイトオブジェクトへと変換します。ライブラリのユーザにとっては、これは以下のような書き方ができて便利です。
+すなわち、標準ライブラリは`From`によって、`Error`トレイトを実装しているあらゆる型を`Box<Error>`というトレイトオブジェクトへと変換します。ライブラリのユーザにとっては、これは以下のような書き方ができて便利です。
 
 ```rust
 // 自動的に`Box<Error>`に変換できるエラー型ならばどんなものでもここで使用できる。

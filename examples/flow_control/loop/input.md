@@ -6,6 +6,6 @@ Rustには`loop`というキーワードが存在します。これは無限ル�
 <!--- The `break` statement can be used to exit a loop at anytime, whereas the --->
 <!--- `continue` statement can be used to skip the rest of the iteration and start a --->
 <!--- new one. --->
-ループから抜けだす時は`break`, 即座に次のループに映るときは`continue`が使用できます。
+ループから抜けだす時は`break`, 即座に次のループに移るときは`continue`が使用できます。
 
 {loop.play}

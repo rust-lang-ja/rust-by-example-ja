@@ -28,7 +28,7 @@
 
 <!--- Add an implementation of the `fmt::Display` trait for the `Color` struct above --->
 <!--- so that the output displays as: --->
-上にあるソースコード中の`Color`という構造体のための`fmt::Display`トレイトの実装を追加ましょう。アウトプットは以下のように表示されるはずです。
+上にあるソースコード中の`Color`という構造体のための`fmt::Display`トレイトの実装を追加しましょう。アウトプットは以下のように表示されるはずです。
 
 ```
 RGB (128, 255, 90) 0x80FF5A

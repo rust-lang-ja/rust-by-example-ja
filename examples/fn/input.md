@@ -1,7 +1,7 @@
 <!-- Functions are declared using the `fn` keyword. Its arguments are type
 annotated, just like variables, and, if the function returns a value, the
 return type must be specified after an arrow `->`. -->
-関数は`fn`キーワードを用いて定義することができます。引数は変数と同様に型を指定する必要があり、もし関数がに値を返すならば`->`の後にその型も指定する必要があります。
+関数は`fn`キーワードを用いて定義することができます。引数は変数と同様に型を指定する必要があり、もし関数が値を返すならば`->`の後にその型も指定する必要があります。
 
 <!-- The final expression in the function will be used as return value.
 Alternatively, the `return` statement can be used to return a value earlier
