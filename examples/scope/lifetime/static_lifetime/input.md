@@ -8,7 +8,7 @@ of the binary: -->
 <!-- * Make a constant with the `static` declaration.
 * Make a `string` literal which has type: `&'static str`. -->
 * `static`宣言とともに定数を作成する。
-* 文字列リテラル で`&'static str`型を持つ変数を作成陶う
+* 文字列リテラル で`&'static str`型を持つ変数を作成する。
 
 <!-- See the following example for a display of each method: -->
 では、それぞれの方法の例を見ていきましょう。

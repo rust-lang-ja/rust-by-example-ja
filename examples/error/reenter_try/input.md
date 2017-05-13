@@ -18,14 +18,14 @@ is a conversion utility between different types, this means if you `try!` someth
 error is convertible to the return type, it will convert automatically. This means, if we
 rewrite this example with `try!` when `From::from` is implemented for our error type,
 the `map_err` will go away: -->
-以前、`try!`マクロは「`unwrap`、`return Err(err)`のどちらか」であると説明しました。これは`93%`の正しさでしかありません。正確には「`unwrap`、`return Err(From::from(err))`のどちらか」です。`From::from`は異なる型同士の変換をおこないます。これはつまり、何かを`try!`した際にエラーが生じ、そのエラーが返り値の型へと変換可能な場合、自動的に変換するということを意味します。従って、`try!`この例を`try!`マクロを用いて書き直し、`From::from`を我々のエラー型に対して実装すれば、`map_err`をなくすことが可能になるということを意味します。
+以前、`try!`マクロは「`unwrap`、`return Err(err)`のどちらか」であると説明しました。これは`93%`の正しさでしかありません。正確には「`unwrap`、`return Err(From::from(err))`のどちらか」です。`From::from`は異なる型同士の変換をおこないます。これはつまり、何かを`try!`した際にエラーが生じ、そのエラーが返り値の型へと変換可能な場合、自動的に変換するということを意味します。従って、この例を`try!`マクロを用いて書き直し、`From::from`を我々のエラー型に対して実装すれば、`map_err`をなくすことが可能になるということを意味します。
 
 {rethink.play}
 
 <!-- This is actually fairly clean now. If you compare it with the original `panic`, it is very similar
 to replacing the `unwrap` calls with `try!` except that the return types are `Result` and so
 they must be destructured at the top level. -->
-これで大分綺麗になりました。元々の`panic`していたものと比べると、`unwrap`の呼び出しが`try!`で置き換えられているという点で非常に似たものとなっていますa。違いは、返り値が`Result`なのでトップレベルで中身を取り出す必要があるという点です。
+これで大分綺麗になりました。元々の`panic`していたものと比べると、`unwrap`の呼び出しが`try!`で置き換えられているという点で非常に似たものとなっています。違いは、返り値が`Result`なのでトップレベルで中身を取り出す必要があるという点です。
 
 <!-- However, do not expect error handling of this sort to replace all usage of `unwrap` in
 practice. Error handling of this sort tripled our code line count and cannot really be

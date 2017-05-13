@@ -2,7 +2,7 @@
 resources, e.g. `Box<T>` owns memory in the heap. Rust enforces [RAII][raii]
 (Resource Acquisition Is Initialization), so whenever an object goes out of
 scope, its destructor is called and its owned resources are freed. -->
-Rustの変数は単にデータをスタック上に保持するだけのものではありません。例えばヒープメモリを確保する`Box<T>`のように、変数はメモリ上の資源を*保有*する場合もあるのです。Rustは[RAII][raii](Resouce Acquisition Is Initialization)を強制するので、オブジェクトがスコープを抜けると、必ずデストラクタが呼び出されてそのオブジェクトが保持していた資源が解放されます。
+Rustの変数は単にデータをスタック上に保持するだけのものではありません。例えばヒープメモリを確保する`Box<T>`のように、変数はメモリ上の資源を*保有*する場合もあるのです。Rustは[RAII][raii](Resource Acquisition Is Initialization)を強制するので、オブジェクトがスコープを抜けると、必ずデストラクタが呼び出されてそのオブジェクトが保持していた資源が解放されます。
 
 <!-- This behavior shields against *resource leak* bugs, so you'll never have to
 manually free memory or worry about memory leaks again! Here's a quick showcase: -->
