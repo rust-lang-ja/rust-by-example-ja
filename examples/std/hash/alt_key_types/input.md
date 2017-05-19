@@ -23,7 +23,7 @@ For example, `Vec<T>` will implement `Hash` if `T` implements `Hash`. -->
 <!-- You can easily implement `Eq` and `Hash` for a custom type with just one line:
 `#[derive(PartialEq, Eq, Hash)]` -->
 独自の型に`Eq`あるいは`Hash`を実装するのは簡単です。以下の一行で済みます。
-`#[#derive(PartialEq, Eq, Hash)]`
+`#[derive(PartialEq, Eq, Hash)]`
 
 <!-- The compiler will do the rest. If you want more control over the details,
 you can implement `Eq` and/or `Hash` yourself.

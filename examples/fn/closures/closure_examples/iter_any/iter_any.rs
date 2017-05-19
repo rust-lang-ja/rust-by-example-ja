@@ -4,7 +4,7 @@ fn main() {
 
     // ベクトル型に対する`iter`は`&i32`を`yield`するので、`i32`へとデストラクト
     println!("2 in vec1: {}", vec1.iter()     .any(|&x| x == 2));
-    // `inter_iter()`の場合は`i32`を`yield`するので、デストラクトする必要はない。
+    // `into_iter()`の場合は`i32`を`yield`するので、デストラクトする必要はない。
     println!("2 in vec2: {}", vec2.into_iter().any(| x| x == 2));
 
     let array1 = [1, 2, 3];
