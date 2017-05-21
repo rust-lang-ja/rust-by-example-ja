@@ -28,7 +28,7 @@ foo<'a, 'b>
 <!-- In this case, the lifetime of `foo` cannot exceed that of either `'a` *or* `'b`.
 
 See the following example for explicit lifetime annotation in use: -->
-この場合は、`foo`のライフタイムは`'a`、`'b`の*どちらよりも*長くなければなりません。
+この場合は、`foo`のライフタイムは`'a`、`'b`の*いずれよりも*長くなってはなりません。
 以下はライフタイムを明示的に書く場合の例です。
 
 {explicit.play}
