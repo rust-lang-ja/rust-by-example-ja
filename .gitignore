@@ -9,3 +9,4 @@ rust-playgen
 *.swp
 count_table
 gh-pages
+Cargo.lock
