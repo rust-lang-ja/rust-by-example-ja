@@ -2,7 +2,7 @@
 uses to ensure all borrows are valid. Specifically, a variable's lifetime
 begins when it is created and ends when it is destroyed. While lifetimes
 and scopes are often referred to together, they are not the same.  -->
-*ライフタイム*はコンパイラ(借用チェッカーと呼ばれる場合もあります)が、全ての借用に問題がないことを確認するために使用する仕組みです。正確いうと、変数のライフタイムは作成時に開始し、破棄された時に終了します。ライフタイムとスコープは同時に語られることが多いですが、同じものではありません。
+*ライフタイム*はコンパイラ(借用チェッカーと呼ばれる場合もあります)が、全ての借用に問題がないことを確認するために使用する仕組みです。正確にいうと、変数のライフタイムは作成時に開始し、破棄された時に終了します。ライフタイムとスコープは同時に語られることが多いですが、同じものではありません。
 
 <!-- Take, for example, the case where we borrow a variable via `&`. The
 borrow has a lifetime that is determined by where it is declared. As a result,
