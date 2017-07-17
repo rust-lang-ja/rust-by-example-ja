@@ -11,7 +11,7 @@ this is known as a *move*. -->
 
 <!-- After moving resources, the previous owner can no longer be used. This avoids
 creating dangling pointers. -->
-資源を移動すると、それまでの所有者を使用することはできなくなります。これによりダングリングポインタの発生を防げます。
+資源を移動すると、それまでの所有者(訳注: 変数などのこと)を使用することはできなくなります。これによりダングリングポインタの発生を防げます。
 
 {move.play}
 
