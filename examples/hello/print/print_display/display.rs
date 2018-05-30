@@ -15,13 +15,13 @@ impl fmt::Display for MinMax {
 
 // 比較のため、フィールドに名前をつけれる様な構造体を定義しましょう
 #[derive(Debug)]
-struct Point2 {
+struct Point2D {
     x: f64,
     y: f64,
 }
 
-// 先程と同様にして、Point2用の`Display`を実装しています。
-impl fmt::Display for Point2 {
+// 先程と同様にして、Point2D用の`Display`を実装しています。
+impl fmt::Display for Point2D {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         // `x`と`y`のみが明示的になるようにカスタマイズ
         write!(f, "x: {}, y: {}", self.x, self.y)
@@ -42,7 +42,7 @@ fn main() {
              small = small_range,
              big = big_range);
 
-    let point = Point2 { x: 3.3, y: 7.2 };
+    let point = Point2D { x: 3.3, y: 7.2 };
 
     println!("Compare points:");
     println!("Display: {}", point);
