@@ -6,6 +6,8 @@ jobs:
       - image: quay.io/rust-lang-ja/circleci:rust-by-example
     steps:
       - checkout
+      # Remove .gitconfig added by Circle CI as cargo doesn't support ssh authorization
+      - run: rm -f ~/.gitconfig
       - run: make clean
       - run: make all
       - run: bash -c 'source $NVM_DIR/nvm.sh; make book'
