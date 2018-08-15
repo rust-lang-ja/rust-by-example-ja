@@ -1,0 +1,19 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: quay.io/rust-lang-ja/circleci:rust-by-example
+    steps:
+      - checkout
+      - run: make clean
+      - run: make all
+      - run: bash -c 'source $NVM_DIR/nvm.sh; make book'
+      # TODO: Use a better way to ignore tests warnings
+      - run: make test || true
+
+workflows:
+  version: 2
+  build_and_publish:
+    jobs:
+    - build
