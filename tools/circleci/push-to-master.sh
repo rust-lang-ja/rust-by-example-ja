@@ -20,7 +20,7 @@ fi
 # Get the revision of this branch (master branch)
 REVISION=$(git rev-parse --short HEAD)
 
-mkdir -p ./docs
+mkdir -p ./docs/rust-by-example
 cp -rp ./stage/_book/* ./docs/rust-by-example
 
 (cd ./docs; \
