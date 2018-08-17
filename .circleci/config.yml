@@ -34,9 +34,7 @@ jobs:
             tar cJf rust-by-example-ja.txz rust-by-example
       - run:
           name: Running tests (allowing failures)
-          command: |
-            set +e
-            make test
+          command: make test || true
       - store_artifacts:
           path: /tmp/rust-by-example
           distination: rust-by-example
