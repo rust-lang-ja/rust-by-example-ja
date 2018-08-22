@@ -20,7 +20,9 @@ fi
 # Get the revision of this branch (master branch)
 REVISION=$(git rev-parse --short HEAD)
 
+rm -rf ./docs
 mkdir -p ./docs
+cp -p ./404.md ./docs/
 cp -rp ./stage/_book/* ./docs/
 
 (cd ./docs; \
