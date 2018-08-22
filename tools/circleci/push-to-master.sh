@@ -20,14 +20,14 @@ fi
 # Get the revision of this branch (master branch)
 REVISION=$(git rev-parse --short HEAD)
 
-mkdir -p ./docs/rust-by-example
-cp -rp ./stage/_book/* ./docs/rust-by-example
+mkdir -p ./docs
+cp -rp ./stage/_book/* ./docs/
 
 (cd ./docs; \
  # Dirty hack to enable syntax highlight in local \
- sed -i -e 's!/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!/rust-by-example/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!' ./rust-by-example/gitbook/plugins/gitbook-plugin-rust-playpen/editor.js)
+ sed -i -e 's!/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!/rust-by-example-ja/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!' ./gitbook/plugins/gitbook-plugin-rust-playpen/editor.js)
 
-cp -rp ./gitbook/* ./docs/rust-by-example/gitbook/
+cp -rp ./gitbook/* ./docs/gitbook/
 
 # If there are anything to commit, do `git commit` and `git push`
 # -f flag is needed as docs is listed in .gitignore
