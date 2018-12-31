@@ -61,10 +61,10 @@ impl fmt::Display for Structure {
 
 ### 演習
 
-<!--- After checking the output of the above example, use the `Point2` struct as --->
+<!--- After checking the output of the above example, use the `Point2D` struct as --->
 <!--- guide to add a Complex struct to the example. When printed in the same --->
 <!--- way, the output should be: --->
-上記の例のアウトプットを確認し、`Point2`構造体を使用して、複素数を格納するための構造体を定義しましょう。うまく行けば以下のように出力されるはずです。
+上記の例のアウトプットを確認し、`Point2D`構造体を参考として、複素数を格納するための構造体を定義しましょう。うまく行けば以下のように出力されるはずです。
 
 ```
 Display: 3.3 + 7.2i
