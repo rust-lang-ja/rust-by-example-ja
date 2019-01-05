@@ -2,7 +2,7 @@
 custom conditionals must be passed to `rustc` using the `--cfg` flag. -->
 `target_os`のように、いくつかの条件分岐は`rustc`が暗黙のうちに提供しています。条件を独自に追加する場合には`--cfg`フラグを用いて`rustc`に伝える必要があります。
 
-``` rust
+``` rust,ignore
 #[cfg(some_condition)]
 fn conditional_function() {
     println!("condition met!")

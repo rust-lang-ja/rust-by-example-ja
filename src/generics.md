@@ -16,7 +16,7 @@ generic type parameter is generic, and everything else is concrete (non-generic)
 `T` of any type: -->
 例として、あらゆる型の引数`T`をとる*ジェネリック関数*`foo`を定義すると:
 
-``` rust
+``` rust,ignore
 fn foo<T>(T) { ... }
 ```
 

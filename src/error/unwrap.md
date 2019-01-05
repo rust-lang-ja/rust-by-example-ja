@@ -21,7 +21,7 @@ explicit handling yields a more controlled result while retaining the
 option to `panic` if desired. -->
 [expect]メソッドを用いて、`panic`を手動でカスタマイズできることに触れておきましょう。これは(`unwrap`をそのまま用いた場合よりも)内容が理解しやすいエラーメッセージを出力するのに役立ちます。次の例では、結果をより明示的に、可能ならいつでも`panic`できるように扱っていきます。
 
-``` rust,editable
+``` rust,editable,ignore,mdbook-runnable
 // 庶民(commoner)は経験豊富なので、大体どんな状況にも対処できます。
 // あらゆる贈り物は`match`を用いて手動で処理されます。
 fn give_commoner(gift: Option<&str>) {

@@ -14,7 +14,7 @@ variants: -->
 `T` or calls `panic!()`. So far, this should seem similar to `Option`: -->
 `Option`と同様、`Result`もまた`unwrap()`メソッドを持っており、これは要素`T`を産出するか`panic!()`します。今のところは、これは`Option`とほぼ同じに見えるでしょう。
 
-``` rust,editable
+``` rust,editable,ignore,mdbook-runnable
 fn double_number(number_str: &str) -> i32 {
     // 文字列は常に他の型にパースできるとは限らない。
     // ゆえに、`parse()`は失敗の可能性があることを意味する`Result`型を返す。

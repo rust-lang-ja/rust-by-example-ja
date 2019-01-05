@@ -8,7 +8,7 @@ passing objects by-value (`T`), objects can be passed by reference (`&T`).  -->
 exist, the object cannot be destroyed. -->
 コンパイラは借用チェッカを用いてリファレンスが*常に*有効なオブジェクトへの参照であることを、コンパイル時に保証します。つまり、あるオブジェクトへのリファレンスが存在しているならば、そのオブジェクトを破壊することはできないということです。
 
-``` rust,editable
+``` rust,editable,ignore,mdbook-runnable
 // この関数はボックスの所有権を奪い、破棄する。
 fn eat_box(boxed_int: Box<i32>) {
     println!("Destroying box that contains {}", boxed_int);

@@ -14,7 +14,7 @@ have the `Result` enum. -->
 * `Ok(value)` ... これはオペレーションが成功したことを意味し、返り値`value`をラップします。(`value`は型`T`を持ちます。)
 * `Err(why)` ... これはオペレーションの失敗を意味します。`why`をラップしており、ここには失敗した理由が(必ずではありませんが)書かれています。(`why`の型は`E`です。)
 
-``` rust,editable
+``` rust,editable,ignore,mdbook-runnable
 mod checked {
     // 補足対象としたい、数学的な「エラー」
     #[derive(Debug)]

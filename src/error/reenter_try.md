@@ -2,7 +2,7 @@
 is to `map` the error from a library error into our new custom error type. -->
 前項の例では、`parse`を呼び出した直後に、生じたライブラリのエラー(訳注: `std::num::ParseIntError`)に対して`map`し、自身で定義したカスタムエラー型に変換したのを見ました。
 
-```rust
+```rust,ignore
 .and_then(|s| s.parse::<i32>()
     .map_err(DoubleError::Parse)
 ```

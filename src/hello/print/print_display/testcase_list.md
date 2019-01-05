@@ -8,7 +8,7 @@
 <!--- Using `try!` on `write!` looks like this: --->
 以下のように`try!`を`write!`に対して使用します。
 
-``` rust
+``` rust,ignore
 // `write!`を実行し、エラーが生じた場合はerrorを返す。そうでなければ実行を継続する。
 try!(write!(f, "{}", value));
 ```

@@ -4,7 +4,7 @@ expression, where the `Err(err)` branch expands to an early `return Err(err)`,
 and the `Ok(ok)` branch expands to an `ok` expression. -->
 マッチを使用して結果をチェインするのは中々面倒です。幸いなことに、`try!`マクロを使用すればイケてるコードに戻すことができます。`try!`マクロはマッチ構文に展開され、`Err(err)`を返す分岐は早い段階で`return Err(err)`し、`Ok(ok)`を返す分岐は`ok`に展開されます。
 
-``` rust,editable
+``` rust,editable,ignore,mdbook-runnable
 mod checked {
     #[derive(Debug)]
     enum MathError {

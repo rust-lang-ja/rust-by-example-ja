@@ -3,7 +3,7 @@ already existed, the old content is destroyed. Otherwise, a new file is
 created. -->
 スタティックメソッドの`create`はファイルを書き込み専用モードで開きます。すでにファイルが存在している場合、破棄して新しい物を作成します。
 
-``` rust
+``` rust,ignore
 static LOREM_IPSUM: &'static str =
 "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

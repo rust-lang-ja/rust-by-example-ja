@@ -13,7 +13,7 @@ be surpassed, the vector is reallocated with a larger capacity. -->
 ベクタはその容量を超えない限りにおいて長くしていくことができます。超えた場合には、より大きな容量を持つように割り当てなおされます。
 
 
-``` rust,editable
+``` rust,editable,ignore,mdbook-runnable
 fn main() {
     // イテレータは要素を収集してベクタにすることができる。
     let collected_iterator: Vec<i32> = (0..10).collect();

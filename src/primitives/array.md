@@ -9,7 +9,7 @@
 <!--- section of an array, and have the type signature `&[T]`. --->
 スライスは配列に似ていますが、コンパイル時にサイズが決定されていません。2つの部分からなり、1つは別のデータへのポインタ、もう1つはスライスの長さです。配列の一部を借用するのに使用され`&[T]`という型シグネチャを持ちます。
 
-``` rust,editable
+``` rust,editable,ignore,mdbook-runnable
 use std::mem;
 
 // この関数はスライスを借用する

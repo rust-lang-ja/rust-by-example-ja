@@ -4,7 +4,7 @@ with a phantom type parameter. The `Add` `trait` is examined below: -->
 
 > 訳注: RHSはRight Hand Side、つまりAdd(`+`)演算時の右辺のことです
 
-``` rust
+``` rust,ignore
 // このように定義しておくと、`Self + RHS = Output`であることが保証され、
 // かつ、impl時にRHSの型が明示されていない場合、デフォルトでSelfと同じに
 // なる。

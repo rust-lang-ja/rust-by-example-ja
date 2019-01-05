@@ -9,7 +9,7 @@ between integral types is well defined in Rust. -->
 C言語で未定義の場合の挙動も、Rustでは完全に定義されています。
 
 
-``` rust,editable
+``` rust,editable,ignore,mdbook-runnable
 // オーバーフローを起こすようなキャスティングによる警告を無視する。
 #![allow(overflowing_literals)]
 

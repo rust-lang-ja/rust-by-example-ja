@@ -10,7 +10,7 @@ error message, starts unwinding the task, and usually exits the program.
 Consider the following example: -->
 これから見ていく中で、最もシンプルなエラーハンドリングの方法は`panic`です。これはエラーメッセージをプリントし、タスクのアンワインドを開始し、典型的にはプログラムを終了します。例えば以下の例を見てみましょう。
 
-``` rust,editable
+``` rust,editable,ignore,mdbook-runnable
 fn give_princess(gift: &str) {
     // お姫様はヘビが大嫌いです。拒絶の意思をお示しに
     // なられたなら、直ちにストップしなくてはなりません。

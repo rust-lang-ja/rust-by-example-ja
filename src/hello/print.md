@@ -13,7 +13,7 @@
 <!--- be checked at compile time. --->
 すべて同じやり方でテキストをパースし、正しくフォーマットできるかコンパイル時にチェックします。
 
-``` rust,editable
+``` rust,editable,ignore,mdbook-runnable
 fn main() {
     // 一般的に `{} `はどんな引数であろうと自動的に置き換えられます。
     // 例えば以下は文字列に変換されます

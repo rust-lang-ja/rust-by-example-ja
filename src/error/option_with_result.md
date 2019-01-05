@@ -8,7 +8,7 @@
 from messy errors provided by `unwrap`, this looks reasonable: -->
 以下は、一方が`Option`を返し、もう一方が`Result`を返すような場合です。`unwrap`が汚いエラーメッセージを返すことを除けば、これは筋の通ったやり方に見えます。
 
-``` rust,editable
+``` rust,editable,ignore,mdbook-runnable
 // まずは単純に`unwrap`を用いてみましょう。これは前述の好ましくない
 // エラーメッセージを引き起こします。
 fn double_first(vec: Vec<&str>) -> i32 {

@@ -11,7 +11,7 @@ rather than just to type parameters. -->
 * ジェネリック型とジェネリック境界に別々に制限を加えたほうが明瞭になる場合
 つまり、
 
-``` rust
+``` rust,ignore
 impl <A: TraitB + TraitC, D: TraitE + TraitF> MyTrait<A, D> for YourType {}
 
 // `where`を用いてジェネリック境界を設ける。

@@ -4,7 +4,7 @@ a module named the same as the library. The visibility rules that apply to
 modules also apply to libraries. -->
 クレイトをこの新しいライブラリにリンクするには、`extern crate`宣言を使用する必要があります。これはライブラリをリンクするだけでなく、その要素を全てライブラリと同じ名前のモジュールにインポートします。モジュールにおけるパブリック・プライベートなどのスコープのルールは全て、ライブラリにおいても当てはまります。
 
-``` rust
+``` rust,ignore
 // `library`にリンクし、`rary`モジュール内の要素を全てインポートする。
 extern crate rary;
 

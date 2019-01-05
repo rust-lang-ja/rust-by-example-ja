@@ -3,7 +3,7 @@ the first element which satisfies the predicate as an `Option`. Its
 signature: -->
 `Iterator::find`はイテレータに渡される関数で、条件を満たす最初の値を`Option`として返します。型シグネチャは以下のようになります。
 
-``` rust
+``` rust,ignore
 pub trait Iterator {
     // イテレートされる値の型
     type Item;

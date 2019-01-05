@@ -21,7 +21,7 @@ trait Contains {
 to express `A` or `B` at all: -->
 `Contains`トレイトを使用する関数において、`A`と`B`を明示する必要がなくなっていることに注目しましょう。
 
-``` rust
+``` rust,ignore
 // 関連型を使用しない場合
 fn difference<A, B, C>(container: &C) -> i32 where
     C: Contains<A, B> { ... }

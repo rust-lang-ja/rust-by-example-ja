@@ -6,7 +6,7 @@ variables. -->
 しかし、最後まで初期化されない変数が生じる可能性があるため、ふつうは同時に行われます。
 
 
-``` rust,editable
+``` rust,editable,ignore,mdbook-runnable
 fn main() {
     // 変数を宣言
     let a_binding;

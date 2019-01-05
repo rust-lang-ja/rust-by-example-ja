@@ -79,7 +79,7 @@ fn main() {
 
  2. `reverse`関数を雛形にした`transpose`関数を実装してください。この関数は`Matrix`を引数として受け取り、要素のうち2つを入れ替えたものを返します。つまり
 
-``` rust
+``` rust,ignore
 println!("Matrix:\n{}", matrix)
 println!("Transpose:\n{}", transpose(matrix))
 ```

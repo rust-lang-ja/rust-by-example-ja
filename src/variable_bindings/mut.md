@@ -2,7 +2,7 @@
 the `mut` modifier. -->
 変数はデフォルトでイミュータブル（変更不可能）ですが`mut`構文を使用することでミュータブルになります。
 
-``` rust,editable
+``` rust,editable,ignore,mdbook-runnable
 fn main() {
     let _immutable_binding = 1;
     let mut mutable_binding = 1;

@@ -10,7 +10,7 @@ instead of calling `panic!`; this can be accomplished using the `Option` enum. -
 * `None`、これは実行の失敗か値の欠如を示します。
 * `Some(value)`、型`T`の`value`をラップするタプルです。
 
-``` rust,editable
+``` rust,editable,ignore,mdbook-runnable
 // `panic!`を起こさない整数の割り算
 fn checked_division(dividend: i32, divisor: i32) -> Option<i32> {
     if divisor == 0 {

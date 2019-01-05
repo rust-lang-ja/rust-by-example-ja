@@ -15,7 +15,7 @@ Rustには2種類の定数があり、いずれもグローバルスコープを
 <!--- hides the distinction. --->
 特別な例として、文字列(`"string"`)リテラルの場合があります。`&'static str`は`'static`のライフタイムを持つため、文字列は特に注意を払わなくても`static`になります。他の型の場合は必ず`'static`ライフタイムを満たすことを明示しなくてはなりません。いずれにしろ`static`を宣言するときはすべて明示しなくてはならないので、この違いは些細なものと感じられるでしょう。
 
-``` rust,editable
+``` rust,editable,ignore,mdbook-runnable
 // グローバル変数はあらゆるスコープの外で宣言します
 static LANGUAGE: &'static str = "Rust";
 const  THRESHOLD: i32 = 10;

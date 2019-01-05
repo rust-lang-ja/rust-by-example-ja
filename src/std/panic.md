@@ -7,7 +7,7 @@ resources *owned* by the thread by calling the destructor of all its objects. --
 program to report the panic message and exit. -->
 今回はシングルスレッドのプログラムを実行しているので、`panic!`はプログラムにパニックメッセージを表示させ、exitします。
 
-``` rust,editable
+``` rust,editable,ignore,mdbook-runnable
 // 整数の除法(/)の再実装
 fn division(dividend: i32, divisor: i32) -> i32 {
     if divisor == 0 {

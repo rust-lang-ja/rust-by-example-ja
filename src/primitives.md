@@ -23,7 +23,7 @@ Rustは様々な基本データ型(`primitives`)の使用をサポートして�
 <!--- floats to `f64`. --->
 変数は常に*型指定(`type annotate`)可能*です。数値型の場合はさらにサフィックスでの指定が可能です。指定しない場合デフォルトになります。例えば整数は`i32`が、浮動小数点は`f64`がデフォルトです。
 
-``` rust,editable
+``` rust,editable,ignore,mdbook-runnable
 fn main() {
     // 変数に型を指定
     let logical: bool = true;

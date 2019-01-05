@@ -5,7 +5,7 @@
 file when it is `drop`ed. -->
 `File`はファイルディスクリプタという資源を保持しており、`drop`時にはファイルを閉じるところまで面倒を見てくれます。
 
-``` rust
+``` rust,ignore
 use std::error::Error;
 use std::fs::File;
 use std::io::prelude::*;

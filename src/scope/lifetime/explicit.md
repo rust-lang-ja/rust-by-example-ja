@@ -5,7 +5,7 @@ lifetime of a reference should be. The syntax for explicitly annotating
 a lifetime uses an apostrophe character as follows: -->
 借用チェッカーは参照がどれだけの間有効かを決定するために、明示的なアノテーションを使用します。ライフタイムが省略[^1]されなかった場合、Rustは参照のライフタイムがどのようなものであるか、明示的なアノテーションを必要とします。
 
-``` rust
+``` rust,ignore
 foo<'a>
 // `foo`は`'a`というライフタイムパラメータを持ちます。
 ```
@@ -19,7 +19,7 @@ may not exceed that of `'a`. Explicit annotation of a type has the form
 <!-- In cases with multiple lifetimes, the syntax is similar: -->
 ライフタイムが複数ある場合も、同じような構文になります。
 
-``` rust
+``` rust,ignore
 foo<'a, 'b>
 // `foo` has lifetime parameters `'a` and `'b`
 // `foo`は`'a`と`'b`というライフタイムパラメータを持ちます。
