@@ -4,15 +4,9 @@
 
 # ビルド方法
 
-[nightly](http://www.rust-lang.org/install.html)版のRustをインストールしてください。
+[`mdbook`](https://github.com/rust-lang-nursery/mdBook) をインストールして下さい
 
-[rustup](https://www.rustup.rs/)がオススメです。
-`node`,`npm`,`subversion`を予めインストールしておく必要があります。
+- `mdbook build` ...[mdbook](https://www.gitbook.com/)を利用して`book/`にhtmlを出力
+- `mdbook serve` ... ローカルのhtmlをブラウザ上で確認
 
-
-- `make all` ... `stage/`以下にソースコードと統合されたマークダウンを出力する
-- `make book` ...[gitbook](https://www.gitbook.com/)を利用して`_book/`にhtmlを出力
-- `make serve` ... ローカルのhtmlをブラウザ上で確認
-- `./deploy.sh` ... Github-pagesに反映
-
-翻訳文書は[こちら](http://rust-lang-ja.org/rust-by-example/index.html)
+翻訳文書は[こちら](http://doc.rust-jp.rs/rust-by-example-ja)
