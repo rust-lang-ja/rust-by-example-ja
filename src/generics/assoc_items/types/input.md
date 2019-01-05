@@ -3,7 +3,7 @@ by moving inner types locally into a trait as *output* types. Syntax
 for the `trait` definition is as follows: -->
 関連型を使用すると、コンテナ型の中の要素をトレイトの中に*出力型*として書くことで、全体の可読性を上げることができます。トレイトを定義する際の構文は以下のようになります。
 
-```rust
+``` rust
 // `A`と`B`は`type`キーワードを用いてトレイト内で宣言されている。
 // (注意: この文脈で使用する`type`は型エイリアスを宣言する際の`type`とは
 // 異なることに注意しましょう。)
@@ -21,7 +21,7 @@ trait Contains {
 to express `A` or `B` at all: -->
 `Contains`トレイトを使用する関数において、`A`と`B`を明示する必要がなくなっていることに注目しましょう。
 
-```rust
+``` rust
 // 関連型を使用しない場合
 fn difference<A, B, C>(container: &C) -> i32 where
     C: Contains<A, B> { ... }

@@ -12,7 +12,7 @@ program to report the panic message and exit. -->
 <!-- Let's check that `panic!` doesn't leak memory. -->
 `panic!`がメモリリークを引き起こさないことを確認しましょう。
 
-```
+``` bash
 $ rustc panic.rs && valgrind ./panic
 ==4401== Memcheck, a memory error detector
 ==4401== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.

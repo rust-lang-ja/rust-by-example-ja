@@ -10,14 +10,14 @@
 <!--- A binary can be generated using the Rust compiler: `rustc`. --->
 バイナリファイルは`rustc`と呼ばれるRustのコンパイラを用いて生成することができます。
 
-```
+``` bash
 $ rustc hello.rs
 ```
 
 <!--- `rustc` will produce a `hello` binary that can be executed. --->
 すると`hello`という名前の実行可能なバイナリファイルができます。
 
-```
+``` bash
 $ ./hello
 Hello World!
 ```
@@ -31,7 +31,7 @@ Hello World!
 次に、`println!`マクロをもう一行追加してアウトプットがどうなるか見てみましょう。
 
 shows:
-```
+``` text
 Hello World!
 I'm a Rustacean!
 ```

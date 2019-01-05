@@ -1,7 +1,7 @@
 <!--- For some use cases, `match` is awkward. For example: --->
 場合によっては`match`を使用すると不自然な書き方になってしまう場合があります。例えば...
 
-```rust
+``` rust
 // `optional`という変数の型を`Option<i32>`に指定
 let optional = Some(7);
 

@@ -8,7 +8,7 @@ capability: the ability to easily `box` our error type. -->
 conveniently allows the following: -->
 すなわち、標準ライブラリは`From`によって、`Error`トレイトを実装しているあらゆる型を`Box<Error>`というトレイトオブジェクトへと変換します。ライブラリのユーザにとっては、これは以下のような書き方ができて便利です。
 
-```rust
+``` rust
 // 自動的に`Box<Error>`に変換できるエラー型ならばどんなものでもここで使用できる。
 fn foo(...) -> Result<T, Box<Error>> { ... }
 ```
@@ -29,7 +29,7 @@ at runtime and not [statically determined][dynamic_dispatch]. All that needs to 
 this is implement the `Error` trait: -->
 普通はボックス化する方法を用います。唯一のペナルティは実際の(訳注: Box内の`Error`トレイトを実装している)エラー型が[静的に決定されているわけではない][dynamic_dispatch]ため、ランタイムまでわからないという点です。これを可能にするために唯一必要なのは、`Error`トレイトを実装することです。
 
-```rust
+``` rust
 trait Error: Debug + Display {
     fn description(&self) -> &str;
     fn cause(&self) -> Option<&Error>;

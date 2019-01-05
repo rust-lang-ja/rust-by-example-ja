@@ -11,7 +11,7 @@
 `fmt::Display`の場合はやはり手動で実装しなくてはなりません。
 
 
-```rust
+``` rust
 // この構造体は`fmt::Display`、`fmt::Debug`のいずれによっても
 // プリントすることができません。
 struct UnPrintable(i32);

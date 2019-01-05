@@ -2,7 +2,7 @@
 [visibility example][visibility] in files: -->
 モジュールはファイル・ディレクトリ間の階層構造と対応関係にあります。モジュールに[お互いがどのように見えているか][visibility]、以下の様なファイルを例に詳しく見ていきましょう。
 
-```
+``` bash
 $ tree .
 .
 |-- my
@@ -23,7 +23,7 @@ $ tree .
 <!-- Let's check that things still work as before: -->
 では、以前と同じように実行できるか確認しましょう。
 
-```
+``` bash
 $ rustc split.rs && ./split
 called `my::function()`
 called `function()`

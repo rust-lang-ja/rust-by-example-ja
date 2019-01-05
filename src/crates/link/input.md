@@ -6,7 +6,7 @@ modules also apply to libraries. -->
 
 {executable.rs}
 
-```
+``` bash
 # `-L .`を引数として与えることで、カレントディレクトリをライブラリのサーチパスに追加します。
 $ rustc -L . executable.rs && ./executable
 called rary's `public_function()`

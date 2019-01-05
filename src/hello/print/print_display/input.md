@@ -5,7 +5,7 @@
 `fmt::Debug`はコンパクトでクリーンであるようには見えませんね。大抵の場合は、アウトプットの見た目をカスタマイズしたほうが好ましいでしょう。これは`{}`を使用する[`fmt::Display`][fmt]を手動で実装することで可能です。
 
 
-```rust
+``` rust
 // （`use`を使用し、）`fmt`モジュールをインポートします。
 
 use std::fmt;
@@ -66,7 +66,7 @@ impl fmt::Display for Structure {
 <!--- way, the output should be: --->
 上記の例のアウトプットを確認し、`Point2D`構造体を参考として、複素数を格納するための構造体を定義しましょう。うまく行けば以下のように出力されるはずです。
 
-```
+``` text
 Display: 3.3 + 7.2i
 Debug: Complex { real: 3.3, imag: 7.2 }
 ```

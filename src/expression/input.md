@@ -2,7 +2,7 @@
 Rustのプログラムは（ほとんどの場合）文(`statement`)の連続でできています
 
 
-```
+``` rust
 fn main() {
     // statement
     // statement
@@ -14,7 +14,7 @@ fn main() {
 a variable binding, and using a `;` with an expression: -->
 宣言文にはいくつかの種類があります。最も一般的なのは変数の束縛(`variable binding`)と式文(`expression`)で、いずれも行末に`;`が付きます
 
-```
+``` rust
 fn main() {
     // 変数束縛
     let x = 5;

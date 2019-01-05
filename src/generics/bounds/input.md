@@ -4,7 +4,7 @@ example uses the trait `Display` to print and so it requires `T` to be bound
 by `Display`; that is, `T` *must* implement `Display`. -->
 ジェネリックプログラミングをしていると、型パラメータが特定の機能を持っていることを規定するため、トレイトに境界(`bound`)を設ける必要があることがよくあります。例えば、以下の例では、引数の`Display`トレイトを用いてプリントを行うため、`T`が`Display`を持っていることを規定しています。つまり、「`T`は`Display`を実装*していなくてはならない*」という意味です。
 
-```rust
+``` rust
 // `Display`トレイトを実装している`T`を引数として取る
 // `printer`という関数を定義。
 fn printer<T: Display>(t: T) {
@@ -17,7 +17,7 @@ fn printer<T: Display>(t: T) {
 
 > 訳注: `<T: Display>`は`<T>`の部分集合であることを意識すると、「境界」という言葉の意味がしっくり来ると思います。
 
-```rust
+``` rust
 struct S<T: Display>(T);
 
 // エラー! `Vec<T>`は`Display`を実装していないため、この特殊化

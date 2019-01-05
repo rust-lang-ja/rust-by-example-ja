@@ -3,7 +3,7 @@
 signature: -->
 `iterator::any`は、イテレータ内に一つでも条件を満たす要素があれば、`true`を返し、さもなくば`false`を返すイテレータです。以下がそのシグネチャです
 
-```rust
+``` rust
 pub trait Iterator {
     // イテレートされる値の型
     type Item;

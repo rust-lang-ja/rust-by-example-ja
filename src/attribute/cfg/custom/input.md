@@ -12,7 +12,7 @@ custom conditionals must be passed to `rustc` using the `--cfg` flag. -->
 <!-- With the custom `cfg` flag: -->
 `cfg`フラグがある場合:
 
-```
+``` bash
 $ rustc --cfg some_condition custom.rs && ./custom
 condition met!
 ```

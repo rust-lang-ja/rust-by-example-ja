@@ -3,7 +3,7 @@ matchを用いて簡単な引数をパースできます。
 
 {match_args.play}
 
-```
+``` bash
 $ ./match_args Rust
 This is not the answer.
 $ ./match_args 42

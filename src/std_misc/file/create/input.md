@@ -8,7 +8,7 @@ created. -->
 <!-- Here's the expected successful output: -->
 以下は成功時に期待されるアウトプットです。
 
-```
+``` bash
 $ mkdir out
 $ rustc create.rs && ./create
 successfully wrote to out/lorem_ipsum.txt

@@ -2,7 +2,7 @@
 more tolerable. Consider the following sequence that increments `i`: -->
 `if let`と同様に、`while let`も不格好な`match`処理を多少マシにしてくれます。例えば、以下の`i`をインクリメントする処理を見てください。
 
-```rust
+``` rust
 // `Option<i32>`の`optional`を作成
 let mut optional = Some(0);
 

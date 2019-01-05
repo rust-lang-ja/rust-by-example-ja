@@ -7,7 +7,7 @@ filesystem. -->
 <!-- Here's the expected successful output: -->
 以下が成功時に期待されるアウトプットです。
 
-```
+``` bash
 $ rustc fs.rs && ./fs
 `mkdir a`
 `echo hello > a/b.txt`
@@ -32,7 +32,7 @@ $ rustc fs.rs && ./fs
 <!-- And the final state of the `a` directory is: -->
 最終的な`a`ディレクトリの状態は以下です。
 
-```
+``` bash
 $ tree a
 a
 |-- b.txt

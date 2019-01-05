@@ -13,7 +13,7 @@ manually free memory or worry about memory leaks again! Here's a quick showcase:
 <!-- Of course, we can double check for memory errors using [`valgrind`][valgrind]: -->
 [`valgrind`][valgrind]を用いて、メモリエラーが起きていないか2重チェックすることももちろん可能です。
 
-```
+``` bash
 $ rustc raii.rs && valgrind ./raii
 ==26873== Memcheck, a memory error detector
 ==26873== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.

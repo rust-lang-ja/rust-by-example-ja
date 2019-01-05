@@ -12,7 +12,7 @@ parameters and return nothing.
 <!-- Tests can be run with `cargo test` or `rustc --test`. -->
 テストは`cargo test`あるいは`rustc --test`で実行します。
 
-```
+``` bash
 $ rustc --test unit_test.rs
 $ ./unit_test
 
@@ -26,7 +26,7 @@ test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured
 <!-- If `--test` were not included, then this would happen -->
 もし`--test`フラグがない場合、出力は以下のようになります。
 
-```
+``` bash
 $ rustc unit_test.rs
 $ ./unit_test
 If you see this, the tests were not compiled nor ran!

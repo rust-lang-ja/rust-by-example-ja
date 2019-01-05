@@ -2,7 +2,7 @@
 関数と同様、`impl`でメソッドを実装する際にもジェネリック型特有の記法が必要です。
 
 
-```rust
+``` rust
 struct S; // 具象型`S`
 struct GenericVal<T>(T,); // ジェネリック型`GenericVal`
 

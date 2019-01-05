@@ -10,7 +10,7 @@ file when it is `drop`ed. -->
 <!-- Here's the expected successful output: -->
 以下が成功時に期待されるアウトプットです。
 
-```
+``` bash
 $ echo "Hello World!" > hello.txt
 $ rustc open.rs && ./open
 hello.txt contains:

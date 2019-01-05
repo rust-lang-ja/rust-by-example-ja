@@ -4,7 +4,7 @@ child process finishes before releasing the resource. -->
 
 {wait.rs}
 
-```
+``` bash
 $ rustc wait.rs && ./wait
 reached end of main
 # `wait` keeps running for 5 seconds
