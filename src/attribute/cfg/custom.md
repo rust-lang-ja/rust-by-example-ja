@@ -17,7 +17,11 @@ fn main() {
 <!-- Without the custom `cfg` flag: -->
 `cfg`フラグがない場合:
 
-{custom.out}
+``` bash
+$ rustc custom.rs && ./custom
+No such file or directory (os error 2)
+```
+
 
 <!-- With the custom `cfg` flag: -->
 `cfg`フラグがある場合:

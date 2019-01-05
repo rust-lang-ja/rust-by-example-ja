@@ -46,7 +46,12 @@ impl fmt::Debug for Complex {
 
 ```
 
-{ffi.out}
+``` bash
+$ rustc ffi.rs && ./ffi
+the square root of -1+0i is 0+1i
+```
+
+
 
 <!-- Since calling foreign functions is considered unsafe, it's common to write safe
 wrappers around them. -->
@@ -92,4 +97,7 @@ impl fmt::Debug for Complex {
 
 ```
 
-{safe.out}
+``` bash
+$ rustc safe.rs && ./safe
+cos(0+1i) = 1.5430806+0i
+```
