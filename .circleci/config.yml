@@ -23,4 +23,3 @@ jobs:
               git config user.email "bn-e@hibaridb.org"
               ./tools/circleci/push-to-master.sh
             fi
-

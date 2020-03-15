@@ -11,8 +11,9 @@
 
 ```bash
 $ git clone https://github.com/rust-lang-ja/rust-by-example-ja
-$ cd rust-by-example
+$ cd rust-by-example-ja
 $ cargo install mdbook --force
 $ mdbook build
 $ mdbook serve
 ```
+
