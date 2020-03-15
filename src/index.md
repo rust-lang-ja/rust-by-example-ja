@@ -1,13 +1,16 @@
-# Rust by Example
+# Rust by Example 日本語版
 
 [Rust][rust] is a modern systems programming language focusing on safety, speed,
-and concurrency. It accomplishes these goals by being memory safe without using 
+and concurrency. It accomplishes these goals by being memory safe without using
 garbage collection.
 
 Rust by Example (RBE) is a collection of runnable examples that illustrate various Rust
 concepts and standard libraries. To get even more out of these examples, don't forget
-to [install Rust locally][install] and check out the [official docs][std]. 
+to [install Rust locally][install] and check out the [official docs][std].
 Additionally for the curious, you can also [check out the source code for this site][home].
+
+> 訳注:
+> 日本語版のソースコードは[こちら][home-ja]にあります。
 
 Now let's begin!
 
@@ -64,3 +67,4 @@ Now let's begin!
 [install]: https://www.rust-lang.org/tools/install
 [std]: https://doc.rust-lang.org/std/
 [home]: https://github.com/rust-lang/rust-by-example
+[home-ja]: https://github.com/rust-lang-ja/rust-by-example-ja
