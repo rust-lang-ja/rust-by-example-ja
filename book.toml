@@ -1,0 +1,15 @@
+[book]
+title = "Rust By Example (ja)"
+description = "A description"
+author = "The Rust Community"
+language = "ja"
+
+[build]
+build-dir = "docs"
+
+[output.html.playpen]
+editable = true
+editor = "ace"
+
+[output.html.fold]
+enable = true

@@ -1,47 +1,19 @@
 version: 2
 
-# TODO: ENHANCEME: (tatsuya6502) Utilize Circle CI cache for the following items:
-# - The "update" tool (written in Rust) with Cargo's crates.io-index
-# - node_modules
-
 jobs:
   build:
     docker:
-      - image: quay.io/rust-lang-ja/circleci:rust-by-example
+      - image: hrektts/mdbook:0.3.5
     parallelism: 1
     steps:
       - checkout
       # Remove .gitconfig added by Circle CI as cargo doesn't support ssh authorization
       - run: rm -f ~/.gitconfig
-      - run: make clean all
-      - run:
-          name: Building book
-          command: |
-            source $NVM_DIR/nvm.sh
-            make book
-      - run:
-          name: Creating artifact
-          command: |
-            mkdir /tmp/rust-by-example
-            cp -rp ./stage/_book/* /tmp/rust-by-example/
-            cp -rp ./gitbook/* /tmp/rust-by-example/
-            # Fix fonts path
-            sed -i -e 's!.//fonts/!./fonts/!g' /tmp/rust-by-example/gitbook/style.css
-            # Change mode-rust.js path. An example of CircleCI artifact URI:
-            # "https://33-57046702-circle-artifacts.com/0/"
-            sed -i -e "s!/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!/${CIRCLE_NODE_INDEX}/rust-by-example/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!" /tmp/rust-by-example/gitbook/plugins/gitbook-plugin-rust-playpen/editor.js
-            cd /tmp
-            tar cJf rust-by-example-ja.txz rust-by-example
-      - run:
-          name: Running tests (allowing failures)
-          command: make test || true
+      - run: rm -rf docs
+      - run: mdbook build
+      - run: mdbook test
       - store_artifacts:
-          path: /tmp/rust-by-example
-          distination: rust-by-example
-      - store_artifacts:
-          path: /tmp/rust-by-example-ja.txz
-          distination: rust-by-example-ja.txz
-      - run: rm -rf /tmp rust-by-example
+          path: docs
       - deploy:
           name: If master branch, publish to GitHub Page
           command: |

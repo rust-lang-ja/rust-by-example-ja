@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script pushes the contents of `./stage/_book` directory to
+# This script pushes the contents of `./docs` directory to
 # `origin/master` branch.
 #
 # Requirements:
@@ -20,16 +20,7 @@ fi
 # Get the revision of this branch (master branch)
 REVISION=$(git rev-parse --short HEAD)
 
-rm -rf ./docs
-mkdir -p ./docs
-cp -p ./404.md ./docs/
-cp -rp ./stage/_book/* ./docs/
-
-(cd ./docs; \
- # Dirty hack to enable syntax highlight in local \
- sed -i -e 's!/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!/rust-by-example-ja/gitbook/plugins/gitbook-plugin-rust-playpen/mode-rust.js!' ./gitbook/plugins/gitbook-plugin-rust-playpen/editor.js)
-
-cp -rp ./gitbook/* ./docs/gitbook/
+cp -p ./patches/404.md ./docs/
 
 # If there are anything to commit, do `git commit` and `git push`
 # -f flag is needed as docs is listed in .gitignore

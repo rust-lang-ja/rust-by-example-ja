@@ -1,18 +1,18 @@
-# rust-by-example-ja
+# Rust By Example
 
-[rust-by-example](https://github.com/rust-lang/rust-by-example)の和訳リポジトリ
+[Rust by Example](https://github.com/rust-lang/rust-by-example)の和訳リポジトリ [![CircleCI](https://circleci.com/gh/rust-lang-ja/rust-by-example-ja.svg?style=svg)](https://circleci.com/gh/rust-lang-ja/rust-by-example-ja)
+
+和訳版は[こちら](https://doc.rust-jp.rs/rust-by-example-ja/)から読めます。
 
 # ビルド方法
 
-[nightly](http://www.rust-lang.org/install.html)版のRustをインストールしてください。
-
+安定版（stable版）のRustをインストールしてください。
 [rustup](https://www.rustup.rs/)がオススメです。
-`node`,`npm`,`subversion`を予めインストールしておく必要があります。
 
-
-- `make all` ... `stage/`以下にソースコードと統合されたマークダウンを出力する
-- `make book` ...[gitbook](https://www.gitbook.com/)を利用して`_book/`にhtmlを出力
-- `make serve` ... ローカルのhtmlをブラウザ上で確認
-- `./deploy.sh` ... Github-pagesに反映
-
-翻訳文書は[こちら](http://rust-lang-ja.org/rust-by-example/index.html)
+```bash
+$ git clone https://github.com/rust-lang-ja/rust-by-example-ja
+$ cd rust-by-example
+$ cargo install mdbook --force
+$ mdbook build
+$ mdbook serve
+```
