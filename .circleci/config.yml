@@ -3,13 +3,14 @@ version: 2
 jobs:
   build:
     docker:
-      - image: hrektts/mdbook:0.3.5
+      - image: quay.io/rust-lang-ja/circleci:rust-by-example-mdbook-0.3.5
     parallelism: 1
     steps:
       - checkout
       # Remove .gitconfig added by Circle CI as cargo doesn't support ssh authorization
       - run: rm -f ~/.gitconfig
       - run: rm -rf docs
+      - run: mdbook -V
       - run: mdbook build
       - run: mdbook test
       - store_artifacts:
