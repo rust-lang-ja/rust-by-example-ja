@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: quay.io/rust-lang-ja/circleci:rust-by-example-mdbook-0.3.5
+      - image: quay.io/rust-lang-ja/circleci:rust-by-example-mdbook-0.3.6
     parallelism: 1
     steps:
       - checkout
