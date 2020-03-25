@@ -7,10 +7,7 @@
 Numeric literals can be type annotated by adding the type as a suffix. As an example, 
 to specify that the literal `42` should have the type `i32`, write `42i32`.
 -->
-FIXME_EN: Numeric literals can be type annotated by adding the type as a suffix, with the
-FIXME_EN: exception of `usize` that uses the `usize` suffix and `isize` that uses the
-FIXME_EN: `isize` suffix.
-FIXME_JA: 数値型リテラルはサフィックスを指定することで型を指定することが可能です。例外は`usize`、`isize`で、これらはそれぞれ同名のサフィックスを使用します。
+数値型リテラルはサフィックスにより型を指定することが可能です。例えば、`42`というリテラルに対して`i32`型を指定するには`42i32`とします。
 
 <!--
 The type of unsuffixed numeric literals will depend on how they are used. If no

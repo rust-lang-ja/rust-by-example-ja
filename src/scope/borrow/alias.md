@@ -9,10 +9,7 @@ borrowed, the original data can't be mutably borrowed. On the other hand, only
 *one* mutable borrow is allowed at a time. The original data can be borrowed
 again only *after* the mutable reference has been used for the last time.
 -->
-FIXME_EN: borrowed, the original data can't be mutably borrowed. On the other hand,
-FIXME_EN: only *one* mutable borrow is allowed at a time. The original data can be
-FIXME_EN: borrowed again only *after* the mutable reference goes out of scope.
-FIXME_JA: データは一度にいくつでもイミュータブルに借用することができますが、その間オリジナルのデータをミュータブルに借用することはできません。一方でミュータブルな借用は一度に*一つ*しか借用することができず、オリジナルのデータをもう一度借用するためには、ミュータブルな参照がスコープを抜けた*あとで*ないといけません。
+データは一度にいくつでもイミュータブルに借用することができますが、その間オリジナルのデータをミュータブルに借用することはできません。一方でミュータブルな借用は一度に*一つ*しか借用することができません。オリジナルのデータをもう一度借用できるのはミュータブルな参照が最後に使われた場所より*あとで*なければいけません。
 
 ```rust,editable
 struct Point { x: i32, y: i32, z: i32 }

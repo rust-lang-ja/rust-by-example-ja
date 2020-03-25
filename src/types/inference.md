@@ -9,12 +9,7 @@ type of the value expression
 during an initialization. It also looks at how the variable is used afterwards 
 to infer its type. Here's an advanced example of type inference:
 -->
-FIXME_EN: The type inference engine is pretty smart. It does more than looking at the
-FIXME_EN: type of the
-FIXME_EN: [r-value][rvalue]
-FIXME_EN: during an initialization. It also looks at how the variable is used afterwards
-FIXME_EN: to infer its type. Here's an advanced example of type inference:
-FIXME_JA: Rustの型推論エンジンはなかなか賢くできています。初期化の際に右辺値([`r-value`][rvalue])の型をチェックするだけでなく、その後にどのような使われ方をしているかを見て推論します。以下がその例です。
+Rustの型推論エンジンはなかなか賢くできています。初期化の際に評価値の型をチェックするだけでなく、その後にどのような使われ方をしているかを見て推論します。以下がその例です。
 
 ```rust,editable
 fn main() {

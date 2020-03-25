@@ -21,8 +21,7 @@ in `T` must outlive `'a`.
 <!--
 The example below shows the above syntax in action used after keyword `where`:
 -->
-FIXME_EN: The example below shows the above syntax in action:
-FIXME_JA: 上記の構文を実際に動く例で見ていきましょう。
+上記の構文を実際に動く例で見ていきましょう。`where`キーワードの後に注目してください。
 
 ```rust,editable
 use std::fmt::Debug; // Trait to bound with.

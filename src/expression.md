@@ -42,11 +42,7 @@ assignments. The last expression in the block will be assigned to the
 place expression such as a local variable. However, if the last expression of the block ends with a
 semicolon, the return value will be `()`.
 -->
-FIXME_EN: Blocks are expressions too, so they can be used as [r-values][rvalue] in
-FIXME_EN: assignments. The last expression in the block will be assigned to the
-FIXME_EN: [l-value][lvalue]. However, if the last expression of the block ends with a
-FIXME_EN: semicolon, the return value will be `()`.
-FIXME_JA: コードブロックも文の一種です。よってブロックを丸ごと[右辺値][rvalue]として扱うことができます。その場合ブロック内の最後の式文が左辺値に代入されます。ただし、ブロック内の最後の式文が`;`で終わる場合は返り値は`()`になります。
+コードブロックも式の一種です。よってブロックを丸ごと値として扱うことができます。その場合ブロック内の最後の式が場所を表す式（例えばローカル変数）に代入されます。ただし、ブロック内の最後の式が`;`で終わる場合は返り値は`()`になります。
 
 ```rust,editable
 fn main() {

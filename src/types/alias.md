@@ -43,9 +43,7 @@ fn main() {
 The main use of aliases is to reduce boilerplate; for example the `IoResult<T>` type
 is an alias for the `Result<T, IoError>` type.
 -->
-FIXME_EN: The main use of aliases is to reduce typing; for example the `IoResult<T>` type
-FIXME_EN: is an alias for the `Result<T, IoError>` type.
-FIXME_JA: このようにエイリアスを付ける一番の理由はタイプ量を減らすことです。例えば`IoResult<T>`型は`Result<T, IoError>`の別名です。
+このようにエイリアスを付ける一番の理由はボイラープレートを減らすことです。例えば`IoResult<T>`型は`Result<T, IoError>`の別名です。
 
 ### See also:
 

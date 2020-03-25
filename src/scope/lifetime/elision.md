@@ -9,11 +9,7 @@ will allow you to omit them to save typing and to improve readability.
 This is known as elision. Elision exists in Rust solely because these patterns
 are common.
 -->
-FIXME_EN: Some lifetime patterns are overwelmingly common and so the borrow checker
-FIXME_EN: will implicitly add them to save typing and to improve readability.
-FIXME_EN: This process of implicit addition is called elision. Elision exists in Rust
-FIXME_EN: solely because these patterns are common.
-FIXME_JA: ライフタイムのパターンのうちのいくつかは、他と比べてあまりにも一般的に使用されるため、明示的に入力せずとも借用チェッカーが暗黙のうちに補完してくれます。これにより可読性とタイプ量を減らすことができます。
+ライフタイムのパターンのうちのいくつかは、他と比べてあまりにも一般的に使用されるため、タイプ量を減らし可読性を上げるために省くことができます。これは省略として知られており、それらのパターンが一般的であるというだけの理由で存在しています。
 
 <!--
 The following code shows a few examples of elision. For a more comprehensive

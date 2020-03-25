@@ -7,9 +7,7 @@
 The `use` declaration can be used to bind a full path to a new name, for easier
 access. It is often used like this:
 -->
-FIXME_EN: The `use` declaration can be used to bind a full path to a new name, for easier
-FIXME_EN: access.
-FIXME_JA: `use`宣言をすることで、要素の絶対パスを新しい名前にバインドすることができ、より簡潔な記述が可能になります。
+`use`宣言をすることで、要素の絶対パスを新しい名前にバインドすることができ、より簡潔な記述が可能になります。例えば以下のように使えます。
 
 ```rust,editable,ignore
 // extern crate deeply; // normally, this would exist and not be commented out!

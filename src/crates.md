@@ -11,12 +11,7 @@ places where `mod` declarations in the crate file are found, *before* running
 the compiler over it. In other words, modules do *not* get compiled
 individually, only crates get compiled.
 -->
-FIXME_EN: A crate is a compilation unit in Rust. Whenever `rustc some_file.rs` is called,
-FIXME_EN: `some_file.rs` is treated as the *crate file*. If `some_file.rs` has `mod`
-FIXME_EN: declarations in it, then the contents of the module files will get merged with
-FIXME_EN: the crate file *before* running the compiler over it. In other words, modules
-FIXME_EN: do *not* get compiled individually, only crates get compiled.
-FIXME_JA: クレイトはRustにおけるコンパイルの単位です。`rustc some_file.rs`が呼ばれると、`some_file.rs`は必ず*クレイトファイル*として扱われます。もし`some_file.rs`が`mod`宣言を含んでいるのならば、コンパイルの*前に*モジュールファイルの中身は、クレイトファイルと結合されます。言い換えると、それぞれのモジュールが独立にコンパイルされるということはありませんが、それぞれのクレートは互いに独立にコンパイルされるということです。
+クレイトはRustにおけるコンパイルの単位です。`rustc some_file.rs`が呼ばれると、`some_file.rs`は必ず*クレイトファイル*として扱われます。もし`some_file.rs`が`mod`宣言を含んでいるのならば、コンパイルの*前に*、そのモジュールファイルの中身が`mod`の位置に挿入されます。言い換えると、それぞれのモジュールが独立にコンパイルされるということはありませんが、それぞれのクレートは互いに独立にコンパイルされるということです。
 
 <!--
 A crate can be compiled into a binary or into a library. By default, `rustc`

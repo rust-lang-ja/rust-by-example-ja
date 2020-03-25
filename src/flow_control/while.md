@@ -3,8 +3,7 @@
 <!--
 The `while` keyword can be used to run a loop while a condition is true.
 -->
-FIXME_EN: The `while` keyword can be used to loop until a condition is met.
-FIXME_JA: `while`キーワードは条件が満たされるまでのループのために使用します。
+`while`キーワードは条件が真である限り実行され続けるループのために使用します。
 
 <!--
 Let's write the infamous [FizzBuzz][fizzbuzz] using a `while` loop.

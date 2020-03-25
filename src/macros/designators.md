@@ -67,8 +67,7 @@ fn main() {
 <!--
 These are some of the available designators:
 -->
-FIXME_EN: This is a list of all the designators:
-FIXME_JA: 以下が全識別子のリストです。
+使用できる識別子には以下のようなものがあります。
 
 <!--
 * `block`

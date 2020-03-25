@@ -13,10 +13,7 @@ closure can be passed as a parameter.
 
 「クロージャではない普通の関数を引数として渡すことは可能なのだろうか?」
 
-FIXME_EN: about functions. And indeed they can! However, because a function can
-FIXME_EN: *never* capture variables, closures are strictly more flexible. Therefore, any
-FIXME_EN: function which can take a closure as an argument can also take a function.
-FIXME_JA: 可能です!とはいえ、通常の関数は*絶対に*周辺の変数を補足することができないので、クロージャの方がより柔軟な使い方ができます。ここから、クロージャを引数としてとる関数は、必ず通常の関数を引数としてとることができます。
+可能です!もしパラメータとしてクロージャを取る関数を定義すれば、そのクロージャのトレイト境界を満たす任意の関数をパラメータとして渡すことができます。
 
 ```rust,editable
 // Define a function which takes a generic `F` argument
