@@ -5,8 +5,12 @@ describes possible *error* instead of possible *absence*.
 
 That is, `Result<T, E>` could have one of two outcomes:
 
+<!--
 * `Ok(T)`: An element `T` was found
 * `Err(E)`: An error was found with element `E`
+-->
+* `Ok<T>`: 要素`T`が見つかった場合
+* `Err<E>`: 要素`E`とともにエラーが見つかった場合
 
 By convention, the expected outcome is `Ok` while the unexpected outcome is `Err`.
 

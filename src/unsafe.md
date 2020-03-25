@@ -1,22 +1,44 @@
+<!--
 # Unsafe Operations
+-->
+# 安全でない操作
 
+<!--
 As an introduction to this section, to borrow from [the official docs][unsafe],
 "one should try to minimize the amount of unsafe code in a code base." With that
 in mind, let's get started! Unsafe annotations in Rust are used to bypass
 protections put in place by the compiler; specifically, there are four primary
 things that unsafe is used for:
+-->
+この章の内容を見る前に、[公式ドキュメント](http://doc.rust-lang.org/book/unsafe.html)から引用した以下の文章をお読みください。
 
+> コードベース中の、アンセーフな操作をするコードの量は、可能な限り小さく無くてはならない。
+
+この戒めを頭に叩き込んだ上で、さあはじめましょう！
+Rustにおいて、アンセーフなブロックはコンパイラのチェックをスルーするために使われます。具体的には以下の4つの主要なユースケースがあります。
+
+<!--
 * dereferencing raw pointers
 * calling functions or methods which are `unsafe` (including calling a function
   over FFI, see [a previous chapter](std_misc/ffi.md) of the book) 
 * accessing or modifying static mutable variables
 * implementing unsafe traits
+-->
+* 生ポインタのデリファレンス
+* calling functions or methods which are `unsafe` (including calling a function
+  over FFI, see [a previous chapter](std_misc/ffi.md) of the book) 
+* accessing or modifying static mutable variables
+* implementing unsafe traits
 
+<!--
 ### Raw Pointers
 Raw pointers `*` and references `&T` function similarly, but references are
 always safe because they are guaranteed to point to valid data due to the
 borrow checker. Dereferencing a raw pointer can only be done through an unsafe
 block.
+-->
+### 生ポインタ
+生ポインタ`*`と参照`&T`はよく似た機能を持ちますが、後者は必ず有効なデータを指していることが借用チェッカーによって保証されているので、常に安全です。生ポインタのデリファレンスはアンセーフなブロックでしか実行できません。
 
 ```rust,editable
 fn main() {

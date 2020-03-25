@@ -2,6 +2,7 @@
 
 [Introduction](index.md)
 
+<!--
 - [Hello World](hello.md)
     - [Comments](hello/comment.md)
     - [Formatted print](hello/print.md)
@@ -9,12 +10,27 @@
         - [Display](hello/print/print_display.md)
             - [Testcase: List](hello/print/print_display/testcase_list.md)
         - [Formatting](hello/print/fmt.md)
+-->
+- [Hello World](hello.md)
+    - [コメント](hello/comment.md)
+    - [フォーマットしてプリント](hello/print.md)
+        - [デバッグ](hello/print/print_debug.md)
+        - [ディスプレイ](hello/print/print_display.md)
+            - [テストケース: リスト](hello/print/print_display/testcase_list.md)
+        - [フォーマット](hello/print/fmt.md)
 
+<!--
 - [Primitives](primitives.md)
     - [Literals and operators](primitives/literals.md)
     - [Tuples](primitives/tuples.md)
     - [Arrays and Slices](primitives/array.md)
+-->
+- [基本データ型](primitives.md)
+    - [リテラルとオペレータ](primitives/literals.md)
+    - [タプル](primitives/tuples.md)
+    - [配列とスライス](primitives/array.md)
 
+<!--
 - [Custom Types](custom_types.md)
     - [Structures](custom_types/structs.md)
     - [Enums](custom_types/enum.md)
@@ -22,26 +38,52 @@
         - [C-like](custom_types/enum/c_like.md)
         - [Testcase: linked-list](custom_types/enum/testcase_linked_list.md)
     - [constants](custom_types/constants.md)
+-->
+- [カスタム型](custom_types.md)
+    - [構造体](custom_types/structs.md)
+    - [列挙型](custom_types/enum.md)
+        - [use](custom_types/enum/enum_use.md)
+        - [C言語ライクな列挙型](custom_types/enum/c_like.md)
+        - [テストケース: 連結リスト](custom_types/enum/testcase_linked_list.md)
+    - [定数](custom_types/constants.md)
 
+<!--
 - [Variable Bindings](variable_bindings.md)
     - [Mutability](variable_bindings/mut.md)
     - [Scope and Shadowing](variable_bindings/scope.md)
     - [Declare first](variable_bindings/declare.md)
     - [Freezing](variable_bindings/freeze.md)
+-->
+- [変数バインディング](variable_bindings.md)
+    - [ミュータビリティ](variable_bindings/mut.md)
+    - [スコープとシャドーイング](variable_bindings/scope.md)
+    - [宣言](variable_bindings/declare.md)
+    - [値のフリーズ](variable_bindings/freeze.md)
 
+<!--
 - [Types](types.md)
     - [Casting](types/cast.md)
     - [Literals](types/literals.md)
     - [Inference](types/inference.md)
     - [Aliasing](types/alias.md)
+-->
+- [Types](types.md)
+    - [型キャスティング](types/cast.md)
+    - [リテラル](types/literals.md)
+    - [型推論](types/inference.md)
+    - [エイリアス](types/alias.md)
 
 - [Conversion](conversion.md)
     - [`From` and `Into`](conversion/from_into.md)
     - [`TryFrom` and `TryInto`](conversion/try_from_try_into.md)
     - [To and from `String`s](conversion/string.md)
 
+<!--
 - [Expressions](expression.md)
+-->
+- [式文](expression.md)
 
+<!--
 - [Flow of Control](flow_control.md)
     - [if/else](flow_control/if_else.md)
     - [loop](flow_control/loop.md)
@@ -59,7 +101,26 @@
         - [Binding](flow_control/match/binding.md)
     - [if let](flow_control/if_let.md)
     - [while let](flow_control/while_let.md)
+-->
+- [条件分岐](flow_control.md)
+    - [if/else](flow_control/if_else.md)
+    - [loop](flow_control/loop.md)
+        - [ネストとラベル](flow_control/loop/nested.md)
+        - [Returning from loops](flow_control/loop/return.md)
+    - [while](flow_control/while.md)
+    - [for と range](flow_control/for.md)
+    - [match](flow_control/match.md)
+        - [デストラクト](flow_control/match/destructuring.md)
+            - [タプル](flow_control/match/destructuring/destructure_tuple.md)
+            - [列挙型](flow_control/match/destructuring/destructure_enum.md)
+            - [ポインタとref](flow_control/match/destructuring/destructure_pointers.md)
+            - [構造体](flow_control/match/destructuring/destructure_structures.md)
+        - [ガード](flow_control/match/guard.md)
+        - [バインディング](flow_control/match/binding.md)
+    - [if let](flow_control/if_let.md)
+    - [while let](flow_control/while_let.md)
 
+<!--
 - [Functions](fn.md)
     - [Methods](fn/methods.md)
     - [Closures](fn/closures.md)
@@ -73,16 +134,43 @@
             - [Searching through iterators](fn/closures/closure_examples/iter_find.md)
     - [Higher Order Functions](fn/hof.md)
     - [Diverging functions](fn/diverging.md)
+-->
+- [関数](fn.md)
+    - [メソッド](fn/methods.md)
+    - [クロージャ](fn/closures.md)
+        - [要素の捕捉](fn/closures/capture.md)
+        - [捕捉時の型推論](fn/closures/input_parameters.md)
+        - [クロージャを受け取る関数](fn/closures/anonymity.md)
+        - [関数を受け取る関数](fn/closures/input_functions.md)
+        - [クロージャを返す関数](fn/closures/output_parameters.md)
+        - [`std`における使用例](fn/closures/closure_examples.md)
+            - [Iterator::any](fn/closures/closure_examples/iter_any.md)
+            - [Iterator::find](fn/closures/closure_examples/iter_find.md)
+    - [高階関数](fn/hof.md)
+    - [Diverging functions](fn/diverging.md)
 
+<!--
 - [Modules](mod.md)
     - [Visibility](mod/visibility.md)
     - [Struct visibility](mod/struct_visibility.md)
     - [The `use` declaration](mod/use.md)
     - [`super` and `self`](mod/super.md)
     - [File hierarchy](mod/split.md)
+-->
+- [モジュール](mod.md)
+    - [プライベートとパブリック](mod/visibility.md)
+    - [構造体の場合](mod/struct_visibility.md)
+    - [`use`宣言](mod/use.md)
+    - [`super` と `self`](mod/super.md)
+    - [ファイルの階層構造](mod/split.md)
 
+<!--
 - [Crates](crates.md)
     - [Library](crates/lib.md)
+    - [`extern crate`](crates/link.md)
+-->
+- [クレイト](crates.md)
+    - [ライブラリ](crates/lib.md)
     - [`extern crate`](crates/link.md)
 
 - [Cargo](cargo.md)
@@ -91,12 +179,20 @@
     - [Tests](cargo/test.md)
     - [Build Scripts](cargo/build_scripts.md)
 
+<!--
 - [Attributes](attribute.md)
     - [`dead_code`](attribute/unused.md)
     - [Crates](attribute/crate.md)
     - [`cfg`](attribute/cfg.md)
         - [Custom](attribute/cfg/custom.md)
+-->
+- [アトリビュート](attribute.md)
+    - [`dead_code`](attribute/unused.md)
+    - [クレイト](attribute/crate.md)
+    - [`cfg`](attribute/cfg.md)
+        - [条件の追加](attribute/cfg/custom.md)
 
+<!--
 - [Generics](generics.md)
     - [Functions](generics/gen_fn.md)
     - [Implementation](generics/impl.md)
@@ -111,7 +207,23 @@
         - [Associated types](generics/assoc_items/types.md)
     - [Phantom type parameters](generics/phantom.md)
         - [Testcase: unit clarification](generics/phantom/testcase_units.md)
+-->
+- [ジェネリクス](generics.md)
+    - [関数](generics/gen_fn.md)
+    - [メソッド](generics/impl.md)
+    - [ジェネリックトレイト](generics/gen_trait.md)
+    - [ジェネリック境界](generics/bounds.md)
+        - [テストケース: 空トレイト](generics/bounds/testcase_empty.md)
+    - [複数のジェネリック境界](generics/multi_bounds.md)
+    - [Where句](generics/where.md)
+    - [New Type Idiom](generics/new_types.md)
+    - [関連型](generics/assoc_items.md)
+        - [関連型が必要になる状況](generics/assoc_items/the_problem.md)
+        - [関連型](generics/assoc_items/types.md)
+    - [幽霊型パラメータ](generics/phantom.md)
+        - [テストケース: 単位を扱う](generics/phantom/testcase_units.md)
 
+<!--
 - [Scoping rules](scope.md)
     - [RAII](scope/raii.md)
     - [Ownership and moves](scope/move.md)
@@ -130,7 +242,27 @@
         - [Coercion](scope/lifetime/lifetime_coercion.md)
         - [Static](scope/lifetime/static_lifetime.md)
         - [Elision](scope/lifetime/elision.md)
+-->
+- [スコーピングの規則](scope.md)
+    - [RAII](scope/raii.md)
+    - [所有権とムーブ](scope/move.md)
+        - [ミュータビリティ](scope/move/mut.md)
+    - [借用](scope/borrow.md)
+        - [ミュータビリティ](scope/borrow/mut.md)
+        - [エイリアス](scope/borrow/alias.md)
+        - [refパターン](scope/borrow/ref.md)
+    - [ライフタイム](scope/lifetime.md)
+        - [明示的アノテーション](scope/lifetime/explicit.md)
+        - [関数](scope/lifetime/fn.md)
+        - [メソッド](scope/lifetime/methods.md)
+        - [構造体](scope/lifetime/struct.md)
+        - [Traits](scope/lifetime/trait.md)
+        - [ライフタイム境界](scope/lifetime/lifetime_bounds.md)
+        - [圧縮](scope/lifetime/lifetime_coercion.md)
+        - [スタティックライフタイム](scope/lifetime/static_lifetime.md)
+        - [省略](scope/lifetime/elision.md)
 
+<!--
 - [Traits](trait.md)
     - [Derive](trait/derive.md)
     - [Returning Traits with `dyn`](trait/dyn.md)
@@ -141,7 +273,19 @@
     - [Clone](trait/clone.md)
     - [Supertraits](trait/supertraits.md)
     - [Disambiguating overlapping traits](trait/disambiguating.md)
+-->
+- [トレイト](trait.md)
+    - [継承(Derive)](trait/derive.md)
+    - [Returning Traits with `dyn`](trait/dyn.md)
+    - [演算子のオーバーロード](trait/ops.md)
+    - [メモリ解放](trait/drop.md)
+    - [イテレータ](trait/iter.md)
+    - [`impl Trait`](trait/impl_trait.md)
+    - [クローン](trait/clone.md)
+    - [Supertraits](trait/supertraits.md)
+    - [Disambiguating overlapping traits](trait/disambiguating.md)
 
+<!--
 - [macro_rules!](macros.md)
     - [Syntax](macros/syntax.md)
         - [Designators](macros/designators.md)
@@ -150,7 +294,17 @@
     - [DRY (Don't Repeat Yourself)](macros/dry.md)
     - [DSL (Domain Specific Languages)](macros/dsl.md)
     - [Variadics](macros/variadics.md)
+-->
+- [macro_rules!](macros.md)
+    - [Syntax](macros/syntax.md)
+        - [識別子](macros/designators.md)
+        - [オーバーロード](macros/overload.md)
+        - [リピート](macros/repeat.md)
+    - [DRY (Don't Repeat Yourself)](macros/dry.md)
+    - [DSL (Domain Specific Languages)](macros/dsl.md)
+    - [Variadics](macros/variadics.md)
 
+<!--
 - [Error handling](error.md)
     - [`panic`](error/panic.md)
     - [`Option` & `unwrap`](error/option_unwrap.md)
@@ -169,7 +323,27 @@
         - [Other uses of `?`](error/multiple_error_types/reenter_question_mark.md)
         - [Wrapping errors](error/multiple_error_types/wrap_error.md)
     - [Iterating over `Result`s](error/iter_result.md)
+-->
+- [エラーハンドリング](error.md)
+    - [`panic`](error/panic.md)
+    - [`Option` & `unwrap`](error/option_unwrap.md)
+        - [Unpacking options with `?`](error/option_unwrap/question_mark.md)
+        - [Combinators: `map`](error/option_unwrap/map.md)
+        - [Combinators: `and_then`](error/option_unwrap/and_then.md)
+    - [`Result`](error/result.md)
+        - [`map` for `Result`](error/result/result_map.md)
+        - [aliases for `Result`](error/result/result_alias.md)
+        - [Early returns](error/result/early_returns.md)
+        - [Introducing `?`](error/result/enter_question_mark.md)
+    - [Multiple error types](error/multiple_error_types.md)
+        - [Pulling `Result`s out of `Option`s](error/multiple_error_types/option_result.md)
+        - [Defining an error type](error/multiple_error_types/define_error_type.md)
+        - [`Box`ing errors](error/multiple_error_types/boxing_errors.md)
+        - [Other uses of `?`](error/multiple_error_types/reenter_question_mark.md)
+        - [Wrapping errors](error/multiple_error_types/wrap_error.md)
+    - [Iterating over `Result`s](error/iter_result.md)
 
+<!--
 - [Std library types](std.md)
     - [Box, stack and heap](std/box.md)
     - [Vectors](std/vec.md)
@@ -182,7 +356,21 @@
         - [Alternate/custom key types](std/hash/alt_key_types.md)
         - [HashSet](std/hash/hashset.md)
     - [`Rc`](std/rc.md)
+-->
+- [標準ライブラリの型](std.md)
+    - [Box, スタックとヒープ](std/box.md)
+    - [ベクタ型](std/vec.md)
+    - [文字列](std/str.md)
+    - [`Option`](std/option.md)
+    - [`Result`](std/result.md)
+        - [`?`](std/result/question_mark.md)
+    - [`panic!`](std/panic.md)
+    - [ハッシュマップ](std/hash.md)
+        - [key型の変種](std/hash/alt_key_types.md)
+        - [ハッシュ集合](std/hash/hashset.md)
+    - [`Rc`](std/rc.md)
 
+<!--
 - [Std misc](std_misc.md)
     - [Threads](std_misc/threads.md)
         - [Testcase: map-reduce](std_misc/threads/testcase_mapreduce.md)
@@ -199,6 +387,23 @@
     - [Program arguments](std_misc/arg.md)
         - [Argument parsing](std_misc/arg/matching.md)
     - [Foreign Function Interface](std_misc/ffi.md)
+-->
+- [標準ライブラリのその他](std_misc.md)
+    - [スレッド](std_misc/threads.md)
+        - [Testcase: map-reduce](std_misc/threads/testcase_mapreduce.md)
+    - [チャネル](std_misc/channels.md)
+    - [Path](std_misc/path.md)
+    - [ファイル I/O](std_misc/file.md)
+        - [`open`](std_misc/file/open.md)
+        - [`create`](std_misc/file/create.md)
+        - [`read lines`](std_misc/file/read_lines.md)
+    - [子プロセス](std_misc/process.md)
+        - [パイプ](std_misc/process/pipe.md)
+        - [dropの延期](std_misc/process/wait.md)
+    - [ファイルシステムとのやり取り](std_misc/fs.md)
+    - [引数処理](std_misc/arg.md)
+        - [引数のパース](std_misc/arg/matching.md)
+    - [他言語関数インターフェイス](std_misc/ffi.md)
 
 - [Testing](testing.md)
     - [Unit testing](testing/unit_testing.md)
@@ -206,10 +411,17 @@
     - [Integration testing](testing/integration_testing.md)
     - [Dev-dependencies](testing/dev_dependencies.md)
 
+<!--
 - [Unsafe Operations](unsafe.md)
+-->
+- [安全でない操作](unsafe.md)
 
 - [Compatibility](compatibility.md)
     - [Raw identifiers](compatibility/raw_identifiers.md)
 
+<!--
 - [Meta](meta.md)
     - [Documentation](meta/doc.md)
+-->
+- [周辺情報](meta.md)
+    - [ドキュメンテーション](meta/doc.md)

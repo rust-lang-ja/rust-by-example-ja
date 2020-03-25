@@ -1,7 +1,13 @@
+<!--
 # Multiple bounds
+-->
+# 複数のジェネリック境界
 
+<!--
 Multiple bounds can be applied with a `+`. Like normal, different types are
 separated with `,`.
+-->
+`+`を用いて複数のトレイト境界を設けることができます。複数の引数を受け取るときは、通常時と同様、`,`で区切ります。
 
 ```rust,editable
 use std::fmt::{Debug, Display};
@@ -24,6 +30,7 @@ fn main() {
     compare_prints(&string);
     //compare_prints(&array);
     // TODO ^ Try uncommenting this.
+    // TODO ^ ここをアンコメントしてみましょう。
 
     compare_types(&array, &vec);
 }
@@ -31,7 +38,10 @@ fn main() {
 
 ### See also:
 
+<!--
 [`std::fmt`][fmt] and [`trait`s][traits]
+-->
+[`std::fmt`][fmt], [トレイト][traits]
 
 [fmt]: ../hello/print.md
 [traits]: ../trait.md

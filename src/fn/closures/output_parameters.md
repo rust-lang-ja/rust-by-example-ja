@@ -1,4 +1,7 @@
+<!--
 # As output parameters
+-->
+# クロージャを返す関数
 
 Closures as input parameters are possible, so returning closures as
 output parameters should also be possible. However, anonymous
@@ -48,7 +51,10 @@ fn main() {
 
 ### See also:
 
+<!--
 [`Fn`][fn], [`FnMut`][fnmut], [Generics][generics] and [impl Trait][impltrait].
+-->
+[`Fn`][fn], [`FnMut`][fnmut], [ジェネリクス][generics], [impl Trait][impltrait].
 
 [fn]: https://doc.rust-lang.org/std/ops/trait.Fn.html
 [fnmut]: https://doc.rust-lang.org/std/ops/trait.FnMut.html

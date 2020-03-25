@@ -1,24 +1,34 @@
+<!--
 # Visibility
+-->
+# プライベートとパブリック
 
+<!--
 By default, the items in a module have private visibility, but this can be
 overridden with the `pub` modifier. Only the public items of a module can be
 accessed from outside the module scope.
+-->
+デフォルトでは、モジュール内の要素はプライベートですが、これは`pub`で修飾することでパブリックな属性にすることができます。パブリックな属性のみがモジュールの外のスコープからアクセスすることができるようになります。
 
 ```rust,editable
 // A module named `my_mod`
+// `my`という名称のモジュール
 mod my_mod {
     // Items in modules default to private visibility.
+    // モジュール内の要素はデフォルトでプライベート
     fn private_function() {
         println!("called `my_mod::private_function()`");
     }
 
     // Use the `pub` modifier to override default visibility.
+    // `pub`を用いてパブリックに変更
     pub fn function() {
         println!("called `my_mod::function()`");
     }
 
     // Items can access other items in the same module,
     // even when private.
+    // モジュール内からならば、プライベートな属性にアクセスすることに支障はない。
     pub fn indirect_access() {
         print!("called `my_mod::indirect_access()`, that\n> ");
         private_function();
@@ -68,6 +78,7 @@ mod my_mod {
     }
 
     // Nested modules follow the same rules for visibility
+    // ネストしたモジュールも、同様の性質を示す。
     mod private_nested {
         #[allow(dead_code)]
         pub fn function() {
@@ -89,11 +100,14 @@ fn function() {
 
 fn main() {
     // Modules allow disambiguation between items that have the same name.
+    // モジュールによって、同名の関数を区別することができる。
     function();
     my_mod::function();
 
     // Public items, including those inside nested modules, can be
     // accessed from outside the parent module.
+    // パブリックな要素ならば、たとえネストしたものでも、
+    // モジュールの外からアクセスすることができる。
     my_mod::indirect_access();
     my_mod::nested::function();
     my_mod::call_public_function_in_my_mod();
@@ -108,18 +122,26 @@ fn main() {
 
     // Private items of a module cannot be directly accessed, even if
     // nested in a public module:
+    // プライベートな要素は、たとえパブリックなモジュール内に存在していても
+    // 直接アクセスすることはできない。
 
     // Error! `private_function` is private
+    // エラー!`private_function`はプライベート。
     //my_mod::private_function();
     // TODO ^ Try uncommenting this line
+    // TODO ^ 試しにこの行をアンコメントしてみましょう。
 
     // Error! `private_function` is private
+    // エラー！`private_function`はプライベート。
     //my_mod::nested::private_function();
     // TODO ^ Try uncommenting this line
+    // TODO ^ 試しにこの行をアンコメントしてみましょう。
 
     // Error! `private_nested` is a private module
+    // エラー！`private_nested`はプライベートなモジュール 。
     //my_mod::private_nested::function();
     // TODO ^ Try uncommenting this line
+    // TODO ^ 試しにこの行をアンコメントしてみましょう。
 
     // Error! `private_nested` is a private module
     //my_mod::private_nested::restricted_function();

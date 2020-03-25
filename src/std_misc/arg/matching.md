@@ -1,6 +1,12 @@
+<!--
 # Argument parsing
+-->
+# 引数のパース
 
+<!--
 Matching can be used to parse simple arguments:
+-->
+matchを用いて簡単な引数をパースできます。
 
 ```rust,editable
 use std::env;
@@ -26,10 +32,12 @@ fn main() {
 
     match args.len() {
         // no arguments passed
+        // 引数がない場合
         1 => {
             println!("My name is 'match_args'. Try passing some arguments!");
         },
         // one argument passed
+        // 引数が1つの場合
         2 => {
             match args[1].parse() {
                 Ok(42) => println!("This is the answer!"),
@@ -37,10 +45,12 @@ fn main() {
             }
         },
         // one command and one argument passed
+        // コマンドが一つと引数が一つの場合
         3 => {
             let cmd = &args[1];
             let num = &args[2];
             // parse the number
+            // 数字をパース
             let number: i32 = match num.parse() {
                 Ok(n) => {
                     n
@@ -52,6 +62,7 @@ fn main() {
                 },
             };
             // parse the command
+            // コマンドをパース
             match &cmd[..] {
                 "increase" => increase(number),
                 "decrease" => decrease(number),
@@ -62,8 +73,10 @@ fn main() {
             }
         },
         // all the other cases
+        // その他の場合
         _ => {
             // show a help message
+            // ヘルプメッセージを表示
             help();
         }
     }

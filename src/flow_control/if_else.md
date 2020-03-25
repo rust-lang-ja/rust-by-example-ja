@@ -1,9 +1,12 @@
 # if/else
 
+<!--
 Branching with `if`-`else` is similar to other languages. Unlike many of them,
 the boolean condition doesn't need to be surrounded by parentheses, and each
 condition is followed by a block. `if`-`else` conditionals are expressions,
 and, all branches must return the same type.
+-->
+`if-else`を用いた条件分岐は他の言語に似ています。多くの言語では条件式の中を括弧でくくる必要がありますが、Rustではその必要はありません。条件式の直後にはブロックが続きます。`if-else`は式文の一種で、いずれの分岐先でも返り値の型は同一でなくてはなりません。
 
 ```rust,editable
 fn main() {
@@ -22,15 +25,20 @@ fn main() {
             println!(", and is a small number, increase ten-fold");
 
             // This expression returns an `i32`.
+            // この式は`i32`を返す。
             10 * n
         } else {
             println!(", and is a big number, halve the number");
 
             // This expression must return an `i32` as well.
+            // ここでも返り値の型は`i32`でなくてはならない。
             n / 2
             // TODO ^ Try suppressing this expression with a semicolon.
+            // TODO ^ セミコロン(`;`)をつけて、返り値を返さないようにしてみましょう
         };
     //   ^ Don't forget to put a semicolon here! All `let` bindings need it.
+    //   ここにセミコロンを付けるのを忘れないように!
+    //   `let`による変数束縛の際には必ず必要です!
 
     println!("{} -> {}", n, big_n);
 }

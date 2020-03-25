@@ -1,4 +1,7 @@
+<!--
 # Closures
+-->
+# クロージャ
 
 Closures in Rust, also called lambda expressions or lambdas, are functions that can capture 
 the enclosing environment. For example, a closure that captures the x 
@@ -20,17 +23,22 @@ Other characteristics of closures include:
 ```rust,editable
 fn main() {
     // Increment via closures and functions.
+    // 関数とクロージャのそれぞれで数値をインクリメントする
     fn  function            (i: i32) -> i32 { i + 1 }
 
     // Closures are anonymous, here we are binding them to references
     // Annotation is identical to function annotation but is optional
     // as are the `{}` wrapping the body. These nameless functions
     // are assigned to appropriately named variables.
+    // 型アノテーションは、通常の関数と同様の方法で行えるが、必須ではない。
+    // `{}`も必須ではない。
+    // クロージャは一種の無名関数なので、適切な変数にバインディングしてやるとよい
     let closure_annotated = |i: i32| -> i32 { i + 1 };
     let closure_inferred  = |i     |          i + 1  ;
 
     let i = 1;
     // Call the function and closures.
+    // 関数とクロージャを呼び出す。
     println!("function: {}", function(i));
     println!("closure_annotated: {}", closure_annotated(i));
     println!("closure_inferred: {}", closure_inferred(i));

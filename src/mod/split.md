@@ -1,7 +1,13 @@
+<!--
 # File hierarchy
+-->
+# ファイルの階層構造
 
+<!--
 Modules can be mapped to a file/directory hierarchy. Let's break down the
 [visibility example][visibility] in files:
+-->
+モジュールはファイル・ディレクトリ間の階層構造と対応関係にあります。モジュールに[お互いがどのように見えているか][visibility]、以下の様なファイルを例に詳しく見ていきましょう。
 
 ```shell
 $ tree .
@@ -18,6 +24,8 @@ In `split.rs`:
 ```rust,ignore
 // This declaration will look for a file named `my.rs` or `my/mod.rs` and will
 // insert its contents inside a module named `my` under this scope
+// このように宣言すると、`my.rs`または、`my/mod.rs`という名のファイルを探し、
+// その内容をこのファイル中で`my`という名から使用することができるようにします。
 mod my;
 
 fn function() {
@@ -42,6 +50,8 @@ In `my/mod.rs`:
 // Similarly `mod inaccessible` and `mod nested` will locate the `nested.rs`
 // and `inaccessible.rs` files and insert them here under their respective
 // modules
+// 同様に`mod inaccessible`、`mod nested`によって、`nested.rs`、`inaccessible.rs`の内容をこの中で使用することができるようになる。
+// 訳注: `pub`をつけないかぎり、この中でしか使用できない。
 mod inaccessible;
 pub mod nested;
 
@@ -82,7 +92,10 @@ pub fn public_function() {
 }
 ```
 
+<!--
 Let's check that things still work as before:
+-->
+では、以前と同じように実行できるか確認しましょう。
 
 ```shell
 $ rustc split.rs && ./split

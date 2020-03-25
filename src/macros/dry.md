@@ -1,8 +1,11 @@
 # DRY (Don't Repeat Yourself)
 
+<!--
 Macros allow writing DRY code by factoring out the common parts of functions
 and/or test suites. Here is an example that implements and tests the `+=`, `*=`
 and `-=` operators on `Vec<T>`:
+-->
+マクロは関数やテストなどにおいて、共通の部分を抽出することでDRYなコードを書くのに役立ちます。ここでは`+=`、`*=`、`-=`、`Vec<T>`を実装、テストするにあたって、マクロがどのように役立つかを見ていきます。
 
 ```rust,editable
 use std::ops::{Add, Mul, Sub};
@@ -10,6 +13,7 @@ use std::ops::{Add, Mul, Sub};
 macro_rules! assert_equal_len {
     // The `tt` (token tree) designator is used for
     // operators and tokens.
+    // `tt` (トークン木)識別子は演算子とトークン用の識別子です。
     ($a:expr, $b:expr, $func:ident, $op:tt) => {
         assert!($a.len() == $b.len(),
                 "{:?}: dimension mismatch: {:?} {:?} {:?}",
@@ -34,6 +38,7 @@ macro_rules! op {
 }
 
 // Implement `add_assign`, `mul_assign`, and `sub_assign` functions.
+// `add_assign`、`mul_assign`、`sub_assign`、関数を実装
 op!(add_assign, Add, +=, add);
 op!(mul_assign, Mul, *=, mul);
 op!(sub_assign, Sub, -=, sub);
@@ -58,6 +63,7 @@ mod test {
     }
 
     // Test `add_assign`, `mul_assign`, and `sub_assign`.
+    // `add_assign`と`mul_assign`と`sub_assign`をテスト
     test!(add_assign, 1u32, 2u32, 3u32);
     test!(mul_assign, 2u32, 3u32, 6u32);
     test!(sub_assign, 3u32, 2u32, 1u32);

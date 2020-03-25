@@ -1,15 +1,25 @@
+<!--
 # Testcase: List
+-->
+# テストケース: リスト
 
+<!--
 Implementing `fmt::Display` for a structure where the elements must each be
 handled sequentially is tricky. The problem is that each `write!` generates a
 `fmt::Result`. Proper handling of this requires dealing with *all* the
 results. Rust provides the `?` operator for exactly this purpose.
+-->
+構造体のそれぞれの要素を別々に扱う`fmt::Display`を実装するのはトリッキーです。というのも、それぞれの`write!`が別々の`fmt::Result`を生成するためです。適切に処理するためには*すべての*resultに対して処理を書かなくてはなりません。このような場合は`?`演算子を使用するのが適当です。
 
+<!--
 Using `?` on `write!` looks like this:
+-->
+以下のように`?`を`write!`に対して使用します。
 
 ```rust,ignore
 // Try `write!` to see if it errors. If it errors, return
 // the error. Otherwise continue.
+// `write!`を実行し、エラーが生じた場合はerrorを返す。そうでなければ実行を継続する。
 write!(f, "{}", value)?;
 ```
 
@@ -21,13 +31,17 @@ older Rust code. Using `try!` looks like this:
 try!(write!(f, "{}", value));
 ```
 
+<!--
 With `?` available, implementing `fmt::Display` for a `Vec` is
 straightforward:
+-->
+`?`を使用できれば、`Vec`用の`fmt::Display`はより簡単に実装できます。
 
 ```rust,editable
 use std::fmt; // Import the `fmt` module.
 
 // Define a structure named `List` containing a `Vec`.
+// `Vec`を含む`List`という名の構造体を定義
 struct List(Vec<i32>);
 
 impl fmt::Display for List {
@@ -40,6 +54,8 @@ impl fmt::Display for List {
 
         // Iterate over `v` in `vec` while enumerating the iteration
         // count in `count`.
+        // `v`を介して`vec`をイテレーションし、同時にカウントを
+        // `enumerate`で取得する
         for (count, v) in vec.iter().enumerate() {
             // For every element except the first, add a comma.
             // Use the ? operator, or try!, to return on errors.
@@ -48,6 +64,7 @@ impl fmt::Display for List {
         }
 
         // Close the opened bracket and return a fmt::Result value.
+        // 開きっぱなしのブラケットを閉じて、`fmt::Result`の値を返す。
         write!(f, "]")
     }
 }
@@ -68,8 +85,12 @@ Try changing the program so that the index of each element in the vector is also
 
 ### See also:
 
+<!--
 [`for`][for], [`ref`][ref], [`Result`][result], [`struct`][struct],
 [`?`][q_mark], and [`vec!`][vec]
+-->
+[`for`][for], [`ref`][ref], [`Result`][result], [構造体][struct],
+[`?`][q_mark], [`vec!`][vec]
 
 [for]: ../../../flow_control/for.md
 [result]: ../../../std/result.md

@@ -1,11 +1,22 @@
+<!--
 # Structures
+-->
+# 構造体
 
+<!--
 There are three types of structures ("structs") that can be created using the
 `struct` keyword:
+-->
+`struct`というキーワードを用いて作成できる構造体(「structre」)には3種類あります。
 
+<!--
 * Tuple structs, which are, basically, named tuples.
 * The classic [C structs][c_struct]
 * Unit structs, which are field-less, are useful for generics.
+-->
+* タプル。（ほとんどの場合は名前付きタプル）
+* クラシックな[C言語スタイルの構造体。][c_struct]
+* ユニット。これはフィールドを持たず、ジェネリック型を扱う際に有効です。
 
 ```rust,editable
 #[derive(Debug)]
@@ -16,18 +27,22 @@ struct Person<'a> {
 }
 
 // A unit struct
+// ユニット
 struct Nil;
 
 // A tuple struct
+// タプル
 struct Pair(i32, f32);
 
 // A struct with two fields
+// 2つのフィールドを持つ（クラシックな）構造体
 struct Point {
     x: f32,
     y: f32,
 }
 
 // Structs can be reused as fields of another struct
+// 構造体は他の構造体のフィールドになることができる
 #[allow(dead_code)]
 struct Rectangle {
     // A rectangle can be specified by where the top left and bottom right
@@ -50,6 +65,7 @@ fn main() {
     let point: Point = Point { x: 10.3, y: 0.4 };
 
     // Access the fields of the point
+    // pointのフィールドにアクセスする。
     println!("point coordinates: ({}, {})", point.x, point.y);
 
     // Make a new point by using struct update syntax to use the fields of our
@@ -61,24 +77,29 @@ fn main() {
     println!("second point: ({}, {})", bottom_right.x, bottom_right.y);
 
     // Destructure the point using a `let` binding
+    // `let`を使用してpointをデストラクトする。
     let Point { x: top_edge, y: left_edge } = point;
 
     let _rectangle = Rectangle {
         // struct instantiation is an expression too
+        // 構造体の定義とインスタンスの作成を同時に行う
         top_left: Point { x: left_edge, y: top_edge },
         bottom_right: bottom_right,
     };
 
     // Instantiate a unit struct
+    // ユニットをインスタンス化
     let _nil = Nil;
 
     // Instantiate a tuple struct
+    // タプルをインスタンス化
     let pair = Pair(1, 0.1);
 
     // Access the fields of a tuple struct
     println!("pair contains {:?} and {:?}", pair.0, pair.1);
 
     // Destructure a tuple struct
+    // タプルをデストラクト
     let Pair(integer, decimal) = pair;
 
     println!("pair contains {:?} and {:?}", integer, decimal);
@@ -93,7 +114,10 @@ fn main() {
 
 ### See also:
 
+<!--
 [`attributes`][attributes], [lifetime][lifetime] and [destructuring][destructuring]
+-->
+[アトリビュート(`attributes`)][attributes], [lifetime][lifetime], [デストラクト][destructuring]
 
 [attributes]: ../attribute.md
 [c_struct]: https://en.wikipedia.org/wiki/Struct_(C_programming_language)
