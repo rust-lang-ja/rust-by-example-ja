@@ -12,8 +12,25 @@
 ```bash
 $ git clone https://github.com/rust-lang-ja/rust-by-example-ja
 $ cd rust-by-example-ja
-$ cargo install mdbook --force
+$ cargo install mdbook
 $ mdbook build
 $ mdbook serve
 ```
 
+# テスト方法
+
+```bash
+$ cd rust-by-example-ja
+$ cargo install mdbook-transcheck
+$ mdbook test
+$ git submodule init
+$ git submodule update
+$ mdbook-transcheck src-en src
+```
+
+`mdbook test`はドキュメント内のソースコードがコンパイル可能かどうかを、
+`mdbook-transcheck`はコメントアウトされた原文とソースコードがオリジナルと一致するかどうかをテストします。
+
+# 翻訳の仕方
+
+[CONTRIBUTING](./CONTRIBUTING.md)を参照してください。
