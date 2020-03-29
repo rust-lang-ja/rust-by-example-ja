@@ -3,8 +3,7 @@
 <!--
 For some use cases, when matching enums, `match` is awkward. For example:
 -->
-FIXME_EN: For some use cases, `match` is awkward. For example:
-FIXME_JA: 場合によっては`match`を使用すると不自然な書き方になってしまう場合があります。例えば...
+列挙型をマッチさせるとき、場合によっては`match`を使用すると不自然な書き方になってしまう場合があります。例えば...
 
 ```rust
 // Make `optional` of type `Option<i32>`

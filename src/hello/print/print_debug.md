@@ -81,8 +81,7 @@ So `fmt::Debug` definitely makes this printable but sacrifices some
 elegance. Rust also provides "pretty printing" with `{:#?}`.
 -->
 `fmt::Debug`は確実にプリント可能にしてくれるのですが、一方である種の美しさを犠牲にしています。
-FIXME_EN: elegance. Manually implementing `fmt::Display` will fix that.
-FIXME_JA: `fmt::Display`を手動で実装すればその美しさを取り戻す事ができるでしょう。
+Rustは`{:#?}`による「見栄えの良いプリント」も提供します。
 
 ```rust,editable
 #[derive(Debug)]

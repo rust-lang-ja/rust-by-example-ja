@@ -12,10 +12,7 @@ platform-specific `Path` variant.
 A `Path` can be created from an `OsStr`, and provides several methods to get
 information from the file/directory the path points to.
 -->
-FIXME_EN: A `Path` can be created from almost any type that implements the
-FIXME_EN: `BytesContainer` trait, like a string, and provides several methods to get
-FIXME_EN: information from the file/directory the path points to.
-FIXME_JA: `BytesContainer`トレイトを実装している型ならばほぼ全て、そこから`Path`を作成できます。例えば文字列がそうです。そうすればpathが指すファイル・ディレクトリの情報を取得するためのメソッドがいくつか使えるようになります。
+`Path`は`OsStr`から作ることができます。そうすればそのパスが指すファイル・ディレクトリの情報を取得するためのメソッドがいくつか使えるようになります。
 
 <!--
 Note that a `Path` is *not* internally represented as an UTF-8 string, but

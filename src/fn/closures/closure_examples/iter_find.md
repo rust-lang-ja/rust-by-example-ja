@@ -5,10 +5,7 @@
 first value which satisfies some condition. If none of the values satisfy the 
 condition, it returns `None`. Its signature:
 -->
-FIXME_EN: `Iterator::find` is a function which when passed an iterator, will return
-FIXME_EN: the first element which satisfies the predicate as an `Option`. Its
-FIXME_EN: signature:
-FIXME_JA: `Iterator::find`はイテレータに渡される関数で、条件を満たす最初の値を`Option`として返します。型シグネチャは以下のようになります。
+`Iterator::find`はイテレータを辿る関数で、条件を満たす最初の値を探します。もし条件を満たす値がなければ`None`を返します。型シグネチャは以下のようになります。
 
 ```rust,ignore
 pub trait Iterator {

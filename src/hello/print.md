@@ -126,10 +126,8 @@ Implementing the `fmt::Display` trait automatically implements the
    decimals to display)
 -->
  * 上の例を実行した際に生じるエラーを修復しましょう。
- * FIXME_EN: Add a `println!` macro that prints: `Pi is roughly 3.143`, using twenty-two
-   FIXME_EN: divided by seven to generate the estimate for Pi. (Hint: you may need to
- * FIXME_JA: `println!`マクロを追加し、`Pi is rough ly 3.143`,という文字列を出力しましょう。
-   FIXME_JA: ただし、3.143は22を7で割ることで作成してください。(ヒント: 10進数の数を出力する方法については、[`std::fmt`][fmt]をチェックする必要があるかもしれません。)
+ * `println!`マクロを追加し、表示される小数部の桁数を調整して`Pi is roughly 3.142`という文字列を出力しましょう。
+   ただし、円周率の値は`let pi = 3.141592`を使ってください。(ヒント: 小数部の桁数を調整する方法については、[`std::fmt`][fmt]をチェックする必要があるかもしれません。)
 
 ### See also:
 
