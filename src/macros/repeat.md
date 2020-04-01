@@ -15,7 +15,7 @@ In the following example, surrounding the matcher with `$(...),+` will
 match one or more expression, separated by commas.
 Also note that the semicolon is optional on the last case.
 -->
-以下の例では、マッチ対象を `$(...),+`で囲むことにより、カンマで区切られた1つ以上の式文とマッチします。最後のセミコロンは必須ではないことに注目しましょう。
+以下の例では、マッチ対象を `$(...),+`で囲むことにより、カンマで区切られた1つ以上の式とマッチします。最後のセミコロンは必須ではないことに注目しましょう。
 
 ```rust,editable
 // `min!` will calculate the minimum of any number of arguments.

@@ -15,7 +15,7 @@ The final expression in the function will be used as return value.
 Alternatively, the `return` statement can be used to return a value earlier
 from within the function, even from inside loops or `if`s.
 -->
-関数内の最後の式文が返り値となります。関数の途中で値を返したい場合は`return`文を使用します。`loop`の最中や`if`文の中からも値を返すことができます。
+関数内の最後の式が返り値となります。関数の途中で値を返したい場合は`return`文を使用します。`loop`の最中や`if`文の中からも値を返すことができます。
 
 <!--
 Let's rewrite FizzBuzz using functions!
@@ -41,7 +41,7 @@ fn is_divisible_by(lhs: u32, rhs: u32) -> bool {
     }
 
     // This is an expression, the `return` keyword is not necessary here
-    // これは式文であり、`return`キーワードは必要ではない。
+    // これは式であり、`return`キーワードは必要ではない。
     lhs % rhs == 0
 }
 

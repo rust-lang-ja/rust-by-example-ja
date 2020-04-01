@@ -81,7 +81,7 @@
 <!--
 - [Expressions](expression.md)
 -->
-- [式文](expression.md)
+- [式](expression.md)
 
 <!--
 - [Flow of Control](flow_control.md)
