@@ -7,6 +7,10 @@ language = "ja"
 [build]
 build-dir = "docs"
 
+[output.html]
+additional-css = ["css/custom.css"]
+git-repository-url = "https://github.com/rust-lang-ja/rust-by-example-ja"
+
 [output.html.playpen]
 editable = true
 editor = "ace"
