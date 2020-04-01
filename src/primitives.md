@@ -44,7 +44,7 @@ Variables can always be *type annotated*. Numbers may additionally be
 annotated via a *suffix* or *by default*. Integers default to `i32` and
 floats to `f64`. Note that Rust can also infer types from context.
 -->
-変数は常に*型指定(`type annotate`)可能*です。数値型の場合はさらにサフィックスでの指定が可能です。指定しない場合デフォルトになります。例えば整数は`i32`が、浮動小数点は`f64`がデフォルトです。
+変数は常に *型指定(`type annotate`)可能* です。数値型の場合はさらにサフィックスでの指定が可能です。指定しない場合デフォルトになります。例えば整数は`i32`が、浮動小数点は`f64`がデフォルトです。
 Note that Rust can also infer types from context.
 
 ```rust,editable,ignore,mdbook-runnable

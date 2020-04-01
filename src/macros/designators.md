@@ -7,7 +7,7 @@
 The arguments of a macro are prefixed by a dollar sign `$` and type annotated
 with a *designator*:
 -->
-macroの引数は`$`が頭につきます。型は*識別子*(`designator`)でアノテーションされます。
+macroの引数は`$`が頭につきます。型は *識別子* (`designator`)でアノテーションされます。
 
 ```rust,editable
 macro_rules! create_function {
@@ -41,7 +41,7 @@ macro_rules! print_result {
     // `expr`識別子は式文に対応する。
     ($expression:expr) => {
         // `stringify!` will convert the expression *as it is* into a string.
-        // `stringify!`は式文を*そのままの形で*文字列に変換する
+        // `stringify!`は式文を *そのままの形で* 文字列に変換する
         println!("{:?} = {:?}",
                  stringify!($expression),
                  $expression);

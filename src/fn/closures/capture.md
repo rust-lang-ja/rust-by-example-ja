@@ -68,7 +68,7 @@ fn main() {
     // calling the closure mutates the closure which requires a `mut`.
     // `count`をインクリメントするためのクロージャ。`count`と`&mut count`
     // の両方を取ることができるが、後者のほうが制限が少ないため、
-    // (訳注: `count`だと`&mut count`と違い、一度しか呼ぶことができない。)
+    // （訳注: `count`だと`&mut count`と違い、一度しか呼ぶことができない。）
     // そちらを取る。直後に`count`を借用する。
     //
     // `inc`には`mut`をつける必要がある。なぜならミュータブルな型が
@@ -101,7 +101,7 @@ fn main() {
     // would copy into the closure leaving the original untouched.
     // A non-copy must move and so `movable` immediately moves into
     // the closure.
-    // `mem::drop`は`T`(ジェネリック型)を取る必要があるため、このクロージャは
+    // `mem::drop`は`T`（ジェネリック型）を取る必要があるため、このクロージャは
     // 参照ではなく値を取る。その場合、もしもコピー可能な値ならば、
     // 元の値はそのままでコピーのみを取る。不可能ならば値そのものを移動させる。
     let consume = || {
@@ -110,7 +110,7 @@ fn main() {
     };
 
     // `consume` consumes the variable so this can only be called once.
-    // `consume`は変数を消費(開放)するため、一度しか呼び出すことができない。
+    // `consume`は変数を消費（開放）するため、一度しか呼び出すことができない。
     consume();
     // consume();
     // ^ TODO: Try uncommenting this line.

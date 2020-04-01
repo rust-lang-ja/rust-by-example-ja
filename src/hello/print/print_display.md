@@ -56,8 +56,8 @@ For example, if the `std` library implemented a single style for all
 * `Vec<path>`: `/:/etc:/home/username:/bin` (split on `:`)
 * `Vec<number>`: `1,2,3` (split on `,`)
 -->
-* `Vec<path>`: `/:/etc:/home/username:/bin` (`:`で分割)
-* `Vec<number>`: `1,2,3` (`,`で分割)
+* `Vec<path>`: `/:/etc:/home/username:/bin` （`:`で分割）
+* `Vec<number>`: `1,2,3` （`,`で分割）
 
 <!--
 No, because there is no ideal style for all types and the `std` library
@@ -71,7 +71,7 @@ generic cases.
 This is not a problem though because for any new *container* type which is
 *not* generic,`fmt::Display` can be implemented.
 -->
-ジェネリック*でない*コンテナ型の場合は、このような問題は生じませんので問題なく`fmt::Display`を実装することができます。
+ジェネリック *でない* コンテナ型の場合は、このような問題は生じませんので問題なく`fmt::Display`を実装することができます。
 
 ```rust,editable
 use std::fmt; // Import `fmt`

@@ -9,7 +9,7 @@ handled sequentially is tricky. The problem is that each `write!` generates a
 `fmt::Result`. Proper handling of this requires dealing with *all* the
 results. Rust provides the `?` operator for exactly this purpose.
 -->
-構造体のそれぞれの要素を別々に扱う`fmt::Display`を実装するのはトリッキーです。というのも、それぞれの`write!`が別々の`fmt::Result`を生成するためです。適切に処理するためには*すべての*resultに対して処理を書かなくてはなりません。このような場合は`?`演算子を使用するのが適当です。
+構造体のそれぞれの要素を別々に扱う`fmt::Display`を実装するのはトリッキーです。というのも、それぞれの`write!`が別々の`fmt::Result`を生成するためです。適切に処理するためには *すべての* resultに対して処理を書かなくてはなりません。このような場合は`?`演算子を使用するのが適当です。
 
 <!--
 Using `?` on `write!` looks like this:

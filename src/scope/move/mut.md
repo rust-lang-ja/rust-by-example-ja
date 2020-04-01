@@ -19,7 +19,7 @@ fn main() {
     //*immutable_box = 4;
 
     // *Move* the box, changing the ownership (and mutability)
-    // boxを*ムーブ*する、同時に所有権とミュータビリティを変更する。
+    // boxを *ムーブ* する、同時に所有権とミュータビリティを変更する。
     let mut mutable_box = immutable_box;
 
     println!("mutable_box contains {}", mutable_box);

@@ -25,7 +25,7 @@ can be used to view into a `String`, just like `&[T]` is a view into `Vec<T>`.
 fn main() {
     // (all the type annotations are superfluous)
     // A reference to a string allocated in read only memory
-    // (以下の例では型を明示していますが、これらは必須ではありません。)
+    // （以下の例では型を明示していますが、これらは必須ではありません。）
     // read only memory上に割り当てられた文字列への参照
     let pangram: &'static str = "the quick brown fox jumps over the lazy dog";
     println!("Pangram: {}", pangram);
@@ -57,7 +57,7 @@ fn main() {
 
     // The trimmed string is a slice to the original string, hence no new
     // allocation is performed
-    // 文字列のトリミング(特定文字種の除去)はオリジナルの文字列のスライスを
+    // 文字列のトリミング（特定文字種の除去）はオリジナルの文字列のスライスを
     // 返すので、新規のメモリ割り当ては発生しない。
     let chars_to_trim: &[char] = &[' ', ','];
     let trimmed_str: &str = string.trim_matches(chars_to_trim);

@@ -66,4 +66,4 @@ Hello World!
 conditions: `hello.txt` doesn't exist, or `hello.txt` is not readable,
 etc.)
 -->
-(気が向いたなら、上記の例を様々な形で失敗させてみましょう。例えば`hello.txt`が存在しないとか、読み込み権限がないとか、そういった状況で実行してみてください。)
+（気が向いたなら、上記の例を様々な形で失敗させてみましょう。例えば`hello.txt`が存在しないとか、読み込み権限がないとか、そういった状況で実行してみてください。）

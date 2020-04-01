@@ -9,14 +9,14 @@ implementation to be printable. Automatic implementations are only provided
 for types such as in the `std` library. All others *must* be manually
 implemented somehow.
 -->
-`std::fmt`のフォーマット用`トレイト`を使用したい型は、プリント可能である用に実装されている必要があります。`std`ライブラリの型のように自動でプリント可能なものもありますが、他はすべて*手動で実装する必要があります。*
+`std::fmt`のフォーマット用`トレイト`を使用したい型は、プリント可能である用に実装されている必要があります。`std`ライブラリの型のように自動でプリント可能なものもありますが、他はすべて *手動で実装する必要があります。*
 
 <!--
 The `fmt::Debug` `trait` makes this very straightforward. *All* types can
 `derive` (automatically create) the `fmt::Debug` implementation. This is
 not true for `fmt::Display` which must be manually implemented.
 -->
-`fmt::Debug`という`トレイト`はこれを簡略化します。*すべての*型は`fmt::Debug`の実装を`derive`、（すなわち自動で作成）することができるためです。
+`fmt::Debug`という`トレイト`はこれを簡略化します。 *すべての* 型は`fmt::Debug`の実装を`derive`、（すなわち自動で作成）することができるためです。
 `fmt::Display`の場合はやはり手動で実装しなくてはなりません。
 
 ```rust

@@ -34,7 +34,7 @@ fn main() {
 `println!` is a [*macro*][macros] that prints text to the
 console.
 -->
-`println!`は文字列をコンソールにプリントするための[*マクロ*][macros]です。
+`println!`は文字列をコンソールにプリントするための[ *マクロ* ][macros]です。
 
 <!--
 A binary can be generated using the Rust compiler: `rustc`.

@@ -46,7 +46,7 @@ impl Person {
     /// // If you pass --test to Rustdoc, it will even test it for you!
     /// // バッククォートによってRustのコードをコメント中に挟むこと
     /// // もできます。Rustdocに--testを渡せば、テストも行えます！
-    /// // (訳注: pythonのdoctestと同じです。)
+    /// // （訳注: pythonのdoctestと同じです。）
     /// use doc::Person;
     /// let person = Person::new("name");
     /// ```

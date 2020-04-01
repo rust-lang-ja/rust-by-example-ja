@@ -26,7 +26,7 @@ fn are_you_on_linux() {
 }
 
 // And this function only gets compiled if the target OS is *not* linux
-// そしてこの関数はターゲットOSがLinux*ではない*ときのみコンパイルされる。
+// そしてこの関数はターゲットOSがLinux *ではない* ときのみコンパイルされる。
 #[cfg(not(target_os = "linux"))]
 fn are_you_on_linux() {
     println!("You are *not* running linux!");

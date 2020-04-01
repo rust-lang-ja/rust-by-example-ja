@@ -14,7 +14,7 @@ where it is defined, and has the goal of hiding information (encapsulation).
 ```rust,editable
 mod my {
     // A public struct with a public field of generic type `T`
-    // パブリックなフィールド`T`(ジェネリック型)を持つパブリックな構造体
+    // パブリックなフィールド`T`（ジェネリック型）を持つパブリックな構造体
     pub struct OpenBox<T> {
         pub contents: T,
     }

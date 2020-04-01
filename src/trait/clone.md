@@ -57,7 +57,7 @@ fn main() {
     // TODO ^ この行をアンコメントしてみましょう。
     
     // Clone `moved_pair` into `cloned_pair` (resources are included)
-    // `moved_pair`を`cloned_pair`にクローンする。(資源もクローンされる。)
+    // `moved_pair`を`cloned_pair`にクローンする。（資源もクローンされる。）
     let cloned_pair = moved_pair.clone();
     // Drop the original pair using std::mem::drop
     // std::mem::dropを用いて元のpairをドロップする

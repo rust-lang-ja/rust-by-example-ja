@@ -55,7 +55,7 @@ fn main() {
     // Capture `x` into an anonymous type and implement
     // `Fn` for it. Store it in `print`.
     // `x`を無名の構造体に入れ、それに対し`Fn`を実装する。
-    // (訳注: ここでは`Fn`は`fn Fn(&self) -> {println!("{}", &self)}`)
+    // （訳注: ここでは`Fn`は`fn Fn(&self) -> {println!("{}", &self)}`）
     // その構造体を`print`にアサインする。
     let print = || println!("{}", x);
 

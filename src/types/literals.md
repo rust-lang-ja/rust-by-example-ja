@@ -55,7 +55,7 @@ yet, here's a brief explanation for the impatient readers:
   [modules][mod] and [crates][crate].
 -->
 * `fun(&foo)`は値そのものではなく、その参照を関数に渡す時の書き方です。詳しくは[借用(`borrowing`)][borrow]を見てください。
-* `std::mem::size_of_val`は関数ですが、*絶対パス(`full path`)*で呼び出されています。ソースコードは論理的に区切られた*モジュール*と呼ばれるものにわけられることができます。今回の場合は`size_of_val`関数は`mem`モジュール内で定義されており、`mem`モジュールは`std`*クレイト*内で定義されています。より詳しくは[クレイト(`crates`)][crate]を参照してください。
+* `std::mem::size_of_val`は関数ですが、 *絶対パス(`full path`)* で呼び出されています。ソースコードは論理的に区切られた *モジュール* と呼ばれるものにわけられることができます。今回の場合は`size_of_val`関数は`mem`モジュール内で定義されており、`mem`モジュールは`std` *クレート* 内で定義されています。より詳しくは[クレート(`crates`)][crate]を参照してください。
 
 [borrow]: ../scope/borrow.md
 [mod]: ../mod.md

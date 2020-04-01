@@ -49,7 +49,7 @@ impl List {
         // このメソッドは、`self`の状態によって振る舞いが
         // 変化するため、matchをする必要がある。
         // `self`の型は`&List`であるので、`*self`は`List`になる。マッチングは
-        // リファレンス（`&T`）ではなく実体（`T`）に対して行うのが好ましい。
+        // リファレンス(`&T`)ではなく実体(`T`)に対して行うのが好ましい。
         match *self {
             // Can't take ownership of the tail, because `self` is borrowed;
             // instead take a reference to the tail

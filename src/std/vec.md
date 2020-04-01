@@ -54,7 +54,7 @@ fn main() {
 
     // Indexing is done using the square brackets (indexing starts at 0)
     // 鍵括弧(`[]`)を用いてインデックスによる要素へのアクセスができる
-    // (インデックスは0から開始する)
+    // （インデックスは0から開始する）
     println!("Second element: {}", xs[1]);
 
     // `pop` removes the last element from the vector and returns it

@@ -5,7 +5,7 @@ The compiler provides a `dead_code`
 [*lint*][lint] that will warn
 about unused functions. An *attribute* can be used to disable the lint.
 -->
-コンパイラは`dead_code`と呼ばれる[リント][lint]機能を持つため、使用されていない関数が存在するときに警告を出します。*アトリビュート*によってこの機能を無効化することができます。
+コンパイラは`dead_code`と呼ばれる[リント][lint]機能を持つため、使用されていない関数が存在するときに警告を出します。 *アトリビュート* によってこの機能を無効化することができます。
 
 ```rust,editable
 fn used_function() {}

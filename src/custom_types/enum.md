@@ -8,7 +8,7 @@ The `enum` keyword allows the creation of a type which may be one of a few
 different variants. Any variant which is valid as a `struct` is also valid as
 an `enum`.
 -->
-列挙型(`enum`)はいくつかの異なる型の中から1つを選ぶような場合に使用する。構造体（`struct`）の定義を満たすものならば何でも`enum` 内の型として使用できる
+列挙型(`enum`)はいくつかの異なる型の中から1つを選ぶような場合に使用する。構造体(`struct`)の定義を満たすものならば何でも`enum` 内の型として使用できる
 
 ```rust,editable
 // Create an `enum` to classify a web event. Note how both

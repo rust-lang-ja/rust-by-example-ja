@@ -27,7 +27,7 @@ macro_rules! say_hello {
     // `()`はマクロが引数をとらないことを示す。
     () => {
         // The macro will expand into the contents of this block.
-        // マクロは(訳注: プリコンパイルの段階で)このブロック内の内容に展開されます。
+        // マクロは（訳注: プリコンパイルの段階で）このブロック内の内容に展開されます。
         println!("Hello!");
     };
 }

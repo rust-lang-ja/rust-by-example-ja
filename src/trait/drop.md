@@ -66,8 +66,8 @@ fn main() {
 
     // `_a` *won't* be `drop`ed again here, because it already has been
     // (manually) `drop`ed
-    // `_a`はここで`drop`されることは*ない*。なぜならば、上ですでに
-    // (手動で)`drop`されているため。
+    // `_a`はここで`drop`されることは *ない* 。なぜならば、上ですでに
+    // （手動で）`drop`されているため。
 }
 ```
 

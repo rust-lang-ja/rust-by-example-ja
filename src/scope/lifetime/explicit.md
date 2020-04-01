@@ -39,7 +39,7 @@ foo<'a, 'b>
 <!--
 In this case, the lifetime of `foo` cannot exceed that of either `'a` *or* `'b`.
 -->
-この場合は、`foo`のライフタイムは`'a`、`'b`の*いずれよりも*長くなってはなりません。
+この場合は、`foo`のライフタイムは`'a`、`'b`の *いずれよりも* 長くなってはなりません。
 
 <!--
 See the following example for explicit lifetime annotation in use:
@@ -101,7 +101,7 @@ fn main() {
 <!--
 [^1]: [elision] implicitly annotates lifetimes and so is different.
 -->
-[^1]: [省略][elision] はライフタイムが暗黙のうちに(プログラマから見えない形で)アノテートされることを指します。
+[^1]: [省略][elision] はライフタイムが暗黙のうちに（プログラマから見えない形で）アノテートされることを指します。
 
 ### See also:
 

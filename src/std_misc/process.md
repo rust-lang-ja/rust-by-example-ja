@@ -35,4 +35,4 @@ fn main() {
 (You are encouraged to try the previous example with an incorrect flag passed
 to `rustc`)
 -->
-(余裕があれば、上の例で`rustc`に不正なフラグを渡し、どうなるか見てみましょう)
+（余裕があれば、上の例で`rustc`に不正なフラグを渡し、どうなるか見てみましょう）

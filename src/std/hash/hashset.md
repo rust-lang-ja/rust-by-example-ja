@@ -7,7 +7,7 @@
 Consider a `HashSet` as a `HashMap` where we just care about the keys (
 `HashSet<T>` is, in actuality, just a wrapper around `HashMap<T, ()>`).
 -->
-値がなく、キーだけの`HashMap`を想像してみてください。これはハッシュ集合(`HashSet`)と呼ばれるものです。(`HashSet<T>`は、実際には`HashMap<T, ()>`のラッパーです。)
+値がなく、キーだけの`HashMap`を想像してみてください。これはハッシュ集合(`HashSet`)と呼ばれるものです。（`HashSet<T>`は、実際には`HashMap<T, ()>`のラッパーです。）
 
 <!--
 "What's the point of that?" you ask. "I could just store the keys in a `Vec`."
@@ -27,7 +27,7 @@ If you insert a value that is already present in the `HashSet`,
 (i.e. the new value is equal to the existing and they both have the same hash), 
 then the new value will replace the old.
 -->
-`HashSet`に、すでに存在する値を加えようとすると、(すなわち、加えようとしている値のハッシュ値と、要素中のいずれかの値のハッシュ値が等しい場合、)新しい値によって古い値が上書きされます。
+`HashSet`に、すでに存在する値を加えようとすると、（すなわち、加えようとしている値のハッシュ値と、要素中のいずれかの値のハッシュ値が等しい場合、）新しい値によって古い値が上書きされます。
 
 <!--
 This is great for when you never want more than one of something, 
@@ -43,7 +43,7 @@ But sets can do more than that.
 <!--
 Sets have 4 primary operations (all of the following calls return an iterator):
 -->
-集合型には4つの主要なメソッドがあり、(すべてイテレータを返します。)
+集合型には4つの主要なメソッドがあり、（すべてイテレータを返します。）
 
 <!--
 * `union`: get all the unique elements in both sets.
@@ -64,7 +64,7 @@ Sets have 4 primary operations (all of the following calls return an iterator):
 * `symmetric_difference`: 
 get all the elements that are in one set or the other, but *not* both.
 -->
-* `symmetric_difference`: どちらか一方の集合には存在するが、両方には**ない**値を取得
+* `symmetric_difference`: どちらか一方の集合には存在するが、両方には **ない** 値を取得
 
 <!--
 Try all of these in the following example:

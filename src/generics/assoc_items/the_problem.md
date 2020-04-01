@@ -7,7 +7,7 @@
 A `trait` that is generic over its container type has type specification
 requirements - users of the `trait` *must* specify all of its generic types.
 -->
-コンテナ型に、その要素に対してジェネリックなトレイトを実装した場合、そのトレイトを使用する者は全てのジェネリック型を明記*しなくてはなりません*。
+コンテナ型に、その要素に対してジェネリックなトレイトを実装した場合、そのトレイトを使用する者は全てのジェネリック型を明記 *しなくてはなりません* 。
 
 <!--
 In the example below, the `Contains` `trait` allows the use of the generic 
@@ -22,7 +22,7 @@ generic types for `fn difference()`. In practice, we want a way to express that
 `A` and `B` are determined by the *input* `C`. As you will see in the next 
 section, associated types provide exactly that capability.
 -->
-`Contains`はジェネリックトレイトなので、`fn difference()`では**全ての**ジェネリック型を宣言しなくてはなりません。実際のところ、`A`と`B`は**引数**である`C`によって決定されていて欲しいにも関わらず、です。これは次のページで紹介する関連型と呼ばれる機能によって可能です。
+`Contains`はジェネリックトレイトなので、`fn difference()`では **全ての** ジェネリック型を宣言しなくてはなりません。実際のところ、`A`と`B`は **引数** である`C`によって決定されていて欲しいにも関わらず、です。これは次のページで紹介する関連型と呼ばれる機能によって可能です。
 
 ```rust,editable
 struct Container(i32, i32);
@@ -52,7 +52,7 @@ impl Contains<i32, i32> for Container {
     fn first(&self) -> i32 { self.0 }
 
     // Grab the last number.
-    // 最後(2つめ)の値を取得
+    // 最後（2つめ）の値を取得
     fn last(&self) -> i32 { self.1 }
 }
 

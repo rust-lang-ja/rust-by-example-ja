@@ -77,6 +77,6 @@ For more information on how hashing and hash maps
 (sometimes called hash tables) work, have a look at 
 [Hash Table Wikipedia][wiki-hash]
 -->
-ハッシングやハッシュマップ(ハッシュテーブルと呼ばれることもあります)の仕組みについて、より詳しく知りたい場合は[Wikipediaのハッシュテーブルのページ][wiki-hash]を見てください。
+ハッシングやハッシュマップ（ハッシュテーブルと呼ばれることもあります）の仕組みについて、より詳しく知りたい場合は[Wikipediaのハッシュテーブルのページ][wiki-hash]を見てください。
 
 [wiki-hash]: https://en.wikipedia.org/wiki/Hash_table

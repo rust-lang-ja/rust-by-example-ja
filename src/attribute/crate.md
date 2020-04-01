@@ -1,14 +1,14 @@
 <!--
 # Crates
 -->
-# クレイト
+# クレート
 
 <!--
 The `crate_type` attribute can be used to tell the compiler whether a crate is
 a binary or a library (and even which type of library), and the `crate_name`
 attribute can be used to set the name of the crate.
 -->
-`crate_type`アトリビュートは、そのクレイトがライブラリ、バイナリのいずれにコンパイルされるべきかをコンパイラに伝えるために使用します。ライブラリの場合は、どのタイプのライブラリであるかも伝えることができます。`crate_name`はクレイトの名前を決定するのに使用します。
+`crate_type`アトリビュートは、そのクレートがライブラリ、バイナリのいずれにコンパイルされるべきかをコンパイラに伝えるために使用します。ライブラリの場合は、どのタイプのライブラリであるかも伝えることができます。`crate_name`はクレートの名前を決定するのに使用します。
 
 However, it is important to note that both the `crate_type` and `crate_name`
 attributes have **no** effect whatsoever when using Cargo, the Rust package
@@ -17,7 +17,7 @@ real-world uses of `crate_type` and `crate_name` are relatively limited.
 
 ```rust,editable
 // This crate is a library
-// このクレイトはライブラリである。
+// このクレートはライブラリである。
 #![crate_type = "lib"]
 // The library is named "rary"
 // このライブラリの名前は「rary」である。

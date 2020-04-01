@@ -27,7 +27,7 @@ generic type parameter is generic, and everything else is concrete (non-generic)
 For example, defining a *generic function* named `foo` that takes an argument
 `T` of any type:
 -->
-例として、あらゆる型の引数`T`をとる*ジェネリック関数*`foo`を定義すると:
+例として、あらゆる型の引数`T`をとる *ジェネリック関数* `foo`を定義すると:
 
 ```rust,ignore
 fn foo<T>(arg: T) { ... }

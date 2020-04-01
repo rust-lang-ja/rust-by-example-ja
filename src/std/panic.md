@@ -5,7 +5,7 @@ The `panic!` macro can be used to generate a panic and start unwinding
 its stack. While unwinding, the runtime will take care of freeing all the
 resources *owned* by the thread by calling the destructor of all its objects.
 -->
-`panic!`マクロはパニックを生成し、スタックの巻き戻しを開始するために使用することができます。巻き戻しの間、ランタイムは、(訳注: panicを起こした)スレッドが**所有権を持つ**全ての資源のデストラクタを呼び出し、メモリ上から解放します。
+`panic!`マクロはパニックを生成し、スタックの巻き戻しを開始するために使用することができます。巻き戻しの間、ランタイムは、（訳注: panicを起こした）スレッドが **所有権を持つ** 全ての資源のデストラクタを呼び出し、メモリ上から解放します。
 
 <!--
 Since we are dealing with programs with only one thread, `panic!` will cause the

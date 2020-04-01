@@ -88,7 +88,7 @@ fn main() {
     so that if you switch from printing the debug format `{:?}` to the display
     format `{}`, you see the following output:
 -->
- 1. *復習*: 上にある`Matrix`という構造体に、`fmt::Display`トレイトを追加しましょう。デバッグフォーマット`{:?}`ではなくディスプレイフォーマット`{}`でプリントすることができるようになるはずです。
+ 1. *復習* : 上にある`Matrix`という構造体に、`fmt::Display`トレイトを追加しましょう。デバッグフォーマット`{:?}`ではなくディスプレイフォーマット`{}`でプリントすることができるようになるはずです。
 
     ```text
     ( 1.1 1.2 )

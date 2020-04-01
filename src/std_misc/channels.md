@@ -23,7 +23,7 @@ fn main() {
     // (type annotation is superfluous)
     // チャネルには`Sender<T>`と`Receiver<T>`という2つのエンドポイントがある。
     // ここで、`T`は送信されるメッセージの型である。
-    // (型アノテーションは必須ではない。)
+    // （型アノテーションは必須ではない。）
     let (tx, rx): (Sender<i32>, Receiver<i32>) = mpsc::channel();
     let mut children = Vec::new();
 

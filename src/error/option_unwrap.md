@@ -31,7 +31,7 @@ but `unwrap` otherwise leaves us with a less meaningful output than explicit
 handling. In the following example, explicit handling yields a more 
 controlled result while retaining the option to `panic` if desired.
 -->
-[expect]メソッドを用いて、`panic`を手動でカスタマイズできることに触れておきましょう。これは(`unwrap`をそのまま用いた場合よりも)内容が理解しやすいエラーメッセージを出力するのに役立ちます。次の例では、結果をより明示的に、可能ならいつでも`panic`できるように扱っていきます。
+[expect]メソッドを用いて、`panic`を手動でカスタマイズできることに触れておきましょう。これは（`unwrap`をそのまま用いた場合よりも）内容が理解しやすいエラーメッセージを出力するのに役立ちます。次の例では、結果をより明示的に、可能ならいつでも`panic`できるように扱っていきます。
 
 ```rust,editable,ignore,mdbook-runnable
 // The commoner has seen it all, and can handle any gift well.

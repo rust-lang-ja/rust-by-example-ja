@@ -49,13 +49,13 @@ mod my {
         self::cool::function();
         
         // The `super` keyword refers to the parent scope (outside the `my` module).
-        // `super`は親スコープ(`my`の外側)を参照する。
+        // `super`は親スコープ（`my`の外側）を参照する。
         super::function();
         
         // This will bind to the `cool::function` in the *crate* scope.
         // In this case the crate scope is the outermost scope.
-        // 以下は*クレイト*スコープ内の`cool::function`をバインディングする。
-        // この場合、クレイトスコープは一番外側のスコープである。
+        // 以下は *クレート* スコープ内の`cool::function`をバインディングする。
+        // この場合、クレートスコープは一番外側のスコープである。
         {
             use crate::cool::function as root_function;
             root_function();

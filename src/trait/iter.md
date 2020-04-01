@@ -13,7 +13,7 @@ The trait requires only a method to be defined for the `next` element,
 which may be manually defined in an `impl` block or automatically 
 defined (as in arrays and ranges).
 -->
-このトレイトは`next`の要素に相当するものを決定するためのメソッドのみを要求します。このメソッドは`impl`ブロック内で手動で実装するか、あるいは(配列やrangeのように)自動で定義されます。
+このトレイトは`next`の要素に相当するものを決定するためのメソッドのみを要求します。このメソッドは`impl`ブロック内で手動で実装するか、あるいは（配列やrangeのように）自動で定義されます。
 
 <!--
 As a point of convenience for common situations, the `for` construct 
@@ -76,7 +76,7 @@ fn main() {
     // `for` works through an `Iterator` until it returns `None`.
     // Each `Some` value is unwrapped and bound to a variable (here, `i`).
     // `for`は`None`を返すまで、イテレータを舐めていき、出てきた`Some`を
-    // アンラップして変数(ここでは`i`)に束縛する。
+    // アンラップして変数（ここでは`i`）に束縛する。
     println!("Iterate through 0..3 using `for`");
     for i in 0..3 {
         println!("> {}", i);

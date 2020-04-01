@@ -19,7 +19,7 @@ Note that a `Path` is *not* internally represented as an UTF-8 string, but
 instead is stored as a vector of bytes (`Vec<u8>`). Therefore, converting a
 `Path` to a `&str` is *not* free and may fail (an `Option` is returned).
 -->
-`Path`の実態はUTF-8の文字列**ではなく**、バイト型のベクタ(`Vec<u8>`)であることに注意しましょう。したがって、`Path`を`&str`に変換するのは無条件**ではなく**、失敗する可能性があります。それゆえ`Option`型が返されます。
+`Path`の実態はUTF-8の文字列 **ではなく** 、バイト型のベクタ(`Vec<u8>`)であることに注意しましょう。したがって、`Path`を`&str`に変換するのは無条件 **ではなく** 、失敗する可能性があります。それゆえ`Option`型が返されます。
 
 ```rust,editable
 use std::path::Path;
@@ -53,7 +53,7 @@ fn main() {
 Be sure to check at other `Path` methods (`posix::Path` or `windows::Path`) and
 the `Metadata` struct.
 -->
-他の`Path`メソッド(`posix::Path`と`windows::Path`)をチェックするのを忘れずに！それと`Metadata`構造体も見ておくことをオススメします。
+他の`Path`メソッド（`posix::Path`と`windows::Path`）をチェックするのを忘れずに！それと`Metadata`構造体も見ておくことをオススメします。
 
 ### See also:
 

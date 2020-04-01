@@ -9,7 +9,7 @@ example, failing to read a file and then continuing to use that *bad* input
 would clearly be problematic. Noticing and explicitly managing those errors
 saves the rest of the program from various pitfalls.
 -->
-エラーハンドリングとは失敗の起きる可能性を扱うプロセスのことです。例えば、ファイルを読み込むのに失敗した際、その*誤った*インプットを使い続けるのは明らかに問題です。そのようなエラーを通知して明示的に扱うことで、残りのプログラムに問題が波及することを防ぐことができるようになります。
+エラーハンドリングとは失敗の起きる可能性を扱うプロセスのことです。例えば、ファイルを読み込むのに失敗した際、その *誤った* インプットを使い続けるのは明らかに問題です。そのようなエラーを通知して明示的に扱うことで、残りのプログラムに問題が波及することを防ぐことができるようになります。
 
 There are various ways to deal with errors in Rust, which are described in the
 following subchapters. They all have more or less subtle differences and different

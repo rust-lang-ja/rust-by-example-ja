@@ -9,7 +9,7 @@ All values in Rust are stack allocated by default. Values can be *boxed*
 heap allocated value of type `T`. When a box goes out of scope, its destructor
 is called, the inner object is destroyed, and the memory on the heap is freed.
 -->
-Rustにおいて、すべての値はデフォルトでスタックに割り当てられます。`Box<T>`を作成することで、値を*ボックス化*、すなわちヒープ上に割り当てることができます。ボックスとは正確にはヒープ上におかれた`T`の値へのスマートポインタです。ボックスがスコープを抜けると、デストラクタが呼ばれて内包するオブジェクトが破棄され、ヒープメモリが解放されます。
+Rustにおいて、すべての値はデフォルトでスタックに割り当てられます。`Box<T>`を作成することで、値を *ボックス化* 、すなわちヒープ上に割り当てることができます。ボックスとは正確にはヒープ上におかれた`T`の値へのスマートポインタです。ボックスがスコープを抜けると、デストラクタが呼ばれて内包するオブジェクトが破棄され、ヒープメモリが解放されます。
 
 <!--
 Boxed values can be dereferenced using the `*` operator; this removes one layer
@@ -48,7 +48,7 @@ fn boxed_origin() -> Box<Point> {
 fn main() {
     // (all the type annotations are superfluous)
     // Stack allocated variables
-    // (以下では型を全て明示していますが、必須ではありません。)
+    // （以下では型を全て明示していますが、必須ではありません。）
     // この変数ははすべてスタック上に割り当てられる。
     let point: Point = origin();
     let rectangle: Rectangle = Rectangle {

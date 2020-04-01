@@ -15,16 +15,16 @@ This includes:
 * `String` and `&str` (protip: you can have a `HashMap` keyed by `String`
 and call `.get()` with an `&str`)
 -->
-* `bool` (キーになりうる値が2つしかないので実用的ではないですが…)
+* `bool` （キーになりうる値が2つしかないので実用的ではないですが…）
 * `int`、`uint`、あるいは他の整数型
-* `String`と`&str`(Tips: `String`をキーにしたハッシュマップを作製した場合、`.get()`メソッドの引数に`&str`を与えて値を取得することができます。)
+* `String`と`&str`（Tips: `String`をキーにしたハッシュマップを作製した場合、`.get()`メソッドの引数に`&str`を与えて値を取得することができます。）
 
 <!--
 Note that `f32` and `f64` do *not* implement `Hash`,
 likely because [floating-point precision errors][floating]
 would make using them as hashmap keys horribly error-prone.
 -->
-`f32`と`f64`は`Hash`を実装して**いない**ことに注意しましょう。おそらくこれは[浮動小数点演算時に誤差が発生する][floating]ため、キーとして使用すると、恐ろしいほどエラーの元となるためです。
+`f32`と`f64`は`Hash`を実装して **いない** ことに注意しましょう。おそらくこれは[浮動小数点演算時に誤差が発生する][floating]ため、キーとして使用すると、恐ろしいほどエラーの元となるためです。
 
 <!--
 All collection classes implement `Eq` and `Hash` 

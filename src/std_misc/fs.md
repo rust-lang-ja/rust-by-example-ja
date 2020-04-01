@@ -36,7 +36,7 @@ fn echo(s: &str, path: &Path) -> io::Result<()> {
 }
 
 // A simple implementation of `% touch path` (ignores existing files)
-// `% touch path`の簡単な実装(すでにファイルが存在しても無視する。)
+// `% touch path`の簡単な実装（すでにファイルが存在しても無視する。）
 fn touch(path: &Path) -> io::Result<()> {
     match OpenOptions::new().create(true).write(true).open(path) {
         Ok(_) => Ok(()),

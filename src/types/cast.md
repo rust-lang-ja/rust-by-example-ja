@@ -7,7 +7,7 @@
 Rust provides no implicit type conversion (coercion) between primitive types.
 But, explicit type conversion (casting) can be performed using the `as` keyword.
 -->
-Rustはプリミティブ型における強制的な型変換を暗黙に行うことはありません。しかし明示的に行うこと（`casting`）は可能です。その場合`as`キーワードを使用します。
+Rustはプリミティブ型における強制的な型変換を暗黙に行うことはありません。しかし明示的に行うこと(`casting`)は可能です。その場合`as`キーワードを使用します。
 
 <!--
 Rules for converting between integral types follow C conventions generally,
@@ -64,7 +64,7 @@ fn main() {
     // bit of that value is 1, then the value is negative.
     // 符号付きの型にキャストする場合、結果は以下の2つを行った場合に等しい
     // 1. 対応する符号なしの型にキャストする。
-    // 2. 2の補数（two's complement）をとる
+    // 2. 2の補数(two's complement)をとる
 
     // Unless it already fits, of course.
     println!(" 128 as a i16 is: {}", 128 as i16);

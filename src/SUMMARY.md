@@ -169,7 +169,7 @@
     - [Library](crates/lib.md)
     - [`extern crate`](crates/link.md)
 -->
-- [クレイト](crates.md)
+- [クレート](crates.md)
     - [ライブラリ](crates/lib.md)
     - [`extern crate`](crates/link.md)
 
@@ -188,7 +188,7 @@
 -->
 - [アトリビュート](attribute.md)
     - [`dead_code`](attribute/unused.md)
-    - [クレイト](attribute/crate.md)
+    - [クレート](attribute/crate.md)
     - [`cfg`](attribute/cfg.md)
         - [条件の追加](attribute/cfg/custom.md)
 

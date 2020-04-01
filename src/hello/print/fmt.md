@@ -6,7 +6,7 @@
 <!--
 We've seen that formatting is specified via a *format string*:
 -->
-これまで、文字列がどのようにフォーマットされるかは*フォーマット文字列*によって決まるということを見てきました 。
+これまで、文字列がどのようにフォーマットされるかは *フォーマット文字列* によって決まるということを見てきました 。
 
 * `format!("{}", foo)` -> `"3735928559"`
 * `format!("0x{:X}", foo)` ->
@@ -17,7 +17,7 @@ We've seen that formatting is specified via a *format string*:
 The same variable (`foo`) can be formatted differently depending on which
 *argument type* is used: `X` vs `o` vs *unspecified*.
 -->
-ここでは （`foo`）という単一の変数が`X`、`o`、*指定なし*、という様々な*引数タイプ*(argument type)に応じてフォーマットされています。
+ここでは(`foo`)という単一の変数が`X`、`o`、 *指定なし* 、という様々な *引数タイプ* (argument type)に応じてフォーマットされています。
 
 <!--
 This formatting functionality is implemented via traits, and there is one trait
@@ -51,7 +51,7 @@ impl Display for City {
         // `write!` is like `format!`, but it will write the formatted string
         // into a buffer (the first argument)
         // `write!`は`format!`に似ていますが、フォーマットされた文字列を
-        // バッファ(第一引数)に書き込みます。
+        // バッファ（第一引数）に書き込みます。
         write!(f, "{}: {:.3}°{} {:.3}°{}",
                self.name, self.lat.abs(), lat_c, self.lon.abs(), lon_c)
     }

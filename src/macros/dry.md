@@ -13,7 +13,7 @@ use std::ops::{Add, Mul, Sub};
 macro_rules! assert_equal_len {
     // The `tt` (token tree) designator is used for
     // operators and tokens.
-    // `tt` (トークン木)識別子は演算子とトークン用の識別子です。
+    // `tt` （トークン木）識別子は演算子とトークン用の識別子です。
     ($a:expr, $b:expr, $func:ident, $op:tt) => {
         assert!($a.len() == $b.len(),
                 "{:?}: dimension mismatch: {:?} {:?} {:?}",

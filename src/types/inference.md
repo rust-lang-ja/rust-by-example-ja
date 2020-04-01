@@ -18,7 +18,7 @@ fn main() {
     let elem = 5u8;
 
     // Create an empty vector (a growable array).
-    // 空のベクトル(可変長の配列)を生成
+    // 空のベクトル（可変長の配列）を生成
     let mut vec = Vec::new();
     // At this point the compiler doesn't know the exact type of `vec`, it
     // just knows that it's a vector of something (`Vec<_>`).
