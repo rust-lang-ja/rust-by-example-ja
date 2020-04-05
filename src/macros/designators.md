@@ -38,10 +38,10 @@ macro_rules! print_result {
     // The `expr` designator is used for expressions.
     // このマクロは`expr`識別子に対応する値を引数として取り、
     // その結果を文字列としてプリントする。
-    // `expr`識別子は式文に対応する。
+    // `expr`識別子は式に対応する。
     ($expression:expr) => {
         // `stringify!` will convert the expression *as it is* into a string.
-        // `stringify!`は式文を *そのままの形で* 文字列に変換する
+        // `stringify!`は式を *そのままの形で* 文字列に変換する
         println!("{:?} = {:?}",
                  stringify!($expression),
                  $expression);
@@ -55,7 +55,7 @@ fn main() {
     print_result!(1u32 + 1);
 
     // Recall that blocks are expressions too!
-    // ブロックも式文の一種であることを思い出しましょう!
+    // ブロックも式の一種であることを思い出しましょう!
     print_result!({
         let x = 1u32;
 
@@ -75,7 +75,7 @@ These are some of the available designators:
 * `ident` is used for variable/function names
 -->
 * `block`
-* `expr` 式文に使用
+* `expr` 式に使用
 * `ident` 関数、変数の名前に使用
 * `item`
 * `literal` is used for literal constants

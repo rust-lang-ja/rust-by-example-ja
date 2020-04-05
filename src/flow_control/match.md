@@ -29,7 +29,7 @@ fn main() {
 
     let boolean = true;
     // Match is an expression too
-    // マッチは式文でもある。
+    // マッチは式でもある。
     let binary = match boolean {
         // The arms of a match must cover all the possible values
         // マッチは全ての可能な値をカバーしなくてはならない

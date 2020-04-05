@@ -1,7 +1,7 @@
 <!--
 # Expressions
 -->
-# 式文
+# 式
 
 <!--
 A Rust program is (mostly) made up of a series of statements:
@@ -20,7 +20,7 @@ fn main() {
 There are a few kinds of statements in Rust. The most common two are declaring
 a variable binding, and using a `;` with an expression:
 -->
-宣言文にはいくつかの種類があります。最も一般的なのは変数の束縛(`variable binding`)と式文(`expression`)で、いずれも行末に`;`が付きます
+宣言文にはいくつかの種類があります。最も一般的なのは変数の束縛(`variable binding`)と`;`付きの式(`expression`)です
 
 ```
 fn main() {
@@ -29,7 +29,7 @@ fn main() {
     let x = 5;
 
     // expression;
-    // 式文
+    // 式;
     x;
     x + 1;
     15;
@@ -53,7 +53,7 @@ fn main() {
         let x_cube = x_squared * x;
 
         // This expression will be assigned to `y`
-        // この式文は`y`に代入されます。
+        // この式は`y`に代入されます。
         x_cube + x_squared + x
     };
 
