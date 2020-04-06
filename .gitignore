@@ -1,13 +1,2 @@
-*.swp
-Cargo.lock
-bin/*
-count_table
 docs/
-gh-pages
-node_modules/*
-!node_modules/gitbook-plugin-rust-playpen
-node_modules/gitbook-plugin-rust-playpen/book/ace
-node_modules/gitbook-plugin-rust-playpen/book/mode-rust.js
-rust-playgen
-stage/*
-target
+
