@@ -18,6 +18,7 @@ foo<'a>
 // `foo`は`'a`というライフタイムパラメータを持ちます。
 ```
 
+<!--
 Similar to [closures][anonymity], using lifetimes requires generics. 
 Additionally, this lifetime syntax indicates that the lifetime of `foo` 
 may not exceed that of `'a`. Explicit annotation of a type has the form 
