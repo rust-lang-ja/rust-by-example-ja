@@ -1,15 +1,24 @@
-# aliases for `Result`
+# `Result`に対するエイリアス
 
+<!--
 How about when we want to reuse a specific `Result` type many times?
 Recall that Rust allows us to create [aliases][typealias]. Conveniently,
 we can define one for the specific `Result` in question.
+-->
+特定の`Result`型を何度も使いたくなるのはどんな時でしょう？Rustは[エイリアス][typealias]の作成をサポートしていたことを思い出してください。便利なことに、議題である特定の`Result`型に対しても定義することができます。
 
+<!--
 At a module level, creating aliases can be particularly helpful. Errors
 found in a specific module often have the same `Err` type, so a single alias
 can succinctly define *all* associated `Results`. This is so useful that the
 `std` library even supplies one: [`io::Result`][io_result]!
+-->
+モジュールレベルでは、エイリアスの作成は非常に役に立ちます。特定のモジュールで見られるエラーは同じ`Err`型を持つため、単一のエイリアスで簡潔に`Results`に関わる*全て*を定義できます。`std`ライブラリが提供するもの（[`io::Result`][io_result]）もあるほど有益なのです！
 
+<!--
 Here's a quick example to show off the syntax:
+-->
+簡単な例で構文を見てみましょう。
 
 ```rust,editable
 use std::num::ParseIntError;
