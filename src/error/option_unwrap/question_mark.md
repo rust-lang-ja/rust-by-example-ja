@@ -1,4 +1,4 @@
-# `?`によるアンパックオプション
+# `?`による`Option`のアンパック
 
 <!--
 You can unpack `Option`s by using `match` statements, but it's often easier to
