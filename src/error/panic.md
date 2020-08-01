@@ -11,7 +11,7 @@ Here, we explicitly call `panic` on our error condition:
 ```rust,editable,ignore,mdbook-runnable
 fn give_princess(gift: &str) {
     // Princesses hate snakes, so we need to stop if she disapproves!
-    // プリンセスはヘビを嫌うので、プレゼントとして渡してはいけません！
+    // お姫様はヘビを嫌うので、贈り物として渡してはいけません！
     if gift == "snake" { panic!("AAAaaaaa!!!!"); }
 
     println!("I love {}s!!!!!", gift);
