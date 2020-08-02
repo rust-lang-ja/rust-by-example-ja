@@ -1,18 +1,25 @@
-# `Box`ing errors
+# エラーを`Box`する
 
+<!--
 A way to write simple code while preserving the original errors is to [`Box`][box]
 them.  The drawback is that the underlying error type is only known at runtime and not
 [statically determined][dynamic_dispatch].
+-->
+元のエラーを維持しながらシンプルなコードを書くには、[`Box`][box]してしまうと良いでしょう。欠点として、根底にあるエラー型はランタイムまで判明せず、[静的に決定][dynamic_dispatch]されないことが挙げられます。
 
+<!--
 The stdlib helps in boxing our errors by having `Box` implement conversion from
 any type that implements the `Error` trait into the trait object `Box<Error>`,
 via [`From`][from].
+-->
+標準ライブラリは`Box`に、[`From`][from]を介してあらゆる`Error`トレートを実装した型から`Box<Error>`トレートオブジェクトへの変換を実装させることで、エラーをboxしやすくしてくれます。
 
 ```rust,editable
 use std::error;
 use std::fmt;
 
 // Change the alias to `Box<error::Error>`.
+// エイリアスを`Box<error::Error>`に変換する。
 type Result<T> = std::result::Result<T, Box<dyn error::Error>>;
 
 #[derive(Debug, Clone)]
@@ -31,6 +38,7 @@ impl error::Error for EmptyVec {
 
     fn cause(&self) -> Option<&(dyn error::Error)> {
         // Generic error, underlying cause isn't tracked.
+        // 基本となるエラー、原因は記録されていない。
         None
     }
 }
@@ -38,9 +46,11 @@ impl error::Error for EmptyVec {
 fn double_first(vec: Vec<&str>) -> Result<i32> {
     vec.first()
         .ok_or_else(|| EmptyVec.into()) // Converts to Box
+                                        // Boxに変換
         .and_then(|s| {
             s.parse::<i32>()
                 .map_err(|e| e.into()) // Converts to Box
+                                       // Boxに変換
                 .map(|i| 2 * i)
         })
 }
@@ -63,7 +73,7 @@ fn main() {
 }
 ```
 
-### See also:
+### 参考:
 
 [Dynamic dispatch][dynamic_dispatch] and [`Error` trait][error]
 
