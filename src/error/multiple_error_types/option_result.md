@@ -1,3 +1,6 @@
+<!--
+# Pulling `Result`s out of `Option`s
+-->
 # `Option`から`Result`を取り出す
 
 <!--

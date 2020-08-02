@@ -1,3 +1,6 @@
+<!--
+# Iterating over `Result`s
+-->
 # `Result`をイテレートする
 
 `Iter::map`オペレーションは失敗することもあります。例えば、

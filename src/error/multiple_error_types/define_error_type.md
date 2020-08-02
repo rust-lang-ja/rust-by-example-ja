@@ -1,3 +1,6 @@
+<!--
+# Defining an error type
+-->
 # エラー型を定義する
 
 <!--

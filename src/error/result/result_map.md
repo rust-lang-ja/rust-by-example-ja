@@ -1,3 +1,6 @@
+<!--
+# `map` for `Result`
+-->
 # `Result`の`map`
 
 <!--

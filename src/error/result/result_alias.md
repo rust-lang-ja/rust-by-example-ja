@@ -1,3 +1,6 @@
+<!--
+# aliases for `Result`
+-->
 # `Result`に対するエイリアス
 
 <!--

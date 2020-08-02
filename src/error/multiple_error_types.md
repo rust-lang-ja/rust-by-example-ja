@@ -1,3 +1,6 @@
+<!--
+# Multiple error types
+-->
 # 複数のエラー型
 
 <!--
