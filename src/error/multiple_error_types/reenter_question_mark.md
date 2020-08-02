@@ -102,9 +102,9 @@ top level.
 -->
 これでかなり綺麗になりました。元の`panic`と比べ、リターン型が`Result`であることを除けば、`unwrap`の呼び出しを`?`で置き換える点で非常に似ています。結果、最も上のレベルで分解されなければなりません。
 
-### 参考：
+### See also:
 
-[`From::from`][from] と [`?`][q_mark]
+[`From::from`][from] and [`?`][q_mark]
 
 [from]: https://doc.rust-lang.org/std/convert/trait.From.html
 [q_mark]: https://doc.rust-lang.org/reference/expressions/operator-expr.html#the-question-mark-operator

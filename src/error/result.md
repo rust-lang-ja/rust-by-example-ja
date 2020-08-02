@@ -75,6 +75,9 @@ about the return type and consider explicitly handling the error.
 -->
 エラーメッセージを改善するために、リターン型に対してもっと明確になるべきで、またエラーを明示的に処理することを考えるべきです。
 
+<!--
+## Using `Result` in `main`
+-->
 ## `main`内で使う`Result`
 
 <!--

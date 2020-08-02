@@ -95,9 +95,9 @@ for you.
 -->
 これはエラーの処理のボイラープレートを増やしてしまい、全てのアプリケーションで必要になる訳では無いでしょう。これらのボイラープレートの処理を代わりにやってくれるようなライブラリもあります。
 
-### 参考：
+### See also:
 
-[`From::from`][from] と [`Enums`][enums]
+[`From::from`][from] and [`Enums`][enums]
 
 [from]: https://doc.rust-lang.org/std/convert/trait.From.html
 [enums]: ../../custom_types/enum.md

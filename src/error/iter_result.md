@@ -3,6 +3,9 @@
 -->
 # `Result`をイテレートする
 
+<!--
+An `Iter::map` operation might fail, for example:
+-->
 `Iter::map`オペレーションは失敗することもあります。例えば、
 
 ```rust,editable
@@ -21,6 +24,9 @@ Let's step through strategies for handling this.
 -->
 ここでは、この対処法についてみてみましょう。
 
+<!--
+## Ignore the failed items with `filter_map()`
+-->
 ## `filter_map()`を使って失敗した要素のみを無視する
 
 <!--
@@ -40,6 +46,9 @@ fn main() {
 }
 ```
 
+<!--
+## Fail the entire operation with `collect()`
+-->
 ## `collect()`で全ての処理を失敗させる
 
 <!--
@@ -59,11 +68,15 @@ fn main() {
     println!("Results: {:?}", numbers);
 }
 ```
+
 <!--
 This same technique can be used with `Option`.
 -->
 同じテクニックは、`Option`を用いて行うこともできます。
 
+<!--
+## Collect all valid values and failures with `partition()`
+-->
 ## `partition()`を使って全ての正常な値と失敗をまとめる
 
 ```rust,editable
