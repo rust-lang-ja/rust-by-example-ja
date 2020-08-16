@@ -169,12 +169,13 @@ a lifetime uses an apostrophe character as follows:
 // `foo` has a lifetime parameter `'a`
 // `foo`は`'a`というライフタイムパラメータを持ちます。
 </code></pre>
-<p>Similar to <a href="../../fn/closures/anonymity.html">closures</a>, using lifetimes requires generics. 
-Additionally, this lifetime syntax indicates that the lifetime of <code>foo</code> 
-may not exceed that of <code>'a</code>. Explicit annotation of a type has the form 
-<code>&amp;'a T</code> where <code>'a</code> has already been introduced.
---&gt;
-<a href="../../fn/closures/anonymity.html">クロージャ</a>と同様、ライフタイムの使用はジェネリクスを必要とします。もう少し詳しく言うと、この書き方は「<code>foo</code>のライフタイムは<code>'a</code>のそれを超えることはない。」ということを示しており、型を明示した場合<code>'a</code>は<code>&amp;'a T</code>となるということです。</p>
+<!--
+Similar to [closures][anonymity], using lifetimes requires generics. 
+Additionally, this lifetime syntax indicates that the lifetime of `foo` 
+may not exceed that of `'a`. Explicit annotation of a type has the form 
+`&'a T` where `'a` has already been introduced.
+-->
+<p><a href="../../fn/closures/anonymity.html">クロージャ</a>と同様、ライフタイムの使用はジェネリクスを必要とします。もう少し詳しく言うと、この書き方は「<code>foo</code>のライフタイムは<code>'a</code>のそれを超えることはない。」ということを示しており、型を明示した場合<code>'a</code>は<code>&amp;'a T</code>となるということです。</p>
 <!--
 In cases with multiple lifetimes, the syntax is similar:
 -->
