@@ -135,7 +135,7 @@ Now let's begin!
 <!--
 - [Testing](testing.md) - All sorts of testing in Rust.
 -->
-- [Testing](testing.md) - Rustにおけるテストのすべて。
+- [テスト](testing.md) - Rustにおけるテストのすべて。
 
 <!--
 - [Unsafe Operations](unsafe.md)
