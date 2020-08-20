@@ -50,17 +50,17 @@ Now let's begin!
 <!--
 - [Variable Bindings](variable_bindings.md) - mutable bindings, scope, shadowing.
 -->
-- [変数バインディング](variable_bindings.md) - ミュータブルな束縛、スコープ、シャドーイングについて。
+- [変数の束縛](variable_bindings.md) - ミュータブルな束縛、スコープ、シャドーイングについて。
 
 <!--
 - [Types](types.md) - Learn about changing and defining types.
 -->
-- [Types](types.md) - 型を変更したり定義したりすることを学びましょう。
+- [型](types.md) - 型を変更したり定義したりすることを学びましょう。
 
 <!--
 - [Conversion](conversion.md)
 -->
-- [Conversion](conversion.md)
+- [型変換](conversion.md)
 
 <!--
 - [Expressions](expression.md)
@@ -70,7 +70,7 @@ Now let's begin!
 <!--
 - [Flow of Control](flow_control.md) - `if`/`else`, `for`, and others.
 -->
-- [Flow of Control](flow_control.md) - `if`や`else`、`for`など。
+- [制御フロー](flow_control.md) - `if`や`else`、`for`など。
 
 <!--
 - [Functions](fn.md) - Learn about Methods, Closures and High Order Functions.
@@ -80,7 +80,7 @@ Now let's begin!
 <!--
 - [Modules](mod.md) - Organize code using modules
 -->
-- [モジュール](mod.md) - プログラムをモジュールを使って整理する
+- [モジュール](mod.md) - プログラムをモジュールを使って整理しましょう。
 
 <!--
 - [Crates](crates.md) - A crate is a compilation unit in Rust. Learn to create a library.
@@ -105,14 +105,17 @@ Now let's begin!
 <!--
 - [Scoping rules](scope.md) - Scopes play an important part in ownership, borrowing, and lifetimes.
 -->
-- [スコーピングの規則](scope.md) - スコープは所有権、借用、ライフタイムにおいて重要な役割を果たします。
+- [スコープの規則](scope.md) - スコープは所有権、借用、ライフタイムにおいて重要な役割を果たします。
 
 <!--
 - [Traits](trait.md) - A trait is a collection of methods defined for an unknown type: `Self`
 -->
 - [トレイト](trait.md) - トレイトとは、未知の型`Self`に対して定義された一連のメソッドです。
 
+<!--
 - [Macros](macros.md)
+-->
+- [マクロ](macros.md)
 
 <!--
 - [Error handling](error.md) - Learn Rust way of handling failures.
@@ -127,7 +130,7 @@ Now let's begin!
 <!--
 - [Std misc](std_misc.md) - More custom types for file handling, threads.
 -->
-- [標準ライブラリのその他](std_misc.md) - ファイルハンドリングのためのその他のカスタム型と、スレッドについて。
+- [標準ライブラリのその他](std_misc.md) - ファイルハンドリングとスレッドのためのカスタム型について。
 
 <!--
 - [Testing](testing.md) - All sorts of testing in Rust.
@@ -142,7 +145,7 @@ Now let's begin!
 <!--
 - [Compatibility](compatibility.md)
 -->
-- [Compatibility](compatibility.md)
+- [互換性](compatibility.md)
 
 <!--
 - [Meta](meta.md) - Documentation, Benchmarking.
