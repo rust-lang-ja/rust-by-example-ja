@@ -45,7 +45,7 @@ type Result<T> = std::result::Result<T, DoubleError>;
 // Now we will be able to write our own errors, defer to an underlying error
 // implementation, or do something in between.
 // 自前のエラー型の定義。エラーハンドリングのケースの応じてカスタマイズされる。
-// ここで新たなエラーを書くことができ、根底にあるエラーの実装に処理を延期したり、
+// ここで新たなエラーを書くことができ、元のエラーの実装に処理を委譲したり、
 // その手前で何らかの処理を挟むことができます。
 #[derive(Debug, Clone)]
 struct DoubleError;
@@ -78,7 +78,7 @@ impl error::Error for DoubleError {
 fn double_first(vec: Vec<&str>) -> Result<i32> {
     vec.first()
         // Change the error to our new type.
-        // エラーを新たな型に変換する。
+        // エラーを新たな型に変更する。
         .ok_or(DoubleError)
         .and_then(|s| {
             s.parse::<i32>()

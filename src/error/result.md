@@ -29,7 +29,7 @@ Like `Option`, `Result` has many methods associated with it. `unwrap()`, for
 example, either yields the element `T` or `panic`s. For case handling,
 there are many combinators between `Result` and `Option` that overlap.
 -->
-`Option`と同様、`Result`は多くのメソッドを持ちます。例えば`unwrap()`は、`T`もしくは`panic`を受け渡します。エラーハンドリングでは、`Result`と`Option`で重複するコンビネータが多くあります。
+`Option`と同様、`Result`は多くのメソッドを持ちます。例えば`unwrap()`は、`T`もしくは`panic`をもたらします。エラーハンドリングでは、`Result`と`Option`で重複するコンビネータが多くあります。
 
 <!--
 In working with Rust, you will likely encounter methods that return the
@@ -42,12 +42,12 @@ Rustを書いていく中で、[`parse()`][parse]メソッドなど、`Result`�
 <!--
 Let's see what happens when we successfully and unsuccessfully `parse()` a string:
 -->
-早速、`parse()`による文字列の成功例と失敗例を共に見てみましょう。
+早速、文字列を`parse()`した場合の成功例と失敗例を見てみましょう。
 
 ```rust,editable,ignore,mdbook-runnable
 fn multiply(first_number_str: &str, second_number_str: &str) -> i32 {
     // Let's try using `unwrap()` to get the number out. Will it bite us?
-    // `unwrap()`で数字を取り出しましてみましょう。痛い目を見るでしょうか？
+    // `unwrap()`で数字を取り出してみましょう。痛い目を見るでしょうか？
     let first_number = first_number_str.parse::<i32>().unwrap();
     let second_number = second_number_str.parse::<i32>().unwrap();
     first_number * second_number
@@ -67,7 +67,7 @@ In the unsuccessful case, `parse()` leaves us with an error for `unwrap()`
 to `panic` on. Additionally, the `panic` exits our program and provides an
 unpleasant error message.
 -->
-失敗例では、`parse()`は`unwrap()`がパニックするためのエラーを残します。そして、`panic`はプログラムを終了させて不快なエラーメッセージを出力します。
+失敗例では、`parse()`がエラーを返すため`unwrap()`がパニックします。そして、`panic`はプログラムを終了させて不快なエラーメッセージを出力します。
 
 <!--
 To improve the quality of our error message, we should be more specific
@@ -98,7 +98,7 @@ occurs within the `main` function it will return an error code and print a debug
 representation of the error (using the [`Debug`] trait). The following example
 shows such a scenario and touches on aspects covered in [the following section].
 -->
-一方`main`で`Result`をリターン型とする場合、エラーが`main`関数内で発生した時、エラーコードを返し、エラーに関するデバッグ表記を（[`Debug`]トレートを使って）出力します。以下の例ではそのようなシナリオを示し、[この先の節]でカバーする内容に触れていきます。
+一方`main`で`Result`をリターン型とすることも可能です。エラーが`main`関数内で発生した時、エラーコードを返し、エラーに関するデバッグ表記を（[`Debug`]トレートを使って）出力します。以下の例ではそのようなシナリオを示し、[この先の節]でカバーする内容に触れていきます。
 
 ```rust,editable
 use std::num::ParseIntError;
@@ -119,4 +119,7 @@ fn main() -> Result<(), ParseIntError> {
 [result]: https://doc.rust-lang.org/std/result/enum.Result.html
 [parse]: https://doc.rust-lang.org/std/primitive.str.html#method.parse
 [`Debug`]: https://doc.rust-lang.org/std/fmt/trait.Debug.html
+<!--
+[the following section]: result/early_returns.md
+-->
 [この先の節]: result/early_returns.md

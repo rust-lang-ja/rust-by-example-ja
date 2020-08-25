@@ -16,7 +16,7 @@ There are various ways to deal with errors in Rust, which are described in the
 following subchapters. They all have more or less subtle differences and different
 use cases. As a rule of thumb:
 -->
-Rustには、これからこの章で見ていく通り、エラーを処理するためのあらゆる方法が存在します。それらは全て僅かに異なり、ユースケースも異なります。経験則として：
+Rustには、これからこの章で見ていく通り、エラーを処理するための様々な方法が存在します。それらは全て僅かに異なり、ユースケースも異なります。経験則として：
 
 <!--
 An explicit `panic` is mainly useful for tests and dealing with unrecoverable errors.
@@ -34,7 +34,7 @@ where it's absolutely certain that there is guaranteed to be a value. However `e
 is more useful since it lets you specify an error message in case something goes
 wrong anyway.
 -->
-`Option`型は値があるとは限らない場合や、値が無いことがエラーの条件とならない場合に有効です。例えば親を持たないディレクトリ（`/`や`C:`などのルートディレクトリ）などです。`Option`を扱う際は、`unwrap`がプロトタイプや値が確実に存在することが約束されるケースに使えます。しかし、`expect`の方が何かが上手くいかなかった際にエラーメッセージを指定することができるため、より便利でしょう。
+`Option`型は値があるとは限らない場合や、値が無いことがエラーの条件とならない場合に有効です。例えば親ディレクトリ（`/`や`C:`はそれを持ちません）などです。`Option`を扱う際は、`unwrap`がプロトタイプや値が確実に存在することが約束されるケースに使えます。しかし、`expect`の方が何かが上手くいかなかった際にエラーメッセージを指定することができるため、より便利でしょう。
 
 <!--
 When there is a chance that things do go wrong and the caller has to deal with the

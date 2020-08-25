@@ -49,14 +49,14 @@ fn main() {
 <!--
 ## Fail the entire operation with `collect()`
 -->
-## `collect()`で全ての処理を失敗させる
+## `collect()`で処理全体を失敗させる
 
 <!--
 `Result` implements `FromIter` so that a vector of results (`Vec<Result<T, E>>`)
 can be turned into a result with a vector (`Result<Vec<T>, E>`). Once an
 `Result::Err` is found, the iteration will terminate.
 -->
-`Result`は、それらのベクトル(`Vec<Result<T, E>>`)がベクトルのそれ(`Result<Vec<T>, E>`)へと変換できるようにするため、`FromIter`を実装します。`Result::Err`が見つかり次第、イテレーションは終了します。
+`Result`は、それらのベクトル(`Vec<Result<T, E>>`)からベクトルのそれ(`Result<Vec<T>, E>`)へと変換できるようにするため、`FromIter`を実装します。`Result::Err`が見つかり次第、イテレーションは終了します。
 
 ```rust,editable
 fn main() {

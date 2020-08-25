@@ -9,7 +9,7 @@ use the `?` operator. If `x` is an `Option`, then evaluating `x?` will return
 the underlying value if `x` is `Some`, otherwise it will terminate whatever
 function is being executed and return `None`.
 -->
-`Option`をアンパックするには`match`文を使うこともできますが、`?`を使う方が簡単になることが多いでしょう。`Option`の`x`があるとすると、`x?`を評価した値は、`x`が`Some`の場合は`x`の値となり、そうでなければ実行中の関数を終了させ、`None`を返します。
+`Option`をアンパックするには`match`文を使うこともできますが、`?`を使う方が簡単になることが多いでしょう。`Option`の`x`があるとすると、`x?`を評価した値は、`x`が`Some`の場合は`x`に格納された値となり、そうでなければ実行中の関数を終了させ、`None`を返します。
 
 
 ```rust,editable
@@ -26,7 +26,7 @@ fn next_birthday(current_age: Option<u8>) -> Option<String> {
 <!--
 You can chain many `?`s together to make your code much more readable.
 -->
-多くの`?`を共に使うことで、リーダブルなコードを描くことができます。
+多くの`?`を共に使うことで、リーダブルなコードを書くことができます。
 
 ```rust,editable
 struct Person {

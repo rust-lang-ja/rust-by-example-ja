@@ -8,7 +8,7 @@ In the previous example, we explicitly handled the errors using combinators.
 Another way to deal with this case analysis is to use a combination of
 `match` statements and *early returns*.
 -->
-前の例では、コンビネータの活用によりエラーを明示的に処理しました。場合分けに対する別の対処法として、`match`文のコンビネータと早期リターンを使うこともできます。
+前の例では、コンビネータの活用によりエラーを明示的に処理しました。場合分けに対する別の対処法として、`match`文と早期リターンを組み合わせて使うこともできます。
 
 <!--
 That is, we can simply stop executing the function and return the error if

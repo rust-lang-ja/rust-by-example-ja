@@ -93,7 +93,9 @@ fn main() {
 }
 ```
 
-
+<!--
+[^†]: See [re-enter ?][re_enter_?] for more details.
+-->
 [^†]: 詳細は[re-enter ?][re_enter_?]を参照。
 
 [re_enter_?]: ../multiple_error_types/reenter_question_mark.md

@@ -8,7 +8,7 @@ A way to write simple code while preserving the original errors is to [`Box`][bo
 them.  The drawback is that the underlying error type is only known at runtime and not
 [statically determined][dynamic_dispatch].
 -->
-元のエラーを維持しながらシンプルなコードを書くには、[`Box`][box]してしまうと良いでしょう。欠点として、根底にあるエラー型はランタイムまで判明せず、[静的に決定][dynamic_dispatch]されないことが挙げられます。
+元のエラーを維持しながらシンプルなコードを書くには、[`Box`][box]してしまうと良いでしょう。欠点として、元のエラー型はランタイムまで判明せず、[静的に決定][dynamic_dispatch]されないことが挙げられます。
 
 <!--
 The stdlib helps in boxing our errors by having `Box` implement conversion from
@@ -22,7 +22,7 @@ use std::error;
 use std::fmt;
 
 // Change the alias to `Box<error::Error>`.
-// エイリアスを`Box<error::Error>`に変換する。
+// エイリアスを`Box<error::Error>`に変更する。
 type Result<T> = std::result::Result<T, Box<dyn error::Error>>;
 
 #[derive(Debug, Clone)]

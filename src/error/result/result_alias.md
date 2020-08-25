@@ -8,7 +8,7 @@ How about when we want to reuse a specific `Result` type many times?
 Recall that Rust allows us to create [aliases][typealias]. Conveniently,
 we can define one for the specific `Result` in question.
 -->
-特定の`Result`型を何度も使いたくなるのはどんな時でしょう？Rustは[エイリアス][typealias]の作成をサポートしていたことを思い出してください。便利なことに、議題である特定の`Result`型に対しても定義することができます。
+特定の`Result`型を何度も使いたくなるのはどんな時でしょう？Rustは[エイリアス][typealias]の作成をサポートしていたことを思い出してください。便利なことに、特定の`Result`型に対しても定義することができます。
 
 <!--
 At a module level, creating aliases can be particularly helpful. Errors

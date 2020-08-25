@@ -16,7 +16,7 @@ the `Err` type, we look to [`parse()`][parse], which is implemented with the
 [`FromStr`][from_str] trait for [`i32`][i32]. As a result, the `Err` type is
 specified as [`ParseIntError`][parse_int_error].
 -->
-まずは、どのようなエラー型を扱っているのかを知る必要があります。`Err`型を定めるために、[`i32`][i32]に対し[`FromStr`][from_str]トレートを使って実装された[`parse()`][parse]を見ます。結果、`Err`型は[`ParseIntError`][parse_int_error]というものであることが分かります。
+まずは、どのようなエラー型を扱っているのかを知る必要があります。`Err`型を定めるために、[`i32`][i32]に対し[`FromStr`][from_str]トレートを使って実装された[`parse()`][parse]を見てみましょう。結果、`Err`型は[`ParseIntError`][parse_int_error]というものであることが分かります。
 
 <!--
 In the example below, the straightforward `match` statement leads to code
@@ -76,8 +76,8 @@ use std::num::ParseIntError;
 // This function is otherwise identical to the one above and reads:
 // Modify n if the value is valid, otherwise pass on the error.
 // `Option`と同様、`map()`などのコンビネータを使うことができます。
-// そうでなければこの関数は上記のものと等しくなり、
-// 値が有効ならnを変更し、向こうであればエラーをそのまま見送ります。
+// この関数は`map()`を使っている点以外は上記の関数と同じで、
+// 値が有効ならnを変更し、無効であればエラーをそのまま見送ります。
 fn multiply(first_number_str: &str, second_number_str: &str) -> Result<i32, ParseIntError> {
     first_number_str.parse::<i32>().and_then(|first_number| {
         second_number_str.parse::<i32>().map(|second_number| first_number * second_number)

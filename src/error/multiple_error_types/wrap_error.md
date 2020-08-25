@@ -20,7 +20,7 @@ enum DoubleError {
     EmptyVec,
     // We will defer to the parse error implementation for their error.
     // Supplying extra info requires adding more data to the type.
-    // パースエラーの実装まで処理を延期します。
+    // パースエラーの実装まで処理を委譲します。
     // 追加の情報を提供するには、型により多くのデータを追加する必要があります。
     Parse(ParseIntError),
 }
@@ -56,7 +56,7 @@ impl error::Error for DoubleError {
 // This will be automatically called by `?` if a `ParseIntError`
 // needs to be converted into a `DoubleError`.
 // `ParseIntError`から`DoubleError`への変換の実装。
-// `ParseIntError`が`DoubleError`に変換される必要がある時、自動的に`?`に呼び出される。
+// `ParseIntError`が`DoubleError`に変換される必要がある時、自動的に`?`から呼び出される。
 impl From<ParseIntError> for DoubleError {
     fn from(err: ParseIntError) -> DoubleError {
         DoubleError::Parse(err)

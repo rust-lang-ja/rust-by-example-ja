@@ -42,7 +42,7 @@ use std::error;
 use std::fmt;
 
 // Change the alias to `Box<dyn error::Error>`.
-// エイリアスを`Box<error::Error>`に変換する。
+// エイリアスを`Box<error::Error>`に変更する。
 type Result<T> = std::result::Result<T, Box<dyn error::Error>>;
 
 #[derive(Debug)]
@@ -68,7 +68,7 @@ impl error::Error for EmptyVec {
 
 // The same structure as before but rather than chain all `Results`
 // and `Options` along, we `?` to get the inner value out immediately.
-// 前と同じ構造だが、`Results`と`Option`を繋げていくより、
+// 前と同じ構造だが、`Results`と`Option`を繋げていく代わりに、
 // `?`で内部の値をその場で取得します。
 fn double_first(vec: Vec<&str>) -> Result<i32> {
     let first = vec.first().ok_or(EmptyVec)?;
@@ -100,7 +100,7 @@ is very similar to replacing the `unwrap` calls with `?` except that the
 return types are `Result`. As a result, they must be destructured at the
 top level.
 -->
-これでかなり綺麗になりました。元の`panic`と比べ、リターン型が`Result`であることを除けば、`unwrap`の呼び出しを`?`で置き換える点で非常に似ています。結果、最も上のレベルで分解されなければなりません。
+これでかなり綺麗になりました。元の`panic`と比べ、リターン型が`Result`であることを除けば、`unwrap`の呼び出しを`?`で置き換えたものに非常に似ています。結果、その`Result`は上のレベルで分解されなければなりません。
 
 ### See also:
 
