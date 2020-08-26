@@ -1,16 +1,28 @@
+<!--
 # `Option` & `unwrap`
+-->
+# `Option` と `unwrap`
 
+<!--
 In the last example, we showed that we can induce program failure at will. 
 We told our program to `panic` if the princess received an inappropriate 
 gift - a snake. But what if the princess expected a gift and didn't receive 
 one? That case would be just as bad, so it needs to be handled!
+ -->
+以前の例では、お姫様に不適切な贈り物（ヘビ）を渡した際に`panic`を呼び出すことによって、自由にプログラムの実行を失敗させられることが分かりました。では、お姫様が贈り物を期待しているにもかかわらず、何も受け取らなかったらどうなるでしょう？ヘビを受け取るのに劣らない悲惨なケースになるので、エラーハンドリングする必要があります！
 
+<!--
 We *could* test this against the null string (`""`) as we do with a snake. 
 Since we're using Rust, let's instead have the compiler point out cases 
 where there's no gift.
+-->
+このケースに対して、ヘビと同じように、空文字列（`""`）と比較することもできますが、せっかくRustを使っているので、その代わりにコンパイラに贈り物がないケースを指摘させてみましょう。
 
+<!--
 An `enum` called `Option<T>` in the `std` library is used when absence is a 
 possibility. It manifests itself as one of two "options":
+-->
+`std`ライブラリの中の、`Option<T>`と呼ばれる`enum`は、任意の型`T`である変数の値が存在しない可能性がある場合に用いられます。値の状態によって、下記２つのパターンのうちの１つとして扱われます。
 
 <!--
 * `Some(T)`: An element of type `T` was found
