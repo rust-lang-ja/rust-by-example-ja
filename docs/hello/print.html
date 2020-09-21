@@ -171,10 +171,10 @@ some of which include:
 -->
 <ul>
 <li><code>format!</code>: フォーマットされたテキストを文字列(String)型に書き込みます。</li>
-<li><code>print!</code>: <code>format!</code> と同様ですが、コンソールにそのテキストを出力します。</li>
+<li><code>print!</code>: <code>format!</code> と同様ですが、コンソール (io::stdout) にそのテキストを出力します。</li>
 <li><code>println!</code>: <code>print!</code>: と同じですが改行が付け加えられます。</li>
-<li><code>eprint!</code>: same as <code>format!</code> but the text is printed to the standard error (io::stderr).</li>
-<li><code>eprintln!</code>: same as <code>eprint!</code>but a newline is appended.</li>
+<li><code>eprint!</code>: <code>format!</code> と同様ですが、標準エラー出力 (io::stderr) にそのテキストを出力します。</li>
+<li><code>eprintln!</code>: <code>eprint!</code>と同じですが改行が付け加えられます。</li>
 </ul>
 <!--
 All parse text in the same fashion. As a plus, Rust checks formatting
