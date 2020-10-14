@@ -1,4 +1,7 @@
+<!--
 # Types
+-->
+# 型
 
 Rust provides several mechanisms to change or define the type of primitive and
 user defined types. The following sections cover:
