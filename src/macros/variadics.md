@@ -1,13 +1,24 @@
+<!--
 # Variadic Interfaces
+-->
+# 可変なインターフェース
 
+<!--
 A _variadic_ interface takes an arbitrary number of arguments. For example,
 `println!` can take an arbitrary number of arguments, as determined by the
 format string.
+-->
+*可変な*インターフェースとは、任意の数の引数を取るものです。
+例えば、`println!`は、フォーマット文字列の定義に従い、任意の数の引数を取ることができます。
 
+<!--
 We can extend our `calculate!` macro from the previous section to be variadic:
+-->
+前のセクションの`calculate!`マクロを、可変に拡張することができます：
 
 ```rust,editable
 macro_rules! calculate {
+    // 単一の`eval`のためのパターン
     // The pattern for a single `eval`
     (eval $e:expr) => {{
         {
@@ -16,6 +27,7 @@ macro_rules! calculate {
         }
     }};
 
+    // 複数の`eval`を再帰的に分解する
     // Decompose multiple `eval`s recursively
     (eval $e:expr, $(eval $es:expr),+) => {{
         calculate! { eval $e }
@@ -24,6 +36,7 @@ macro_rules! calculate {
 }
 
 fn main() {
+                 // ほら！可変な`calculate!`だよ！
     calculate! { // Look ma! Variadic `calculate!`!
         eval 1 + 2,
         eval 3 + 4,
@@ -32,7 +45,10 @@ fn main() {
 }
 ```
 
+<!--
 Output:
+-->
+出力：
 
 ```txt
 1 + 2 = 3

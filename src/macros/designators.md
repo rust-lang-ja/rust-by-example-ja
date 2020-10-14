@@ -73,10 +73,6 @@ These are some of the available designators:
 * `block`
 * `expr` is used for expressions
 * `ident` is used for variable/function names
--->
-* `block`
-* `expr` 式に使用
-* `ident` 関数、変数の名前に使用
 * `item`
 * `literal` is used for literal constants
 * `pat` (*pattern*)
@@ -85,7 +81,24 @@ These are some of the available designators:
 * `tt` (*token tree*)
 * `ty` (*type*)
 * `vis` (*visibility qualifier*)
+-->
+* `block`
+* `expr` 式に使用
+* `ident` 関数、変数の名前に使用
+* `item`
+* `literal` はリテラル定数（訳注：文字だけではない。[Literal expressions][literal_expressions]を参照）に使用
+* `pat` (*パターン*)
+* `path`
+* `stmt` (*宣言*)
+* `tt` (*トークンツリー*)
+* `ty` (*型*)
+* `vis` (*可視性修飾子*)（訳注：`pub (crate)`とか）
 
+[literal_expressions]:https://doc.rust-lang.org/reference/expressions/literal-expr.html
+
+<!--
 For a complete list, see the [Rust Reference].
+-->
+完全なリストを見るには、[Rustリファレンス][Rust Reference]を読んでください。
 
 [Rust Reference]: https://doc.rust-lang.org/reference/macros-by-example.html

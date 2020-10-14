@@ -17,7 +17,7 @@ In that regard, `macro_rules!` can work similarly to a match block:
 macro_rules! test {
     // Arguments don't need to be separated by a comma.
     // Any template can be used!
-    // 引数はカンマでくぎらなくてもよい
+    // 引数はカンマで区切らなくてもよい
     // テンプレートの形態は自由！
     ($left:expr; and $right:expr) => {
         println!("{:?} and {:?} is {:?}",
