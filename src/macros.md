@@ -10,9 +10,12 @@ abstract syntax trees, rather than string preprocessing, so you don't get
 unexpected precedence bugs.
 -->
 Rustはメタプログラミングを可能にする、パワフルなマクロシステムを備えています。これまで見てきたように、マクロは`!`で終わることを除けば関数のように見えます。関数と違うのは関数呼び出し(`function call`)を生成する代わりに、ソースコード中に展開され、周囲のプログラムとともにコンパイルされる点です。
+
+<!--
 However, unlike macros in C and other languages, Rust macros are expanded into
 abstract syntax trees, rather than string preprocessing, so you don't get
 unexpected precedence bugs.
+-->
 
 <!--
 Macros are created using the `macro_rules!` macro.
