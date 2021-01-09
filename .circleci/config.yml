@@ -5,7 +5,7 @@ jobs:
     docker:
       # For the information about software versions in the image, see the following page:
       # https://github.com/rust-lang-ja/circleci-images/wiki/Docker%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%EF%BC%9ARust-by-Example
-      - image: quay.io/rust-lang-ja/circleci:rust-by-example-mdbook-0.3.7-1
+      - image: quay.io/rust-lang-ja/circleci:rbe-mdbook-0.4.5
     parallelism: 1
     steps:
       - checkout
