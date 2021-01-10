@@ -5,22 +5,36 @@
         <meta charset="UTF-8">
         <title>デバッグ - Rust By Example 日本語版</title>
         
+        
+
+
+        <!-- Custom HTML head -->
+        
+
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A description">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
+        <link rel="icon" href="../../favicon.svg">
+        
+        
         <link rel="shortcut icon" href="../../favicon.png">
+        
         <link rel="stylesheet" href="../../css/variables.css">
         <link rel="stylesheet" href="../../css/general.css">
         <link rel="stylesheet" href="../../css/chrome.css">
+        
         <link rel="stylesheet" href="../../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../../highlight.css">
@@ -38,7 +52,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -118,9 +132,11 @@
                     <h1 class="menu-title">Rust By Example 日本語版</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                         <a href="https://github.com/rust-lang-ja/rust-by-example-ja" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
@@ -171,8 +187,8 @@ not true for `fmt::Display` which must be manually implemented.
 -->
 <p><code>fmt::Debug</code>という<code>トレイト</code>はこれを簡略化します。 <em>すべての</em> 型は<code>fmt::Debug</code>の実装を<code>derive</code>、（すなわち自動で作成）することができるためです。
 <code>fmt::Display</code>の場合はやはり手動で実装しなくてはなりません。</p>
-<pre><pre class="playpen"><code class="language-rust">
-<span class="boring">#![allow(unused_variables)]
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// This structure cannot be printed either with `fmt::Display` or
 // with `fmt::Debug`.
@@ -192,7 +208,7 @@ struct DebugPrintable(i32);
 All `std` library types automatically are printable with `{:?}` too:
 -->
 <p><code>std</code>ライブラリの型の場合は、自動的に<code>{:?}</code>によりプリント可能になっています。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// Derive the `fmt::Debug` implementation for `Structure`. `Structure`
+<pre><pre class="playground"><code class="language-rust editable">// Derive the `fmt::Debug` implementation for `Structure`. `Structure`
 // is a structure which contains a single `i32`.
 // `Structure`という構造体のための`fmt::Debug`をderiveしています。
 // `Structure`は単一の`i32`をメンバに持っています。
@@ -233,7 +249,7 @@ elegance. Rust also provides "pretty printing" with `{:#?}`.
 -->
 <p><code>fmt::Debug</code>は確実にプリント可能にしてくれるのですが、一方である種の美しさを犠牲にしています。
 Rustは<code>{:#?}</code>による「見栄えの良いプリント」も提供します。</p>
-<pre><pre class="playpen"><code class="language-rust editable">#[derive(Debug)]
+<pre><pre class="playground"><code class="language-rust editable">#[derive(Debug)]
 struct Person&lt;'a&gt; {
     name: &amp;'a str,
     age: u8
@@ -299,10 +315,10 @@ and [`struct`][structs]
         
 
         
-        
+
         
         <script type="text/javascript">
-            window.playpen_copyable = true;
+            window.playground_copyable = true;
         </script>
         
 

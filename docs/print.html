@@ -7,22 +7,36 @@
         
         <meta name="robots" content="noindex" />
         
+        
+
+
+        <!-- Custom HTML head -->
+        
+
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A description">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
         <link rel="shortcut icon" href="favicon.png">
+        
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
+        
         <link rel="stylesheet" href="css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
@@ -40,7 +54,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -120,9 +134,11 @@
                     <h1 class="menu-title">Rust By Example 日本語版</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                         <a href="https://github.com/rust-lang-ja/rust-by-example-ja" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
@@ -334,7 +350,7 @@ Now let's begin!
 This is the source code of the traditional Hello World program.
 -->
 <p>ここでは伝統的な&quot;Hello World!&quot;プログラムのソースを紹介します。　</p>
-<pre><pre class="playpen"><code class="language-rust editable">// This is a comment, and is ignored by the compiler
+<pre><pre class="playground"><code class="language-rust editable">// This is a comment, and is ignored by the compiler
 // You can test this code by clicking the &quot;Run&quot; button over there -&gt;
 // or if you prefer to use your keyboard, you can use the &quot;Ctrl + Enter&quot; shortcut
 // これはコメントです。コンパイラによって無視されます。
@@ -421,7 +437,7 @@ a few different varieties:
 </ul>
 </li>
 </ul>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     // This is an example of a line comment
     // There are two slashes at the beginning of the line
     // And nothing written inside these will be read by the compiler
@@ -499,7 +515,7 @@ All parse text in the same fashion. As a plus, Rust checks formatting
 correctness at compile time.
 -->
 <p>すべて同じやり方でテキストをパースし、正しくフォーマットできるかコンパイル時にチェックします。</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">fn main() {
     // In general, the `{}` will be automatically replaced with any
     // arguments. These will be stringified.
     // 一般的に `{} `はどんな引数であろうと自動的に置き換えられます。
@@ -621,8 +637,8 @@ not true for `fmt::Display` which must be manually implemented.
 -->
 <p><code>fmt::Debug</code>という<code>トレイト</code>はこれを簡略化します。 <em>すべての</em> 型は<code>fmt::Debug</code>の実装を<code>derive</code>、（すなわち自動で作成）することができるためです。
 <code>fmt::Display</code>の場合はやはり手動で実装しなくてはなりません。</p>
-<pre><pre class="playpen"><code class="language-rust">
-<span class="boring">#![allow(unused_variables)]
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// This structure cannot be printed either with `fmt::Display` or
 // with `fmt::Debug`.
@@ -642,7 +658,7 @@ struct DebugPrintable(i32);
 All `std` library types automatically are printable with `{:?}` too:
 -->
 <p><code>std</code>ライブラリの型の場合は、自動的に<code>{:?}</code>によりプリント可能になっています。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// Derive the `fmt::Debug` implementation for `Structure`. `Structure`
+<pre><pre class="playground"><code class="language-rust editable">// Derive the `fmt::Debug` implementation for `Structure`. `Structure`
 // is a structure which contains a single `i32`.
 // `Structure`という構造体のための`fmt::Debug`をderiveしています。
 // `Structure`は単一の`i32`をメンバに持っています。
@@ -683,7 +699,7 @@ elegance. Rust also provides "pretty printing" with `{:#?}`.
 -->
 <p><code>fmt::Debug</code>は確実にプリント可能にしてくれるのですが、一方である種の美しさを犠牲にしています。
 Rustは<code>{:#?}</code>による「見栄えの良いプリント」も提供します。</p>
-<pre><pre class="playpen"><code class="language-rust editable">#[derive(Debug)]
+<pre><pre class="playground"><code class="language-rust editable">#[derive(Debug)]
 struct Person&lt;'a&gt; {
     name: &amp;'a str,
     age: u8
@@ -717,8 +733,8 @@ customize the output appearance. This is done by manually implementing
 looks like this:
 -->
 <p><code>fmt::Debug</code>はコンパクトでクリーンであるようには見えませんね。大抵の場合は、アウトプットの見た目をカスタマイズしたほうが好ましいでしょう。これは<code>{}</code>を使用する<a href="https://doc.rust-lang.org/std/fmt/"><code>fmt::Display</code></a>を手動で実装することで可能です。</p>
-<pre><pre class="playpen"><code class="language-rust">
-<span class="boring">#![allow(unused_variables)]
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// Import (via `use`) the `fmt` module to make it available.
 // （`use`を使用し、）`fmt`モジュールをインポートします。
@@ -779,7 +795,7 @@ This is not a problem though because for any new *container* type which is
 *not* generic,`fmt::Display` can be implemented.
 -->
 <p>ジェネリック <em>でない</em> コンテナ型の場合は、このような問題は生じませんので問題なく<code>fmt::Display</code>を実装することができます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::fmt; // Import `fmt`
+<pre><pre class="playground"><code class="language-rust editable">use std::fmt; // Import `fmt`
 
 // A structure holding two numbers. `Debug` will be derived so the results can
 // be contrasted with `Display`.
@@ -900,7 +916,7 @@ With `?` available, implementing `fmt::Display` for a `Vec` is
 straightforward:
 -->
 <p><code>?</code>を使用できれば、<code>Vec</code>用の<code>fmt::Display</code>はより簡単に実装できます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::fmt; // Import the `fmt` module.
+<pre><pre class="playground"><code class="language-rust editable">use std::fmt; // Import the `fmt` module.
 
 // Define a structure named `List` containing a `Vec`.
 // `Vec`を含む`List`という名の構造体を定義
@@ -973,7 +989,7 @@ handles cases where the argument type is left unspecified: `{}` for instance.
 -->
 <p>フォーマットの機能はそれぞれの引数タイプごとに個別のトレイトを用いて実装されています。
 最も一般的なトレイトは<code>Display</code>で、これは引数タイプが未指定（たとえば<code>{}</code>）の時に呼び出されます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::fmt::{self, Formatter, Display};
+<pre><pre class="playground"><code class="language-rust editable">use std::fmt::{self, Formatter, Display};
 
 struct City {
     name: &amp;'static str,
@@ -1101,7 +1117,7 @@ floats to `f64`. Note that Rust can also infer types from context.
 -->
 <p>変数は常に <em>型指定(<code>type annotate</code>)可能</em> です。数値型の場合はさらにサフィックスでの指定が可能です。指定しない場合デフォルトになります。例えば整数は<code>i32</code>が、浮動小数点は<code>f64</code>がデフォルトです。
 Note that Rust can also infer types from context.</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">fn main() {
     // Variables can be type annotated.
     // 変数に型を指定
     let logical: bool = true;
@@ -1168,7 +1184,7 @@ The operators available and their precedence [in Rust][rust op-prec] are similar
 [C-like languages][op-prec].
 -->
 <p>Rustで使用可能な演算子と、<a href="https://doc.rust-lang.org/reference/expressions.html#expression-precedence">その実行順序</a>は、<a href="https://en.wikipedia.org/wiki/Operator_precedence#Programming_languages">Cなどの言語のもの</a>とほぼ同じです。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     // Integer addition
     // 整数の足し算
     println!(&quot;1 + 2 = {}&quot;, 1u32 + 2);
@@ -1209,7 +1225,7 @@ using parentheses `()`, and each tuple itself is a value with type signature
 use tuples to return multiple values, as tuples can hold any number of values.
 -->
 <p>タプルは異なる型の値の集合です。括弧<code>()</code>を用いて生成します。タプル自体がそのメンバに対する型シグネチャを保持していますので、明示すると<code>(T1, T2, ...)</code>のようになります。タプルは大きさに制限がありませんので、関数が複数の値を返したい時に使われます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// Tuples can be used as function arguments and as return values
+<pre><pre class="playground"><code class="language-rust editable">// Tuples can be used as function arguments and as return values
 // タプルを関数の引数及び返り値として使用している。
 fn reverse(pair: (i32, bool)) -&gt; (bool, i32) {
     // `let` can be used to bind the members of a tuple to variables
@@ -1340,7 +1356,7 @@ Slices can be used to borrow a section of an array, and have the type signature
 <p>スライスは配列に似ていますが、コンパイル時にサイズが決定されていません。2つの部分からなり、1つは別のデータへのポインタ、もう1つはスライスの長さです。
 The word size is the same as usize, determined by the processor architecture eg 64 bits on an x86-64.
 配列の一部を借用するのに使用され<code>&amp;[T]</code>という型シグネチャを持ちます。</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">use std::mem;
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">use std::mem;
 
 // This function borrows a slice
 // この関数はスライスを借用する
@@ -1427,7 +1443,7 @@ There are three types of structures ("structs") that can be created using the
 <li>クラシックな<a href="https://en.wikipedia.org/wiki/Struct_(C_programming_language)">C言語スタイルの構造体。</a></li>
 <li>ユニット。これはフィールドを持たず、ジェネリック型を扱う際に有効です。</li>
 </ul>
-<pre><pre class="playpen"><code class="language-rust editable">#[derive(Debug)]
+<pre><pre class="playground"><code class="language-rust editable">#[derive(Debug)]
 struct Person&lt;'a&gt; {
     // The 'a defines a lifetime
     name: &amp;'a str,
@@ -1534,7 +1550,7 @@ different variants. Any variant which is valid as a `struct` is also valid as
 an `enum`.
 -->
 <p>列挙型(<code>enum</code>)はいくつかの異なる型の中から1つを選ぶような場合に使用する。構造体(<code>struct</code>)の定義を満たすものならば何でも<code>enum</code> 内の型として使用できる</p>
-<pre><pre class="playpen"><code class="language-rust editable">// Create an `enum` to classify a web event. Note how both
+<pre><pre class="playground"><code class="language-rust editable">// Create an `enum` to classify a web event. Note how both
 // names and type information together specify the variant:
 // `PageLoad != PageUnload` and `KeyPress(char) != Paste(String)`.
 // Each is different and independent.
@@ -1585,7 +1601,7 @@ fn main() {
 <p>If you use a type alias, you can refer to each enum variant via its alias.
 This might be useful if the enum's name is too long or too generic, and you
 want to rename it.</p>
-<pre><pre class="playpen"><code class="language-rust editable">enum VeryVerboseEnumOfThingsToDoWithNumbers {
+<pre><pre class="playground"><code class="language-rust editable">enum VeryVerboseEnumOfThingsToDoWithNumbers {
     Add,
     Subtract,
 }
@@ -1600,7 +1616,7 @@ fn main() {
 }
 </code></pre></pre>
 <p>The most common place you'll see this is in <code>impl</code> blocks using the <code>Self</code> alias.</p>
-<pre><pre class="playpen"><code class="language-rust editable">enum VeryVerboseEnumOfThingsToDoWithNumbers {
+<pre><pre class="playground"><code class="language-rust editable">enum VeryVerboseEnumOfThingsToDoWithNumbers {
     Add,
     Subtract,
 }
@@ -1627,7 +1643,7 @@ Rust.</p>
 The `use` declaration can be used so manual scoping isn't needed:
 -->
 <p><code>use</code>を使用すれば変数のスコープを絶対名で指定する必要がなくなる。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// An attribute to hide warnings for unused code.
+<pre><pre class="playground"><code class="language-rust editable">// An attribute to hide warnings for unused code.
 // 使用されていないコードよる警告を隠すアトリビュート
 #![allow(dead_code)]
 
@@ -1685,7 +1701,7 @@ fn main() {
 `enum` can also be used as C-like enums.
 -->
 <p>列挙型はC言語の列挙型のような使い方をする事もできます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// An attribute to hide warnings for unused code.
+<pre><pre class="playground"><code class="language-rust editable">// An attribute to hide warnings for unused code.
 // 使用されていないコードによる警告を抑えるアトリビュート
 #![allow(dead_code)]
 
@@ -1728,7 +1744,7 @@ fn main() {
 A common use for `enums` is to create a linked-list:
 -->
 <p><code>enum</code>を使用が適切なパターンのひとつに、連結リスト(<code>linked-list</code>)を作成する場合があります。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use crate::List::*;
+<pre><pre class="playground"><code class="language-rust editable">use crate::List::*;
 
 enum List {
     // Cons: Tuple struct that wraps an element and a pointer to the next node
@@ -1842,7 +1858,7 @@ including global. Both require explicit type annotation:
 The static lifetime is inferred and does not have to be specified.
 Accessing or modifying a mutable static variable is <a href="custom_types/../unsafe.html"><code>unsafe</code></a>.</li>
 </ul>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">// Globals are declared outside all other scopes.
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">// Globals are declared outside all other scopes.
 // グローバル変数はあらゆるスコープの外で宣言します
 static LANGUAGE: &amp;str = &quot;Rust&quot;;
 const THRESHOLD: i32 = 10;
@@ -1892,7 +1908,7 @@ annotation burden.
 Values (like literals) can be bound to variables, using the `let` binding.
 -->
 <p>値は（リテラルに似て）<code>let</code>を用いて変数に束縛されることができる。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let an_integer = 1u32;
     let a_boolean = true;
     let unit = ();
@@ -1925,7 +1941,7 @@ Variable bindings are immutable by default, but this can be overridden using
 the `mut` modifier.
 -->
 <p>変数はデフォルトでイミュータブル（変更不可能）ですが<code>mut</code>構文を使用することでミュータブルになります。</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">fn main() {
     let _immutable_binding = 1;
     let mut mutable_binding = 1;
 
@@ -1956,7 +1972,7 @@ block is a collection of statements enclosed by braces `{}`. Also, [variable
 shadowing][variable-shadow] is allowed.
 -->
 <p>変数はスコープを持つため、 <strong>ブロック</strong> の中に閉じ込められています。ブロックとは<code>{}</code>で囲まれた領域のことです。また、<a href="https://en.wikipedia.org/wiki/Variable_shadowing">変数のシャドーイング</a>も可能です。</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">fn main() {
     // This binding lives in the main function
     // この変数はmain関数内が生息域です。
     let long_lived_binding = 1;
@@ -2005,7 +2021,7 @@ variables.
 -->
 <p>変数の宣言だけを行っておき、初期化（定義）をのちに行うことも可能です。
 しかし、最後まで初期化されない変数が生じる可能性があるため、ふつうは同時に行われます。</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">fn main() {
     // Declare a variable binding
     // 変数を宣言
     let a_binding;
@@ -2044,7 +2060,7 @@ undefined behavior.
 <h1><a class="header" href="#値のフリーズ" id="値のフリーズ">値のフリーズ</a></h1>
 <p>When data is bound by the same name immutably, it also <em>freezes</em>. <em>Frozen</em> data can't be 
 modified until the immutable binding goes out of scope:</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">fn main() {
     let mut _mutable_integer = 7i32;
 
     {
@@ -2091,7 +2107,7 @@ between integral types is well defined in Rust.
 -->
 <p>整数型から整数型へ型変換する場合、C言語で可能なケースの場合はC言語と同じです。
 C言語で未定義の場合の挙動も、Rustでは完全に定義されています。</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">// Suppress all warnings from casts which overflow.
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">// Suppress all warnings from casts which overflow.
 // オーバーフローを起こすようなキャスティングによる警告を無視する。
 #![allow(overflowing_literals)]
 
@@ -2169,7 +2185,7 @@ constraint exists, the compiler will use `i32` for integers, and `f64` for
 floating-point numbers.
 -->
 <p>サフィックスを指定しない数値型リテラルの場合、その型はどのように使用されるかに依存して決められます。デフォルトでは整数型の場合<code>i32</code>が、浮動小数点型は<code>f64</code>を使用します。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     // Suffixed literals, their types are known at initialization
     // サフィックスを指定したリテラル。型は初期化とともに確定する。
     let x = 1u8;
@@ -2219,7 +2235,7 @@ during an initialization. It also looks at how the variable is used afterwards
 to infer its type. Here's an advanced example of type inference:
 -->
 <p>Rustの型推論エンジンはなかなか賢くできています。初期化の際に評価値の型をチェックするだけでなく、その後にどのような使われ方をしているかを見て推論します。以下がその例です。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     // Because of the annotation, the compiler knows that `elem` has type u8.
     // アノテーションのおかげで、コンパイラは`elem`がu8型であることがわかる。
     let elem = 5u8;
@@ -2258,7 +2274,7 @@ must have `UpperCamelCase` names, or the compiler will raise a warning. The
 exception to this rule are the primitive types: `usize`, `f32`, etc.
 -->
 <p><code>type</code>文を使用することで既存の型に新しい名前(<code>alias</code>)を付けることができます。その場合、名前は<code>UpperCamelCase</code>でなくてはなりません。さもなくばコンパイラがエラーを出します。唯一の例外は<code>usize</code>や<code>f32</code>のようなプリミティブ型です。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// `NanoSecond` is a new name for `u64`.
+<pre><pre class="playground"><code class="language-rust editable">// `NanoSecond` is a new name for `u64`.
 // `NanoSecond` を `u64`の別名として使用する。
 type NanoSecond = u64;
 type Inch = u64;
@@ -2310,15 +2326,15 @@ type, hence providing a very simple mechanism for converting between several
 types. There are numerous implementations of this trait within the standard
 library for conversion of primitive and common types.</p>
 <p>For example we can easily convert a <code>str</code> into a <code>String</code></p>
-<pre><pre class="playpen"><code class="language-rust">
-<span class="boring">#![allow(unused_variables)]
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let my_str = &quot;hello&quot;;
 let my_string = String::from(my_str);
 <span class="boring">}
 </span></code></pre></pre>
 <p>We can do similar for defining a conversion for our own type.</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::convert::From;
+<pre><pre class="playground"><code class="language-rust editable">use std::convert::From;
 
 #[derive(Debug)]
 struct Number {
@@ -2343,7 +2359,7 @@ necessary.</p>
 <p>Using the <code>Into</code> trait will typically require specification of the type to
 convert into as the compiler is unable to determine this most of the time.
 However this is a small trade-off considering we get the functionality for free.</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::convert::From;
+<pre><pre class="playground"><code class="language-rust editable">use std::convert::From;
 
 #[derive(Debug)]
 struct Number {
@@ -2368,7 +2384,7 @@ fn main() {
 generic traits for converting between types. Unlike <code>From</code>/<code>Into</code>, the
 <code>TryFrom</code>/<code>TryInto</code> traits are used for fallible conversions, and as such,
 return <a href="https://doc.rust-lang.org/std/result/enum.Result.html"><code>Result</code></a>s.</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::convert::TryFrom;
+<pre><pre class="playground"><code class="language-rust editable">use std::convert::TryFrom;
 use std::convert::TryInto;
 
 #[derive(Debug, PartialEq)]
@@ -2406,7 +2422,7 @@ fn main() {
 trait for the type. Rather than doing so directly, you should implement the
 <a href="https://doc.rust-lang.org/std/fmt/trait.Display.html"><code>fmt::Display</code></a> trait which automagically provides <a href="https://doc.rust-lang.org/std/string/trait.ToString.html"><code>ToString</code></a> and
 also allows printing the type as discussed in the section on <a href="conversion/../hello/print.html"><code>print!</code></a>.</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::fmt;
+<pre><pre class="playground"><code class="language-rust editable">use std::fmt;
 
 struct Circle {
     radius: i32
@@ -2432,7 +2448,7 @@ Both alternatives are shown in the following example.</p>
 trait is implemented for that type. This is implemented for numerous types
 within the standard library. To obtain this functionality on a user defined type
 simply implement the <a href="https://doc.rust-lang.org/std/str/trait.FromStr.html"><code>FromStr</code></a> trait for that type.</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let parsed: i32 = &quot;5&quot;.parse().unwrap();
     let turbo_parsed = &quot;10&quot;.parse::&lt;i32&gt;().unwrap();
 
@@ -2478,7 +2494,7 @@ place expression such as a local variable. However, if the last expression of th
 semicolon, the return value will be `()`.
 -->
 <p>コードブロックも式の一種です。よってブロックを丸ごと値として扱うことができます。その場合ブロック内の最後の式が場所を表す式（例えばローカル変数）に代入されます。ただし、ブロック内の最後の式が<code>;</code>で終わる場合は返り値は<code>()</code>になります。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let x = 5u32;
 
     let y = {
@@ -2519,7 +2535,7 @@ condition is followed by a block. `if`-`else` conditionals are expressions,
 and, all branches must return the same type.
 -->
 <p><code>if-else</code>を用いた条件分岐は他の言語に似ています。多くの言語では条件式の中を括弧でくくる必要がありますが、Rustではその必要はありません。条件式の直後にはブロックが続きます。<code>if-else</code>は式の一種で、いずれの分岐先でも返り値の型は同一でなくてはなりません。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let n = 5;
 
     if n &lt; 0 {
@@ -2567,7 +2583,7 @@ The `break` statement can be used to exit a loop at anytime, whereas the
 new one.
 -->
 <p>ループから抜けだす時は<code>break</code>, 即座に次のループに移るときは<code>continue</code>が使用できます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let mut count = 0u32;
 
     println!(&quot;Let's count until infinity!&quot;);
@@ -2607,7 +2623,7 @@ loops. In these cases, the loops must be annotated with some `'label`, and the
 label must be passed to the `break`/`continue` statement.
 -->
 <p>ネストしたループを回している時に外側のループを<code>break</code>または<code>continue</code>したい場合があります。こういった場合には<code>label</code>を用いてループにラベルを貼り、<code>break</code>/<code>continue</code>にそのラベルを渡します。</p>
-<pre><pre class="playpen"><code class="language-rust editable">#![allow(unreachable_code)]
+<pre><pre class="playground"><code class="language-rust editable">#![allow(unreachable_code)]
 
 fn main() {
     'outer: loop {
@@ -2636,7 +2652,7 @@ fn main() {
 operation returns a value though, you might need to pass it to the rest of the
 code: put it after the <code>break</code>, and it will be returned by the <code>loop</code>
 expression.</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let mut counter = 0;
 
     let result = loop {
@@ -2659,7 +2675,7 @@ The `while` keyword can be used to run a loop while a condition is true.
 Let's write the infamous [FizzBuzz][fizzbuzz] using a `while` loop.
 -->
 <p>悪名高い<a href="https://en.wikipedia.org/wiki/Fizz_buzz">FizzBuzz問題</a>を<code>while</code>を用いて解いてみましょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     // A counter variable
     // カウンタとなる変数
     let mut n = 1;
@@ -2699,7 +2715,7 @@ notation `a..b`. This yields values from `a` (inclusive) to `b`
 Let's write FizzBuzz using `for` instead of `while`.
 -->
 <p>では<code>for</code>と<code>while</code>を用いてFizzBuzzを書いてみましょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     // `n` will take the values: 1, 2, ..., 100 in each iteration
     // `n`は1, 2, ...., 100のそれぞれの値を取ります。
     for n in 1..101 {
@@ -2717,7 +2733,7 @@ Let's write FizzBuzz using `for` instead of `while`.
 </code></pre></pre>
 <p>Alternatively, <code>a..=b</code> can be used for a range that is inclusive on both ends.
 The above can be written as:</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     // `n` will take the values: 1, 2, ..., 100 in each iteration
     for n in 1..=100 {
         if n % 15 == 0 {
@@ -2744,7 +2760,7 @@ within.</p>
 <li><code>iter</code> - This borrows each element of the collection through each iteration.
 Thus leaving the collection untouched and available for reuse after the loop.</li>
 </ul>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let names = vec![&quot;Bob&quot;, &quot;Frank&quot;, &quot;Ferris&quot;];
 
     for name in names.iter() {
@@ -2760,7 +2776,7 @@ Thus leaving the collection untouched and available for reuse after the loop.</l
 data is provided. Once the collection has been consumed it is no longer
 available for reuse as it has been 'moved' within the loop.</li>
 </ul>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let names = vec![&quot;Bob&quot;, &quot;Frank&quot;, &quot;Ferris&quot;];
 
     for name in names.into_iter() {
@@ -2775,7 +2791,7 @@ available for reuse as it has been 'moved' within the loop.</li>
 <li><code>iter_mut</code> - This mutably borrows each element of the collection, allowing for
 the collection to be modified in place.</li>
 </ul>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let mut names = vec![&quot;Bob&quot;, &quot;Frank&quot;, &quot;Ferris&quot;];
 
     for name in names.iter_mut() {
@@ -2802,7 +2818,7 @@ Rust provides pattern matching via the `match` keyword, which can be used like
 a C `switch`.
 -->
 <p>Rustは<code>match</code>を用いて、C言語における<code>switch</code>のようなパターンマッチングを行うことができます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let number = 13;
     // TODO ^ Try different values for `number`
 
@@ -2859,7 +2875,7 @@ A `match` block can destructure items in a variety of ways.
 Tuples can be destructured in a `match` as follows:
 -->
 <p>以下のように、タプルは<code>match</code>を用いてデストラクトすることができます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let pair = (0, -2);
     // TODO ^ Try different values for `pair`
     // TODO ^ `pair`に別の値を入れてみましょう。
@@ -2891,7 +2907,7 @@ Tuples can be destructured in a `match` as follows:
 An `enum` is destructured similarly:
 -->
 <p>列挙型(<code>enum</code>)も似たやり方でデストラクトすることができます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// `allow` required to silence warnings because only
+<pre><pre class="playground"><code class="language-rust editable">// `allow` required to silence warnings because only
 // one variant is used.
 // `allow`は値を一つだけ使用したことによる警告を抑えるために存在する。
 #[allow(dead_code)]
@@ -2962,7 +2978,7 @@ differently from a language like `C`.
 <li>デリファレンスには<code>*</code>を用いる。</li>
 <li>デストラクトには<code>&amp;</code>, <code>ref</code>, <code>ref mut</code>を用いる。</li>
 </ul>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     // Assign a reference of type `i32`. The `&amp;` signifies there
     // is a reference being assigned.
     // `i32`型へのリファレンスをアサインする。
@@ -3037,7 +3053,7 @@ differently from a language like `C`.
 Similarly, a `struct` can be destructured as shown:
 -->
 <p>以下のようにして、構造体(<code>struct</code>)も同様にデストラクトすることができる。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     struct Foo {
         x: (u32, u32),
         y: u32,
@@ -3077,7 +3093,7 @@ Similarly, a `struct` can be destructured as shown:
 A `match` *guard* can be added to filter the arm.
 -->
 <p><code>match</code>内の条件文をフィルタリングするために、 <em>ガード(<code>guard</code>)</em> を使用することができます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let pair = (2, -2);
     // TODO ^ Try different values for `pair`
     // TODO ^ `pair`の値を変更してみましょう。
@@ -3108,7 +3124,7 @@ variable without re-binding. `match` provides the `@` sigil for binding values t
 names:
 -->
 <p>いくつかの変数をまとめてマッチ対象とした場合、そのうちの一つを分岐先で使用することはそのままでは不可能です。<code>match</code>内では<code>@</code>マークを使用して変数をバインディングすることができます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// A function `age` which returns a `u32`.
+<pre><pre class="playground"><code class="language-rust editable">// A function `age` which returns a `u32`.
 // `age`関数は`u32`の値を返す。
 fn age() -&gt; u32 {
     15
@@ -3134,7 +3150,7 @@ fn main() {
 }
 </code></pre></pre>
 <p>You can also use binding to &quot;destructure&quot; <code>enum</code> variants, such as <code>Option</code>:</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn some_number() -&gt; Option&lt;u32&gt; {
+<pre><pre class="playground"><code class="language-rust editable">fn some_number() -&gt; Option&lt;u32&gt; {
     Some(42)
 }
 
@@ -3160,8 +3176,8 @@ fn main() {
 For some use cases, when matching enums, `match` is awkward. For example:
 -->
 <p>列挙型をマッチさせるとき、場合によっては<code>match</code>を使用すると不自然な書き方になってしまう場合があります。例えば...</p>
-<pre><pre class="playpen"><code class="language-rust">
-<span class="boring">#![allow(unused_variables)]
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// Make `optional` of type `Option&lt;i32&gt;`
 // `optional`という変数の型を`Option&lt;i32&gt;`に指定
@@ -3189,7 +3205,7 @@ match optional {
 failure options to be specified:
 -->
 <p>この場合は<code>if let</code>を用いたほうが美しく、失敗時の処理も柔軟に行うことができます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     // All have type `Option&lt;i32&gt;`
     // 全て`Option&lt;i32&gt;`型
     let number = Some(7);
@@ -3236,7 +3252,7 @@ failure options to be specified:
 }
 </code></pre></pre>
 <p>In the same way, <code>if let</code> can be used to match any enum value:</p>
-<pre><pre class="playpen"><code class="language-rust editable">// Our example enum
+<pre><pre class="playground"><code class="language-rust editable">// Our example enum
 enum Foo {
     Bar,
     Baz,
@@ -3274,7 +3290,7 @@ fn main() {
 </code></pre></pre>
 <p>Another benefit is that <code>if let</code> allows us to match non-parameterized enum variants. This is true even in cases where the enum doesn't implement or derive <code>PartialEq</code>. In such cases <code>if Foo::Bar == a</code> would fail to compile, because instances of the enum cannot be equated, however <code>if let</code> will continue to work.</p>
 <p>Would you like a challenge? Fix the following example to use <code>if let</code>:</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">// This enum purposely neither implements nor derives PartialEq.
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">// This enum purposely neither implements nor derives PartialEq.
 // That is why comparing Foo::Bar == a fails below.
 enum Foo {Bar}
 
@@ -3299,8 +3315,8 @@ Similar to `if let`, `while let` can make awkward `match` sequences
 more tolerable. Consider the following sequence that increments `i`:
 -->
 <p><code>if let</code>と同様に、<code>while let</code>も不格好な<code>match</code>処理を多少マシにしてくれます。例えば、以下の<code>i</code>をインクリメントする処理を見てください。</p>
-<pre><pre class="playpen"><code class="language-rust">
-<span class="boring">#![allow(unused_variables)]
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// Make `optional` of type `Option&lt;i32&gt;`
 // `Option&lt;i32&gt;`の`optional`を作成
@@ -3336,7 +3352,7 @@ loop {
 Using `while let` makes this sequence much nicer:
 -->
 <p><code>while let</code>の使用によってベターになります。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     // Make `optional` of type `Option&lt;i32&gt;`
     // `Option&lt;i32&gt;`の`optional`を作成
     let mut optional = Some(0);
@@ -3388,7 +3404,7 @@ from within the function, even from inside loops or `if`s.
 Let's rewrite FizzBuzz using functions!
 -->
 <p>では、もう一度FizzBuzz問題を解く関数を書いてみましょう！</p>
-<pre><pre class="playpen"><code class="language-rust editable">// Unlike C/C++, there's no restriction on the order of function definitions
+<pre><pre class="playground"><code class="language-rust editable">// Unlike C/C++, there's no restriction on the order of function definitions
 // C/C++とは違い、関数の定義を行う順番に制限はない。
 fn main() {
     // We can use this function here, and define it somewhere later
@@ -3443,7 +3459,7 @@ data of the object and its other methods via the `self` keyword. Methods are
 defined under an `impl` block.
 -->
 <p>メソッドとはオブジェクトに付属した関数のことです。オブジェクトの持つデータや他のメソッドへは<code>self</code>という語を介してアクセスすることができます。<code>impl</code>キーワードによって定義します。</p>
-<pre><pre class="playpen"><code class="language-rust editable">struct Point {
+<pre><pre class="playground"><code class="language-rust editable">struct Point {
     x: f64,
     y: f64,
 }
@@ -3594,7 +3610,7 @@ variable names <em>must</em> be specified.</p>
 <li>optional body delimination (<code>{}</code>) for a single expression (mandatory otherwise).</li>
 <li>the ability to capture the outer environment variables.</li>
 </ul>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     // Increment via closures and functions.
     // 関数とクロージャのそれぞれで数値をインクリメントする
     fn  function            (i: i32) -&gt; i32 { i + 1 }
@@ -3650,7 +3666,7 @@ They preferentially capture variables by reference and only go lower when
 required.
 -->
 <p>クロージャは出来る限りリファレンスを取得しようとし、その他2つは必要なときのみ取得します。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     use std::mem;
     
     let color = &quot;green&quot;;
@@ -3741,7 +3757,7 @@ required.
 </code></pre></pre>
 <p>Using <code>move</code> before vertical pipes forces closure
 to take ownership of captured variables:</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     // `Vec` has non-copy semantics.
     let haystack = vec![1, 2, 3];
 
@@ -3788,7 +3804,7 @@ annotated as <code>Fn</code>, then capturing variables by <code>&amp;mut T</code
 allowed.</p>
 <p>In the following example, try swapping the usage of <code>Fn</code>, <code>FnMut</code>, and
 <code>FnOnce</code> to see what happens:</p>
-<pre><pre class="playpen"><code class="language-rust editable">// A function which takes a closure as an argument and calls it.
+<pre><pre class="playground"><code class="language-rust editable">// A function which takes a closure as an argument and calls it.
 // &lt;F&gt; denotes that F is a &quot;Generic type parameter&quot;
 fn apply&lt;F&gt;(f: F) where
     // The closure takes no input and returns nothing.
@@ -3867,8 +3883,8 @@ defined:
 -->
 <p>クロージャが周辺の環境から変数を取得するやり方は非常に明瞭です。何か注意すべき点はあるのでしょうか？
 もちろんです。関数内でクロージャを使う場合、[ジェネリック]型を使用する必要があります。詳しく見ていきましょう。</p>
-<pre><pre class="playpen"><code class="language-rust">
-<span class="boring">#![allow(unused_variables)]
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// `F` must be generic.
 // `F` はジェネリック型でなくてはならない
@@ -3893,7 +3909,7 @@ and not be allowed. Thus, bounding by one of the `traits`: `Fn`, `FnMut`, or
 `FnOnce` (which it implements) is sufficient to specify its type.
 -->
 <p>この無名構造体は型が未指定(<code>unknown</code>)なため、関数を実行する際にはジェネリクスが必要とされます。とはいえ、<code>&lt;T&gt;</code>で指定するだけでは、まだ曖昧です。（訳注: <code>&amp;self</code>、<code>&amp;mut self</code>、<code>self</code>のいずれをとるのかがわからないため）そのため、<code>Fn</code>、<code>FnMut</code>、<code>FnOnce</code>のいずれか一つを実装することで対応しています。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// `F` must implement `Fn` for a closure which takes no
+<pre><pre class="playground"><code class="language-rust editable">// `F` must implement `Fn` for a closure which takes no
 // inputs and returns nothing - exactly what is required
 // for `print`.
 // `F`は`Fn`を実装していなくてはならず、`Fn`は引数と返り値を持たない。
@@ -3932,7 +3948,7 @@ closure can be passed as a parameter.
 <p>これまで、クロージャを引数として渡せることを見てきました。すると次の疑問が浮かんできます</p>
 <p>「クロージャではない普通の関数を引数として渡すことは可能なのだろうか?」</p>
 <p>可能です!もしパラメータとしてクロージャを取る関数を定義すれば、そのクロージャのトレイト境界を満たす任意の関数をパラメータとして渡すことができます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// Define a function which takes a generic `F` argument
+<pre><pre class="playground"><code class="language-rust editable">// Define a function which takes a generic `F` argument
 // bounded by `Fn`, and calls it
 // 関数を引数として取り、即座に実行する関数を定義
 fn call_me&lt;F: Fn()&gt;(f: F) {
@@ -3977,7 +3993,7 @@ closure types are, by definition, unknown, so we have to use
 occur by value. This is required because any captures by reference would be
 dropped as soon as the function exited, leaving invalid references in the
 closure.</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn create_fn() -&gt; impl Fn() {
+<pre><pre class="playground"><code class="language-rust editable">fn create_fn() -&gt; impl Fn() {
     let text = &quot;Fn&quot;.to_owned();
 
     move || println!(&quot;This is a: {}&quot;, text)
@@ -4044,7 +4060,7 @@ signature:
         F: FnMut(Self::Item) -&gt; bool {}
 }
 </code></pre>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let vec1 = vec![1, 2, 3];
     let vec2 = vec![4, 5, 6];
 
@@ -4094,7 +4110,7 @@ condition, it returns `None`. Its signature:
         P: FnMut(&amp;Self::Item) -&gt; bool {}
 }
 </code></pre>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let vec1 = vec![1, 2, 3];
     let vec2 = vec![4, 5, 6];
 
@@ -4127,7 +4143,7 @@ condition, it returns `None`. Its signature:
 </code></pre></pre>
 <p><code>Iterator::find</code> gives you a reference to the item. But if you want the <em>index</em> of the
 item, use <code>Iterator::position</code>.</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let vec = vec![1, 9, 3, 3, 13, 2];
 
     let index_of_first_even_number = vec.iter().position(|x| x % 2 == 0);
@@ -4153,7 +4169,7 @@ take one or more functions and/or produce a more useful function. HOFs
 and lazy iterators give Rust its functional flavor.
 -->
 <p>Rustには高階関数(<code>Higher Order Functions, HOF</code>)を扱う機能が備わっています。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn is_odd(n: u32) -&gt; bool {
+<pre><pre class="playground"><code class="language-rust editable">fn is_odd(n: u32) -&gt; bool {
     n % 2 == 1
 }
 
@@ -4211,8 +4227,8 @@ implement their fair share of HOFs.
 <a href="https://doc.rust-lang.org/core/iter/trait.Iterator.html">イテレータ</a>には高階関数が使用されています。</p>
 <h1><a class="header" href="#diverging-functions" id="diverging-functions">Diverging functions</a></h1>
 <p>Diverging functions never return. They are marked using <code>!</code>, which is an empty type.</p>
-<pre><pre class="playpen"><code class="language-rust">
-<span class="boring">#![allow(unused_variables)]
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>fn foo() -&gt; ! {
     panic!(&quot;This call never returns.&quot;);
@@ -4224,7 +4240,7 @@ set of all possible values this type can have is empty. Note that, it is
 different from the <code>()</code> type, which has exactly one possible value.</p>
 <p>For example, this function returns as usual, although there is no information
 in the return value.</p>
-<pre><pre class="playpen"><code class="language-rust">fn some_fn() {
+<pre><pre class="playground"><code class="language-rust">fn some_fn() {
     ()
 }
 
@@ -4245,7 +4261,7 @@ fn main() {
 often handy. The main advantage of this type is that it can be cast to any other
 one and therefore used at places where an exact type is required, for instance
 in <code>match</code> branches. This allows us to write code like this:</p>
-<pre><pre class="playpen"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">fn main() {
     fn sum_odd_numbers(up_to: u32) -&gt; u32 {
         let mut acc = 0;
         for i in 0..up_to {
@@ -4293,7 +4309,7 @@ overridden with the `pub` modifier. Only the public items of a module can be
 accessed from outside the module scope.
 -->
 <p>デフォルトでは、モジュール内の要素はプライベートですが、これは<code>pub</code>で修飾することでパブリックな属性にすることができます。パブリックな属性のみがモジュールの外のスコープからアクセスすることができるようになります。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// A module named `my_mod`
+<pre><pre class="playground"><code class="language-rust editable">// A module named `my_mod`
 // `my_mod`という名称のモジュール
 mod my_mod {
     // Items in modules default to private visibility.
@@ -4441,7 +4457,7 @@ visibility only matters when a struct is accessed from outside the module
 where it is defined, and has the goal of hiding information (encapsulation).
 -->
 <p>構造体はそれ自身に加え、フィールドごとにもパブリック・プライベートを設定することができます。デフォルトではプライベートですが、<code>pub</code>宣言をすることで、フィールドをパブリックにすることができます。これは、構造体がモジュールの外から参照される時に限り意味のあるもので、情報の隠蔽（カプセル化）を達成するための機能です。</p>
-<pre><pre class="playpen"><code class="language-rust editable">mod my {
+<pre><pre class="playground"><code class="language-rust editable">mod my {
     // A public struct with a public field of generic type `T`
     // パブリックなフィールド`T`（ジェネリック型）を持つパブリックな構造体
     pub struct OpenBox&lt;T&gt; {
@@ -4528,7 +4544,7 @@ fn main() {
 }
 </code></pre>
 <p>You can use the <code>as</code> keyword to bind imports to a different name:</p>
-<pre><pre class="playpen"><code class="language-rust editable">// Bind the `deeply::nested::function` path to `other_function`.
+<pre><pre class="playground"><code class="language-rust editable">// Bind the `deeply::nested::function` path to `other_function`.
 // `deeply::nested::function`を`other_function`にバインド
 use deeply::nested::function as other_function;
 
@@ -4577,7 +4593,7 @@ The `super` and `self` keywords can be used in the path to remove ambiguity
 when accessing items and to prevent unnecessary hardcoding of paths.
 -->
 <p><code>super</code>及び<code>self</code>キーワードは、要素にアクセスする際に、曖昧さをなくし、不必要なハードコーディングを避けるために使用できます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn function() {
+<pre><pre class="playground"><code class="language-rust editable">fn function() {
     println!(&quot;called `function()`&quot;);
 }
 
@@ -5037,7 +5053,7 @@ The compiler provides a `dead_code`
 about unused functions. An *attribute* can be used to disable the lint.
 -->
 <p>コンパイラは<code>dead_code</code>と呼ばれる<a href="https://en.wikipedia.org/wiki/Lint_%28software%29">リント</a>機能を持つため、使用されていない関数が存在するときに警告を出します。 <em>アトリビュート</em> によってこの機能を無効化することができます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn used_function() {}
+<pre><pre class="playground"><code class="language-rust editable">fn used_function() {}
 
 // `#[allow(dead_code)]` is an attribute that disables the `dead_code` lint
 // `#[allow(dead_code)]`は`dead_code`リントを抑制するアトリビュートです。
@@ -5072,7 +5088,7 @@ attribute can be used to set the name of the crate.
 attributes have <strong>no</strong> effect whatsoever when using Cargo, the Rust package
 manager. Since Cargo is used for the majority of Rust projects, this means
 real-world uses of <code>crate_type</code> and <code>crate_name</code> are relatively limited.</p>
-<pre><pre class="playpen"><code class="language-rust editable">// This crate is a library
+<pre><pre class="playground"><code class="language-rust editable">// This crate is a library
 // このクレートはライブラリである。
 #![crate_type = &quot;lib&quot;]
 // The library is named &quot;rary&quot;
@@ -5119,7 +5135,7 @@ Conditional compilation is possible through two different operators:
 Both utilize identical argument syntax.
 -->
 <p>いずれの場合も適切なシンタックスで記述する必要があります。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// This function only gets compiled if the target OS is linux
+<pre><pre class="playground"><code class="language-rust editable">// This function only gets compiled if the target OS is linux
 // この関数はターゲットOSがLinuxの時のみコンパイルされる。
 #[cfg(target_os = &quot;linux&quot;)]
 fn are_you_on_linux() {
@@ -5158,7 +5174,7 @@ Some conditionals like `target_os` are implicitly provided by `rustc`, but
 custom conditionals must be passed to `rustc` using the `--cfg` flag.
 -->
 <p><code>target_os</code>のように、いくつかの条件分岐は<code>rustc</code>が暗黙のうちに提供しています。条件を独自に追加する場合には<code>--cfg</code>フラグを用いて<code>rustc</code>に伝える必要があります。</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">#[cfg(some_condition)]
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">#[cfg(some_condition)]
 fn conditional_function() {
     println!(&quot;condition met!&quot;);
 }
@@ -5214,7 +5230,7 @@ has previously been defined as a `struct`.
 This example shows some of the syntax in action:
 -->
 <p>では、手を動かしながらジェネリック型の構文を体験していきましょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// A concrete type `A`.
+<pre><pre class="playground"><code class="language-rust editable">// A concrete type `A`.
 // `A`という具象型
 struct A;
 
@@ -5287,7 +5303,7 @@ A function call with explicitly specified type parameters looks like:
 `fun::<A, B, ...>()`.
 -->
 <p>型パラメータを明示したうえでの関数呼び出しの構文は<code>fun::&lt;A, B, ...&gt;()</code>のようになります。</p>
-<pre><pre class="playpen"><code class="language-rust editable">struct A;          // Concrete type `A`.
+<pre><pre class="playground"><code class="language-rust editable">struct A;          // Concrete type `A`.
                    // 具象型`A`.
 struct S(A);       // Concrete type `S`.
                    // 具象型`S`.
@@ -5359,8 +5375,8 @@ fn main() {
 Similar to functions, implementations require care to remain generic.
 -->
 <p>関数と同様、<code>impl</code>でメソッドを実装する際にもジェネリック型特有の記法が必要です。</p>
-<pre><pre class="playpen"><code class="language-rust">
-<span class="boring">#![allow(unused_variables)]
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>struct S; // Concrete type `S`
           // 具象型`S`
@@ -5379,7 +5395,7 @@ impl GenericVal&lt;S&gt; {} // Specify `S` as defined above
 impl&lt;T&gt; GenericVal&lt;T&gt; {}
 <span class="boring">}
 </span></code></pre></pre>
-<pre><pre class="playpen"><code class="language-rust editable">struct Val {
+<pre><pre class="playground"><code class="language-rust editable">struct Val {
     val: f64,
 }
 
@@ -5424,7 +5440,7 @@ Of course `trait`s can also be generic. Here we define one which reimplements
 the `Drop` `trait` as a generic method to `drop` itself and an input.
 -->
 <p>もちろんトレイトもジェネリクスを活用することができます。ここでは<code>Drop</code>トレイトをジェネリックメソッドとして再実装し、自身と引数として受け取った値の両方を<code>drop</code>するようなメソッドにします。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// Non-copyable types.
+<pre><pre class="playground"><code class="language-rust editable">// Non-copyable types.
 // コピー不可な型
 // 訳注: `clone()`メソッドを用いないかぎり、値のコピーではなくムーブが起きる型
 struct Empty;
@@ -5509,7 +5525,7 @@ Another effect of bounding is that generic instances are allowed to access the
 [methods] of traits specified in the bounds. For example:
 -->
 <p>境界のもう一つの効果は、ジェネリック型のインスタンスが、境界条件となるトレイトの<a href="generics/../fn/methods.html">メソッド</a>にアクセスすることができるようになる点です。以下がその例です。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// A trait which implements the print marker: `{:?}`.
+<pre><pre class="playground"><code class="language-rust editable">// A trait which implements the print marker: `{:?}`.
 // プリント時のマーカー`{:?}`を実装するトレイト
 use std::fmt::Debug;
 
@@ -5575,7 +5591,7 @@ include any functionality, you can still use it as a bound. `Eq` and
 `Ord` are examples of such `trait`s from the `std` library.
 -->
 <p>トレイト境界の仕組みから、「トレイトがなにも機能を持っていなくとも境界条件として使用できることには変わりはない」という帰結がもたらされます。<code>Eq</code>と<code>Ord</code>は<code>std</code>ライブラリにおけるそのような例です。</p>
-<pre><pre class="playpen"><code class="language-rust editable">struct Cardinal;
+<pre><pre class="playground"><code class="language-rust editable">struct Cardinal;
 struct BlueJay;
 struct Turkey;
 
@@ -5626,7 +5642,7 @@ Multiple bounds can be applied with a `+`. Like normal, different types are
 separated with `,`.
 -->
 <p><code>+</code>を用いて複数のトレイト境界を設けることができます。複数の引数を受け取るときは、通常時と同様、<code>,</code>で区切ります。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::fmt::{Debug, Display};
+<pre><pre class="playground"><code class="language-rust editable">use std::fmt::{Debug, Display};
 
 fn compare_prints&lt;T: Debug + Display&gt;(t: &amp;T) {
     println!(&quot;Debug: `{:?}`&quot;, t);
@@ -5694,7 +5710,7 @@ The `impl` in this example cannot be directly expressed without a `where` clause
 <li><code>where</code>句の方が通常の構文より表現力が高い場合</li>
 </ul>
 <p>があります。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::fmt::Debug;
+<pre><pre class="playground"><code class="language-rust editable">use std::fmt::Debug;
 
 trait PrintInOption {
     fn print_in_option(self);
@@ -5732,7 +5748,7 @@ fn main() {
 to a program.</p>
 <p>For example, an age verification function that checks age in years, <em>must</em> be given
 a value of type <code>Years</code>.</p>
-<pre><pre class="playpen"><code class="language-rust editable">struct Years(i64);
+<pre><pre class="playground"><code class="language-rust editable">struct Years(i64);
 
 struct Days(i64);
 
@@ -5764,7 +5780,7 @@ fn main() {
 </code></pre></pre>
 <p>Uncomment the last print statement to observe that the type supplied must be <code>Years</code>.</p>
 <p>To obtain the <code>newtype</code>'s value as the base type, you may use tuple syntax like so:</p>
-<pre><pre class="playpen"><code class="language-rust editable">struct Years(i64);
+<pre><pre class="playground"><code class="language-rust editable">struct Years(i64);
 
 fn main() {
     let years = Years(42);
@@ -5812,7 +5828,7 @@ generic types for `fn difference()`. In practice, we want a way to express that
 section, associated types provide exactly that capability.
 -->
 <p><code>Contains</code>はジェネリックトレイトなので、<code>fn difference()</code>では <strong>全ての</strong> ジェネリック型を宣言しなくてはなりません。実際のところ、<code>A</code>と<code>B</code>は <strong>引数</strong> である<code>C</code>によって決定されていて欲しいにも関わらず、です。これは次のページで紹介する関連型と呼ばれる機能によって可能です。</p>
-<pre><pre class="playpen"><code class="language-rust editable">struct Container(i32, i32);
+<pre><pre class="playground"><code class="language-rust editable">struct Container(i32, i32);
 
 // A trait which checks if 2 items are stored inside of container.
 // Also retrieves first or last value.
@@ -5882,8 +5898,8 @@ by moving inner types locally into a trait as *output* types. Syntax
 for the `trait` definition is as follows:
 -->
 <p>関連型を使用すると、コンテナ型の中の要素をトレイトの中に <em>出力型</em> として書くことで、全体の可読性を上げることができます。トレイトを定義する際の構文は以下のようになります。</p>
-<pre><pre class="playpen"><code class="language-rust">
-<span class="boring">#![allow(unused_variables)]
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// `A` and `B` are defined in the trait via the `type` keyword.
 // (Note: `type` in this context is different from `type` when used for
@@ -5920,7 +5936,7 @@ fn difference&lt;C: Contains&gt;(container: &amp;C) -&gt; i32 { ... }
 Let's rewrite the example from the previous section using associated types:
 -->
 <p>前セクションの例を関連型を使用して書きなおしてみましょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable">struct Container(i32, i32);
+<pre><pre class="playground"><code class="language-rust editable">struct Container(i32, i32);
 
 // A trait which checks if 2 items are stored inside of container.
 // Also retrieves first or last value.
@@ -6000,7 +6016,7 @@ with the phantom type parameter concept to create tuples containing
 different data types.
 -->
 <p>以下の例では、そのようなマーカーとして幽霊型(<a href="https://doc.rust-lang.org/std/marker/struct.PhantomData.html">std::marker::PhantomData</a>)を用い、それぞれ異なった型の値を持つタプルを作成します。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::marker::PhantomData;
+<pre><pre class="playground"><code class="language-rust editable">use std::marker::PhantomData;
 
 // A phantom tuple struct which is generic over `A` with hidden parameter `B`.
 // ジェネリックなタプル構造体。2つ目のパラメータは幽霊型
@@ -6091,7 +6107,7 @@ impl&lt;U&gt; Add for T&lt;U&gt; {
 The whole implementation:
 -->
 <p>以下は全体を示した例です。:</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::ops::Add;
+<pre><pre class="playground"><code class="language-rust editable">use std::ops::Add;
 use std::marker::PhantomData;
 
 /// Create void enumerations to define unit types.
@@ -6186,7 +6202,7 @@ This behavior shields against *resource leak* bugs, so you'll never have to
 manually free memory or worry about memory leaks again! Here's a quick showcase:
 -->
 <p>この振る舞いは <em>リソースリーク</em> (<code>resouce leak</code>)バグを防ぐのに役立ちます。手動でメモリを開放したり、メモリリークバグにわずらわされたりすることはなくなるのです！簡単な例で説明しましょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// raii.rs
+<pre><pre class="playground"><code class="language-rust editable">// raii.rs
 fn create_box() {
     // Allocate an integer on the heap
     // 整数をヒープ上に確保
@@ -6255,7 +6271,7 @@ required to be implemented for every type, only implement it for your type if
 you require its own destructor logic.</p>
 <p>Run the below example to see how the <a href="https://doc.rust-lang.org/std/ops/trait.Drop.html"><code>Drop</code></a> trait works. When the variable in
 the <code>main</code> function goes out of scope the custom destructor will be invoked.</p>
-<pre><pre class="playpen"><code class="language-rust editable">struct ToDrop;
+<pre><pre class="playground"><code class="language-rust editable">struct ToDrop;
 
 impl Drop for ToDrop {
     fn drop(&amp;mut self) {
@@ -6295,7 +6311,7 @@ After moving resources, the previous owner can no longer be used. This avoids
 creating dangling pointers.
 -->
 <p>資源を移動すると、それまでの所有者（訳注: 変数などのこと）を使用することはできなくなります。これによりダングリングポインタの発生を防げます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// This function takes ownership of the heap allocated memory
+<pre><pre class="playground"><code class="language-rust editable">// This function takes ownership of the heap allocated memory
 // この関数はヒープメモリ上の資源の所有権を取る。
 fn destroy_box(c: Box&lt;i32&gt;) {
     println!(&quot;Destroying a box that contains {}&quot;, c);
@@ -6362,7 +6378,7 @@ fn main() {
 Mutability of data can be changed when ownership is transferred.
 -->
 <p>データのミュータビリティは所有権を移譲した際に変更できます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let immutable_box = Box::new(5u32);
 
     println!(&quot;immutable_box contains {}&quot;, immutable_box);
@@ -6400,7 +6416,7 @@ The compiler statically guarantees (via its borrow checker) that references
 exist, the object cannot be destroyed.
 -->
 <p>コンパイラは借用チェッカを用いてリファレンスが <em>常に</em> 有効なオブジェクトへの参照であることを、コンパイル時に保証します。つまり、あるオブジェクトへのリファレンスが存在しているならば、そのオブジェクトを破壊することはできないということです。</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">// This function takes ownership of a box and destroys it
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">// This function takes ownership of a box and destroys it
 // この関数はボックスの所有権を奪い、破棄する。
 fn eat_box_i32(boxed_i32: Box&lt;i32&gt;) {
     println!(&quot;Destroying box that contains {}&quot;, boxed_i32);
@@ -6461,7 +6477,7 @@ In contrast, `&T` borrows the data via an immutable reference, and
 the borrower can read the data but not modify it:
 -->
 <p>ミュータブルなデータは<code>&amp;mut T</code>でミュータブルに（変更可能な形で）借用することができます。これは <em>ミュータブルな参照</em> と呼ばれ、読み込み・書き込みの権限を借用者に与えます。対照的に<code>&amp;T</code>はデータをイミュータブルな参照を介して借用し、借用した側はデータを読み込みはできますが書き込みはできません。</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">#[allow(dead_code)]
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">#[allow(dead_code)]
 #[derive(Clone, Copy)]
 struct Book {
     // `&amp;'static str` is a reference to a string allocated in read only memory
@@ -6532,7 +6548,7 @@ borrowed, the original data can't be mutably borrowed. On the other hand, only
 again only *after* the mutable reference has been used for the last time.
 -->
 <p>データは一度にいくつでもイミュータブルに借用することができますが、その間オリジナルのデータをミュータブルに借用することはできません。一方でミュータブルな借用は一度に <em>一つ</em> しか借用することができません。オリジナルのデータをもう一度借用できるのはミュータブルな参照が最後に使われた場所より <em>あとで</em> なければいけません。</p>
-<pre><pre class="playpen"><code class="language-rust editable">struct Point { x: i32, y: i32, z: i32 }
+<pre><pre class="playground"><code class="language-rust editable">struct Point { x: i32, y: i32, z: i32 }
 
 fn main() {
     let mut point = Point { x: 0, y: 0, z: 0 };
@@ -6601,7 +6617,7 @@ keyword can be used to take references to the fields of a struct/tuple. The
 example below shows a few instances where this can be useful:
 -->
 <p><code>let</code>を介してデストラクトやパターンマッチングを行う場合、<code>ref</code>キーワードを用いて構造体・タプルのフィールドへのリファレンスを取得することができます。以下の例ではこれが有用になる例を幾つかお見せします。</p>
-<pre><pre class="playpen"><code class="language-rust editable">#[derive(Clone, Copy)]
+<pre><pre class="playground"><code class="language-rust editable">#[derive(Clone, Copy)]
 struct Point { x: i32, y: i32 }
 
 fn main() {
@@ -6683,7 +6699,7 @@ In the following example and in the rest of this section, we will see how
 lifetimes relate to scopes, as well as how the two differ.
 -->
 <p>以下の例からこのセクションの残りでは、ライフタイムとスコープの関係、そしてそれらがいかに異なるものであるかを見ていきます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// Lifetimes are annotated below with lines denoting the creation
+<pre><pre class="playground"><code class="language-rust editable">// Lifetimes are annotated below with lines denoting the creation
 // and destruction of each variable.
 // `i` has the longest lifetime because its scope entirely encloses 
 // both `borrow1` and `borrow2`. The duration of `borrow1` compared 
@@ -6750,7 +6766,7 @@ In this case, the lifetime of `foo` cannot exceed that of either `'a` *or* `'b`.
 See the following example for explicit lifetime annotation in use:
 -->
 <p>以下はライフタイムを明示的に書く場合の例です。</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">// `print_refs` takes two references to `i32` which have different
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">// `print_refs` takes two references to `i32` which have different
 // lifetimes `'a` and `'b`. These two lifetimes must both be at
 // least as long as the function `print_refs`.
 // `print_refs`は`i32`への参照を2つとり、それぞれ`'a`と`'b`という
@@ -6834,7 +6850,7 @@ would result in returning references to invalid data. The following example show
 off some valid forms of functions with lifetimes:
 -->
 <p>加えて、引数のない関数から参照を返す場合、それが結果的に無効なデータへの参照になるならば、禁止されている</p>
-<pre><pre class="playpen"><code class="language-rust editable">// One input reference with lifetime `'a` which must live
+<pre><pre class="playground"><code class="language-rust editable">// One input reference with lifetime `'a` which must live
 // at least as long as the function.
 // 引数として`'a`のライフタイムで参照を一つ取る。最低でもこの関数
 // と同じだけの長さでなくてはならない。
@@ -6899,7 +6915,7 @@ fn main() {
 Methods are annotated similarly to functions:
 -->
 <p>メソッドのライフタイムは関数に似ている。</p>
-<pre><pre class="playpen"><code class="language-rust editable">struct Owner(i32);
+<pre><pre class="playground"><code class="language-rust editable">struct Owner(i32);
 
 impl Owner {
     // Annotate lifetimes as in a standalone function.
@@ -6930,7 +6946,7 @@ fn main() {
 Annotation of lifetimes in structures are also similar to functions:
 -->
 <p>構造体におけるライフタイムも関数のそれと似ている。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// A type `Borrowed` which houses a reference to an
+<pre><pre class="playground"><code class="language-rust editable">// A type `Borrowed` which houses a reference to an
 // `i32`. The reference to `i32` must outlive `Borrowed`.
 // `i32`への参照をメンバに持つ`Borrowed`型。
 // 参照は`Borrowed`自体よりも長生きでなくてはならない。
@@ -6973,7 +6989,7 @@ fn main() {
 <h1><a class="header" href="#traits" id="traits">Traits</a></h1>
 <p>Annotation of lifetimes in trait methods basically are similar to functions.
 Note that <code>impl</code> may have annotation of lifetimes too.</p>
-<pre><pre class="playpen"><code class="language-rust editable">// A struct with annotation of lifetimes.
+<pre><pre class="playground"><code class="language-rust editable">// A struct with annotation of lifetimes.
 #[derive(Debug)]
  struct Borrowed&lt;'a&gt; {
      x: &amp;'a i32,
@@ -7018,7 +7034,7 @@ in `T` must outlive `'a`.
 The example below shows the above syntax in action used after keyword `where`:
 -->
 <p>上記の構文を実際に動く例で見ていきましょう。<code>where</code>キーワードの後に注目してください。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::fmt::Debug; // Trait to bound with.
+<pre><pre class="playground"><code class="language-rust editable">use std::fmt::Debug; // Trait to bound with.
                      // ライフタイムを紐付けるトレイト
 
 #[derive(Debug)]
@@ -7075,7 +7091,7 @@ This comes in the form of inferred coercion by the Rust compiler,
 and also in the form of declaring a lifetime difference:
 -->
 <p>長いライフタイムは、短いものに圧縮(coerce)することで、そのままでは動作しないスコープの中でも使用できるようになります。これは、Rustコンパイラが推論の結果として圧縮する場合と、複数のライフタイムを比較して圧縮する場合があります。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// Here, Rust infers a lifetime that is as short as possible.
+<pre><pre class="playground"><code class="language-rust editable">// Here, Rust infers a lifetime that is as short as possible.
 // The two references are then coerced to that lifetime.
 // ここではRustはライフタイムを出来る限り短く見積もり、
 // 2つの参照をそのライフタイムに押し込める。
@@ -7128,7 +7144,7 @@ of the binary:
 See the following example for a display of each method:
 -->
 <p>では、それぞれの方法の例を見ていきましょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// Make a constant with `'static` lifetime.
+<pre><pre class="playground"><code class="language-rust editable">// Make a constant with `'static` lifetime.
 // `'static`ライフタイムを持つ定数を作成
 static NUM: i32 = 18;
 
@@ -7189,7 +7205,7 @@ The following code shows a few examples of elision. For a more comprehensive
 description of elision, see [lifetime elision][elision] in the book.
 -->
 <p>以下のコードでは省略の例を幾つかお見せします。より完全な説明を見たい場合は、「プログラミング言語Rust」の<a href="scope/lifetime/elision-ja">ライフタイムの省略</a>の項を見てください。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// `elided_input` and `annotated_input` essentially have identical signatures
+<pre><pre class="playground"><code class="language-rust editable">// `elided_input` and `annotated_input` essentially have identical signatures
 // because the lifetime of `elided_input` is inferred by the compiler:
 // `elided_input`のライフタイムはコンパイラによって自動的に付与されるため
 // 以下の2つは同一のライフタイムシグネチャを持つ。
@@ -7239,7 +7255,7 @@ then implemented for the `Sheep` data type, allowing the use of
 methods from `Animal` with a `Sheep`.
 -->
 <p>トレイトはあらゆるデータ型に実装することができます。以下の例ではまず<code>Animal</code>というメソッドの集合を定義し、その後<code>Animal</code>トレイトを<code>Sheep</code>というデータ型に対して実装します。これにより<code>Animal</code>のメソッドを<code>Sheep</code>が使用することが可能になります。</p>
-<pre><pre class="playpen"><code class="language-rust editable">struct Sheep { naked: bool, name: &amp;'static str }
+<pre><pre class="playground"><code class="language-rust editable">struct Sheep { naked: bool, name: &amp;'static str }
 
 trait Animal {
     // Static method signature; `Self` refers to the implementor type.
@@ -7351,7 +7367,7 @@ The following is a list of derivable traits:
 <li><a href="https://doc.rust-lang.org/std/default/trait.Default.html"><code>Default</code></a>, これは空っぽのインスタンスを作成するためのトレイト</li>
 <li><a href="https://doc.rust-lang.org/std/fmt/trait.Debug.html"><code>Debug</code></a>, これは<code>{:?}</code>フォーマッタを利用して値をフォーマットするためのトレイト</li>
 </ul>
-<pre><pre class="playpen"><code class="language-rust editable">// `Centimeters`, a tuple struct that can be compared
+<pre><pre class="playground"><code class="language-rust editable">// `Centimeters`, a tuple struct that can be compared
 // `Centimeters`は比較可能なタプルになる
 #[derive(PartialEq, PartialOrd)]
 struct Centimeters(f64);
@@ -7410,7 +7426,7 @@ fn main() {
 <p>The Rust compiler needs to know how much space every function's return type requires. This means all your functions have to return a concrete type. Unlike other languages, if you have a trait like <code>Animal</code>, you can't write a function that returns <code>Animal</code>, because its different implementations will need different amounts of memory. </p>
 <p>However, there's an easy workaround. Instead of returning a trait object directly, our functions return a <code>Box</code> which <em>contains</em> some <code>Animal</code>. A <code>box</code> is just a reference to some memory in the heap. Because a reference has a statically-known size, and the compiler can guarantee it points to a heap-allocated <code>Animal</code>, we can return a trait from our function!</p>
 <p>Rust tries to be as explicit as possible whenever it allocates memory on the heap. So if your function returns a pointer-to-trait-on-heap in this way, you need to write the return type with the <code>dyn</code> keyword, e.g. <code>Box&lt;dyn Animal&gt;</code>.</p>
-<pre><pre class="playpen"><code class="language-rust editable">struct Sheep {}
+<pre><pre class="playground"><code class="language-rust editable">struct Sheep {}
 struct Cow {}
 
 trait Animal {
@@ -7464,7 +7480,7 @@ trait. Hence, the `+` operator can be used by any implementor of the `Add` trait
 A list of the traits, such as `Add`, that overload operators can be found in [`core::ops`][ops].
 -->
 <p><code>Add</code>などの、演算子をオーバーロードするトレイトの一覧は<a href="https://doc.rust-lang.org/core/ops/"><code>core::ops</code></a>にあります。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::ops;
+<pre><pre class="playground"><code class="language-rust editable">use std::ops;
 
 struct Foo;
 struct Bar;
@@ -7539,7 +7555,7 @@ The following example adds a print to console to the `drop` function to announce
 when it is called.
 -->
 <p>以下の例では<code>drop</code>メソッドにコンソールへの出力を追加することで、<code>drop</code>が呼ばれたタイミングが分かるようにしています。</p>
-<pre><pre class="playpen"><code class="language-rust editable">struct Droppable {
+<pre><pre class="playground"><code class="language-rust editable">struct Droppable {
     name: &amp;'static str,
 }
 
@@ -7604,7 +7620,7 @@ As a point of convenience for common situations, the `for` construct
 turns some collections into iterators using the [`.into_iter()`][intoiter] method.
 -->
 <p>サッとイテレータを使いたい時は、<code>for</code>文で集合からイテレータを作成することが良くあります。これは<a href="https://doc.rust-lang.org/std/iter/trait.IntoIterator.html"><code>.into_iter()</code></a>メソッドを呼び出しています。</p>
-<pre><pre class="playpen"><code class="language-rust editable">struct Fibonacci {
+<pre><pre class="playground"><code class="language-rust editable">struct Fibonacci {
     curr: u32,
     next: u32,
 }
@@ -7691,7 +7707,7 @@ fn main() {
 <h1><a class="header" href="#impl-trait" id="impl-trait"><code>impl Trait</code></a></h1>
 <p>If your function returns a type that implements <code>MyTrait</code>, you can write its
 return type as <code>-&gt; impl MyTrait</code>. This can help simplify your type signatures quite a lot!</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::iter;
+<pre><pre class="playground"><code class="language-rust editable">use std::iter;
 use std::vec::IntoIter;
 
 // This function combines two `Vec&lt;i32&gt;` and returns an iterator over it.
@@ -7728,7 +7744,7 @@ fn main() {
 closure has its own unnamed concrete type. Before <code>impl Trait</code> syntax, you had
 to allocate on the heap in order to return a closure. But now you can do it all
 statically, like this:</p>
-<pre><pre class="playpen"><code class="language-rust editable">// Returns a function that adds `y` to its input
+<pre><pre class="playground"><code class="language-rust editable">// Returns a function that adds `y` to its input
 fn make_adder_function(y: i32) -&gt; impl Fn(i32) -&gt; i32 {
     let closure = move |x: i32| { x + y };
     closure
@@ -7743,7 +7759,7 @@ fn main() {
 closures! This makes using <code>map</code> and <code>filter</code> easier. Because closure types don't
 have names, you can't write out an explicit return type if your function returns
 iterators with closures. But with <code>impl Trait</code> you can do this easily:</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn double_positives&lt;'a&gt;(numbers: &amp;'a Vec&lt;i32&gt;) -&gt; impl Iterator&lt;Item = i32&gt; + 'a {
+<pre><pre class="playground"><code class="language-rust editable">fn double_positives&lt;'a&gt;(numbers: &amp;'a Vec&lt;i32&gt;) -&gt; impl Iterator&lt;Item = i32&gt; + 'a {
     numbers
         .iter()
         .filter(|x| x &gt; &amp;&amp;0)
@@ -7765,7 +7781,7 @@ The [`Clone`][clone] trait helps us do exactly this. Most commonly, we can
 use the `.clone()` method defined by the `Clone` trait.
 -->
 <p><a href="https://doc.rust-lang.org/std/clone/trait.Clone.html"><code>Clone</code></a>トレイトはまさにこのためにあります。普通は<code>Clone</code>トレイトで定義されている<code>.clone()</code>を用います。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// A unit struct without resources
+<pre><pre class="playground"><code class="language-rust editable">// A unit struct without resources
 // いかなる資源も持たない構造体
 #[derive(Debug, Clone, Copy)]
 struct Nil;
@@ -7825,7 +7841,7 @@ fn main() {
 <h1><a class="header" href="#supertraits" id="supertraits">Supertraits</a></h1>
 <p>Rust doesn't have &quot;inheritance&quot;, but you can define a trait as being a superset
 of another trait. For example:</p>
-<pre><pre class="playpen"><code class="language-rust editable">trait Person {
+<pre><pre class="playground"><code class="language-rust editable">trait Person {
     fn name(&amp;self) -&gt; String;
 }
 
@@ -7864,7 +7880,7 @@ fn main() {}
 clear which trait's <code>get</code> method you're implementing. </p>
 <p>What about when it comes time to <em>call</em> those methods? To disambiguate between
 them, we have to use Fully Qualified Syntax.</p>
-<pre><pre class="playpen"><code class="language-rust editable">trait UsernameWidget {
+<pre><pre class="playground"><code class="language-rust editable">trait UsernameWidget {
     // Get the selected username out of this widget
     fn get(&amp;self) -&gt; String;
 }
@@ -7929,7 +7945,7 @@ unexpected precedence bugs.</p>
 Macros are created using the `macro_rules!` macro.
 -->
 <p>マクロを作成するには<code>macro_rules!</code>というマクロを使用します。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// This is a simple macro named `say_hello`.
+<pre><pre class="playground"><code class="language-rust editable">// This is a simple macro named `say_hello`.
 // `say_hello`という名のシンプルなマクロ
 macro_rules! say_hello {
     // `()` indicates that the macro takes no argument.
@@ -7981,7 +7997,7 @@ The arguments of a macro are prefixed by a dollar sign `$` and type annotated
 with a *designator*:
 -->
 <p>macroの引数は<code>$</code>が頭につきます。型は <em>識別子</em> (<code>designator</code>)でアノテーションされます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">macro_rules! create_function {
+<pre><pre class="playground"><code class="language-rust editable">macro_rules! create_function {
     // This macro takes an argument of designator `ident` and
     // creates a function named `$func_name`.
     // The `ident` designator is used for variable/function names.
@@ -8066,7 +8082,7 @@ Macros can be overloaded to accept different combinations of arguments.
 In that regard, `macro_rules!` can work similarly to a match block:
 -->
 <p>マクロは異なる引数の組み合わせを取るようにオーバーロードすることができるため、<code>macro_rules!</code>はマッチと似たような使い方をすることができます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// `test!` will compare `$left` and `$right`
+<pre><pre class="playground"><code class="language-rust editable">// `test!` will compare `$left` and `$right`
 // in different ways depending on how you invoke it:
 // `test!`は`$left`と`$right`を異なる呼び出し方に応じて
 // 比較する。
@@ -8112,7 +8128,7 @@ match one or more expression, separated by commas.
 Also note that the semicolon is optional on the last case.
 -->
 <p>以下の例では、マッチ対象を <code>$(...),+</code>で囲むことにより、カンマで区切られた1つ以上の式とマッチします。最後のセミコロンは必須ではないことに注目しましょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// `min!` will calculate the minimum of any number of arguments.
+<pre><pre class="playground"><code class="language-rust editable">// `min!` will calculate the minimum of any number of arguments.
 // `min!`は引数として与えられた数字の中の最低の値を計算する。
 macro_rules! find_min {
     // Base case:
@@ -8140,7 +8156,7 @@ and/or test suites. Here is an example that implements and tests the `+=`, `*=`
 and `-=` operators on `Vec<T>`:
 -->
 <p>マクロは関数やテストなどにおいて、共通の部分を抽出することでDRYなコードを書くのに役立ちます。ここでは<code>+=</code>、<code>*=</code>、<code>-=</code>、<code>Vec&lt;T&gt;</code>を実装、テストするにあたって、マクロがどのように役立つかを見ていきます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::ops::{Add, Mul, Sub};
+<pre><pre class="playground"><code class="language-rust editable">use std::ops::{Add, Mul, Sub};
 
 macro_rules! assert_equal_len {
     // The `tt` (token tree) designator is used for
@@ -8216,7 +8232,7 @@ like a small language. This allows you to define concise or intuitive syntax for
 some special functionality (within bounds).</p>
 <p>Suppose that I want to define a little calculator API. I would like to supply
 an expression and have the output printed to console.</p>
-<pre><pre class="playpen"><code class="language-rust editable">macro_rules! calculate {
+<pre><pre class="playground"><code class="language-rust editable">macro_rules! calculate {
     (eval $e:expr) =&gt; {{
         {
             let val: usize = $e; // Force types to be integers
@@ -8249,7 +8265,7 @@ part of the syntax of <code>macro_rules!</code>, in addition to <code>()</code> 
 <code>println!</code> can take an arbitrary number of arguments, as determined by the
 format string.</p>
 <p>We can extend our <code>calculate!</code> macro from the previous section to be variadic:</p>
-<pre><pre class="playpen"><code class="language-rust editable">macro_rules! calculate {
+<pre><pre class="playground"><code class="language-rust editable">macro_rules! calculate {
     // The pattern for a single `eval`
     (eval $e:expr) =&gt; {{
         {
@@ -8333,7 +8349,7 @@ Here, we explicitly call `panic` on our error condition:
 -->
 <p><code>panic</code>は、最もシンプルなエラーハンドリングの仕組みです。エラーメッセージの出力、スタックの巻き戻し、そして多くの場合プログラムの終了を実行します。
 例として、エラー条件に対して明示的に<code>panic</code>を呼び出してみましょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">fn give_princess(gift: &amp;str) {
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">fn give_princess(gift: &amp;str) {
     // Princesses hate snakes, so we need to stop if she disapproves!
     // お姫様はヘビを嫌うので、贈り物として渡してはいけません！
     if gift == &quot;snake&quot; { panic!(&quot;AAAaaaaa!!!!&quot;); }
@@ -8388,7 +8404,7 @@ handling. In the following example, explicit handling yields a more
 controlled result while retaining the option to `panic` if desired.
 -->
 <p><a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.expect">expect</a>メソッドを用いて、<code>panic</code>を手動でカスタマイズできることに触れておきましょう。これは（<code>unwrap</code>をそのまま用いた場合よりも）内容が理解しやすいエラーメッセージを出力するのに役立ちます。次の例では、結果をより明示的に、可能ならいつでも<code>panic</code>できるように扱っていきます。</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">// The commoner has seen it all, and can handle any gift well.
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">// The commoner has seen it all, and can handle any gift well.
 // All gifts are handled explicitly using `match`.
 // 庶民(commoner)は経験豊富なので、大体どんな状況にも対処できます。
 // あらゆる贈り物は`match`を用いて手動で処理されます。
@@ -8440,7 +8456,7 @@ the underlying value if `x` is `Some`, otherwise it will terminate whatever
 function is being executed and return `None`.
 -->
 <p><code>Option</code>をアンパックするには<code>match</code>文を使うこともできますが、<code>?</code>を使う方が簡単になることが多いでしょう。<code>Option</code>の<code>x</code>があるとすると、<code>x?</code>を評価した値は、<code>x</code>が<code>Some</code>の場合は<code>x</code>に格納された値となり、そうでなければ実行中の関数を終了させ、<code>None</code>を返します。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn next_birthday(current_age: Option&lt;u8&gt;) -&gt; Option&lt;String&gt; {
+<pre><pre class="playground"><code class="language-rust editable">fn next_birthday(current_age: Option&lt;u8&gt;) -&gt; Option&lt;String&gt; {
 	// If `current_age` is `None`, this returns `None`.
 	// If `current_age` is `Some`, the inner `u8` gets assigned to `next_age`
     // `current_age`が`None`の場合、`None`を返す。
@@ -8453,7 +8469,7 @@ function is being executed and return `None`.
 You can chain many `?`s together to make your code much more readable.
 -->
 <p>多くの<code>?</code>を共に使うことで、リーダブルなコードを書くことができます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">struct Person {
+<pre><pre class="playground"><code class="language-rust editable">struct Person {
     job: Option&lt;Job&gt;,
 }
 
@@ -8516,7 +8532,7 @@ In the following example, `process()` replaces all functions previous
 to it while staying compact.
 -->
 <p>以下の例では、<code>process()</code>が直前の関数全てを用いた場合と同じ機能を、よりコンパクトに果たしているのがわかります。</p>
-<pre><pre class="playpen"><code class="language-rust editable">#![allow(dead_code)]
+<pre><pre class="playground"><code class="language-rust editable">#![allow(dead_code)]
 
 #[derive(Debug)] enum Food { Apple, Carrot, Potato }
 
@@ -8606,7 +8622,7 @@ Using `map()` instead of `and_then()` would have given an
 `Option<Option<Food>>`, which is an invalid type for `eat()`.
 -->
 <p>以下の例では<code>cookable_v2()</code>は<code>Option&lt;Food&gt;</code>を返すため、<code>and_then()</code>ではなく<code>map()</code>を使用すると最終的に<code>Option&lt;Option&lt;Food&gt;&gt;</code>になります。これは<code>eat()</code>には不適切な型です。</p>
-<pre><pre class="playpen"><code class="language-rust editable">#![allow(dead_code)]
+<pre><pre class="playground"><code class="language-rust editable">#![allow(dead_code)]
 
 #[derive(Debug)] enum Food { CordonBleu, Steak, Sushi }
 #[derive(Debug)] enum Day { Monday, Tuesday, Wednesday }
@@ -8709,7 +8725,7 @@ be possible to parse a string into the other type, so `parse()` returns a
 Let's see what happens when we successfully and unsuccessfully `parse()` a string:
 -->
 <p>早速、文字列を<code>parse()</code>した場合の成功例と失敗例を見てみましょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">fn multiply(first_number_str: &amp;str, second_number_str: &amp;str) -&gt; i32 {
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">fn multiply(first_number_str: &amp;str, second_number_str: &amp;str) -&gt; i32 {
     // Let's try using `unwrap()` to get the number out. Will it bite us?
     // `unwrap()`で数字を取り出してみましょう。痛い目を見るでしょうか？
     let first_number = first_number_str.parse::&lt;i32&gt;().unwrap();
@@ -8745,7 +8761,7 @@ The `Result` type can also be the return type of the `main` function if
 specified explicitly. Typically the `main` function will be of the form:
 -->
 <p><code>Result</code>型は、明示的な指定により<code>main</code>関数のリターン型にもなります。一般に、<code>main</code>関数は以下のような形になるでしょう。</p>
-<pre><pre class="playpen"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">fn main() {
     println!(&quot;Hello World!&quot;);
 }
 </code></pre></pre>
@@ -8756,7 +8772,7 @@ representation of the error (using the [`Debug`] trait). The following example
 shows such a scenario and touches on aspects covered in [the following section].
 -->
 <p>一方<code>main</code>で<code>Result</code>をリターン型とすることも可能です。エラーが<code>main</code>関数内で発生した時、エラーコードを返し、エラーに関するデバッグ表記を（<a href="https://doc.rust-lang.org/std/fmt/trait.Debug.html"><code>Debug</code></a>トレートを使って）出力します。以下の例ではそのようなシナリオを示し、<a href="error/result/early_returns.html">この先の節</a>でカバーする内容に触れていきます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::num::ParseIntError;
+<pre><pre class="playground"><code class="language-rust editable">use std::num::ParseIntError;
 
 fn main() -&gt; Result&lt;(), ParseIntError&gt; {
     let number_str = &quot;10&quot;;
@@ -8793,7 +8809,7 @@ In the example below, the straightforward `match` statement leads to code
 that is overall more cumbersome.
 -->
 <p>以下の例では、単純な<code>match</code>文が全体として扱いづらいコードにしています。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::num::ParseIntError;
+<pre><pre class="playground"><code class="language-rust editable">use std::num::ParseIntError;
 
 // With the return type rewritten, we use pattern matching without `unwrap()`.
 // リターン型を再度記述することで、パターンマッチングを`unwrap()`なしで行います。
@@ -8835,7 +8851,7 @@ Luckily, `Option`'s `map`, `and_then`, and many other combinators are also
 implemented for `Result`. [`Result`][result] contains a complete listing.
 -->
 <p>幸運にも、<code>Option</code>の<code>map</code>、<code>and_then</code>、その他多くのコンビネータも<code>Result</code>のために実装されています。<a href="https://doc.rust-lang.org/std/result/enum.Result.html"><code>Result</code></a>に全てのリストが記載されています。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::num::ParseIntError;
+<pre><pre class="playground"><code class="language-rust editable">use std::num::ParseIntError;
 
 // As with `Option`, we can use combinators such as `map()`.
 // This function is otherwise identical to the one above and reads:
@@ -8889,7 +8905,7 @@ can succinctly define *all* associated `Results`. This is so useful that the
 Here's a quick example to show off the syntax:
 -->
 <p>簡単な例で構文を見てみましょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::num::ParseIntError;
+<pre><pre class="playground"><code class="language-rust editable">use std::num::ParseIntError;
 
 // Define a generic alias for a `Result` with the error type `ParseIntError`.
 // `ParseIntError`を`Err`の型として持つ全ての`Result`のジェネリックエイリアス
@@ -8935,7 +8951,7 @@ one occurs. For some, this form of code can be easier to both read and
 write. Consider this version of the previous example, rewritten using early returns:
 -->
 <p>つまり、エラーが発生した時点で関数の実行を止め、エラーを返してしまうという単純な方法が使えるということです。この方法の方がより読みやすく書きやすい場合があります。早期リターンを使って実装された、前の例の新たなバージョンを考えてみましょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::num::ParseIntError;
+<pre><pre class="playground"><code class="language-rust editable">use std::num::ParseIntError;
 
 fn multiply(first_number_str: &amp;str, second_number_str: &amp;str) -&gt; Result&lt;i32, ParseIntError&gt; {
     let first_number = match first_number_str.parse::&lt;i32&gt;() {
@@ -9002,7 +9018,7 @@ instead of `panic`king on `Err`s. Let's see how we can simplify the earlier
 example that used combinators:
 -->
 <p><code>?</code>は<em>ほぼ</em><sup class="footnote-reference"><a href="#†">1</a></sup>まさしく、<code>Err</code>に対して<code>panic</code>するより<code>return</code>するという点で<code>unwrap</code>と同等です。コンビネータを使った以前の例をどれだけ簡潔に書けるか見てみましょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::num::ParseIntError;
+<pre><pre class="playground"><code class="language-rust editable">use std::num::ParseIntError;
 
 fn multiply(first_number_str: &amp;str, second_number_str: &amp;str) -&gt; Result&lt;i32, ParseIntError&gt; {
     let first_number = first_number_str.parse::&lt;i32&gt;()?;
@@ -9034,7 +9050,7 @@ at older code. The same `multiply` function from the previous example
 would look like this using `try!`:
 -->
 <p><code>?</code>ができる前、同様の動作を<code>try!</code>マクロによって行うことができました。現在は<code>?</code>オペレータが推奨されていますが、古いコードでは<code>try!</code>に出会うこともあります。<code>try!</code>を使って前の例と同じ<code>multiply</code>関数を実装すると、以下のようになるでしょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// To compile and run this example without errors, while using Cargo, change the value 
+<pre><pre class="playground"><code class="language-rust editable">// To compile and run this example without errors, while using Cargo, change the value 
 // of the `edition` field, in the `[package]` section of the `Cargo.toml` file, to &quot;2015&quot;.
 // Cargoを使いながらこの例をエラーなくコンパイル、及び実行する場合、
 // `Cargo.toml`ファイル内、`[package]`セクションの`edition`の値を&quot;2015&quot;に変更してください。
@@ -9088,7 +9104,7 @@ types. `Vec::first` returns an `Option`, while `parse::<i32>` returns a
 `Result<i32, ParseIntError>`:
 -->
 <p>以下のコードは<code>unwrap</code>の２つのインスタンスが異なるエラー型を生成します。<code>Vec::first</code>は<code>Option</code>を返し、一方で<code>parse::&lt;i32&gt;</code>は<code>Result&lt;i32, ParseIntError&gt;</code>を返しています。</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">fn double_first(vec: Vec&lt;&amp;str&gt;) -&gt; i32 {
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">fn double_first(vec: Vec&lt;&amp;str&gt;) -&gt; i32 {
     let first = vec.first().unwrap(); // Generate error 1
                                       // エラー１の生成
     2 * first.parse::&lt;i32&gt;().unwrap() // Generate error 2
@@ -9124,7 +9140,7 @@ The most basic way of handling mixed error types is to just embed them in each
 other.
 -->
 <p>混在するエラー型に対する最も基本的な対処法は、単にお互いを埋め込んでしまうことです。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::num::ParseIntError;
+<pre><pre class="playground"><code class="language-rust editable">use std::num::ParseIntError;
 
 fn double_first(vec: Vec&lt;&amp;str&gt;) -&gt; Option&lt;Result&lt;i32, ParseIntError&gt;&gt; {
     vec.first().map(|first| {
@@ -9154,7 +9170,7 @@ There are times when we'll want to stop processing on errors (like with
 couple of combinators come in handy to swap the `Result` and `Option`.
 -->
 <p>中には、<code>Option</code>の中身が<code>None</code>の場合はそのまま処理を進め、エラーの検出に限り実行を止めたいという場合もあるでしょう（<a href="error/multiple_error_types/../result/enter_question_mark.html"><code>?</code></a>を使った時のように）。いくつかのコンビネータによって簡単に<code>Result</code>と<code>Option</code>をスワップすることができます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::num::ParseIntError;
+<pre><pre class="playground"><code class="language-rust editable">use std::num::ParseIntError;
 
 fn double_first(vec: Vec&lt;&amp;str&gt;) -&gt; Result&lt;Option&lt;i32&gt;, ParseIntError&gt; {
     let opt = vec.first().map(|first| {
@@ -9215,7 +9231,7 @@ Rust allows us to define our own error types. In general, a "good" error type:
 </li>
 <li>他のエラーと問題なく連携できる</li>
 </ul>
-<pre><pre class="playpen"><code class="language-rust editable">use std::error;
+<pre><pre class="playground"><code class="language-rust editable">use std::error;
 use std::fmt;
 
 type Result&lt;T&gt; = std::result::Result&lt;T, DoubleError&gt;;
@@ -9301,7 +9317,7 @@ any type that implements the `Error` trait into the trait object `Box<Error>`,
 via [`From`][from].
 -->
 <p>標準ライブラリは<code>Box</code>に、<a href="https://doc.rust-lang.org/std/convert/trait.From.html"><code>From</code></a>を介してあらゆる<code>Error</code>トレートを実装した型から<code>Box&lt;Error&gt;</code>トレートオブジェクトへの変換を実装させることで、エラーをboxしやすくしてくれます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::error;
+<pre><pre class="playground"><code class="language-rust editable">use std::error;
 use std::fmt;
 
 // Change the alias to `Box&lt;error::Error&gt;`.
@@ -9392,7 +9408,7 @@ Here, we rewrite the previous example using `?`. As a result, the
 `map_err` will go away when `From::from` is implemented for our error type:
 -->
 <p>前の例を<code>?</code>を使ったものに書き換えてみましょう。その結果、<code>From::from</code>がエラー型に実装されている時<code>map_err</code>は消えてなくなります。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::error;
+<pre><pre class="playground"><code class="language-rust editable">use std::error;
 use std::fmt;
 
 // Change the alias to `Box&lt;dyn error::Error&gt;`.
@@ -9464,7 +9480,7 @@ top level.
 An alternative to boxing errors is to wrap them in your own error type.
 -->
 <p>Boxする方法の代替として、エラーを自前のエラー型としてラップする方法もあります。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::error;
+<pre><pre class="playground"><code class="language-rust editable">use std::error;
 use std::num::ParseIntError;
 use std::fmt;
 
@@ -9558,7 +9574,7 @@ for you.
 An `Iter::map` operation might fail, for example:
 -->
 <p><code>Iter::map</code>オペレーションは失敗することもあります。例えば、</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let strings = vec![&quot;tofu&quot;, &quot;93&quot;, &quot;18&quot;];
     let numbers: Vec&lt;_&gt; = strings
         .into_iter()
@@ -9579,7 +9595,7 @@ Let's step through strategies for handling this.
 `filter_map` calls a function and filters out the results that are `None`.
 -->
 <p><code>filter_map</code>は関数を呼び出し、結果が<code>None</code>になるものだけ取り除きます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let strings = vec![&quot;tofu&quot;, &quot;93&quot;, &quot;18&quot;];
     let numbers: Vec&lt;_&gt; = strings
         .into_iter()
@@ -9599,7 +9615,7 @@ can be turned into a result with a vector (`Result<Vec<T>, E>`). Once an
 `Result::Err` is found, the iteration will terminate.
 -->
 <p><code>Result</code>は、それらのベクトル(<code>Vec&lt;Result&lt;T, E&gt;&gt;</code>)からベクトルのそれ(<code>Result&lt;Vec&lt;T&gt;, E&gt;</code>)へと変換できるようにするため、<code>FromIter</code>を実装します。<code>Result::Err</code>が見つかり次第、イテレーションは終了します。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let strings = vec![&quot;tofu&quot;, &quot;93&quot;, &quot;18&quot;];
     let numbers: Result&lt;Vec&lt;_&gt;, _&gt; = strings
         .into_iter()
@@ -9616,7 +9632,7 @@ This same technique can be used with `Option`.
 ## Collect all valid values and failures with `partition()`
 -->
 <h2><a class="header" href="#partitionを使って全ての正常な値と失敗をまとめる" id="partitionを使って全ての正常な値と失敗をまとめる"><code>partition()</code>を使って全ての正常な値と失敗をまとめる</a></h2>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let strings = vec![&quot;tofu&quot;, &quot;93&quot;, &quot;18&quot;];
     let (numbers, errors): (Vec&lt;_&gt;, Vec&lt;_&gt;) = strings
         .into_iter()
@@ -9631,7 +9647,7 @@ When you look at the results, you'll note that everything is still wrapped in
 `Result`.  A little more boilerplate is needed for this.
 -->
 <p>結果を見てみると、まだ全て<code>Result</code>にラップされていることに気づくでしょう。もう少しのボイラープレートが必要です。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let strings = vec![&quot;tofu&quot;, &quot;93&quot;, &quot;18&quot;];
     let (numbers, errors): (Vec&lt;_&gt;, Vec&lt;_&gt;) = strings
         .into_iter()
@@ -9686,7 +9702,7 @@ Boxed values can be dereferenced using the `*` operator; this removes one layer
 of indirection. 
 -->
 <p>ボックス化された値は<code>*</code>オペレータを用いてデリファレンスすることができます。これにより一段と直接的な操作が可能になります。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::mem;
+<pre><pre class="playground"><code class="language-rust editable">use std::mem;
 
 #[allow(dead_code)]
 #[derive(Debug, Clone, Copy)]
@@ -9784,7 +9800,7 @@ can grow as long as the length is smaller than the capacity. When this threshold
 needs to be surpassed, the vector is reallocated with a larger capacity.
 -->
 <p>ベクタはその容量を超えない限りにおいて長くしていくことができます。超えた場合には、より大きな容量を持つように割り当てなおされます。</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">fn main() {
     // Iterators can be collected into vectors
     // イテレータは要素を収集してベクタにすることができる。
     let collected_iterator: Vec&lt;i32&gt; = (0..10).collect();
@@ -9869,7 +9885,7 @@ null terminated.
 can be used to view into a `String`, just like `&[T]` is a view into `Vec<T>`.
 -->
 <p><code>&amp;str</code>は有効なUTF-8の配列のスライス(<code>&amp;[u8]</code>)で、いつでも<code>String</code>に変換することができます。<code>&amp;[T]</code>がいつでも<code>Vec&lt;T&gt;</code>に変換できるのと同様です。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     // (all the type annotations are superfluous)
     // A reference to a string allocated in read only memory
     // （以下の例では型を明示していますが、これらは必須ではありません。）
@@ -9938,7 +9954,7 @@ This way you can add any character to your string, even unprintable ones
 and ones that you don't know how to type. If you want a literal backslash,
 escape it with another one: <code>\\</code></p>
 <p>String or character literal delimiters occuring within a literal must be escaped: <code>&quot;\&quot;&quot;</code>, <code>'\''</code>.</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     // You can use escapes to write bytes by their hexadecimal values...
     let byte_escape = &quot;I'm writing \x52\x75\x73\x74!&quot;;
     println!(&quot;What are you doing\x3F (\\x3F means ?) {}&quot;, byte_escape);
@@ -9960,7 +9976,7 @@ escape it with another one: <code>\\</code></p>
 </code></pre></pre>
 <p>Sometimes there are just too many characters that need to be escaped or it's just
 much more convenient to write a string out as-is. This is where raw string literals come into play.</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let raw_str = r&quot;Escapes don't work here: \x3F \u{211D}&quot;;
     println!(&quot;{}&quot;, raw_str);
 
@@ -9976,7 +9992,7 @@ much more convenient to write a string out as-is. This is where raw string liter
 </code></pre></pre>
 <p>Want a string that's not UTF-8? (Remember, <code>str</code> and <code>String</code> must be valid UTF-8).
 Or maybe you want an array of bytes that's mostly text? Byte strings to the rescue!</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::str;
+<pre><pre class="playground"><code class="language-rust editable">use std::str;
 
 fn main() {
     // Note that this is not actually a `&amp;str`
@@ -10035,7 +10051,7 @@ The `Option<T>` enum has two variants:
 <li><code>None</code>、これは実行の失敗か値の欠如を示します。</li>
 <li><code>Some(value)</code>、型<code>T</code>の<code>value</code>をラップするタプルです。</li>
 </ul>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">// An integer division that doesn't `panic!`
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">// An integer division that doesn't `panic!`
 // `panic!`を起こさない整数の割り算
 fn checked_division(dividend: i32, divisor: i32) -&gt; Option&lt;i32&gt; {
     if divisor == 0 {
@@ -10104,7 +10120,7 @@ The `Result<T, E>` enum has two variants:
 <li><code>Ok(value)</code> ... これはオペレーションが成功したことを意味し、返り値<code>value</code>をラップします。（<code>value</code>は型<code>T</code>を持ちます。）</li>
 <li><code>Err(why)</code> ... これはオペレーションの失敗を意味します。<code>why</code>をラップしており、ここには失敗した理由が（必ずではありませんが）書かれています。（<code>why</code>の型は<code>E</code>です。）</li>
 </ul>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">mod checked {
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">mod checked {
     // Mathematical &quot;errors&quot; we want to catch
     // 補足対象としたい、数学的な「エラー」
     #[derive(Debug)]
@@ -10175,7 +10191,7 @@ can be used to make things pretty again. <code>?</code> is used at the end of an
 returning a <code>Result</code>, and is equivalent to a match expression, where the 
 <code>Err(err)</code> branch expands to an early <code>Err(From::from(err))</code>, and the <code>Ok(ok)</code>
 branch expands to an <code>ok</code> expression.</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">mod checked {
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">mod checked {
     #[derive(Debug)]
     enum MathError {
         DivisionByZero,
@@ -10253,7 +10269,7 @@ Since we are dealing with programs with only one thread, `panic!` will cause the
 program to report the panic message and exit.
 -->
 <p>今回はシングルスレッドのプログラムを実行しているので、<code>panic!</code>はプログラムにパニックメッセージを表示させ、exitします。</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">// Re-implementation of integer division (/)
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">// Re-implementation of integer division (/)
 // 整数の除法(/)の再実装
 fn division(dividend: i32, divisor: i32) -&gt; i32 {
     if divisor == 0 {
@@ -10322,7 +10338,7 @@ You can create a HashMap with a certain starting capacity using
 with a default initial capacity (recommended).
 -->
 <p>ベクタ型と同様、伸長可能ですが、<code>HashMap</code>の場合さらに、スペースが余っているときには小さくすることも可能です。<code>HashMap</code>を一定の容量のエリアに作成するときは<code>HashMap::with_capacity(uint)</code>を、デフォルトの容量で作成するときは<code>HashMap::new()</code>を用います。後者が推奨されています。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::collections::HashMap;
+<pre><pre class="playground"><code class="language-rust editable">use std::collections::HashMap;
 
 fn call(number: &amp;str) -&gt; &amp;str {
     match number {
@@ -10427,7 +10443,7 @@ To play around with using a `struct` in `HashMap`,
 let's try making a very simple user logon system:
 -->
 <p><code>struct</code>を<code>HashMap</code>で扱う際の例として、とてもシンプルなユーザーログインシステムを作成してみましょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::collections::HashMap;
+<pre><pre class="playground"><code class="language-rust editable">use std::collections::HashMap;
 
 // Eq requires that you derive PartialEq on the type.
 // Eqトレイトを使用する時は、PartialEqをderiveする必要があります。
@@ -10553,7 +10569,7 @@ get all the elements that are in one set or the other, but *not* both.
 Try all of these in the following example:
 -->
 <p>以下の例でこれらをすべて見ていきましょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">use std::collections::HashSet;
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">use std::collections::HashSet;
 
 fn main() {
     let mut a: HashSet&lt;i32&gt; = vec![1i32, 2, 3].into_iter().collect();
@@ -10607,7 +10623,7 @@ fn main() {
 <p>When multiple ownership is needed, <code>Rc</code>(Reference Counting) can be used. <code>Rc</code> keeps track of the number of the references which means the number of owners of the value wrapped inside an <code>Rc</code>. </p>
 <p>Reference count of an <code>Rc</code> increases by 1 whenever an <code>Rc</code> is cloned, and decreases by 1 whenever one cloned <code>Rc</code> is dropped out of the scope. When an <code>Rc</code>'s reference count becomes zero, which means there are no owners remained, both the <code>Rc</code> and the value are all dropped. </p>
 <p>Cloning an <code>Rc</code> never do a deep copy. Cloning creates just another pointer to the wrapped value, and increments the count.</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::rc::Rc;
+<pre><pre class="playground"><code class="language-rust editable">use std::rc::Rc;
 
 fn main() {
     let rc_examples = &quot;Rc examples&quot;.to_string();
@@ -10684,7 +10700,7 @@ Rust provides a mechanism for spawning native OS threads via the `spawn`
 function, the argument of this function is a moving closure.
 -->
 <p>Rustは<code>spawn</code>関数を用いてOSのネイティブスレッドを開始することができます。この関数の引数はmoveクロージャ（訳注: 参照ではなく値を取るクロージャ。　詳しくは[クロージャを返す関数][fn_output]を参照）です。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::thread;
+<pre><pre class="playground"><code class="language-rust editable">use std::thread;
 
 static NTHREADS: i32 = 10;
 
@@ -10731,7 +10747,7 @@ thread.</p>
 only passing read-only references, and that thus no unsafety or data races can occur. Because
 we're <code>move</code>-ing the data segments into the thread, Rust will also ensure the data is kept alive
 until the threads exit, so no dangling pointers occur.</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::thread;
+<pre><pre class="playground"><code class="language-rust editable">use std::thread;
 
 // This is the `main` thread
 fn main() {
@@ -10858,7 +10874,7 @@ allow a unidirectional flow of information between two end-points: the
 `Sender` and the `Receiver`.
 -->
 <p>Rustは、スレッド間のコミュニケーションのために、非同期のチャネル(<code>channels</code>)を提供しています。チャネル2つのエンドポイント、すなわち送信者(<code>Sender</code>)と受信者(<code>Receiver</code>)を介して、情報の一方向への流れを作り出すことを可能にしています。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::sync::mpsc::{Sender, Receiver};
+<pre><pre class="playground"><code class="language-rust editable">use std::sync::mpsc::{Sender, Receiver};
 use std::sync::mpsc;
 use std::thread;
 
@@ -10939,7 +10955,7 @@ instead is stored as a vector of bytes (`Vec<u8>`). Therefore, converting a
 `Path` to a `&str` is *not* free and may fail (an `Option` is returned).
 -->
 <p><code>Path</code>の実態はUTF-8の文字列 <strong>ではなく</strong> 、バイト型のベクタ(<code>Vec&lt;u8&gt;</code>)であることに注意しましょう。したがって、<code>Path</code>を<code>&amp;str</code>に変換するのは無条件 <strong>ではなく</strong> 、失敗する可能性があります。それゆえ<code>Option</code>型が返されます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::path::Path;
+<pre><pre class="playground"><code class="language-rust editable">use std::path::Path;
 
 fn main() {
     // Create a `Path` from an `&amp;'static str`
@@ -11117,7 +11133,7 @@ failure conditions.)
 of a file.</p>
 <p><code>File::open</code> expects a generic, <code>AsRef&lt;Path&gt;</code>.  That's what
 <code>read_lines()</code> expects as input.</p>
-<pre><pre class="playpen"><code class="language-rust no_run">use std::fs::File;
+<pre><pre class="playground"><code class="language-rust no_run">use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
 
@@ -11425,7 +11441,7 @@ The command line arguments can be accessed using `std::env::args`, which
 returns an iterator that yields a `String` for each argument:
 -->
 <p>コマンドライン引数は<code>std::env::args</code>を介して取得できます。これはそれぞれの引数を文字列としてyieldするイテレータを返します。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::env;
+<pre><pre class="playground"><code class="language-rust editable">use std::env;
 
 fn main() {
     let args: Vec&lt;String&gt; = env::args().collect();
@@ -11459,7 +11475,7 @@ practices on how to use one of the more popular command line argument crates,
 Matching can be used to parse simple arguments:
 -->
 <p>matchを用いて簡単な引数をパースできます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::env;
+<pre><pre class="playground"><code class="language-rust editable">use std::env;
 
 fn increase(number: i32) {
     println!(&quot;{}&quot;, number + 1);
@@ -11703,7 +11719,7 @@ test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out
 <p>None of the previous unit test examples had a return type. But in Rust 2018,
 your unit tests can return <code>Result&lt;()&gt;</code>, which lets you use <code>?</code> in them! This
 can make them much more concise.</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn sqrt(number: f64) -&gt; Result&lt;f64, String&gt; {
+<pre><pre class="playground"><code class="language-rust editable">fn sqrt(number: f64) -&gt; Result&lt;f64, String&gt; {
     if number &gt;= 0.0 {
         Ok(number.powf(0.5))
     } else {
@@ -11808,8 +11824,8 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 <h2><a class="header" href="#ignoring-tests" id="ignoring-tests">Ignoring tests</a></h2>
 <p>Tests can be marked with the <code>#[ignore]</code> attribute to exclude some tests. Or to run
 them with command <code>cargo test -- --ignored</code></p>
-<pre><pre class="playpen"><code class="language-rust">
-<span class="boring">#![allow(unused_variables)]
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>pub fn add(a: i32, b: i32) -&gt; i32 {
     a + b
@@ -12096,7 +12112,7 @@ block.
 -->
 <h3><a class="header" href="#生ポインタ" id="生ポインタ">生ポインタ</a></h3>
 <p>生ポインタ<code>*</code>と参照<code>&amp;T</code>はよく似た機能を持ちますが、後者は必ず有効なデータを指していることが借用チェッカーによって保証されているので、常に安全です。生ポインタのデリファレンスはアンセーフなブロックでしか実行できません。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let raw_p: *const u32 = &amp;10;
 
     unsafe {
@@ -12109,7 +12125,7 @@ block.
 responsibility to ensure correctness instead of the compiler's. One example
 of this is <a href="https://doc.rust-lang.org/std/slice/fn.from_raw_parts.html"><code>std::slice::from_raw_parts</code></a> which will create a slice given a
 pointer to the first element and a length.</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::slice;
+<pre><pre class="playground"><code class="language-rust editable">use std::slice;
 
 fn main() {
     let some_vector = vec![1, 2, 3, 4];
@@ -12299,10 +12315,10 @@ $ rustdoc --test --extern doc=&quot;libdoc.rlib&quot; doc.rs
         
 
         
-        
+
         
         <script type="text/javascript">
-            window.playpen_copyable = true;
+            window.playground_copyable = true;
         </script>
         
 

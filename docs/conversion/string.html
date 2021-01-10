@@ -5,22 +5,36 @@
         <meta charset="UTF-8">
         <title>To and from Strings - Rust By Example 日本語版</title>
         
+        
+
+
+        <!-- Custom HTML head -->
+        
+
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A description">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
         <link rel="shortcut icon" href="../favicon.png">
+        
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
+        
         <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
@@ -38,7 +52,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -118,9 +132,11 @@
                     <h1 class="menu-title">Rust By Example 日本語版</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                         <a href="https://github.com/rust-lang-ja/rust-by-example-ja" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
@@ -159,7 +175,7 @@
 trait for the type. Rather than doing so directly, you should implement the
 <a href="https://doc.rust-lang.org/std/fmt/trait.Display.html"><code>fmt::Display</code></a> trait which automagically provides <a href="https://doc.rust-lang.org/std/string/trait.ToString.html"><code>ToString</code></a> and
 also allows printing the type as discussed in the section on <a href="../hello/print.html"><code>print!</code></a>.</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::fmt;
+<pre><pre class="playground"><code class="language-rust editable">use std::fmt;
 
 struct Circle {
     radius: i32
@@ -185,7 +201,7 @@ Both alternatives are shown in the following example.</p>
 trait is implemented for that type. This is implemented for numerous types
 within the standard library. To obtain this functionality on a user defined type
 simply implement the <a href="https://doc.rust-lang.org/std/str/trait.FromStr.html"><code>FromStr</code></a> trait for that type.</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let parsed: i32 = &quot;5&quot;.parse().unwrap();
     let turbo_parsed = &quot;10&quot;.parse::&lt;i32&gt;().unwrap();
 
@@ -236,10 +252,10 @@ simply implement the <a href="https://doc.rust-lang.org/std/str/trait.FromStr.ht
         
 
         
-        
+
         
         <script type="text/javascript">
-            window.playpen_copyable = true;
+            window.playground_copyable = true;
         </script>
         
 

@@ -5,22 +5,36 @@
         <meta charset="UTF-8">
         <title>?の導入 - Rust By Example 日本語版</title>
         
+        
+
+
+        <!-- Custom HTML head -->
+        
+
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A description">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
+        <link rel="icon" href="../../favicon.svg">
+        
+        
         <link rel="shortcut icon" href="../../favicon.png">
+        
         <link rel="stylesheet" href="../../css/variables.css">
         <link rel="stylesheet" href="../../css/general.css">
         <link rel="stylesheet" href="../../css/chrome.css">
+        
         <link rel="stylesheet" href="../../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../../highlight.css">
@@ -38,7 +52,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -118,9 +132,11 @@
                     <h1 class="menu-title">Rust By Example 日本語版</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                         <a href="https://github.com/rust-lang-ja/rust-by-example-ja" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
@@ -181,7 +197,7 @@ instead of `panic`king on `Err`s. Let's see how we can simplify the earlier
 example that used combinators:
 -->
 <p><code>?</code>は<em>ほぼ</em><sup class="footnote-reference"><a href="#†">1</a></sup>まさしく、<code>Err</code>に対して<code>panic</code>するより<code>return</code>するという点で<code>unwrap</code>と同等です。コンビネータを使った以前の例をどれだけ簡潔に書けるか見てみましょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::num::ParseIntError;
+<pre><pre class="playground"><code class="language-rust editable">use std::num::ParseIntError;
 
 fn multiply(first_number_str: &amp;str, second_number_str: &amp;str) -&gt; Result&lt;i32, ParseIntError&gt; {
     let first_number = first_number_str.parse::&lt;i32&gt;()?;
@@ -213,7 +229,7 @@ at older code. The same `multiply` function from the previous example
 would look like this using `try!`:
 -->
 <p><code>?</code>ができる前、同様の動作を<code>try!</code>マクロによって行うことができました。現在は<code>?</code>オペレータが推奨されていますが、古いコードでは<code>try!</code>に出会うこともあります。<code>try!</code>を使って前の例と同じ<code>multiply</code>関数を実装すると、以下のようになるでしょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// To compile and run this example without errors, while using Cargo, change the value 
+<pre><pre class="playground"><code class="language-rust editable">// To compile and run this example without errors, while using Cargo, change the value 
 // of the `edition` field, in the `[package]` section of the `Cargo.toml` file, to &quot;2015&quot;.
 // Cargoを使いながらこの例をエラーなくコンパイル、及び実行する場合、
 // `Cargo.toml`ファイル内、`[package]`セクションの`edition`の値を&quot;2015&quot;に変更してください。
@@ -288,10 +304,10 @@ fn main() {
         
 
         
-        
+
         
         <script type="text/javascript">
-            window.playpen_copyable = true;
+            window.playground_copyable = true;
         </script>
         
 

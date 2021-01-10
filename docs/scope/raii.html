@@ -5,22 +5,36 @@
         <meta charset="UTF-8">
         <title>RAII - Rust By Example 日本語版</title>
         
+        
+
+
+        <!-- Custom HTML head -->
+        
+
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A description">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
         <link rel="shortcut icon" href="../favicon.png">
+        
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
+        
         <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
@@ -38,7 +52,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -118,9 +132,11 @@
                     <h1 class="menu-title">Rust By Example 日本語版</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                         <a href="https://github.com/rust-lang-ja/rust-by-example-ja" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
@@ -166,7 +182,7 @@ This behavior shields against *resource leak* bugs, so you'll never have to
 manually free memory or worry about memory leaks again! Here's a quick showcase:
 -->
 <p>この振る舞いは <em>リソースリーク</em> (<code>resouce leak</code>)バグを防ぐのに役立ちます。手動でメモリを開放したり、メモリリークバグにわずらわされたりすることはなくなるのです！簡単な例で説明しましょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable">// raii.rs
+<pre><pre class="playground"><code class="language-rust editable">// raii.rs
 fn create_box() {
     // Allocate an integer on the heap
     // 整数をヒープ上に確保
@@ -235,7 +251,7 @@ required to be implemented for every type, only implement it for your type if
 you require its own destructor logic.</p>
 <p>Run the below example to see how the <a href="https://doc.rust-lang.org/std/ops/trait.Drop.html"><code>Drop</code></a> trait works. When the variable in
 the <code>main</code> function goes out of scope the custom destructor will be invoked.</p>
-<pre><pre class="playpen"><code class="language-rust editable">struct ToDrop;
+<pre><pre class="playground"><code class="language-rust editable">struct ToDrop;
 
 impl Drop for ToDrop {
     fn drop(&amp;mut self) {
@@ -296,10 +312,10 @@ fn main() {
         
 
         
-        
+
         
         <script type="text/javascript">
-            window.playpen_copyable = true;
+            window.playground_copyable = true;
         </script>
         
 

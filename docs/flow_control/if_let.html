@@ -5,22 +5,36 @@
         <meta charset="UTF-8">
         <title>if let - Rust By Example 日本語版</title>
         
+        
+
+
+        <!-- Custom HTML head -->
+        
+
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A description">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
         <link rel="shortcut icon" href="../favicon.png">
+        
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
+        
         <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
@@ -38,7 +52,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -118,9 +132,11 @@
                     <h1 class="menu-title">Rust By Example 日本語版</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                         <a href="https://github.com/rust-lang-ja/rust-by-example-ja" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
@@ -158,8 +174,8 @@
 For some use cases, when matching enums, `match` is awkward. For example:
 -->
 <p>列挙型をマッチさせるとき、場合によっては<code>match</code>を使用すると不自然な書き方になってしまう場合があります。例えば...</p>
-<pre><pre class="playpen"><code class="language-rust">
-<span class="boring">#![allow(unused_variables)]
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// Make `optional` of type `Option&lt;i32&gt;`
 // `optional`という変数の型を`Option&lt;i32&gt;`に指定
@@ -187,7 +203,7 @@ match optional {
 failure options to be specified:
 -->
 <p>この場合は<code>if let</code>を用いたほうが美しく、失敗時の処理も柔軟に行うことができます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     // All have type `Option&lt;i32&gt;`
     // 全て`Option&lt;i32&gt;`型
     let number = Some(7);
@@ -234,7 +250,7 @@ failure options to be specified:
 }
 </code></pre></pre>
 <p>In the same way, <code>if let</code> can be used to match any enum value:</p>
-<pre><pre class="playpen"><code class="language-rust editable">// Our example enum
+<pre><pre class="playground"><code class="language-rust editable">// Our example enum
 enum Foo {
     Bar,
     Baz,
@@ -272,7 +288,7 @@ fn main() {
 </code></pre></pre>
 <p>Another benefit is that <code>if let</code> allows us to match non-parameterized enum variants. This is true even in cases where the enum doesn't implement or derive <code>PartialEq</code>. In such cases <code>if Foo::Bar == a</code> would fail to compile, because instances of the enum cannot be equated, however <code>if let</code> will continue to work.</p>
 <p>Would you like a challenge? Fix the following example to use <code>if let</code>:</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">// This enum purposely neither implements nor derives PartialEq.
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">// This enum purposely neither implements nor derives PartialEq.
 // That is why comparing Foo::Bar == a fails below.
 enum Foo {Bar}
 
@@ -334,10 +350,10 @@ fn main() {
         
 
         
-        
+
         
         <script type="text/javascript">
-            window.playpen_copyable = true;
+            window.playground_copyable = true;
         </script>
         
 

@@ -5,22 +5,36 @@
         <meta charset="UTF-8">
         <title>Diverging functions - Rust By Example 日本語版</title>
         
+        
+
+
+        <!-- Custom HTML head -->
+        
+
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A description">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
         <link rel="shortcut icon" href="../favicon.png">
+        
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
+        
         <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
@@ -38,7 +52,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -118,9 +132,11 @@
                     <h1 class="menu-title">Rust By Example 日本語版</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                         <a href="https://github.com/rust-lang-ja/rust-by-example-ja" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
@@ -155,8 +171,8 @@
                     <main>
                         <h1><a class="header" href="#diverging-functions" id="diverging-functions">Diverging functions</a></h1>
 <p>Diverging functions never return. They are marked using <code>!</code>, which is an empty type.</p>
-<pre><pre class="playpen"><code class="language-rust">
-<span class="boring">#![allow(unused_variables)]
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>fn foo() -&gt; ! {
     panic!(&quot;This call never returns.&quot;);
@@ -168,7 +184,7 @@ set of all possible values this type can have is empty. Note that, it is
 different from the <code>()</code> type, which has exactly one possible value.</p>
 <p>For example, this function returns as usual, although there is no information
 in the return value.</p>
-<pre><pre class="playpen"><code class="language-rust">fn some_fn() {
+<pre><pre class="playground"><code class="language-rust">fn some_fn() {
     ()
 }
 
@@ -189,7 +205,7 @@ fn main() {
 often handy. The main advantage of this type is that it can be cast to any other
 one and therefore used at places where an exact type is required, for instance
 in <code>match</code> branches. This allows us to write code like this:</p>
-<pre><pre class="playpen"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">fn main() {
     fn sum_odd_numbers(up_to: u32) -&gt; u32 {
         let mut acc = 0;
         for i in 0..up_to {
@@ -255,10 +271,10 @@ network servers or functions that terminates the process (e.g. <code>exit()</cod
         
 
         
-        
+
         
         <script type="text/javascript">
-            window.playpen_copyable = true;
+            window.playground_copyable = true;
         </script>
         
 

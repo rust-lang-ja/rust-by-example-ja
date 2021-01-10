@@ -5,22 +5,36 @@
         <meta charset="UTF-8">
         <title>Resultをイテレートする - Rust By Example 日本語版</title>
         
+        
+
+
+        <!-- Custom HTML head -->
+        
+
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A description">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
         <link rel="shortcut icon" href="../favicon.png">
+        
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
+        
         <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
@@ -38,7 +52,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -118,9 +132,11 @@
                     <h1 class="menu-title">Rust By Example 日本語版</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                         <a href="https://github.com/rust-lang-ja/rust-by-example-ja" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
@@ -161,7 +177,7 @@
 An `Iter::map` operation might fail, for example:
 -->
 <p><code>Iter::map</code>オペレーションは失敗することもあります。例えば、</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let strings = vec![&quot;tofu&quot;, &quot;93&quot;, &quot;18&quot;];
     let numbers: Vec&lt;_&gt; = strings
         .into_iter()
@@ -182,7 +198,7 @@ Let's step through strategies for handling this.
 `filter_map` calls a function and filters out the results that are `None`.
 -->
 <p><code>filter_map</code>は関数を呼び出し、結果が<code>None</code>になるものだけ取り除きます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let strings = vec![&quot;tofu&quot;, &quot;93&quot;, &quot;18&quot;];
     let numbers: Vec&lt;_&gt; = strings
         .into_iter()
@@ -202,7 +218,7 @@ can be turned into a result with a vector (`Result<Vec<T>, E>`). Once an
 `Result::Err` is found, the iteration will terminate.
 -->
 <p><code>Result</code>は、それらのベクトル(<code>Vec&lt;Result&lt;T, E&gt;&gt;</code>)からベクトルのそれ(<code>Result&lt;Vec&lt;T&gt;, E&gt;</code>)へと変換できるようにするため、<code>FromIter</code>を実装します。<code>Result::Err</code>が見つかり次第、イテレーションは終了します。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let strings = vec![&quot;tofu&quot;, &quot;93&quot;, &quot;18&quot;];
     let numbers: Result&lt;Vec&lt;_&gt;, _&gt; = strings
         .into_iter()
@@ -219,7 +235,7 @@ This same technique can be used with `Option`.
 ## Collect all valid values and failures with `partition()`
 -->
 <h2><a class="header" href="#partitionを使って全ての正常な値と失敗をまとめる" id="partitionを使って全ての正常な値と失敗をまとめる"><code>partition()</code>を使って全ての正常な値と失敗をまとめる</a></h2>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let strings = vec![&quot;tofu&quot;, &quot;93&quot;, &quot;18&quot;];
     let (numbers, errors): (Vec&lt;_&gt;, Vec&lt;_&gt;) = strings
         .into_iter()
@@ -234,7 +250,7 @@ When you look at the results, you'll note that everything is still wrapped in
 `Result`.  A little more boilerplate is needed for this.
 -->
 <p>結果を見てみると、まだ全て<code>Result</code>にラップされていることに気づくでしょう。もう少しのボイラープレートが必要です。</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let strings = vec![&quot;tofu&quot;, &quot;93&quot;, &quot;18&quot;];
     let (numbers, errors): (Vec&lt;_&gt;, Vec&lt;_&gt;) = strings
         .into_iter()
@@ -289,10 +305,10 @@ When you look at the results, you'll note that everything is still wrapped in
         
 
         
-        
+
         
         <script type="text/javascript">
-            window.playpen_copyable = true;
+            window.playground_copyable = true;
         </script>
         
 

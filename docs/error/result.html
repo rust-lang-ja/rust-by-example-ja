@@ -5,22 +5,36 @@
         <meta charset="UTF-8">
         <title>Result - Rust By Example 日本語版</title>
         
+        
+
+
+        <!-- Custom HTML head -->
+        
+
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A description">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
         <link rel="shortcut icon" href="../favicon.png">
+        
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
+        
         <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
@@ -38,7 +52,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -118,9 +132,11 @@
                     <h1 class="menu-title">Rust By Example 日本語版</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                         <a href="https://github.com/rust-lang-ja/rust-by-example-ja" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
@@ -193,7 +209,7 @@ be possible to parse a string into the other type, so `parse()` returns a
 Let's see what happens when we successfully and unsuccessfully `parse()` a string:
 -->
 <p>早速、文字列を<code>parse()</code>した場合の成功例と失敗例を見てみましょう。</p>
-<pre><pre class="playpen"><code class="language-rust editable ignore mdbook-runnable">fn multiply(first_number_str: &amp;str, second_number_str: &amp;str) -&gt; i32 {
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">fn multiply(first_number_str: &amp;str, second_number_str: &amp;str) -&gt; i32 {
     // Let's try using `unwrap()` to get the number out. Will it bite us?
     // `unwrap()`で数字を取り出してみましょう。痛い目を見るでしょうか？
     let first_number = first_number_str.parse::&lt;i32&gt;().unwrap();
@@ -229,7 +245,7 @@ The `Result` type can also be the return type of the `main` function if
 specified explicitly. Typically the `main` function will be of the form:
 -->
 <p><code>Result</code>型は、明示的な指定により<code>main</code>関数のリターン型にもなります。一般に、<code>main</code>関数は以下のような形になるでしょう。</p>
-<pre><pre class="playpen"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust">fn main() {
     println!(&quot;Hello World!&quot;);
 }
 </code></pre></pre>
@@ -240,7 +256,7 @@ representation of the error (using the [`Debug`] trait). The following example
 shows such a scenario and touches on aspects covered in [the following section].
 -->
 <p>一方<code>main</code>で<code>Result</code>をリターン型とすることも可能です。エラーが<code>main</code>関数内で発生した時、エラーコードを返し、エラーに関するデバッグ表記を（<a href="https://doc.rust-lang.org/std/fmt/trait.Debug.html"><code>Debug</code></a>トレートを使って）出力します。以下の例ではそのようなシナリオを示し、<a href="result/early_returns.html">この先の節</a>でカバーする内容に触れていきます。</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::num::ParseIntError;
+<pre><pre class="playground"><code class="language-rust editable">use std::num::ParseIntError;
 
 fn main() -&gt; Result&lt;(), ParseIntError&gt; {
     let number_str = &quot;10&quot;;
@@ -298,10 +314,10 @@ fn main() -&gt; Result&lt;(), ParseIntError&gt; {
         
 
         
-        
+
         
         <script type="text/javascript">
-            window.playpen_copyable = true;
+            window.playground_copyable = true;
         </script>
         
 

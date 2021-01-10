@@ -5,22 +5,36 @@
         <meta charset="UTF-8">
         <title>impl Trait - Rust By Example 日本語版</title>
         
+        
+
+
+        <!-- Custom HTML head -->
+        
+
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A description">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
         <link rel="shortcut icon" href="../favicon.png">
+        
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
+        
         <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
@@ -38,7 +52,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -118,9 +132,11 @@
                     <h1 class="menu-title">Rust By Example 日本語版</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                         <a href="https://github.com/rust-lang-ja/rust-by-example-ja" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
@@ -156,7 +172,7 @@
                         <h1><a class="header" href="#impl-trait" id="impl-trait"><code>impl Trait</code></a></h1>
 <p>If your function returns a type that implements <code>MyTrait</code>, you can write its
 return type as <code>-&gt; impl MyTrait</code>. This can help simplify your type signatures quite a lot!</p>
-<pre><pre class="playpen"><code class="language-rust editable">use std::iter;
+<pre><pre class="playground"><code class="language-rust editable">use std::iter;
 use std::vec::IntoIter;
 
 // This function combines two `Vec&lt;i32&gt;` and returns an iterator over it.
@@ -193,7 +209,7 @@ fn main() {
 closure has its own unnamed concrete type. Before <code>impl Trait</code> syntax, you had
 to allocate on the heap in order to return a closure. But now you can do it all
 statically, like this:</p>
-<pre><pre class="playpen"><code class="language-rust editable">// Returns a function that adds `y` to its input
+<pre><pre class="playground"><code class="language-rust editable">// Returns a function that adds `y` to its input
 fn make_adder_function(y: i32) -&gt; impl Fn(i32) -&gt; i32 {
     let closure = move |x: i32| { x + y };
     closure
@@ -208,7 +224,7 @@ fn main() {
 closures! This makes using <code>map</code> and <code>filter</code> easier. Because closure types don't
 have names, you can't write out an explicit return type if your function returns
 iterators with closures. But with <code>impl Trait</code> you can do this easily:</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn double_positives&lt;'a&gt;(numbers: &amp;'a Vec&lt;i32&gt;) -&gt; impl Iterator&lt;Item = i32&gt; + 'a {
+<pre><pre class="playground"><code class="language-rust editable">fn double_positives&lt;'a&gt;(numbers: &amp;'a Vec&lt;i32&gt;) -&gt; impl Iterator&lt;Item = i32&gt; + 'a {
     numbers
         .iter()
         .filter(|x| x &gt; &amp;&amp;0)
@@ -258,10 +274,10 @@ iterators with closures. But with <code>impl Trait</code> you can do this easily
         
 
         
-        
+
         
         <script type="text/javascript">
-            window.playpen_copyable = true;
+            window.playground_copyable = true;
         </script>
         
 

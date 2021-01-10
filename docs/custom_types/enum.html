@@ -5,22 +5,36 @@
         <meta charset="UTF-8">
         <title>列挙型 - Rust By Example 日本語版</title>
         
+        
+
+
+        <!-- Custom HTML head -->
+        
+
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A description">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
         <link rel="shortcut icon" href="../favicon.png">
+        
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
+        
         <link rel="stylesheet" href="../css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
@@ -38,7 +52,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -118,9 +132,11 @@
                     <h1 class="menu-title">Rust By Example 日本語版</h1>
 
                     <div class="right-buttons">
+                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        
                         
                         <a href="https://github.com/rust-lang-ja/rust-by-example-ja" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
@@ -163,7 +179,7 @@ different variants. Any variant which is valid as a `struct` is also valid as
 an `enum`.
 -->
 <p>列挙型(<code>enum</code>)はいくつかの異なる型の中から1つを選ぶような場合に使用する。構造体(<code>struct</code>)の定義を満たすものならば何でも<code>enum</code> 内の型として使用できる</p>
-<pre><pre class="playpen"><code class="language-rust editable">// Create an `enum` to classify a web event. Note how both
+<pre><pre class="playground"><code class="language-rust editable">// Create an `enum` to classify a web event. Note how both
 // names and type information together specify the variant:
 // `PageLoad != PageUnload` and `KeyPress(char) != Paste(String)`.
 // Each is different and independent.
@@ -214,7 +230,7 @@ fn main() {
 <p>If you use a type alias, you can refer to each enum variant via its alias.
 This might be useful if the enum's name is too long or too generic, and you
 want to rename it.</p>
-<pre><pre class="playpen"><code class="language-rust editable">enum VeryVerboseEnumOfThingsToDoWithNumbers {
+<pre><pre class="playground"><code class="language-rust editable">enum VeryVerboseEnumOfThingsToDoWithNumbers {
     Add,
     Subtract,
 }
@@ -229,7 +245,7 @@ fn main() {
 }
 </code></pre></pre>
 <p>The most common place you'll see this is in <code>impl</code> blocks using the <code>Self</code> alias.</p>
-<pre><pre class="playpen"><code class="language-rust editable">enum VeryVerboseEnumOfThingsToDoWithNumbers {
+<pre><pre class="playground"><code class="language-rust editable">enum VeryVerboseEnumOfThingsToDoWithNumbers {
     Add,
     Subtract,
 }
@@ -294,10 +310,10 @@ Rust.</p>
         
 
         
-        
+
         
         <script type="text/javascript">
-            window.playpen_copyable = true;
+            window.playground_copyable = true;
         </script>
         
 
