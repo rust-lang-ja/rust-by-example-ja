@@ -21,7 +21,7 @@ Rustは様々な基本データ型(`primitives`)の使用をサポートして�
 * and the unit type `()`, whose only possible value is an empty tuple: `()`
 -->
 * 符号付き整数: `i8`, `i16`, `i32`, `i64`, `i128`, `isize`（ポインタのサイズ）
-* 符号無し整数: `u8`, `i16`, `u32`, `u64`, `u128`, `usize`（ポインタのサイズ）
+* 符号無し整数: `u8`, `u16`, `u32`, `u64`, `u128`, `usize`（ポインタのサイズ）
 * 浮動小数点: `f32`, `f64`
 * `char`: `'a'`, `'α'`, `'∞'`などのUnicodeのスカラー
 * `bool`: `true`または`false`

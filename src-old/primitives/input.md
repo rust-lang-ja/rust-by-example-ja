@@ -4,7 +4,7 @@ Rustは様々な基本データ型(`primitives`)の使用をサポートして�
 <!--- * signed integers: `i8`, `i16`, `i32`, `i64` and `isize` (pointer size) --->
 * 符号付き整数: `i8`, `i16`, `i32`, `i64`, `isize`（ポインタのサイズ）
 <!--- * unsigned integers: `u8`, `u16`, `u32`, `u64` and `usize` (pointer size) --->
-* 符号無し整数: `u8`, `i16`, `u32`, `u64`, `usize`（ポインタのサイズ）
+* 符号無し整数: `u8`, `u16`, `u32`, `u64`, `usize`（ポインタのサイズ）
 <!--- * floatoing point: `f32`, `f64` --->
 * 浮動小数点: `f32`, `f64`
 <!--- * `char` Unicode scalar values like `'a'`, `'α'` and `'∞'` (4 bytes each) --->
