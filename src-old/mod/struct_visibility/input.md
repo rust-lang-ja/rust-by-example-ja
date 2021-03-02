@@ -7,7 +7,10 @@ where it is defined, and has the goal of hiding information (encapsulation). -->
 
 {struct.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [ジェネリック型][generics]、 [メソッド][methods]
 

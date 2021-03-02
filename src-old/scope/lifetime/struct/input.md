@@ -3,9 +3,11 @@
 
 {struct.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`structs`][structs]
-
 
 [structs]: /custom_types/structs.html

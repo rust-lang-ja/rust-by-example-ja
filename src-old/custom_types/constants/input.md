@@ -17,7 +17,10 @@ Rustには2種類の定数があり、いずれもグローバルスコープを
 
 {constants.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`const` 及び `static` の RFC][const vs static]
 [`'static` ライフタイム][static]

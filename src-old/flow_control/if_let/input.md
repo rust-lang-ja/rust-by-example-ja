@@ -24,7 +24,10 @@ match optional {
 
 {if_let.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [列挙型][enum], [オプション][option], [RFC][if_let_rfc]
 

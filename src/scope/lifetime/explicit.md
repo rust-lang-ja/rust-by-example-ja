@@ -104,7 +104,10 @@ fn main() {
 -->
 [^1]: [省略][elision] はライフタイムが暗黙のうちに（プログラマから見えない形で）アノテートされることを指します。
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [generics][generics] and [closures][closures]

@@ -161,7 +161,10 @@ fn cat(path: &Path) -> io::Result<String> {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`cfg!`][cfg]
 

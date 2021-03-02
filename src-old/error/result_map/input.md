@@ -12,7 +12,10 @@ and `unwrap_or`; even ones to handle the errors specifically such as `map_err`.
 `Result` contains the complete listing. -->
 `Option`と同様、`Result`は`map`以外にも`and_then`や`unwrap_or`のような便利なコンビネータを多く持っています。中には`map_err`のようにエラーのみを扱うようなものも存在します。完全な一覧は[`Result`][result]を御覧ください。
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`i32`][i32], [`FromStr`][from_str], [`ParseIntErr`][parse_int_error],
 [`Result`][result]

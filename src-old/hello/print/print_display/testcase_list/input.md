@@ -19,7 +19,10 @@ try!(write!(f, "{}", value));
 
 {testcase_list.play}
 
+<!--
 ### See also
+-->
+### 参照
 
 [`for`][for], [`ref`][ref], [`Result`][result], [構造体][struct],
 [`try!`][try], and [`vec!`][vec]

@@ -36,7 +36,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [`std::fmt`][fmt] and [`trait`s][traits]

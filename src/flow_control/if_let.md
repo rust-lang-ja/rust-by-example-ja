@@ -141,7 +141,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [`enum`][enum], [`Option`][option], and the [RFC][if_let_rfc]

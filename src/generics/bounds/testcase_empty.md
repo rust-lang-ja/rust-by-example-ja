@@ -49,7 +49,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [`std::cmp::Eq`][eq], [`std::cmp::Ord`s][ord], and [`trait`s][traits]

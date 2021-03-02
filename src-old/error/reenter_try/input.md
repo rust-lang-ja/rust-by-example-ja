@@ -40,7 +40,10 @@ though will have users with certain expections about how it should implement err
 In those cases, the error handling will need to be taken one step further. -->
 これは非常に理にかなった対処法です。ほとんどのライブラリでは、`Display`を追加し、必要に応じて`From`を追加するだけで、`unwrap`をなくすことができます。ただ、真剣に作られたライブラリの場合、ユーザーがどのようにエラーを扱うかに対してある程度想定しておくべきです。そのような場合、エラーハンドリングはもう一歩進んだやり方をする必要があります。
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`From::from`][from]、[`try!`][try]
 

@@ -44,7 +44,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [the reference][ref], [`cfg!`][cfg], and [macros][macros].

@@ -11,7 +11,10 @@ we are not there yet). The question is, does this approach scale well. Consider 
 example. -->
 これはそこまで悪くはないように見えますが、当初のコードに比べるとやはり難があります。問題となるのはこのアプローチの「スケーラビリティ」です。例えば次の例を見てください。
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`Result`][result]、[`io::Result`][io_result]
 

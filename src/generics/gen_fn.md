@@ -87,7 +87,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [functions][fn] and [`struct`s][structs]

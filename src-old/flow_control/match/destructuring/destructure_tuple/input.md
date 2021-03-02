@@ -3,6 +3,9 @@
 
 {tuples.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [タプル](../../../primitives/tuples.html)

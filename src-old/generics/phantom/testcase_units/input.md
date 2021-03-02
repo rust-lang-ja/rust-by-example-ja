@@ -25,7 +25,10 @@ impl<U> Add for T<U> {
 
 {units.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [借用(`&`)][Borrow], [トレイトバウンド][bound], [列挙型][enum], [impl & self],
 [演算子のオーバーロード][Overloading], [参照][ref], [トレイト (`X for Y`)][trait], [タプル][Tuple].

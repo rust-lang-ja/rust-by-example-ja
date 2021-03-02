@@ -22,7 +22,10 @@ details. First, we have to learn how to make better errors. -->
 
 [^1]: より詳しくは[try!再入門][re_enter_try]の項を見ましょう。
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`Result`][result]、[`io::Result`][io_result]
 

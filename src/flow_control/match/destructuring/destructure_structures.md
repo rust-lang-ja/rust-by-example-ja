@@ -37,7 +37,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [Structs](../../../custom_types/structs.md), [The ref pattern](../../../scope/borrow/ref.md)

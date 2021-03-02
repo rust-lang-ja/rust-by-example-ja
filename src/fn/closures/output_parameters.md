@@ -49,7 +49,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [`Fn`][fn], [`FnMut`][fnmut], [Generics][generics] and [impl Trait][impltrait].

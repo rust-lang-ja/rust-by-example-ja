@@ -71,7 +71,11 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
+
 [`static`][static]
 
 [static]: ../lifetime/static_lifetime.md

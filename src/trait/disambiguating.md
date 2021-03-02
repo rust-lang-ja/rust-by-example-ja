@@ -55,7 +55,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 [The Rust Programming Language chapter on Fully Qualified syntax][trpl_fqsyntax]
 

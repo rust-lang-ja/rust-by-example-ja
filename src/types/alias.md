@@ -45,7 +45,10 @@ is an alias for the `Result<T, IoError>` type.
 -->
 このようにエイリアスを付ける一番の理由はボイラープレートを減らすことです。例えば`IoResult<T>`型は`Result<T, IoError>`の別名です。
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [Attributes](../attribute.md)

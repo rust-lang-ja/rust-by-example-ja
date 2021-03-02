@@ -53,7 +53,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`io::Result`][io_result]
 

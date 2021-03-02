@@ -17,7 +17,10 @@ the necessary type parameters. -->
 
 {fn.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [関数][fn] and [構造体][structs]
 

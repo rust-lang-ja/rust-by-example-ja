@@ -73,7 +73,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [generics][generics] and [methods][methods]

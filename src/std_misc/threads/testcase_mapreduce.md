@@ -131,7 +131,11 @@ What if the user decides to insert a lot of spaces? Do we _really_ want to spawn
 Modify the program so that the data is always chunked into a limited number of chunks,
 defined by a static constant at the beginning of the program.
 
+<!--
 ### See also:
+-->
+### 参照
+
 * [Threads][thread]
 * [vectors][vectors] and [iterators][iterators]
 * [closures][closures], [move][move] semantics and [`move` closures][move_closure]

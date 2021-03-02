@@ -70,7 +70,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [RFC][where], [`struct`][struct], and [`trait`][trait]

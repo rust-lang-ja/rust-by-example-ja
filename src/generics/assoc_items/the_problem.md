@@ -81,7 +81,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [`struct`s][structs], and [`trait`s][traits]

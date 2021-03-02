@@ -98,7 +98,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [`Box`][box] and [methods][methods]

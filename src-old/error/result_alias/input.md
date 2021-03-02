@@ -12,7 +12,10 @@ is so useful that the std library even supplies one: `io::Result` which refers t
 
 > 訳注: ピンと来ない方は[Python プログラマーのための Rust 入門](http://qiita.com/t2y/items/434854fab16159a7c0f7)が参考になるかもしれません。
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`Result`][result]、[`io::Result`][io_result]
 

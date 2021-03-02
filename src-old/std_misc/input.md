@@ -13,7 +13,10 @@ things such as: -->
 <!-- These expand beyond what the [primitives][primitives] provide. -->
 これらにより[基本データ型][primitives]の提供する機能よりも遥かに豊かなことが実現できます。
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!-- [primitives][primitives] and [the std library][std] -->
 [基本データ型][primitives]、[stdライブラリ][std]

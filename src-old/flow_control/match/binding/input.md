@@ -6,7 +6,10 @@ names: -->
 
 {binding.play}
 
+<!--
 ### See also:
+-->
+### 参照
 [関数][functions]
 
 [functions]: ../../../fn.html

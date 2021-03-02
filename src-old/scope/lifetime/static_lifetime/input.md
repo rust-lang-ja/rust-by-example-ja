@@ -15,7 +15,10 @@ of the binary: -->
 
 {static_lifetime.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`'static` 定数s][static_const]
 

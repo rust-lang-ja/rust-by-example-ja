@@ -142,7 +142,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`Box`][box] and [`std::mem::drop`][drop]
 

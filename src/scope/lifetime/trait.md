@@ -25,7 +25,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`trait`s][trait]
 

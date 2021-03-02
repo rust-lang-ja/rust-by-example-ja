@@ -81,7 +81,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [closures][closures], [`Option`][option], and [`Option::and_then()`][and_then]

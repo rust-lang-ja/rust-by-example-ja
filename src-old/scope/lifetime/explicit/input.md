@@ -36,7 +36,10 @@ See the following example for explicit lifetime annotation in use: -->
 <!-- [^1]: [elision][elision] implicitly annotates lifetimes and so is different.-->
 [^1]: [省略][elision] はライフタイムが暗黙のうちに(プログラマから見えない形で)アノテートされることを指します。
 
+<!--
 ### See also:
+-->
+### 参照
 
 [ジェネリクス][generics]、 [クロージャ][closures]
 

@@ -115,7 +115,10 @@ Two hints if you get stuck:
  * [それぞれの色を2回以上記述する必要があるかもしれません。][named_parameters]
  * `:02`で、[幅を2に指定し、空白を0で埋める事ができます。][fmt_width]
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`std::fmt`][fmt]
 

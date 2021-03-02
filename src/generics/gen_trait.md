@@ -52,7 +52,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [`Drop`][Drop], [`struct`][structs], and [`trait`][traits]

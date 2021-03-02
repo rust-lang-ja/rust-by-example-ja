@@ -49,7 +49,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [The `const`/`static` RFC](

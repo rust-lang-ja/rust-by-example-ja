@@ -42,7 +42,10 @@ is `Box<Error>` as it was before with `DoubleError`. -->
 
 {rethink.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [動的ディスパッチ][dynamic_dispatch]、[`Error`トレイト][error]
 

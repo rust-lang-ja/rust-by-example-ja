@@ -58,7 +58,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [`#[allow(...)]`][allow], [color models][color_models] and [`enum`][enum]

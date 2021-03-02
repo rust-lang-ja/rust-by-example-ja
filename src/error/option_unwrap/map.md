@@ -94,7 +94,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 [closures][closures], [`Option`][option], [`Option::map()`][map]
 

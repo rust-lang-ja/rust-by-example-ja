@@ -21,7 +21,10 @@ about libcore that the error is telling us all about? There must be a better way
 明らかに、`Err`でパニックした結果、役に立たないエラーメッセージをあとに残すのみとなってしまっています。このエラーの内容から、libcoreで何が起こっているかを推測することができるでしょうか？もっといい方法があるはずです。
 
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`Result`][result]
 

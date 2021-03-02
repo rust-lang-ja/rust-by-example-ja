@@ -14,7 +14,10 @@ function which can take a closure as an argument can also take a function. -->
 a closure captures variables from the enclosing scope.  -->
 クロージャによる変数の補足がどのように行われているかを詳しく見たいときは`Fn`、`FnMut`、`FnOnce`を参照してください。
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`Fn`][fn], [`FnMut`][fn_mut], and [`FnOnce`][fn_once]
 

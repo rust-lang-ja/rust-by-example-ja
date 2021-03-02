@@ -13,7 +13,10 @@ Both utilize identical argument syntax. -->
 
 {cfg.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [参照(`reference`)][ref], [`cfg!`][cfg], [マクロ][macros].
 
