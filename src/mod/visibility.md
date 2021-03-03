@@ -12,7 +12,7 @@ accessed from outside the module scope.
 
 ```rust,editable
 // A module named `my_mod`
-// `my`という名称のモジュール
+// `my_mod`という名称のモジュール
 mod my_mod {
     // Items in modules default to private visibility.
     // モジュール内の要素はデフォルトでプライベート

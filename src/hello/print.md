@@ -17,10 +17,10 @@ some of which include:
 * `eprintln!`: same as `eprint!`but a newline is appended.
 -->
 * `format!`: フォーマットされたテキストを文字列(String)型に書き込みます。
-* `print!`: `format!` と同様ですが、コンソールにそのテキストを出力します。
+* `print!`: `format!` と同様ですが、コンソール (io::stdout) にそのテキストを出力します。
 * `println!`: `print!`: と同じですが改行が付け加えられます。
-* `eprint!`: same as `format!` but the text is printed to the standard error (io::stderr).
-* `eprintln!`: same as `eprint!`but a newline is appended.
+* `eprint!`: `format!` と同様ですが、標準エラー出力 (io::stderr) にそのテキストを出力します。
+* `eprintln!`: `eprint!`と同じですが改行が付け加えられます。
 
 <!--
 All parse text in the same fashion. As a plus, Rust checks formatting
