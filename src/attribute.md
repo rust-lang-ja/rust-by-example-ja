@@ -9,7 +9,7 @@ can be used to/for:
 -->
 アトリビュートはモジュール、クレート、要素に対するメタデータです。以下がその使用目的です。
 
-<!-- TODO: Link these to their respective examples -->
+
 
 <!--
 * [conditional compilation of code][cfg]
