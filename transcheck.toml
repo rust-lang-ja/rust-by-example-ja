@@ -1,0 +1,7 @@
+[matcher]
+enable_code_comment_tweak = false
+code_comment_header = "# "
+[linter]
+enable_emphasis_check = true
+enable_half_paren_check = true
+enable_full_paren_check = true
