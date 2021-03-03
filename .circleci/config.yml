@@ -15,6 +15,10 @@ jobs:
       - run: mdbook -V
       - run: mdbook build
       - run: mdbook test
+      - run:
+          command: |
+            git submodule update --init
+            mdbook-transcheck src-en src
       - store_artifacts:
           path: docs
       - deploy:
