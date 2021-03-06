@@ -106,11 +106,20 @@ fn main() {
 }
 ```
 
+<!--
 ### Activity
+-->
 
+### 演習
+
+<!--
 1. Add a function `rect_area` which calculates the area of a rectangle (try
    using nested destructuring).
 2. Add a function `square` which takes a `Point` and a `f32` as arguments, and returns a `Rectangle` with its lower left corner on the point, and a width and height corresponding to the `f32`.
+-->
+
+1. `Rectangle` の面積を計算する `rect_area` 関数を追加してください。ネストしたデストラクトを使ってみましょう。
+2. `Point` と `f32` を引数とした時に `Rectangle` を返す `square` 関数を追加してください。 `Rectangle` の左下の点が `Point` になり、`f32` が `Rectangle` の幅と高さになります。
 
 ### See also:
 
