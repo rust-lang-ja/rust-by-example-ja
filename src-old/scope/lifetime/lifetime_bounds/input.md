@@ -14,7 +14,10 @@ in `T` must outlive `'a`. -->
 
 {bounds.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [ジェネリクス][generics], [ジェネリック境界][bounds],
 [境界が複数の場合][multibounds]

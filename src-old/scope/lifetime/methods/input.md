@@ -3,7 +3,10 @@
 
 {methods.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [メソッド][methods]
 

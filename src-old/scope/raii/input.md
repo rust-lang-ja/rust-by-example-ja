@@ -34,7 +34,10 @@ $ rustc raii.rs && valgrind ./raii
 <!-- No leaks here! -->
 リークはないみたいですね！
 
+<!--
 ### See also:
+-->
+### 参照
 
 [ボックス][box]
 

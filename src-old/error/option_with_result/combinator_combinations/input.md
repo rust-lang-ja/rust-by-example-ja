@@ -9,7 +9,10 @@ wrapper on it. Sometimes it is a good approach but in this case it is really awk
 we could `unwrap` it without possibly inducing `panic`? That is where we are headed next. -->
 このアプローチでは、値をラップする`Ok`を除外せずにそのまま扱おうとしています。時にはこれが良いアプローチである場合もありますが。今回は非常にぎこちないものとなってしまっています。`panic`を引き起こす可能性なしに、`unwrap`することができたらどうでしょう？次のステップではその方法を見ていきます。
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`Result`][result]、[`io::Result`][io_result]
 

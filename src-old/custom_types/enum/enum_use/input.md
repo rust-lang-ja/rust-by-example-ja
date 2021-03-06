@@ -3,7 +3,10 @@
 
 {use.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [マッチ(`match`)][match] and [`use`][use]
 

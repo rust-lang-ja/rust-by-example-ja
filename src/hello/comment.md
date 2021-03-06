@@ -72,7 +72,10 @@ fn main() {
 
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [Library documentation][docs]

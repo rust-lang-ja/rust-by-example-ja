@@ -33,7 +33,10 @@ restrictive manner possible on a variable-by-variable basis: -->
 
 {input_parameters.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`std::mem::drop`][drop], [`Fn`][fn], [`FnMut`][fnmut], and [`FnOnce`][fnonce]
 

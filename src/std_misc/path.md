@@ -55,7 +55,10 @@ the `Metadata` struct.
 -->
 他の`Path`メソッド（`posix::Path`と`windows::Path`）をチェックするのを忘れずに！それと`Metadata`構造体も見ておくことをオススメします。
 
+<!--
 ### See also:
+-->
+### 参照
 
 [OsStr][1] and [Metadata][2].
 

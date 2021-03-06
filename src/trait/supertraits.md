@@ -36,7 +36,10 @@ fn comp_sci_student_greeting(student: &dyn CompSciStudent) -> String {
 fn main() {}
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 [The Rust Programming Language chapter on supertraits][trpl_supertraits]
 

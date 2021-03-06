@@ -27,7 +27,10 @@ closure. -->
 
 {output_parameters.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [BOX化][box], [`Fn`][fn], [`FnMut`][fnmut], and [ジェネリクス][generics].
 

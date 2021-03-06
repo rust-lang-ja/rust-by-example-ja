@@ -15,7 +15,10 @@ section, associated types provide exactly that capability. -->
 
 {problem.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [構造体][structs], [トレイト][traits]
 

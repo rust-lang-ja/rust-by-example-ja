@@ -32,7 +32,10 @@ $ ./unit_test
 If you see this, the tests were not compiled nor ran!
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 [アトリビュート][attributes], [環境に応じたコンパイル][cfg], [`mod`][mod].
 

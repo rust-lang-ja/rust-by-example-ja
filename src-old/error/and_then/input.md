@@ -14,7 +14,10 @@ which is an invalid type for `eat()`. -->
 
 {and_then.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`Option`][option], [`Option::map()`][map]、 [`Option::and_then()`][and_then]
 

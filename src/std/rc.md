@@ -46,7 +46,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 [std::rc][1] and [Arc][2].
 

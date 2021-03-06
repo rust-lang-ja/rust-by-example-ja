@@ -35,7 +35,10 @@ let s = S(vec![1]);
 some cases to be more expressive. -->
 付け加えておくと、[`where`][where]句を用いて境界を適用することもできます。場合によってはこちらの記法を使用したほうが読みやすくなる場合もあります。
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`std::fmt`][fmt], [構造体(`struct`)][structs], [トレイト][traits]
 

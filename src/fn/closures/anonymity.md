@@ -63,7 +63,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 [A thorough analysis][thorough_analysis], [`Fn`][fn], [`FnMut`][fn_mut],
 and [`FnOnce`][fn_once]

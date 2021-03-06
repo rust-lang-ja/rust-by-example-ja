@@ -3,6 +3,9 @@
 
 {struct.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [構造体](../../../custom_types/structs.html), [refによるパターンマッチ](../../../scope/borrow/ref.html)

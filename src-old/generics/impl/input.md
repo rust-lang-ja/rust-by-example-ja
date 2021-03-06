@@ -16,7 +16,10 @@ impl <T> GenericVal<T> {}
 
 {impl.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [参照を返す関数][fn], [`impl`][methods], [`struct`][structs]
 

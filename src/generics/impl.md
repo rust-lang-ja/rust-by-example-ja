@@ -59,7 +59,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [functions returning references][fn], [`impl`][methods], and [`struct`][structs]

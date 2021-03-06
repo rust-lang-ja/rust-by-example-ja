@@ -16,7 +16,10 @@ patterns when the `trait` is generic over its container type.
 -->
 そのように定義する要素の一つに **関連型** があります。これにより、ジェネリックなコンテナ型に対するトレイトを使用する際に、よりシンプルな書き方ができるようになります。
 
+<!--
 ### See also:
+-->
+### 参照
 
 [RFC][RFC]
 

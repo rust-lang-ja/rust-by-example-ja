@@ -4,7 +4,10 @@ separated with `,`. -->
 
 {multi.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`std::fmt`][fmt], [トレイト][traits]
 

@@ -30,7 +30,10 @@ The `impl` in this example cannot be directly expressed without a `where` clause
 
 {where.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [RFC][where], [構造体][struct], [トレイト][trait], [エラーハンドリングの日本語による解説記事][unwrap_option]
 

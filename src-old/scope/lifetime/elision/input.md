@@ -11,7 +11,10 @@ description of elision, see [lifetime elision][elision] in the book. -->
 
 {elision.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [ライフタイムの省略][elision-ja]
 

@@ -14,7 +14,10 @@ off some valid forms of functions with lifetimes: -->
 
 {fn.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [functions][fn]
 

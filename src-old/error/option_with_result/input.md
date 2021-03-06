@@ -10,7 +10,10 @@ from messy errors provided by `unwrap`, this looks reasonable: -->
 
 {option_result.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`Result`][result] 、[`io::Result`][io_result]
 

@@ -50,7 +50,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`structs`][struct]
 

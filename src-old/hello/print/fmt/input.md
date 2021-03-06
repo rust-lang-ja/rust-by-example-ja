@@ -43,7 +43,11 @@ RGB (0, 0, 0) 0x000000
 * `:02`で、[幅を2に指定し、空白を0で埋める事ができます。][fmt_width]
 
 
+<!--
 ### See also
+-->
+### 参照
+
 [`std::fmt`][fmt]
 
 [argument_types]: http://doc.rust-lang.org/std/fmt/#argument-types

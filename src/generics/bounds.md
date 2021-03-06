@@ -98,7 +98,10 @@ some cases to be more expressive.
 -->
 付け加えておくと、[`where`][where]句を用いて境界を適用することもできます。場合によってはこちらの記法を使用したほうが読みやすくなる場合もあります。
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [`std::fmt`][fmt], [`struct`s][structs], and [`trait`s][traits]

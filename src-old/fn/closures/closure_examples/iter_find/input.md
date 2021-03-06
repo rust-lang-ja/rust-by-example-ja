@@ -20,7 +20,10 @@ pub trait Iterator {
 
 {iter_find.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`std::iter::Iterator::find`][find]
 

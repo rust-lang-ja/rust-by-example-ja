@@ -102,7 +102,10 @@ fn main() {
 
 One can manually implement `fmt::Display` to control the display.
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [attributes][attributes], [`derive`][derive], [`std::fmt`][fmt],

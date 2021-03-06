@@ -5,7 +5,10 @@ include any functionality, you can still use it as a bound. `Eq` and
 
 {empty.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`std::cmp::Eq`][eq], [`std::cmp::Ord`s][ord], [トレイト][traits]
 

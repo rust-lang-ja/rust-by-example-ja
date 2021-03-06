@@ -3,7 +3,10 @@
 
 {linked_list.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [ボックス(`Box`)][box] and [メソッド][methods]
 

@@ -76,7 +76,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 [Dynamic dispatch][dynamic_dispatch] and [`Error` trait][error]
 

@@ -77,7 +77,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`std::iter::Iterator::find`][find]
 

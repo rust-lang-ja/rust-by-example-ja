@@ -23,7 +23,10 @@ These expand beyond what the [primitives] provide.
 -->
 これらにより[基本データ型][primitives]の提供する機能よりも遥かに豊かなことが実現できます。
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [primitives] and [the std library][std]

@@ -14,7 +14,10 @@ different data types. -->
 
 {phantom.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [継承(`Derive`)][Derive], [構造体][struct], [タプル][TupleStructs]
 

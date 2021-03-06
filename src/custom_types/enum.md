@@ -103,7 +103,10 @@ To learn more about enums and type aliases, you can read the
 [stabilization report][aliasreport] from when this feature was stabilized into
 Rust.
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [`match`][match], [`fn`][fn], and [`String`][str], ["Type alias enum variants" RFC][type_alias_rfc]

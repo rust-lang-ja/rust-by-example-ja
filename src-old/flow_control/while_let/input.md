@@ -32,7 +32,10 @@ loop {
 
 {while_let.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [列挙型(`enum`)][enum], [`Option`][option], [RFC][while_let_rfc]
 

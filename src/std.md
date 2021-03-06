@@ -21,7 +21,10 @@ the `primitives`. Some of these include:
 * エラーハンドリング用の`Result<i32, i32>`
 * ヒープ上資源のポインタ`Box<i32>`
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [primitives] and [the std library][std]

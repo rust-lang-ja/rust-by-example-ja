@@ -5,7 +5,10 @@
 
 {enum.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [アトリビュート(`attributes`)][attributes], [マッチ(`match`)][match], [関数(`fn`)][fn], and [文字列(`String`)][str]
 

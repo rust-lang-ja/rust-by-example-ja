@@ -103,7 +103,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [Borrowing (`&`)], [Bounds (`X: Y`)], [enum], [impl & self],

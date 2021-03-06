@@ -4,7 +4,10 @@ the `Drop` `trait` as a generic method to `drop` itself and an input. -->
 
 {trait.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`Drop`][Drop], [構造体(`struct`)][structs], [トレイト(`trait`)][traits]
 

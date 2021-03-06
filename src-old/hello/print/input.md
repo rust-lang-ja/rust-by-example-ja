@@ -43,7 +43,10 @@
    <!--- check the [`std::fmt`][fmt] documentation for setting the number of --->
    <!--- decimals to display) --->
 
+<!--
 ### See also
+-->
+### 参照
 
 [`std::fmt`][fmt],[マクロ][macros],[構造体][structs],
 and [トレイト][traits]

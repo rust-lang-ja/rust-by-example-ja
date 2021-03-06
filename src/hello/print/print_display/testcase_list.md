@@ -83,7 +83,10 @@ Try changing the program so that the index of each element in the vector is also
 [0: 1, 1: 2, 2: 3]
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [`for`][for], [`ref`][ref], [`Result`][result], [`struct`][struct],

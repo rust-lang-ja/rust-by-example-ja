@@ -3,7 +3,10 @@
 
 {enum.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`#[allow(...)]`][allow], [カラーモデル][color_models], [列挙型][enum],
 and [`#[derive(...)]`][derive]

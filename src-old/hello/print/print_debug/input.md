@@ -32,7 +32,10 @@ struct DebugPrintable(i32);
 `fmt::Debug`は確実にプリント可能にしてくれるのですが、一方である種の美しさを犠牲にしています。
 `fmt::Display`を手動で実装すればその美しさを取り戻す事ができるでしょう。
 
+<!--
 ### See also
+-->
+### 参照
 
 [アトリビュート][attributes], [`derive`][derive], [`std::fmt`][fmt],
 and [構造体][structs]

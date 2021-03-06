@@ -64,7 +64,10 @@ fn main() {
 }
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 <!--
 [generics][generics], [bounds in generics][bounds], and 

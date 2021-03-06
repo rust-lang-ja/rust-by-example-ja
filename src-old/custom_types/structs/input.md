@@ -11,7 +11,10 @@
 
 {structs.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [アトリビュート(`attributes`)][attributes] and [デストラクト][destructuring]
 

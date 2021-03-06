@@ -30,7 +30,10 @@ been defined as a `struct`. -->
 
 {generics.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [構造体][structs]
 

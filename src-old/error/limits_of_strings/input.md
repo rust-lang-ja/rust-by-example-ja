@@ -28,7 +28,10 @@ pollute logic heavy code with `String` formatting simply for nice error messages
 
 {rethink.play}
 
+<!--
 ### See also:
+-->
+### 参照
 
 [`Result`][result]、[`io::Result`][io_result]
 

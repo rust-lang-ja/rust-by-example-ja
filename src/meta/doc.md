@@ -82,7 +82,10 @@ $ rustc doc.rs --crate-type lib
 $ rustdoc --test --extern doc="libdoc.rlib" doc.rs
 ```
 
+<!--
 ### See also:
+-->
+### 参照
 
 * [The Rust Book: Making Useful Documentation Comments][book]
 * [The Rustdoc Book][rustdoc-book]
