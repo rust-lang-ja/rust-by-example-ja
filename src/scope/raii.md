@@ -13,6 +13,7 @@ This behavior shields against *resource leak* bugs, so you'll never have to
 manually free memory or worry about memory leaks again! Here's a quick showcase:
 -->
 この振る舞いは *リソースリーク* (`resource leak`)バグを防ぐのに役立ちます。手動でメモリを解放したり、メモリリークバグにわずらわされたりすることはなくなるのです！簡単な例で説明しましょう。
+
 ```rust,editable
 // raii.rs
 fn create_box() {
