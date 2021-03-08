@@ -12,7 +12,7 @@ Rustの変数は単にデータをスタック上に保持するだけのもの�
 This behavior shields against *resource leak* bugs, so you'll never have to
 manually free memory or worry about memory leaks again! Here's a quick showcase:
 -->
-この振る舞いは *リソースリーク* (`resouce leak`)バグを防ぐのに役立ちます。手動でメモリを開放したり、メモリリークバグにわずらわされたりすることはなくなるのです！簡単な例で説明しましょう。
+この振る舞いは *リソースリーク* (`resource leak`)バグを防ぐのに役立ちます。手動でメモリを解放したり、メモリリークバグにわずらわされたりすることはなくなるのです！簡単な例で説明しましょう。
 
 ```rust,editable
 // raii.rs
@@ -82,15 +82,24 @@ No leaks here!
 -->
 リークはないみたいですね！
 
+<!-- 
 ## Destructor
+ -->
+## デストラクタ
 
+<!--
 The notion of a destructor in Rust is provided through the [`Drop`] trait. The
 destructor is called when the resource goes out of scope. This trait is not
 required to be implemented for every type, only implement it for your type if
 you require its own destructor logic.
+-->
+Rustにおけるデストラクタの概念は`Drop`トレイトによって提供されています。デストラクタは資源がスコープを抜けるときに呼び出されます。`Drop`トレイトは型定義のたびに必ず実装する必要があるわけではなく、デストラクタに独自のロジックが必要な場合にのみ実装します。
 
+<!-- 
 Run the below example to see how the [`Drop`] trait works. When the variable in
 the `main` function goes out of scope the custom destructor will be invoked.
+ -->
+下のコードを実行して、`Drop`トレイトの動作を確認してみましょう。`main`関数内の変数がスコープを抜けるときにカスタムデストラクタが呼び出されるはずです。
 
 ```rust,editable
 struct ToDrop;
