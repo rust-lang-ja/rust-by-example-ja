@@ -65,6 +65,6 @@ So why are macros useful?
    variable number of arguments. An example is `println!` which could take any
    number of arguments, depending on the format string!. (More on this later)
 -->
-3. 可変なインターフェース。
+3. 可変個引数によるインターフェース。
    取る引数の数が可変であるようなインターフェースを定義したくなることもあるでしょう。
    例えば、`println!`は、フォーマット文字列に依存した任意の数の引数を取ることができます（あとで詳述）！

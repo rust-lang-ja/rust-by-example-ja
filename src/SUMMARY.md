@@ -302,7 +302,7 @@
         - [繰り返し](macros/repeat.md)
     - [DRY (Don't Repeat Yourself)](macros/dry.md)
     - [Domain Specific Languages (ドメイン特化言語、DSLs)](macros/dsl.md)
-    - [可変なインターフェース](macros/variadics.md)
+    - [可変個引数](macros/variadics.md)
 
 <!--
 - [Error handling](error.md)
