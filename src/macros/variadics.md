@@ -1,7 +1,7 @@
 <!--
 # Variadic Interfaces
 -->
-# 可変なインターフェース
+# 可変個引数によるインターフェース
 
 <!--
 A _variadic_ interface takes an arbitrary number of arguments. For example,
