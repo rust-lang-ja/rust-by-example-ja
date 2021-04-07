@@ -8,13 +8,13 @@ A _variadic_ interface takes an arbitrary number of arguments. For example,
 `println!` can take an arbitrary number of arguments, as determined by the
 format string.
 -->
-*可変な*インターフェースとは、任意の数の引数を取るものです。
+*可変個引数の*インターフェースとは、任意の数の引数を取るものです。
 例えば、`println!`は、フォーマット文字列の定義に従い、任意の数の引数を取ることができます。
 
 <!--
 We can extend our `calculate!` macro from the previous section to be variadic:
 -->
-前のセクションの`calculate!`マクロを、可変に拡張することができます：
+前のセクションの`calculate!`マクロを、可変個引数に拡張することができます：
 
 ```rust,editable
 macro_rules! calculate {
