@@ -15,7 +15,7 @@ There are three basic ideas:
 - [Patterns and Designators][designators]
 - [Overloading][overloading]
 - [Repetition][repetition]
-- -->
+-->
 - [パターンと識別子][designators]
 - [オーバーロード][overloading]
 - [繰り返し][repetition]
