@@ -296,13 +296,13 @@
     - [Variadics](macros/variadics.md)
 -->
 - [macro_rules!](macros.md)
-    - [Syntax](macros/syntax.md)
+    - [構文](macros/syntax.md)
         - [識別子](macros/designators.md)
         - [オーバーロード](macros/overload.md)
-        - [リピート](macros/repeat.md)
+        - [繰り返し](macros/repeat.md)
     - [DRY (Don't Repeat Yourself)](macros/dry.md)
-    - [DSL (Domain Specific Languages)](macros/dsl.md)
-    - [Variadics](macros/variadics.md)
+    - [Domain Specific Languages (ドメイン特化言語、DSLs)](macros/dsl.md)
+    - [可変個引数](macros/variadics.md)
 
 <!--
 - [Error handling](error.md)

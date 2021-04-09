@@ -1,7 +1,7 @@
 <!--
 # Repeat
 -->
-# リピート
+# 繰り返し
 
 <!--
 Macros can use `+` in the argument list to indicate that an argument may
