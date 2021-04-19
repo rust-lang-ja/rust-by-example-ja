@@ -15,7 +15,7 @@ Testing comes in three styles:
 テストには3つの種類があります。
 
 <!--
-* [Integration][integration] testing.
+* [Unit][unit] testing.
 * [Doc][doc] testing.
 * [Integration][integration] testing.
 -->
