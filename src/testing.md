@@ -7,7 +7,7 @@
 Rust is a programming language that cares a lot about correctness and it
 includes support for writing software tests within the language itself.
 -->
-Rust はとても正確性を配慮したプログラミング言語であり、ソフトウェアテストを書くためのサポートを言語自身が含んでいます。
+Rustはとても正確性を配慮したプログラミング言語であり、ソフトウェアテストを書くためのサポートを言語自身が含んでいます。
 
 <!--
 Testing comes in three styles:
