@@ -11951,23 +11951,47 @@ impl fmt::Debug for Complex {
     }
 }
 </code></pre>
-<h1><a class="header" href="#testing-1" id="testing-1">Testing</a></h1>
-<p>Rust is a programming language that cares a lot about correctness and it
-includes support for writing software tests within the language itself.</p>
-<p>Testing comes in three styles:</p>
+<!--
+# Testing
+-->
+<h1><a class="header" href="#テスト" id="テスト">テスト</a></h1>
+<!--
+Rust is a programming language that cares a lot about correctness and it
+includes support for writing software tests within the language itself.
+-->
+<p>Rustはとても正確性を配慮したプログラミング言語であり、ソフトウェアテストを書くためのサポートを言語自身が含んでいます。</p>
+<!--
+Testing comes in three styles:
+-->
+<p>テストには3つの種類があります。</p>
+<!--
+* [Unit][unit] testing.
+* [Doc][doc] testing.
+* [Integration][integration] testing.
+-->
 <ul>
-<li><a href="testing/unit_testing.html">Unit</a> testing.</li>
-<li><a href="testing/doc_testing.html">Doc</a> testing.</li>
-<li><a href="testing/integration_testing.html">Integration</a> testing.</li>
+<li><a href="testing/unit_testing.html">単体テスト</a></li>
+<li><a href="testing/doc_testing.html">ドキュメンテーションテスト</a></li>
+<li><a href="testing/integration_testing.html">結合テスト</a></li>
 </ul>
-<p>Also Rust has support for specifying additional dependencies for tests:</p>
+<!--
+Also Rust has support for specifying additional dependencies for tests:
+-->
+<p>またRustではテストのために追加の依存パッケージを指定することもできます。</p>
 <ul>
 <li><a href="testing/dev_dependencies.html">Dev-dependencies</a></li>
 </ul>
-<h2><a class="header" href="#see-also-1" id="see-also-1">See Also</a></h2>
+<!--
+## See Also
+-->
+<h2><a class="header" href="#参照-69" id="参照-69">参照</a></h2>
+<!--
+* [The Book][doc-testing] chapter on testing
+* [API Guidelines][doc-nursery] on doc-testing
+-->
 <ul>
-<li><a href="https://doc.rust-lang.org/book/ch11-00-testing.html">The Book</a> chapter on testing</li>
-<li><a href="https://rust-lang-nursery.github.io/api-guidelines/documentation.html">API Guidelines</a> on doc-testing</li>
+<li><a href="https://doc.rust-lang.org/book/ch11-00-testing.html">The Book</a> の自動テストの章</li>
+<li><a href="https://rust-lang-nursery.github.io/api-guidelines/documentation.html">API ガイドライン</a> のドキュメンテーション</li>
 </ul>
 <h1><a class="header" href="#unit-testing" id="unit-testing">Unit testing</a></h1>
 <p>Tests are Rust functions that verify that the non-test code is functioning in
@@ -12287,7 +12311,7 @@ pub fn try_div(a: i32, b: i32) -&gt; Result&lt;i32, String&gt; {
     }
 }
 </code></pre>
-<h2><a class="header" href="#see-also-2" id="see-also-2">See Also</a></h2>
+<h2><a class="header" href="#see-also-1" id="see-also-1">See Also</a></h2>
 <ul>
 <li><a href="https://github.com/rust-lang/rfcs/blob/master/text/0505-api-comment-conventions.md">RFC505</a> on documentation style</li>
 <li><a href="https://rust-lang-nursery.github.io/api-guidelines/documentation.html">API Guidelines</a> on documentation guidelines</li>
@@ -12388,7 +12412,7 @@ mod tests {
     }
 }
 </code></pre>
-<h2><a class="header" href="#see-also-3" id="see-also-3">See Also</a></h2>
+<h2><a class="header" href="#see-also-2" id="see-also-2">See Also</a></h2>
 <p><a href="http://doc.crates.io/specifying-dependencies.html">Cargo</a> docs on specifying dependencies.</p>
 <!--
 # Unsafe Operations
@@ -12600,7 +12624,7 @@ $ rustdoc --test --extern doc=&quot;libdoc.rlib&quot; doc.rs
 <!--
 ### See also:
 -->
-<h3><a class="header" href="#参照-69" id="参照-69">参照</a></h3>
+<h3><a class="header" href="#参照-70" id="参照-70">参照</a></h3>
 <ul>
 <li><a href="https://doc.rust-lang.org/book/ch14-02-publishing-to-crates-io.html#making-useful-documentation-comments">The Rust Book: Making Useful Documentation Comments</a></li>
 <li><a href="https://doc.rust-lang.org/rustdoc/index.html">The Rustdoc Book</a></li>
