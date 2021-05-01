@@ -7,7 +7,7 @@
 There are three types of structures ("structs") that can be created using the
 `struct` keyword:
 -->
-`struct`というキーワードを用いて作成できる構造体（「structre」）には3種類あります。
+`struct`というキーワードを用いて作成できる構造体（「structure」）には3種類あります。
 
 <!--
 * Tuple structs, which are, basically, named tuples.
@@ -47,21 +47,25 @@ struct Point {
 struct Rectangle {
     // A rectangle can be specified by where the top left and bottom right
     // corners are in space.
+    // 長方形は座標空間上における左上隅と右下隅の位置によって指定できる
     top_left: Point,
     bottom_right: Point,
 }
 
 fn main() {
     // Create struct with field init shorthand
+    // 構造体をフィールド初期化の簡略記法で生成する
     let name = "Peter";
     let age = 27;
     let peter = Person { name, age };
 
     // Print debug struct
+    // 構造体のデバッグ表示を行う
     println!("{:?}", peter);
 
 
     // Instantiate a `Point`
+    // `Point` のインスタンスを生成する
     let point: Point = Point { x: 10.3, y: 0.4 };
 
     // Access the fields of the point
@@ -70,14 +74,18 @@ fn main() {
 
     // Make a new point by using struct update syntax to use the fields of our
     // other one
+    // 構造体の更新記法を用いて、別の構造体のフィールドの値を基に
+    // 新たなpointを生成する
     let bottom_right = Point { x: 5.2, ..point };
 
     // `bottom_right.y` will be the same as `point.y` because we used that field
     // from `point`
+    // `bottom_right.y` の値は `point.y` と同一になるが、
+    // これは `point` のフィールドの値を用いて生成したためである
     println!("second point: ({}, {})", bottom_right.x, bottom_right.y);
 
     // Destructure the point using a `let` binding
-    // `let`を使用してpointをデストラクトする。
+    // `let`を使用してpointを分解する
     let Point { x: top_edge, y: left_edge } = point;
 
     let _rectangle = Rectangle {
@@ -88,18 +96,19 @@ fn main() {
     };
 
     // Instantiate a unit struct
-    // ユニットをインスタンス化
+    // ユニットのインスタンスを生成する
     let _nil = Nil;
 
     // Instantiate a tuple struct
-    // タプルをインスタンス化
+    // タプルのインスタンスを生成する
     let pair = Pair(1, 0.1);
 
     // Access the fields of a tuple struct
+    // タプルのフィールドにアクセスする
     println!("pair contains {:?} and {:?}", pair.0, pair.1);
 
     // Destructure a tuple struct
-    // タプルをデストラクト
+    // タプルを分解する
     let Pair(integer, decimal) = pair;
 
     println!("pair contains {:?} and {:?}", integer, decimal);

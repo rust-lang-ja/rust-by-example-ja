@@ -67,14 +67,20 @@
     - [Inference](types/inference.md)
     - [Aliasing](types/alias.md)
 -->
-- [Types](types.md)
+- [型](types.md)
     - [型キャスティング](types/cast.md)
     - [リテラル](types/literals.md)
     - [型推論](types/inference.md)
     - [エイリアス](types/alias.md)
 
+<!--
 - [Conversion](conversion.md)
     - [`From` and `Into`](conversion/from_into.md)
+    - [`TryFrom` and `TryInto`](conversion/try_from_try_into.md)
+    - [To and from `String`s](conversion/string.md)
+-->
+- [型変換](conversion.md)
+    - [`From`および`Into`](conversion/from_into.md)
     - [`TryFrom` and `TryInto`](conversion/try_from_try_into.md)
     - [To and from `String`s](conversion/string.md)
 

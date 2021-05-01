@@ -2,9 +2,11 @@
 # Freezing
 -->
 # 値のフリーズ
-
+<!--
 When data is bound by the same name immutably, it also *freezes*. *Frozen* data can't be 
 modified until the immutable binding goes out of scope:
+-->
+データを同じ名前のイミュータブルな変数に束縛することを、データを*フリーズ*するといいます。*フリーズされた*データは、イミュータブルな束縛がスコープ外になるまで変更できません。
 
 ```rust,editable,ignore,mdbook-runnable
 fn main() {
@@ -12,6 +14,7 @@ fn main() {
 
     {
         // Shadowing by immutable `_mutable_integer`
+        // イミュータブルな`_mutable_integer`でシャドーイングする
         let _mutable_integer = _mutable_integer;
 
         // Error! `_mutable_integer` is frozen in this scope
