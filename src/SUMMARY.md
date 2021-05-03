@@ -112,7 +112,7 @@
     - [if/else](flow_control/if_else.md)
     - [loop](flow_control/loop.md)
         - [ネストとラベル](flow_control/loop/nested.md)
-        - [Returning from loops](flow_control/loop/return.md)
+        - [loopが返す値](flow_control/loop/return.md)
     - [while](flow_control/while.md)
     - [for と range](flow_control/for.md)
     - [match](flow_control/match.md)
