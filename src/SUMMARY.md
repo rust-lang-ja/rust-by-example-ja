@@ -58,7 +58,7 @@
     - [ミュータビリティ](variable_bindings/mut.md)
     - [スコープとシャドーイング](variable_bindings/scope.md)
     - [宣言](variable_bindings/declare.md)
-    - [値のフリーズ](variable_bindings/freeze.md)
+    - [値の凍結](variable_bindings/freeze.md)
 
 <!--
 - [Types](types.md)
