@@ -1,4 +1,3 @@
-
 <!--
 # `From` and `Into`
 -->
@@ -30,6 +29,7 @@ For example we can easily convert a `str` into a `String`
 let my_str = "hello";
 let my_string = String::from(my_str);
 ```
+
 <!--
 We can do similar for defining a conversion for our own type.
 -->
