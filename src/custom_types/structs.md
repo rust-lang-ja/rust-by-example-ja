@@ -54,7 +54,7 @@ struct Rectangle {
 
 fn main() {
     // Create struct with field init shorthand
-    // 構造体をフィールド初期化の簡略記法で生成する
+    // 構造体をフィールド初期化の簡略記法で生成
     let name = "Peter";
     let age = 27;
     let peter = Person { name, age };
@@ -65,7 +65,7 @@ fn main() {
 
 
     // Instantiate a `Point`
-    // `Point` のインスタンスを生成する
+    // `Point` のインスタンス化
     let point: Point = Point { x: 10.3, y: 0.4 };
 
     // Access the fields of the point
@@ -75,7 +75,7 @@ fn main() {
     // Make a new point by using struct update syntax to use the fields of our
     // other one
     // 構造体の更新記法を用いて、別の構造体のフィールドの値を基に
-    // 新たなpointを生成する
+    // 新たなpointを生成
     let bottom_right = Point { x: 5.2, ..point };
 
     // `bottom_right.y` will be the same as `point.y` because we used that field
@@ -85,7 +85,7 @@ fn main() {
     println!("second point: ({}, {})", bottom_right.x, bottom_right.y);
 
     // Destructure the point using a `let` binding
-    // `let`を使用してpointを分解する
+    // `let`を使用してpointをデストラクトする。
     let Point { x: top_edge, y: left_edge } = point;
 
     let _rectangle = Rectangle {
@@ -96,19 +96,19 @@ fn main() {
     };
 
     // Instantiate a unit struct
-    // ユニットのインスタンスを生成する
+    // ユニットをインスタンス化
     let _nil = Nil;
 
     // Instantiate a tuple struct
-    // タプルのインスタンスを生成する
+    // タプルをインスタンス化
     let pair = Pair(1, 0.1);
 
     // Access the fields of a tuple struct
-    // タプルのフィールドにアクセスする
+    // タプルのフィールドにアクセス
     println!("pair contains {:?} and {:?}", pair.0, pair.1);
 
     // Destructure a tuple struct
-    // タプルを分解する
+    // タプルをデストラクト
     let Pair(integer, decimal) = pair;
 
     println!("pair contains {:?} and {:?}", integer, decimal);
