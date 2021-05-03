@@ -18,7 +18,7 @@ type, hence providing a very simple mechanism for converting between several
 types. There are numerous implementations of this trait within the standard
 library for conversion of primitive and common types.
 -->
-[`From`]トレイトは、ある型に対し、別の型からその型を作る方法を定義できるようにするものです。そのため、複数の型の間で型変換を行うための非常にシンプルな仕組みを提供しています。標準ライブラリでは、基本型やよく使われる型に対して、このトレイトが多数実装されています。
+[`From`]トレイトは、ある型に対し、別の型からその型を作る方法を定義できるようにするものです。そのため、複数の型の間で型変換を行うための非常にシンプルな仕組みを提供しています。標準ライブラリでは、基本データ型やよく使われる型に対して、このトレイトが多数実装されています。
 
 <!--
 For example we can easily convert a `str` into a `String`

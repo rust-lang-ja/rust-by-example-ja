@@ -54,7 +54,7 @@
     - [Declare first](variable_bindings/declare.md)
     - [Freezing](variable_bindings/freeze.md)
 -->
-- [変数バインディング](variable_bindings.md)
+- [変数束縛](variable_bindings.md)
     - [ミュータビリティ](variable_bindings/mut.md)
     - [スコープとシャドーイング](variable_bindings/scope.md)
     - [宣言](variable_bindings/declare.md)
@@ -81,8 +81,8 @@
 -->
 - [型変換](conversion.md)
     - [`From`および`Into`](conversion/from_into.md)
-    - [`TryFrom` and `TryInto`](conversion/try_from_try_into.md)
-    - [To and from `String`s](conversion/string.md)
+    - [`TryFrom`および`TryInto`](conversion/try_from_try_into.md)
+    - [`String`との型変換](conversion/string.md)
 
 <!--
 - [Expressions](expression.md)

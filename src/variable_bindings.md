@@ -1,7 +1,7 @@
 <!--
 # Variable Bindings
 -->
-# 変数バインディング
+# 変数束縛
 
 <!--
 Rust provides type safety via static typing. Variable bindings can be type
@@ -9,12 +9,12 @@ annotated when declared. However, in most cases, the compiler will be able
 to infer the type of the variable from the context, heavily reducing the
 annotation burden.
 -->
-Rustは静的(`static`)な型付けゆえに型安全です。変数は宣言時に型を明示できます。とはいえたいていの場合は、コンパイラは変数の型をコンテキストから推測することができますので、常に苦労して明示する必要があるわけではありません。
+Rustは静的(`static`)な型付けゆえに型安全です。変数束縛は宣言時に型を指定できます。とはいえたいていの場合は、コンパイラは変数の型をコンテキストから推測することができますので、型指定の負担を大幅に軽減できます。
 
 <!--
 Values (like literals) can be bound to variables, using the `let` binding.
 -->
-値は（リテラルに似て）`let`を用いて変数に束縛されることができる。
+値（リテラルなど）は`let`を用いて変数に束縛することができます。
 
 ```rust,editable
 fn main() {
