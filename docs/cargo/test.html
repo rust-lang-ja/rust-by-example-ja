@@ -169,14 +169,23 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#testing" id="testing">Testing</a></h1>
-<p>As we know testing is integral to any piece of software! Rust has first-class
-support for unit and integration testing (<a href="https://doc.rust-lang.org/book/ch11-00-testing.html">see this
-chapter</a> in
-TRPL).</p>
-<p>From the testing chapters linked above, we see how to write unit tests and
+                        <!--
+# Testing
+-->
+<h1><a class="header" href="#テスト" id="テスト">テスト</a></h1>
+<!--
+As we know testing is integral to any piece of software! Rust has first-class
+support for unit and integration testing ([see this
+chapter](https://doc.rust-lang.org/book/ch11-00-testing.html) in
+TRPL).
+-->
+<p>知っての通り、テストはどんなソフトウェアにも不可欠です！Rustはユニットテストと統合テストを第一級にサポートしています（TRPLの<a href="https://doc.rust-lang.org/book/ch11-00-testing.html">この章を参照してください</a>）。</p>
+<!--
+From the testing chapters linked above, we see how to write unit tests and
 integration tests. Organizationally, we can place unit tests in the modules they
-test and integration tests in their own <code>tests/</code> directory:</p>
+test and integration tests in their own `tests/` directory:
+-->
+<p>上のリンク先のテストの章では、ユニットテストと統合テストの書き方を紹介しています。ユニットテストはテスト対象のモジュール内に、統合テストは<code>tests/</code>ディレクトリ内に置きます。</p>
 <pre><code class="language-txt">foo
 ├── Cargo.toml
 ├── src
@@ -185,11 +194,20 @@ test and integration tests in their own <code>tests/</code> directory:</p>
     ├── my_test.rs
     └── my_other_test.rs
 </code></pre>
-<p>Each file in <code>tests</code> is a separate integration test.</p>
-<p><code>cargo</code> naturally provides an easy way to run all of your tests!</p>
+<!--
+Each file in `tests` is a separate integration test.
+-->
+<p><code>tests</code>内の各ファイルは個別の統合テストです。</p>
+<!--
+`cargo` naturally provides an easy way to run all of your tests!
+-->
+<p><code>cargo</code>は、全てのテストを簡単に実行する方法を提供します。</p>
 <pre><code class="language-shell">$ cargo test
 </code></pre>
-<p>You should see output like this:</p>
+<!--
+You should see output like this:
+-->
+<p>出力はこのようになります。</p>
 <pre><code class="language-shell">$ cargo test
    Compiling blah v0.1.0 (file:///nobackup/blah)
     Finished dev [unoptimized + debuginfo] target(s) in 0.89 secs
@@ -203,7 +221,10 @@ test test_foo ... ok
 
 test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 </code></pre>
-<p>You can also run tests whose name matches a pattern:</p>
+<!--
+You can also run tests whose name matches a pattern:
+-->
+<p>パターンにマッチする名前のテストを実行することもできます。</p>
 <pre><code class="language-shell">$ cargo test test_foo
 </code></pre>
 <pre><code class="language-shell">$ cargo test test_foo
@@ -217,9 +238,12 @@ test test_foo_bar ... ok
 
 test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out
 </code></pre>
-<p>One word of caution: Cargo may run multiple tests concurrently, so make sure
+<!--
+One word of caution: Cargo may run multiple tests concurrently, so make sure
 that they don't race with each other. For example, if they all output to a
-file, you should make them write to different files.</p>
+file, you should make them write to different files.
+-->
+<p>注意：Cargoは複数のテストを並列で実行することがありますので、それらが互いに競合しないようにしてください。例えば、それらが全てファイルに出力する場合、それぞれ別のファイルに書き込むようにします。</p>
 
                     </main>
 

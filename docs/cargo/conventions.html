@@ -169,18 +169,30 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#conventions" id="conventions">Conventions</a></h1>
-<p>In the previous chapter, we saw the following directory hierarchy:</p>
+                        <!--
+# Conventions
+-->
+<h1><a class="header" href="#慣例" id="慣例">慣例</a></h1>
+<!--
+In the previous chapter, we saw the following directory hierarchy:
+-->
+<p>前の章ではこのようなディレクトリ階層がありました。</p>
 <pre><code class="language-txt">foo
 ├── Cargo.toml
 └── src
     └── main.rs
 </code></pre>
-<p>Suppose that we wanted to have two binaries in the same project, though. What
-then?</p>
-<p>It turns out that <code>cargo</code> supports this. The default binary name is <code>main</code>, as
-we saw before, but you can add additional binaries by placing them in a <code>bin/</code>
-directory:</p>
+<!--
+Suppose that we wanted to have two binaries in the same project, though. What
+then?
+-->
+<p>しかし同じプロジェクトで2つのバイナリが欲しいとします。その場合は？</p>
+<!--
+It turns out that `cargo` supports this. The default binary name is `main`, as
+we saw before, but you can add additional binaries by placing them in a `bin/`
+directory:
+-->
+<p><code>cargo</code>はこれもサポートしています。以前見た通りデフォルトのバイナリ名は<code>main</code>ですが、<code>bin/</code>ディレクトリに置くことで他のバイナリを追加できます。</p>
 <pre><code class="language-txt">foo
 ├── Cargo.toml
 └── src
@@ -188,12 +200,21 @@ directory:</p>
     └── bin
         └── my_other_bin.rs
 </code></pre>
-<p>To tell <code>cargo</code> to compile or run this binary as opposed to the default or other
-binaries, we just pass <code>cargo</code> the <code>--bin my_other_bin</code> flag, where <code>my_other_bin</code>
-is the name of the binary we want to work with.</p>
-<p>In addition to extra binaries, <code>cargo</code> supports <a href="https://doc.rust-lang.org/cargo/guide/project-layout.html">more features</a> such as
-benchmarks, tests, and examples.</p>
-<p>In the next chapter, we will look more closely at tests.</p>
+<!--
+To tell `cargo` to compile or run this binary as opposed to the default or other
+binaries, we just pass `cargo` the `--bin my_other_bin` flag, where `my_other_bin`
+is the name of the binary we want to work with.
+-->
+<p>デフォルトバイナリや他のバイナリではなく、このバイナリをコンパイルや実行するように<code>cargo</code>に伝えるには、<code>cargo</code>に<code>--bin my_other_bin</code>フラグを渡します。ここでは<code>my_other_bin</code>が対象のバイナリの名前です。</p>
+<!--
+In addition to extra binaries, `cargo` supports [more features] such as
+benchmarks, tests, and examples.
+-->
+<p>バイナリの追加に加えて、<code>cargo</code>はベンチマークやテスト、サンプルなどの<a href="https://doc.rust-lang.org/cargo/guide/project-layout.html">その他の機能</a>もサポートしています。</p>
+<!--
+In the next chapter, we will look more closely at tests.
+-->
+<p>次の章ではテストについてより詳しく見ていきます。</p>
 
                     </main>
 
