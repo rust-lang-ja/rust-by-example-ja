@@ -100,7 +100,10 @@ fn main() {
 }
 ```
 
+<!--
 One can manually implement `fmt::Display` to control the display.
+-->
+手動で`fmt::Display`を実装することでプリント結果を思い通りにできます。
 
 <!--
 ### See also:

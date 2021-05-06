@@ -18,9 +18,7 @@ usize, determined by the processor architecture eg 64 bits on an x86-64.
 Slices can be used to borrow a section of an array, and have the type signature 
 `&[T]`.
 -->
-スライスは配列に似ていますが、コンパイル時にサイズが決定されていません。2つの部分からなり、1つは別のデータへのポインタ、もう1つはスライスの長さです。
-The word size is the same as usize, determined by the processor architecture eg 64 bits on an x86-64.
-配列の一部を借用するのに使用され`&[T]`という型シグネチャを持ちます。
+スライスは配列に似ていますが、コンパイル時にサイズが決定されていません。スライスは2ワードからなるオブジェクトであり、最初のワードがデータへのポインタ、2番目のワードがスライスの長さです。ワード長は`usize`と同一で、プロセッサのアーキテクチャによって決まります。例えばx86-64では64ビットです。スライスは配列の一部を借用するのに使用され、`&[T]`という型シグネチャを持ちます。
 
 ```rust,editable,ignore,mdbook-runnable
 use std::mem;
@@ -63,11 +61,15 @@ fn main() {
     // They are of the form [starting_index..ending_index]
     // starting_index is the first position in the slice
     // ending_index is one more than the last position in the slice
+    // スライスは配列の一部を指すことができる。
+    // [starting_index..ending_index] の形をとり、
+    // starting_index はスライスの先頭の位置を表し、
+    // ending_index はスライスの末尾の1つ先の位置を表す。
     println!("borrow a section of the array as a slice");
     analyze_slice(&ys[1 .. 4]);
 
     // Out of bound indexing causes compile error
-    // インデックスの範囲が配列のサイズを超えた場合パニックする
+    // インデックスが範囲外のときはコンパイルエラー
     println!("{}", xs[5]);
 }
 ```
