@@ -27,7 +27,7 @@ build = "build.rs"
 Otherwise Cargo will look for a `build.rs` file in the project directory by
 default.
 -->
-そうしないと、Cargoはデフォルトでプロジェクトディレクトリから`build.rs`を探します。
+それ以外の場合、Cargoはデフォルトでプロジェクトディレクトリから`build.rs`を探します。
 
 <!--
 ## How to use a build script

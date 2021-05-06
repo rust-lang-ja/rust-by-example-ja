@@ -16,8 +16,8 @@ useful features to improve code quality and developer velocity! These include
 - Awareness of benchmarks
 -->
 - 依存関係の管理と[crates.io](https://crates.io)（Rustの公式パッケージレジストリ）とのインテグレーション
-- ユニットテストへの意識
-- ベンチマークへの意識
+- ユニットテスト
+- ベンチマーク
 
 <!--
 This chapter will go through some quick basics, but you can find the
