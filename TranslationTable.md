@@ -169,7 +169,7 @@
 | string                           | 文字列
 | string interpolation             | 文字列インターポーレーション
 | struct                           | 構造体
-| structure                        | ストラクチャ
+| structure                        | 構造体
 | sum type                         | 直和型
 | symbol                           | シンボル
 | syntactic sugar                  | 糖衣構文
