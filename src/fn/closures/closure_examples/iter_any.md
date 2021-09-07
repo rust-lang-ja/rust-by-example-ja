@@ -23,7 +23,7 @@ pub trait Iterator {
         // arguments to the closure by value.
         // `FnMut`はクロージャによって補足される変数が変更される
         // 事はあっても消費されることはないということを示します。
-        // `&Self::Item`はクロージャが変数を参照として取ることを示します。
+        // `Self::Item`はクロージャが変数を値として取ることを示します。
         F: FnMut(Self::Item) -> bool {}
 }
 ```
