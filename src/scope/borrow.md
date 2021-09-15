@@ -51,7 +51,7 @@ fn main() {
         // Error!
         // Can't destroy `boxed_i32` while the inner value is borrowed later in scope.
         // エラー!
-        // ボックス内の要素が借用されているため、`boxed_int`を破棄する
+        // ボックス内の要素が借用されているため、`boxed_i32`を破棄する
         // ことはできない。
         eat_box_i32(boxed_i32);
         // FIXME ^ Comment out this line
