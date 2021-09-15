@@ -60,7 +60,7 @@ fn pass_x<'a, 'b>(x: &'a i32, _: &'b i32) -> &'a i32 { x }
 // reference. Then the data is dropped upon exiting the scope, leaving
 // a reference to invalid data to be returned.
 // `'a`は関数より長くなくてはならないため上の関数は正しくない。
-// ここでは、`&7`は`i32`のデータとそれへの参照を作り出す。
+// ここでは、`&String::from("foo")`は`String`のデータとそれへの参照を作り出す。
 // その後データはスコープを抜けるとともに破棄される。そのため、
 // 不適切なデータに対する参照を返すことになってしまう。
 
