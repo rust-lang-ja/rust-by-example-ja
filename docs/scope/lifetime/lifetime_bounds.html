@@ -202,7 +202,7 @@ struct Ref&lt;'a, T: 'a&gt;(&amp;'a T);
 // *references* in `T` must outlive `'a`. Additionally, the lifetime
 // of `Ref` may not exceed `'a`.
 // `Ref`は`'a`というライフタイムを持つジェネリック型`T`に対する参照を持ち、
-// `T`の値 *に対する参照* は必ず`'a`よりも長生きでなくてはならない。
+// `T`の値に対する *参照* は必ず`'a`よりも長生きでなくてはならない。
 // さらに、`Ref`のライフタイムは`'a`を超えてはならない。
 
 // A generic function which prints using the `Debug` trait.

@@ -6668,7 +6668,7 @@ fn main() {
     // Since the heap memory has been freed at this point, this action would
     // result in dereferencing freed memory, but it's forbidden by the compiler
     // Error! Same reason as the previous Error
-    // この時点でヒープメモリ上の資源は開放されているので、次の操作は解放
+    // この時点でヒープメモリ上の資源は開放されているので、次の操作は
     // 解放済みメモリをデリファレンスすることになる。しかしそれはコンパイラが許さない。
     // エラー! 上述の理由より
     //println!(&quot;b contains: {}&quot;, b);
@@ -6755,7 +6755,7 @@ fn main() {
         // Error!
         // Can't destroy `boxed_i32` while the inner value is borrowed later in scope.
         // エラー!
-        // ボックス内の要素が借用されているため、`boxed_int`を破棄する
+        // ボックス内の要素が借用されているため、`boxed_i32`を破棄する
         // ことはできない。
         eat_box_i32(boxed_i32);
         // FIXME ^ Comment out this line
@@ -6977,7 +6977,7 @@ fn main() {
     
     {
         // Destructure `mutable_tuple` to change the value of `last`.
-        // `mutable_ tuple`をデストラクトして、`last`の値を変更
+        // `mutable_tuple`をデストラクトして、`last`の値を変更
         let (_, ref mut last) = mutable_tuple;
         *last = 2u32;
     }
@@ -7198,7 +7198,7 @@ fn pass_x&lt;'a, 'b&gt;(x: &amp;'a i32, _: &amp;'b i32) -&gt; &amp;'a i32 { x }
 // reference. Then the data is dropped upon exiting the scope, leaving
 // a reference to invalid data to be returned.
 // `'a`は関数より長くなくてはならないため上の関数は正しくない。
-// ここでは、`&amp;7`は`i32`のデータとそれへの参照を作り出す。
+// ここでは、`&amp;String::from(&quot;foo&quot;)`は`String`のデータとそれへの参照を作り出す。
 // その後データはスコープを抜けるとともに破棄される。そのため、
 // 不適切なデータに対する参照を返すことになってしまう。
 
@@ -7368,7 +7368,7 @@ struct Ref&lt;'a, T: 'a&gt;(&amp;'a T);
 // *references* in `T` must outlive `'a`. Additionally, the lifetime
 // of `Ref` may not exceed `'a`.
 // `Ref`は`'a`というライフタイムを持つジェネリック型`T`に対する参照を持ち、
-// `T`の値 *に対する参照* は必ず`'a`よりも長生きでなくてはならない。
+// `T`の値に対する *参照* は必ず`'a`よりも長生きでなくてはならない。
 // さらに、`Ref`のライフタイムは`'a`を超えてはならない。
 
 // A generic function which prints using the `Debug` trait.

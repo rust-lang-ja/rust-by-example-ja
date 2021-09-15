@@ -242,7 +242,7 @@ fn main() {
     // Since the heap memory has been freed at this point, this action would
     // result in dereferencing freed memory, but it's forbidden by the compiler
     // Error! Same reason as the previous Error
-    // この時点でヒープメモリ上の資源は開放されているので、次の操作は解放
+    // この時点でヒープメモリ上の資源は開放されているので、次の操作は
     // 解放済みメモリをデリファレンスすることになる。しかしそれはコンパイラが許さない。
     // エラー! 上述の理由より
     //println!(&quot;b contains: {}&quot;, b);
