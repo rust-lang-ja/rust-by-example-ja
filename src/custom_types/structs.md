@@ -7,7 +7,7 @@
 There are three types of structures ("structs") that can be created using the
 `struct` keyword:
 -->
-`struct`というキーワードを用いて作成できる構造体（「structure」）には3種類あります。
+`struct`というキーワードを用いて作成できる構造体には3種類あります。
 
 <!--
 * Tuple structs, which are, basically, named tuples.

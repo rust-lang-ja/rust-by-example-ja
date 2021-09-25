@@ -169,31 +169,58 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#build-scripts" id="build-scripts">Build Scripts</a></h1>
-<p>Sometimes a normal build from <code>cargo</code> is not enough. Perhaps your crate needs
-some pre-requisites before <code>cargo</code> will successfully compile, things like code
+                        <!--
+# Build Scripts
+-->
+<h1><a class="header" href="#ビルドスクリプト" id="ビルドスクリプト">ビルドスクリプト</a></h1>
+<!--
+Sometimes a normal build from `cargo` is not enough. Perhaps your crate needs
+some pre-requisites before `cargo` will successfully compile, things like code
 generation, or some native code that needs to be compiled. To solve this problem
-we have build scripts that Cargo can run.</p>
-<p>To add a build script to your package it can either be specified in the
-<code>Cargo.toml</code> as follows:</p>
+we have build scripts that Cargo can run.
+-->
+<p><code>cargo</code>による通常のビルドでは十分でないことが時々あります。コード生成や、コンパイルが必要なネイティブコードなど、<code>cargo</code>がクレートをうまくコンパイルするにはなんらかの前提条件が必要かもしれません。この問題を解決するため、Cargoが実行できるビルドスクリプトがあります。</p>
+<!--
+To add a build script to your package it can either be specified in the
+`Cargo.toml` as follows:
+-->
+<p>ビルドスクリプトをパッケージに追加するには、以下のように<code>Cargo.toml</code>の中で指定できます。</p>
 <pre><code class="language-toml">[package]
 ...
 build = &quot;build.rs&quot;
 </code></pre>
-<p>Otherwise Cargo will look for a <code>build.rs</code> file in the project directory by
-default.</p>
-<h2><a class="header" href="#how-to-use-a-build-script" id="how-to-use-a-build-script">How to use a build script</a></h2>
-<p>The build script is simply another Rust file that will be compiled and invoked
+<!--
+Otherwise Cargo will look for a `build.rs` file in the project directory by
+default.
+-->
+<p>それ以外の場合、Cargoはデフォルトでプロジェクトディレクトリから<code>build.rs</code>を探します。</p>
+<!--
+## How to use a build script
+-->
+<h2><a class="header" href="#ビルドスクリプトの使い方" id="ビルドスクリプトの使い方">ビルドスクリプトの使い方</a></h2>
+<!--
+The build script is simply another Rust file that will be compiled and invoked
 prior to compiling anything else in the package. Hence it can be used to fulfill
-pre-requisites of your crate.</p>
-<p>Cargo provides the script with inputs via environment variables <a href="https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-sets-for-build-scripts">specified
-here</a> that can be used.</p>
-<p>The script provides output via stdout. All lines printed are written to
-<code>target/debug/build/&lt;pkg&gt;/output</code>. Further, lines prefixed with <code>cargo:</code> will be
+pre-requisites of your crate.
+-->
+<p>ビルドスクリプトは単にRustのファイルの1つで、パッケージ内の他のファイルをコンパイルする前にコンパイルされて起動されます。そのため、クレートの前提条件を満たすために使用できます。</p>
+<!--
+Cargo provides the script with inputs via environment variables [specified
+here] that can be used.
+-->
+<p>Cargoは、<a href="https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-sets-for-build-scripts">ここで指定された</a>環境変数を介してスクリプトに入力を与えます。</p>
+<!--
+The script provides output via stdout. All lines printed are written to
+`target/debug/build/<pkg>/output`. Further, lines prefixed with `cargo:` will be
 interpreted by Cargo directly and hence can be used to define parameters for the
-package's compilation.</p>
-<p>For further specification and examples have a read of the
-<a href="https://doc.rust-lang.org/cargo/reference/build-scripts.html">Cargo specification</a>.</p>
+package's compilation.
+-->
+<p>スクリプトは標準出力に出力します。出力される行は全て、<code>target/debug/build/&lt;pkg&gt;/output</code>に書き込まれます。さらに、行頭に<code>cargo:</code>がついた行はCargoに直接解釈されるため、パッケージのコンパイル時のパラメーターを定義するのに使用できます。</p>
+<!--
+For further specification and examples have a read of the
+[Cargo specification][cargo_specification].
+-->
+<p>より詳細な仕様や例については、<a href="https://doc.rust-lang.org/cargo/reference/build-scripts.html">Cargo specification</a>を参照してください。</p>
 
                     </main>
 
