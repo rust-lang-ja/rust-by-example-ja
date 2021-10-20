@@ -60,7 +60,7 @@ fn main() {
         // Attempt to borrow `_ref_to_i32` after inner value is destroyed
         borrow_i32(_ref_to_i32);
         // `_ref_to_i32` goes out of scope and is no longer borrowed.
-        // ここで`_ref_to_int`はスコープを抜け、借用もなくなります。
+        // ここで`_ref_to_i32`はスコープを抜け、借用もなくなります。
     }
 
     // `boxed_i32` can now give up ownership to `eat_box` and be destroyed
