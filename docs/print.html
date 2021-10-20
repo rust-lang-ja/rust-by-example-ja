@@ -8841,7 +8841,7 @@ fn give_commoner(gift: Option&lt;&amp;str&gt;) {
 // 温室育ちのお姫様はヘビを見ると`panic`します。
 fn give_princess(gift: Option&lt;&amp;str&gt;) {
     // `unwrap` returns a `panic` when it receives a `None`.
-    // `unwrap`を使用すると値が`None`だった際に`panic`を返します。。
+    // `unwrap`を使用すると値が`None`だった際に`panic`を返します。
     let inside = gift.unwrap();
     if inside == &quot;snake&quot; { panic!(&quot;AAAaaaaa!!!!&quot;); }
 
