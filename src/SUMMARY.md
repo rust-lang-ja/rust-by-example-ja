@@ -54,11 +54,11 @@
     - [Declare first](variable_bindings/declare.md)
     - [Freezing](variable_bindings/freeze.md)
 -->
-- [変数バインディング](variable_bindings.md)
+- [変数束縛](variable_bindings.md)
     - [ミュータビリティ](variable_bindings/mut.md)
     - [スコープとシャドーイング](variable_bindings/scope.md)
     - [宣言](variable_bindings/declare.md)
-    - [値のフリーズ](variable_bindings/freeze.md)
+    - [値の凍結](variable_bindings/freeze.md)
 
 <!--
 - [Types](types.md)
@@ -67,16 +67,22 @@
     - [Inference](types/inference.md)
     - [Aliasing](types/alias.md)
 -->
-- [Types](types.md)
+- [型](types.md)
     - [型キャスティング](types/cast.md)
     - [リテラル](types/literals.md)
     - [型推論](types/inference.md)
     - [エイリアス](types/alias.md)
 
+<!--
 - [Conversion](conversion.md)
     - [`From` and `Into`](conversion/from_into.md)
     - [`TryFrom` and `TryInto`](conversion/try_from_try_into.md)
     - [To and from `String`s](conversion/string.md)
+-->
+- [型変換](conversion.md)
+    - [`From`および`Into`](conversion/from_into.md)
+    - [`TryFrom`および`TryInto`](conversion/try_from_try_into.md)
+    - [`String`との型変換](conversion/string.md)
 
 <!--
 - [Expressions](expression.md)
@@ -106,7 +112,7 @@
     - [if/else](flow_control/if_else.md)
     - [loop](flow_control/loop.md)
         - [ネストとラベル](flow_control/loop/nested.md)
-        - [Returning from loops](flow_control/loop/return.md)
+        - [loopが返す値](flow_control/loop/return.md)
     - [while](flow_control/while.md)
     - [for と range](flow_control/for.md)
     - [match](flow_control/match.md)

@@ -106,10 +106,13 @@ friendly fashion.
 Here, we used `fmt::Display `because the std library provides implementations
 for these types. To print text for custom types, more steps are required.
 -->
-この例で用いられている型は、標準ライブラリに含まれているため、ここでは`fmt::Display`を使用しています。他の型の場合、もうちょっと複雑なステップが要求される場合があります。
+この例で用いられている型は、標準ライブラリに含まれているため、ここでは`fmt::Display`を使用しています。カスタム型をテキストとして表示する場合は、さらに手順が必要です。
 
+<!--
 Implementing the `fmt::Display` trait automatically implements the
 [`ToString`] trait which allows us to [convert] the type to [`String`][string].
+-->
+`fmt::Display`トレイトを実装すると、自動的に[`ToString`]トレイトが実装されます。これにより[`String`][string]型への型変換ができるようになります。
 
 <!--
 ### Activities

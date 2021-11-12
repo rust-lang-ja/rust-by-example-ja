@@ -1,9 +1,16 @@
+<!--
 # `TryFrom` and `TryInto`
+-->
+# `TryFrom`および`TryInto`
 
+<!--
 Similar to [`From` and `Into`][from-into], [`TryFrom`] and [`TryInto`] are
 generic traits for converting between types. Unlike `From`/`Into`, the
 `TryFrom`/`TryInto` traits are used for fallible conversions, and as such,
 return [`Result`]s.
+-->
+[`From`および`Into`][from-into]と同様に、[`TryFrom`]および[`TryInto`]も型変換を行うジェネリックなトレイトです。`From`/`Into`と異なり、`TryFrom`/`TryInto`トレイトは失敗する可能性のある型変換に用いられるので、[`Result`]を返します。
+
 
 [from-into]: from_into.html
 [`TryFrom`]: https://doc.rust-lang.org/std/convert/trait.TryFrom.html
