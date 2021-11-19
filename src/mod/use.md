@@ -22,8 +22,10 @@ fn main() {
     my_first_function();
 }
 ```
-
+<!--
 You can use the `as` keyword to bind imports to a different name:
+-->
+`as`キーワードを使用することで、インポートを別名にバインドすることができます。
 
 ```rust,editable
 // Bind the `deeply::nested::function` path to `other_function`.
