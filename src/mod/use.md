@@ -22,6 +22,7 @@ fn main() {
     my_first_function();
 }
 ```
+
 <!--
 You can use the `as` keyword to bind imports to a different name:
 -->
