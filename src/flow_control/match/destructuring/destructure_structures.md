@@ -32,7 +32,7 @@ fn main() {
         Foo { y, .. } => println!("y = {}, we don't care about x", y),
         // this will give an error: pattern does not mention field `x`
         // `x`に言及していないため、以下はエラーになる。
-        //Foo { y } => println!("y = {}", y);
+        //Foo { y } => println!("y = {}", y),
     }
 }
 ```
