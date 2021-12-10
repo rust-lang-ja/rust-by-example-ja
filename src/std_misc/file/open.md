@@ -1,9 +1,9 @@
 # `open`
 
 <!--
-The `open` static method can be used to open a file in read-only mode.
+The `open` function can be used to open a file in read-only mode.
 -->
-スタティックメソッドの`open`を用いることで読み込み専用モードでファイルを開くことが可能です。
+`open`関数を用いることで読み込み専用モードでファイルを開くことが可能です。
 
 <!--
 A `File` owns a resource, the file descriptor and takes care of closing the
@@ -29,8 +29,7 @@ fn main() {
         // The `description` method of `io::Error` returns a string that
         // describes the error
         // `io::Error`の`description`メソッドはエラーを説明する文字列を返す。
-        Err(why) => panic!("couldn't open {}: {}", display,
-                                                   why.description()),
+        Err(why) => panic!("couldn't open {}: {}", display, why),
         Ok(file) => file,
     };
 
@@ -38,8 +37,7 @@ fn main() {
     // ファイルの中身を文字列に読み込む。`io::Result<useize>`を返す。
     let mut s = String::new();
     match file.read_to_string(&mut s) {
-        Err(why) => panic!("couldn't read {}: {}", display,
-                                                   why.description()),
+        Err(why) => panic!("couldn't read {}: {}", display, why),
         Ok(_) => print!("{} contains:\n{}", display, s),
     }
 

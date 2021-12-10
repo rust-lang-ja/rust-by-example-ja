@@ -1,5 +1,5 @@
 <!--
-# Library
+# Creating a Library
 -->
 # ライブラリ
 
@@ -32,7 +32,8 @@ library.rlib
 
 <!--
 Libraries get prefixed with "lib", and by default they get named after their
-crate file, but this default name can be overridden using the [`crate_name`
+crate file, but this default name can be overridden by passing
+the `--crate-name` option to `rustc` or by using the [`crate_name`
 attribute][crate-name].
 -->
 ライブラリは「lib」が頭につき、デフォルトでは、その後ろに元となったクレートファイル名をつけます。（訳注: ここでは`lib` + `rary`）この振る舞いは[`crate_name`アトリビュート][crate-name]を用いてオーバーライドできます。

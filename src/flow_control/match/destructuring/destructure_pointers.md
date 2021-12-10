@@ -85,3 +85,7 @@ fn main() {
     }
 }
 ```
+
+### See also:
+
+[The ref pattern](../../../scope/borrow/ref.md)

@@ -65,7 +65,7 @@ fn main() {
 
     // You can pad numbers with extra zeroes. This will output "000001".
     // 空白の代わりに0を使うこともできます. このアウトプットは "000001" になります.
-    println!("{number:>0width$}", number=1, width=6);
+    println!("{number:0>width$}", number=1, width=6);
 
     // Rust even checks to make sure the correct number of arguments are
     // used.
@@ -103,7 +103,7 @@ friendly fashion.
 * `fmt::Display`: は `{}`というマーカーを使用し、より美しく、ユーザフレンドリーに表示します。
 
 <!--
-Here, we used `fmt::Display `because the std library provides implementations
+Here, we used `fmt::Display` because the std library provides implementations
 for these types. To print text for custom types, more steps are required.
 -->
 この例で用いられている型は、標準ライブラリに含まれているため、ここでは`fmt::Display`を使用しています。カスタム型をテキストとして表示する場合は、さらに手順が必要です。
@@ -148,6 +148,6 @@ and [`traits`][traits]
 [macros]: ../macros.md
 [string]: ../std/str.md
 [structs]: ../custom_types/structs.md
-[traits]: ../trait.md
+[traits]: https://doc.rust-lang.org/std/fmt/#formatting-traits
 [`ToString`]: https://doc.rust-lang.org/std/string/trait.ToString.html
 [convert]: ../conversion/string.md

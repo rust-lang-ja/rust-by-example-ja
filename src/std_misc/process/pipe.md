@@ -25,7 +25,7 @@ fn main() {
                                 .stdin(Stdio::piped())
                                 .stdout(Stdio::piped())
                                 .spawn() {
-        Err(why) => panic!("couldn't spawn wc: {}", why.description()),
+        Err(why) => panic!("couldn't spawn wc: {}", why),
         Ok(process) => process,
     };
 
@@ -37,8 +37,7 @@ fn main() {
     // `stdin`は`Option<ChildStdin>`型を持つが、今回は値を持っていることが
     // 確かなので、いきなり`unwrap`してしまってよい。
     match process.stdin.unwrap().write_all(PANGRAM.as_bytes()) {
-        Err(why) => panic!("couldn't write to wc stdin: {}",
-                           why.description()),
+        Err(why) => panic!("couldn't write to wc stdin: {}", why),
         Ok(_) => println!("sent pangram to wc"),
     }
 
@@ -56,8 +55,7 @@ fn main() {
     // `stdout`フィールドも`Option<ChildStdout>`型なのでアンラップする必要がある
     let mut s = String::new();
     match process.stdout.unwrap().read_to_string(&mut s) {
-        Err(why) => panic!("couldn't read wc stdout: {}",
-                           why.description()),
+        Err(why) => panic!("couldn't read wc stdout: {}", why),
         Ok(_) => print!("wc responded with:\n{}", s),
     }
 }

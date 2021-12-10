@@ -10,6 +10,7 @@ Boxする方法の代替として、エラーを自前のエラー型として�
 
 ```rust,editable
 use std::error;
+use std::error::Error as _;
 use std::num::ParseIntError;
 use std::fmt;
 
@@ -30,9 +31,13 @@ impl fmt::Display for DoubleError {
         match *self {
             DoubleError::EmptyVec =>
                 write!(f, "please use a vector with at least one element"),
+            // The wrapped error contains additional information and is available
+            // via the source() method.
             // This is a wrapper, so defer to the underlying types' implementation of `fmt`.
+            // ラップされたエラーは追加情報を含み、source メソッドから取り出すことができます。
             // これはラッパーなので、`fmt`での元となる型の実装に処理を任せます。
-            DoubleError::Parse(ref e) => e.fmt(f),
+            DoubleError::Parse(..) =>
+                write!(f, "the provided string could not be parsed as int"),
         }
     }
 }
@@ -65,6 +70,8 @@ impl From<ParseIntError> for DoubleError {
 
 fn double_first(vec: Vec<&str>) -> Result<i32> {
     let first = vec.first().ok_or(DoubleError::EmptyVec)?;
+    // Here we implicitly use the `ParseIntError` implementation of `From` (which
+    // we defined above) in order to create a `DoubleError`.
     let parsed = first.parse::<i32>()?;
 
     Ok(2 * parsed)
@@ -73,7 +80,12 @@ fn double_first(vec: Vec<&str>) -> Result<i32> {
 fn print(result: Result<i32>) {
     match result {
         Ok(n)  => println!("The first doubled is {}", n),
-        Err(e) => println!("Error: {}", e),
+        Err(e) => {
+            println!("Error: {}", e);
+            if let Some(source) = e.source() {
+                println!("  Caused by: {}", source);
+            }
+        },
     }
 }
 

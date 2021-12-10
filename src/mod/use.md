@@ -63,6 +63,8 @@ fn main() {
         // shadowing of `function()` is only in this block.
         // `use`バインディングは局所的なスコープを持つ。
         // この場合には`function()`のシャドウイングはこのブロック内のみ
+        function();
+
         println!("Leaving block");
     }
 

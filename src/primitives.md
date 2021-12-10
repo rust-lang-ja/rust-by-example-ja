@@ -99,9 +99,9 @@ fn main() {
 ### 参照
 
 <!--
-[the `std` library][std], [`mut`][mut], [inference], and [shadowing]
+[the `std` library][std], [`mut`][mut], [`inference`][inference], and [`shadowing`][shadowing]
 -->
-[`std` ライブラリ][std], [`mut`][mut], [inference], [shadowing]
+[`std` ライブラリ][std], [`mut`][mut], [`inference`][inference], [`shadowing`][shadowing]
 
 [std]: https://doc.rust-lang.org/std/
 [mut]: variable_bindings/mut.md

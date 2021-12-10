@@ -4,7 +4,7 @@ When multiple ownership is needed, `Rc`(Reference Counting) can be used. `Rc` ke
 
 Reference count of an `Rc` increases by 1 whenever an `Rc` is cloned, and decreases by 1 whenever one cloned `Rc` is dropped out of the scope. When an `Rc`'s reference count becomes zero, which means there are no owners remained, both the `Rc` and the value are all dropped. 
 
-Cloning an `Rc` never do a deep copy. Cloning creates just another pointer to the wrapped value, and increments the count.
+Cloning an `Rc` never performs a deep copy. Cloning creates just another pointer to the wrapped value, and increments the count.
 
 ```rust,editable
 use std::rc::Rc;
@@ -51,7 +51,7 @@ fn main() {
 -->
 ### 参照
 
-[std::rc][1] and [Arc][2].
+[std::rc][1] and [std::sync::arc][2].
 
 [1]: https://doc.rust-lang.org/std/rc/index.html
 [2]: https://doc.rust-lang.org/std/sync/struct.Arc.html

@@ -8,7 +8,7 @@ A Rust program is (mostly) made up of a series of statements:
 -->
 Rustのプログラムは（ほとんどの場合）文(`statement`)の連続でできています
 
-```
+```rust,editable
 fn main() {
     // statement
     // statement
@@ -22,7 +22,7 @@ a variable binding, and using a `;` with an expression:
 -->
 宣言文にはいくつかの種類があります。最も一般的なのは変数の束縛(`variable binding`)と`;`付きの式(`expression`)です
 
-```
+```rust,editable
 fn main() {
     // variable binding
     // 変数束縛
