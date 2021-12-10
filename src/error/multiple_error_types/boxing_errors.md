@@ -36,13 +36,6 @@ impl fmt::Display for EmptyVec {
 
 impl error::Error for EmptyVec {}
 
-    fn cause(&self) -> Option<&(dyn error::Error)> {
-        // Generic error, underlying cause isn't tracked.
-        // 基本となるエラー、原因は記録されていない。
-        None
-    }
-}
-
 fn double_first(vec: Vec<&str>) -> Result<i32> {
     vec.first()
         .ok_or_else(|| EmptyVec.into()) // Converts to Box

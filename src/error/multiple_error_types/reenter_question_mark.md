@@ -56,13 +56,6 @@ impl fmt::Display for EmptyVec {
 
 impl error::Error for EmptyVec {}
 
-    fn cause(&self) -> Option<&error::Error> {
-        // Generic error, underlying cause isn't tracked.
-        // 基本となるエラー、原因は記録されていない。
-        None
-    }
-}
-
 // The same structure as before but rather than chain all `Results`
 // and `Options` along, we `?` to get the inner value out immediately.
 // 前と同じ構造だが、`Results`と`Option`を繋げていく代わりに、
