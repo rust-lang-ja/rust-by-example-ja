@@ -13,6 +13,7 @@ jobs:
       - run: rm -f ~/.gitconfig
       - run: rm -rf docs
       - run: mdbook -V
+      - run: mdbook-transcheck -V
       - run: mdbook build
       - run: mdbook test
       - run:
