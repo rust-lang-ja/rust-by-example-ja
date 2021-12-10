@@ -29,8 +29,8 @@ fn main() {
     // `&'static str`から`Path`を作成
     let path = Path::new(".");
 
-    // The `display` method returns a `Show`able structure
-    // `display`メソッドは`Show`可能な構造体を返す。
+    // The `display` method returns a `Display`able structure
+    // `display`メソッドは`Display`可能な構造体を返す。
     let _display = path.display();
 
     // `join` merges a path with a byte container using the OS specific

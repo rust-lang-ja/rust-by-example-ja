@@ -1,14 +1,16 @@
 <!--
-# Methods
+# Associated functions & Methods
 -->
-# メソッド
+# 関連関数とメソッド
 
 <!--
-Methods are functions attached to objects. These methods have access to the
-data of the object and its other methods via the `self` keyword. Methods are
-defined under an `impl` block.
+Some functions are connected to a particular type. These come in two forms:
+associated functions, and methods. Associated functions are functions that
+are defined on a type generally, while methods are associated functions that are
+called on a particular instance of a type.
 -->
-メソッドとはオブジェクトに付属した関数のことです。オブジェクトの持つデータや他のメソッドへは`self`という語を介してアクセスすることができます。`impl`キーワードによって定義します。
+関数には特定の型に紐づいたものがあります。これには関連関数とメソッドの2つの形式があります。
+メソッドは特定のインスタンスに関連付けて呼ばれる関数であるのに対し、関連関数は型全体に対して定義される関数です。
 
 ```rust,editable
 struct Point {
@@ -16,20 +18,23 @@ struct Point {
     y: f64,
 }
 
-// Implementation block, all `Point` methods go in here
-// メソッドの実装のためのブロック。`Point`の持つメソッドを全て定義する。
+// Implementation block, all `Point` associated functions & methods go in here
+// 実装のためのブロック。`Point`の持つ関連関数とメソッドを全て定義する。
 impl Point {
-    // This is a static method
-    // Static methods don't need to be called by an instance
-    // These methods are generally used as constructors
-    // スタティックメソッド。つまり、インスタンスからでなくても
-    // 呼び出せるメソッド。以下のようにコンストラクタとして使用されることが多い。
+    // This is an "associated function" because this function is associated with
+    // a particular type, that is, Point.
+    // これは特定の型（すなわち Point）に関連した関数なので関連関数
+    //
+    // Associated functions don't need to be called with an instance.
+    // These functions are generally used like constructors.
+    // 関連関数はインスタンスからでなく呼び出すことができる。
+    // 以下のようにコンストラクタとして使用されることが多い。
     fn origin() -> Point {
         Point { x: 0.0, y: 0.0 }
     }
 
-    // Another static method, taking two arguments:
-    // もう一つスタティックメソッド。引数を2つ取る。
+    // Another associated function, taking two arguments:
+    // もう一つ関連関数。引数を2つ取る。
     fn new(x: f64, y: f64) -> Point {
         Point { x: x, y: y }
     }
@@ -41,10 +46,10 @@ struct Rectangle {
 }
 
 impl Rectangle {
-    // This is an instance method
+    // This is a method
     // `&self` is sugar for `self: &Self`, where `Self` is the type of the
     // caller object. In this case `Self` = `Rectangle`
-    // こちらはインスタンスメソッド。`&self`は`self: &Self`の糖衣構文。
+    // こちらはメソッド。`&self`は`self: &Self`の糖衣構文。
     // `Self`は呼び出し元オブジェクトの型。この場合は`Rectangle`。
     fn area(&self) -> f64 {
         // `self` gives access to the struct fields via the dot operator
@@ -101,15 +106,15 @@ impl Pair {
 
 fn main() {
     let rectangle = Rectangle {
-        // Static methods are called using double colons
-        // スタティックメソッドはコロンを2つ挟んで呼び出される。
+        // Associated functions are called using double colons
+        // 関連関数はコロンを2つ挟んで呼び出される。
         p1: Point::origin(),
         p2: Point::new(3.0, 4.0),
     };
 
-    // Instance methods are called using the dot operator
+    // Methods are called using the dot operator
     // Note that the first argument `&self` is implicitly passed, i.e.
-    // インスタンスメソッドはドット演算子を用いて呼び出される。
+    // メソッドはドット演算子を用いて呼び出される。
     // 最初の引数`&self`は明示せずに受け渡されていることに注目。つまり
     // `rectangle.perimeter()` === `Rectangle::perimeter(&rectangle)`
     println!("Rectangle perimeter: {}", rectangle.perimeter());

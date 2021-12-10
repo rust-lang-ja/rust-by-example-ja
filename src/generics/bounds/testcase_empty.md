@@ -6,9 +6,9 @@
 <!--
 A consequence of how bounds work is that even if a `trait` doesn't
 include any functionality, you can still use it as a bound. `Eq` and
-`Ord` are examples of such `trait`s from the `std` library.
+`Copy` are examples of such `trait`s from the `std` library.
 -->
-トレイト境界の仕組みから、「トレイトがなにも機能を持っていなくとも境界条件として使用できることには変わりはない」という帰結がもたらされます。`Eq`と`Ord`は`std`ライブラリにおけるそのような例です。
+トレイト境界の仕組みから、「トレイトがなにも機能を持っていなくとも境界条件として使用できることには変わりはない」という帰結がもたらされます。`Eq`と`Copy`は`std`ライブラリにおけるそのような例です。
 
 ```rust,editable
 struct Cardinal;
@@ -55,10 +55,10 @@ fn main() {
 ### 参照
 
 <!--
-[`std::cmp::Eq`][eq], [`std::cmp::Ord`s][ord], and [`trait`s][traits]
+[`std::cmp::Eq`][eq], [`std::marker::Copy`][copy], and [`trait`s][traits]
 -->
 [`std::cmp::Eq`][eq], [`std::cmp::Ord`s][ord], [トレイト][traits]
 
 [eq]: https://doc.rust-lang.org/std/cmp/trait.Eq.html
-[ord]: https://doc.rust-lang.org/std/cmp/trait.Ord.html
+[copy]: https://doc.rust-lang.org/std/marker/trait.Copy.html
 [traits]: ../../trait.md

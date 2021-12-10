@@ -35,7 +35,7 @@ struct DebugPrintable(i32);
 ```
 
 <!--
-All `std` library types automatically are printable with `{:?}` too:
+All `std` library types are automatically printable with `{:?}` too:
 -->
 `std`ライブラリの型の場合は、自動的に`{:?}`によりプリント可能になっています。
 
@@ -111,7 +111,7 @@ One can manually implement `fmt::Display` to control the display.
 ### 参照
 
 <!--
-[attributes][attributes], [`derive`][derive], [`std::fmt`][fmt],
+[`attributes`][attributes], [`derive`][derive], [`std::fmt`][fmt],
 and [`struct`][structs]
 -->
 [アトリビュート][attributes], [`derive`][derive], [`std::fmt`][fmt],

@@ -34,10 +34,7 @@ impl fmt::Display for EmptyVec {
     }
 }
 
-impl error::Error for EmptyVec {
-    fn description(&self) -> &str {
-        "invalid first item to double"
-    }
+impl error::Error for EmptyVec {}
 
     fn cause(&self) -> Option<&(dyn error::Error)> {
         // Generic error, underlying cause isn't tracked.

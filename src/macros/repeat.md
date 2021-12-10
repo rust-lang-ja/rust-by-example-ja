@@ -18,8 +18,8 @@ Also note that the semicolon is optional on the last case.
 以下の例では、マッチ対象を `$(...),+`で囲むことにより、カンマで区切られた1つ以上の式とマッチします。最後のセミコロンは必須ではないことに注目しましょう。
 
 ```rust,editable
-// `min!` will calculate the minimum of any number of arguments.
-// `min!`は引数として与えられた数字の中の最低の値を計算する。
+// `find_min!` will calculate the minimum of any number of arguments.
+// `find_min!`は引数として与えられた数字の中の最低の値を計算する。
 macro_rules! find_min {
     // Base case:
     // 基本となるケース
@@ -34,8 +34,8 @@ macro_rules! find_min {
 }
 
 fn main() {
-    println!("{}", find_min!(1u32));
-    println!("{}", find_min!(1u32 + 2, 2u32));
-    println!("{}", find_min!(5u32, 2u32 * 3, 4u32));
+    println!("{}", find_min!(1));
+    println!("{}", find_min!(1 + 2, 2));
+    println!("{}", find_min!(5, 2 * 3, 4));
 }
 ```

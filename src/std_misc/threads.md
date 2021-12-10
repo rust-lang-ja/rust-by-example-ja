@@ -12,7 +12,7 @@ Rustは`spawn`関数を用いてOSのネイティブスレッドを開始する�
 ```rust,editable
 use std::thread;
 
-static NTHREADS: i32 = 10;
+const NTHREADS: u32 = 10;
 
 // This is the `main` thread
 // この関数は`main`スレッドで実行される。

@@ -6,7 +6,7 @@
 <!--
 *Generics* is the topic of generalizing types and functionalities to broader
 cases. This is extremely useful for reducing code duplication in many ways,
-but can call for rather involving syntax. Namely, being generic requires 
+but can call for rather involved syntax. Namely, being generic requires 
 taking great care to specify over which types a generic type 
 is actually considered valid. The simplest and most common use of generics 
 is for type parameters.
@@ -96,7 +96,7 @@ fn main() {
 ### 参照
 
 <!--
-[`struct`s][structs]
+[`structs`][structs]
 -->
 [構造体][structs]
 

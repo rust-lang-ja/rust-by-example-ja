@@ -4,10 +4,10 @@
 # 複数のジェネリック境界
 
 <!--
-Multiple bounds can be applied with a `+`. Like normal, different types are
+Multiple bounds for a single type can be applied with a `+`. Like normal, different types are
 separated with `,`.
 -->
-`+`を用いて複数のトレイト境界を設けることができます。複数の引数を受け取るときは、通常時と同様、`,`で区切ります。
+`+`を用いて1つの型に複数のトレイト境界を設けることができます。複数の引数を受け取るときは、通常時と同様、`,`で区切ります。
 
 ```rust,editable
 use std::fmt::{Debug, Display};

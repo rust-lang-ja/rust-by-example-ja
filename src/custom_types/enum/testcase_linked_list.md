@@ -4,7 +4,7 @@
 # テストケース: 連結リスト
 
 <!--
-A common use for `enums` is to create a linked-list:
+A common way to implement a linked-list is via `enums`:
 -->
 `enum`を使用が適切なパターンのひとつに、連結リスト(`linked-list`)を作成する場合があります。
 
@@ -46,6 +46,9 @@ impl List {
         // depends on the variant of `self`
         // `self` has type `&List`, and `*self` has type `List`, matching on a
         // concrete type `T` is preferred over a match on a reference `&T`
+        // after Rust 2018 you can use self here and tail (with no ref) below as well,
+        // rust will infer &s and ref tail. 
+        // See https://doc.rust-lang.org/edition-guide/rust-2018/ownership-and-lifetimes/default-match-bindings.html
         // このメソッドは、`self`の状態によって振る舞いが
         // 変化するため、matchをする必要がある。
         // `self`の型は`&List`であるので、`*self`は`List`になる。マッチングは

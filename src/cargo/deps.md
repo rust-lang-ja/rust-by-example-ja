@@ -89,11 +89,10 @@ lots of great packages on [crates.io](https://crates.io) (the official Rust
 package registry). One popular choice is [clap](https://crates.io/crates/clap).
 As of this writing, the most recent published version of `clap` is `2.27.1`. To
 add a dependency to our program, we can simply add the following to our
-`Cargo.toml` under `[dependencies]`: `clap = "2.27.1"`.  And of course, `extern
-crate clap` in `main.rs`, just like normal. And that's it! You can start using
+`Cargo.toml` under `[dependencies]`: `clap = "2.27.1"`. And that's it! You can start using
 `clap` in your program.
 -->
-例えば、プログラムに素晴らしいCLIが欲しいとします。[crates.io](https://crates.io)（Rustの公式パッケージレジストリ）には素晴らしいパッケージがたくさんあります。よくある選択肢の1つは[clap](https://crates.io/crates/clap)です。この記事を書いている時点での`clap`の最新の公開バージョンは`2.27.1`です。依存関係をプログラムに追加するには、`Cargo.toml`の`[dependencies]`の下に`clap = "2.27.1"`と単に書き加えます。そしてもちろん、通常通り`main.rs`の中で`extern crate clap`とします。これだけです！`clap`をプログラム内で使用できます。
+例えば、プログラムに素晴らしいCLIが欲しいとします。[crates.io](https://crates.io)（Rustの公式パッケージレジストリ）には素晴らしいパッケージがたくさんあります。よくある選択肢の1つは[clap](https://crates.io/crates/clap)です。この記事を書いている時点での`clap`の最新の公開バージョンは`2.27.1`です。依存関係をプログラムに追加するには、`Cargo.toml`の`[dependencies]`の下に`clap = "2.27.1"`と単に書き加えます。これだけです！`clap`をプログラム内で使用できます。
 
 <!--
 `cargo` also supports [other types of dependencies][dependencies]. Here is just

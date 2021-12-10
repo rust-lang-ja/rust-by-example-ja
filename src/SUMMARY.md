@@ -172,12 +172,12 @@
 
 <!--
 - [Crates](crates.md)
-    - [Library](crates/lib.md)
-    - [`extern crate`](crates/link.md)
+    - [Creating a Library](crates/lib.md)
+    - [Using a Library](crates/using_lib.md)
 -->
 - [クレート](crates.md)
-    - [ライブラリ](crates/lib.md)
-    - [`extern crate`](crates/link.md)
+    - [Creating a Library](crates/lib.md)
+    - [Using a Library](crates/using_lib.md)
 
 - [Cargo](cargo.md)
     - [Dependencies](cargo/deps.md)
@@ -234,6 +234,7 @@
     - [RAII](scope/raii.md)
     - [Ownership and moves](scope/move.md)
         - [Mutability](scope/move/mut.md)
+        - [Partial moves](scope/move/partial_move.md)
     - [Borrowing](scope/borrow.md)
         - [Mutability](scope/borrow/mut.md)
         - [Aliasing](scope/borrow/alias.md)
@@ -253,6 +254,7 @@
     - [RAII](scope/raii.md)
     - [所有権とムーブ](scope/move.md)
         - [ミュータビリティ](scope/move/mut.md)
+        - [Partial moves](scope/move/partial_move.md)
     - [借用](scope/borrow.md)
         - [ミュータビリティ](scope/borrow/mut.md)
         - [エイリアス](scope/borrow/alias.md)
@@ -362,6 +364,7 @@
         - [Alternate/custom key types](std/hash/alt_key_types.md)
         - [HashSet](std/hash/hashset.md)
     - [`Rc`](std/rc.md)
+    - [`Arc`](std/arc.md)
 -->
 - [標準ライブラリの型](std.md)
     - [Box, スタックとヒープ](std/box.md)
@@ -375,6 +378,7 @@
         - [key型の変種](std/hash/alt_key_types.md)
         - [ハッシュ集合](std/hash/hashset.md)
     - [`Rc`](std/rc.md)
+    - [`Arc`](std/arc.md)
 
 <!--
 - [Std misc](std_misc.md)
@@ -428,6 +432,8 @@
 <!--
 - [Meta](meta.md)
     - [Documentation](meta/doc.md)
+    - [Playpen](meta/playpen.md)
 -->
 - [周辺情報](meta.md)
     - [ドキュメンテーション](meta/doc.md)
+    - [Playpen](meta/playpen.md)

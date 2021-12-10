@@ -32,17 +32,20 @@ struct Fibonacci {
 // `Iterator`を`Fibonacci`に対して実装する。
 // `Iterator`トレイトは次(`next`)の要素を取得するメソッドの定義だけを要求する。
 impl Iterator for Fibonacci {
+    // We can refer to this type using Self::Item
     type Item = u32;
     
     // Here, we define the sequence using `.curr` and `.next`.
     // The return type is `Option<T>`:
     //     * When the `Iterator` is finished, `None` is returned.
     //     * Otherwise, the next value is wrapped in `Some` and returned.
+    // We use Self::Item in the return type, so we can change
+    // the type without having to update the function signatures.
     // ここではイテレーションの流れを`.curr`と`.next`を使用して定義している。
     // 返り値の型は`Option<T>`で、これは:
     //     * `Iterator`が終了した時は`None`を返し、
     //     * そうでなければ`Some`でラップされた値を返す。
-    fn next(&mut self) -> Option<u32> {
+    fn next(&mut self) -> Option<Self::Item> {
         let new_next = self.curr + self.next;
 
         self.curr = self.next;

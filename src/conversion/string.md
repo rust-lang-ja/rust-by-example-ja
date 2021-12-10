@@ -49,7 +49,7 @@ Both alternatives are shown in the following example.
 文字列からの型変換において、数値への型変換はよく行われるものの一つです。これを行うイディオムは[`parse`]関数を使用することですが、このときに型を推論できるようにするか、もしくは turbofish構文を使用して型を指定するかのいずれかを行います。以下の例では、どちらの方法も紹介しています。
 
 <!--
-This will convert the string into the type specified so long as the [`FromStr`]
+This will convert the string into the type specified as long as the [`FromStr`]
 trait is implemented for that type. This is implemented for numerous types
 within the standard library. To obtain this functionality on a user defined type
 simply implement the [`FromStr`] trait for that type.
