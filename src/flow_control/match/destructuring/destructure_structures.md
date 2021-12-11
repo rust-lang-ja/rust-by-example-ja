@@ -32,7 +32,7 @@ fn main() {
         Foo { y, .. } => println!("y = {}, we don't care about x", y),
         // this will give an error: pattern does not mention field `x`
         // `x`に言及していないため、以下はエラーになる。
-        //Foo { y } => println!("y = {}", y);
+        //Foo { y } => println!("y = {}", y),
     }
 }
 ```
@@ -43,6 +43,6 @@ fn main() {
 ### 参照
 
 <!--
-[Structs](../../../custom_types/structs.md), [The ref pattern](../../../scope/borrow/ref.md)
+[Structs](../../../custom_types/structs.md)
 -->
-[構造体](../../../custom_types/structs.md), [refによるパターンマッチ](../../../scope/borrow/ref.md)
+[構造体](../../../custom_types/structs.md)

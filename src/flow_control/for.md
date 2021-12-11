@@ -89,16 +89,19 @@ within.
 -->
 * `iter` - この関数は、各周回においてコレクションの要素を借用します。よってコレクションには手を加えないので、ループの実行後もコレクションを再利用できます。
 
-```rust, editable
+```rust,editable
 fn main() {
     let names = vec!["Bob", "Frank", "Ferris"];
 
     for name in names.iter() {
         match name {
             &"Ferris" => println!("There is a rustacean among us!"),
+            // TODO ^ Try deleting the & and matching just "Ferris"
             _ => println!("Hello {}", name),
         }
     }
+    
+    println!("names: {:?}", names);
 }
 ```
 
@@ -109,7 +112,7 @@ fn main() {
 -->
 * `into_iter` - この関数はコレクションからデータを取り出すので、各周回において要素のデータそのものが提供されます。データを取り出してしまうと、データはループ内に「移動」してしまうので、ループ実行後にコレクションを再利用することはできません。
 
-```rust, editable
+```rust,editable,ignore,mdbook-runnable
 fn main() {
     let names = vec!["Bob", "Frank", "Ferris"];
 
@@ -119,6 +122,9 @@ fn main() {
             _ => println!("Hello {}", name),
         }
     }
+    
+    println!("names: {:?}", names);
+    // FIXME ^ Comment out this line
 }
 ```
 
@@ -128,7 +134,7 @@ fn main() {
 -->
 * `iter_mut` - この関数はコレクションの各要素をミュータブル（変更可能）で借用するので、コレクションの要素をその場で変更できます。
 
-```rust, editable
+```rust,editable
 fn main() {
     let mut names = vec!["Bob", "Frank", "Ferris"];
 

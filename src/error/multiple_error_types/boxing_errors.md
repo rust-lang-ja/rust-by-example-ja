@@ -34,17 +34,7 @@ impl fmt::Display for EmptyVec {
     }
 }
 
-impl error::Error for EmptyVec {
-    fn description(&self) -> &str {
-        "invalid first item to double"
-    }
-
-    fn cause(&self) -> Option<&(dyn error::Error)> {
-        // Generic error, underlying cause isn't tracked.
-        // 基本となるエラー、原因は記録されていない。
-        None
-    }
-}
+impl error::Error for EmptyVec {}
 
 fn double_first(vec: Vec<&str>) -> Result<i32> {
     vec.first()

@@ -154,10 +154,10 @@ each requires its own implementation. This is detailed further in
 
 <!--
 After checking the output of the above example, use the `Point2D` struct as a
-guide to add a Complex struct to the example. When printed in the same
+guide to add a `Complex` struct to the example. When printed in the same
 way, the output should be:
 -->
-上記の例のアウトプットを確認し、`Point2D`構造体を参考として、複素数を格納するための構造体を定義しましょう。うまく行けば以下のように出力されるはずです。
+上記の例のアウトプットを確認し、`Point2D`構造体を参考として、複素数を格納するための`Complex`構造体を定義しましょう。うまく行けば以下のように出力されるはずです。
 
 ```txt
 Display: 3.3 + 7.2i
@@ -170,8 +170,8 @@ Debug: Complex { real: 3.3, imag: 7.2 }
 ### 参照
 
 <!--
-[`derive`][derive], [`std::fmt`][fmt], [macros], [`struct`][structs],
-[`trait`][traits], and [use][use]
+[`derive`][derive], [`std::fmt`][fmt], [`macros`][macros], [`struct`][structs],
+[`trait`][traits], and [`use`][use]
 -->
 [`derive`][derive], [`std::fmt`][fmt], [マクロ][macros], [`struct`][structs],
 [`trait`][traits], [use][use]
@@ -180,5 +180,5 @@ Debug: Complex { real: 3.3, imag: 7.2 }
 [fmt]: https://doc.rust-lang.org/std/fmt/
 [macros]: ../../macros.md
 [structs]: ../../custom_types/structs.md
-[traits]: ../../trait.md
+[traits]: https://doc.rust-lang.org/std/fmt/#formatting-traits
 [use]: ../../mod/use.md

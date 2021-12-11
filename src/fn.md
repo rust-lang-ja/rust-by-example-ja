@@ -13,7 +13,7 @@ return type must be specified after an arrow `->`.
 <!--
 The final expression in the function will be used as return value.
 Alternatively, the `return` statement can be used to return a value earlier
-from within the function, even from inside loops or `if`s.
+from within the function, even from inside loops or `if` statements.
 -->
 関数内の最後の式が返り値となります。関数の途中で値を返したい場合は`return`文を使用します。`loop`の最中や`if`文の中からも値を返すことができます。
 
@@ -63,7 +63,7 @@ fn fizzbuzz(n: u32) -> () {
 // signature
 // 関数が`()`を返すとき、返り値の型を書く必要はない。
 fn fizzbuzz_to(n: u32) {
-    for n in 1..n + 1 {
+    for n in 1..=n {
         fizzbuzz(n);
     }
 }

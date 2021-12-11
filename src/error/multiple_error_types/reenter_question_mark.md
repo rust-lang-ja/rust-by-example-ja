@@ -54,17 +54,7 @@ impl fmt::Display for EmptyVec {
     }
 }
 
-impl error::Error for EmptyVec {
-    fn description(&self) -> &str {
-        "invalid first item to double"
-    }
-
-    fn cause(&self) -> Option<&error::Error> {
-        // Generic error, underlying cause isn't tracked.
-        // 基本となるエラー、原因は記録されていない。
-        None
-    }
-}
+impl error::Error for EmptyVec {}
 
 // The same structure as before but rather than chain all `Results`
 // and `Options` along, we `?` to get the inner value out immediately.

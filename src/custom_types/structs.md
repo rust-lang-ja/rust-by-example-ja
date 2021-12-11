@@ -20,15 +20,15 @@ There are three types of structures ("structs") that can be created using the
 
 ```rust,editable
 #[derive(Debug)]
-struct Person<'a> {
+struct Person {
     // The 'a defines a lifetime
-    name: &'a str,
+    name: String,
     age: u8,
 }
 
 // A unit struct
 // ユニット
-struct Nil;
+struct Unit;
 
 // A tuple struct
 // タプル
@@ -55,7 +55,7 @@ struct Rectangle {
 fn main() {
     // Create struct with field init shorthand
     // 構造体をフィールド初期化の簡略記法で生成
-    let name = "Peter";
+    let name = String::from("Peter");
     let age = 27;
     let peter = Person { name, age };
 
@@ -86,7 +86,7 @@ fn main() {
 
     // Destructure the point using a `let` binding
     // `let`を使用してpointをデストラクトする。
-    let Point { x: top_edge, y: left_edge } = point;
+    let Point { x: left_edge, y: top_edge } = point;
 
     let _rectangle = Rectangle {
         // struct instantiation is an expression too
@@ -97,7 +97,7 @@ fn main() {
 
     // Instantiate a unit struct
     // ユニットをインスタンス化
-    let _nil = Nil;
+    let _unit = Unit;
 
     // Instantiate a tuple struct
     // タプルをインスタンス化
@@ -118,29 +118,25 @@ fn main() {
 <!--
 ### Activity
 -->
-
 ### 演習
 
 <!--
-1. Add a function `rect_area` which calculates the area of a rectangle (try
+1. Add a function `rect_area` which calculates the area of a `Rectangle` (try
    using nested destructuring).
-2. Add a function `square` which takes a `Point` and a `f32` as arguments, and returns a `Rectangle` with its lower left corner on the point, and a width and height corresponding to the `f32`.
+2. Add a function `square` which takes a `Point` and a `f32` as arguments, and
+   returns a `Rectangle` with its top left corner on the point, and a width and
+   height corresponding to the `f32`.
 -->
-
 1. `Rectangle` の面積を計算する `rect_area` 関数を追加してください。ネストしたデストラクトを使ってみましょう。
 2. `Point` と `f32` を引数とした時に `Rectangle` を返す `square` 関数を追加してください。 `Rectangle` の左下の点が `Point` になり、`f32` が `Rectangle` の幅と高さになります。
 
-<!--
-### See also:
--->
-### 参照
+### See also
 
 <!--
-[`attributes`][attributes], [lifetime][lifetime] and [destructuring][destructuring]
+[`attributes`][attributes], and [destructuring][destructuring]
 -->
-[アトリビュート(`attributes`)][attributes], [lifetime][lifetime], [デストラクト][destructuring]
+[アトリビュート(`attributes`)][attributes], [デストラクト][destructuring]
 
 [attributes]: ../attribute.md
 [c_struct]: https://en.wikipedia.org/wiki/Struct_(C_programming_language)
 [destructuring]: ../flow_control/match/destructuring.md
-[lifetime]: ../scope/lifetime.md

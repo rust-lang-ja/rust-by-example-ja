@@ -24,7 +24,7 @@ fn main() {
     let y = 2u32;
     let z = 3f32;
 
-    // Unsuffixed literal, their types depend on how they are used
+    // Unsuffixed literals, their types depend on how they are used
     // サフィックスを指定しないリテラル。型は使用方法に依存する。
     let i = 1;
     let f = 1.0;
@@ -46,15 +46,12 @@ yet, here's a brief explanation for the impatient readers:
 上のコードには現時点では解説していない考えがいくつか使用されています。気になる方のために簡単に説明をしておきましょう。
 
 <!--
-* `fun(&foo)` is used to pass an argument to a function *by reference*, rather
-  than by value (`fun(foo)`). For more details see [borrowing][borrow].
 * `std::mem::size_of_val` is a function, but called with its *full path*. Code
   can be split in logical units called *modules*. In this case, the
   `size_of_val` function is defined in the `mem` module, and the `mem` module
   is defined in the `std` *crate*. For more details, see
   [modules][mod] and [crates][crate].
 -->
-* `fun(&foo)`は値そのものではなく、その参照を関数に渡す時の書き方です。詳しくは[借用(`borrowing`)][borrow]を見てください。
 * `std::mem::size_of_val`は関数ですが、 *絶対パス(`full path`)* で呼び出されています。ソースコードは論理的に区切られた *モジュール* と呼ばれるものにわけられることができます。今回の場合は`size_of_val`関数は`mem`モジュール内で定義されており、`mem`モジュールは`std` *クレート* 内で定義されています。より詳しくは[クレート(`crates`)][crate]を参照してください。
 
 [borrow]: ../scope/borrow.md

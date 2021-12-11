@@ -21,13 +21,13 @@ methods from `Animal` with a `Sheep`.
 struct Sheep { naked: bool, name: &'static str }
 
 trait Animal {
-    // Static method signature; `Self` refers to the implementor type.
-    // スタティックメソッドのシグネチャ。
+    // Associated function signature; `Self` refers to the implementor type.
+    // 関連関数のシグネチャ。
     // `Self` はこのトレイトを実装している型になる。
     fn new(name: &'static str) -> Self;
 
-    // Instance method signatures; these will return a string.
-    // インスタンスメソッドのシグネチャ。
+    // Method signatures; these will return a string.
+    // メソッドのシグネチャ。
     // これらの関数は文字列を返す。
     fn name(&self) -> &'static str;
     fn noise(&self) -> &'static str;

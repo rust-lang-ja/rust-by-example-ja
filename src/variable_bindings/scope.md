@@ -5,10 +5,9 @@
 
 <!--
 Variable bindings have a scope, and are constrained to live in a *block*. A
-block is a collection of statements enclosed by braces `{}`. Also, [variable
-shadowing][variable-shadow] is allowed.
+block is a collection of statements enclosed by braces `{}`. 
 -->
-変数はスコープを持つため、 **ブロック** の中に閉じ込められています。ブロックとは`{}`で囲まれた領域のことです。また、[変数のシャドーイング][variable-shadow]も可能です。
+変数はスコープを持つため、 **ブロック** の中に閉じ込められています。ブロックとは`{}`で囲まれた領域のことです。
 
 ```rust,editable,ignore,mdbook-runnable
 fn main() {
@@ -49,5 +48,24 @@ fn main() {
     println!("outer long: {}", long_lived_binding);
 }
 ```
+Also, [variable shadowing][variable-shadow] is allowed.
+```rust,editable,ignore,mdbook-runnable
+fn main() {
+    let shadowed_binding = 1;
 
+    {
+        println!("before being shadowed: {}", shadowed_binding);
+
+        // This binding *shadows* the outer one
+        let shadowed_binding = "abc";
+
+        println!("shadowed in inner block: {}", shadowed_binding);
+    }
+    println!("outside inner block: {}", shadowed_binding);
+
+    // This binding *shadows* the previous binding
+    let shadowed_binding = 2;
+    println!("shadowed in outer block: {}", shadowed_binding);
+}
+```
 [variable-shadow]: https://en.wikipedia.org/wiki/Variable_shadowing

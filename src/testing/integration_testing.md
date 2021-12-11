@@ -10,6 +10,7 @@ Cargo looks for integration tests in `tests` directory next to `src`.
 File `src/lib.rs`:
 
 ```rust,ignore
+// Define this in a crate called `adder`.
 // Assume that crate is called adder, will have to extern it in integration test.
 pub fn add(a: i32, b: i32) -> i32 {
     a + b
@@ -50,8 +51,8 @@ running 0 tests
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 ```
 
-Each Rust source file in `tests` directory is compiled as a separate crate. One
-way of sharing some code between integration tests is making module with public
+Each Rust source file in the `tests` directory is compiled as a separate crate. One
+way of sharing some code between integration tests is making a module with public
 functions, importing and using it within tests.
 
 File `tests/common.rs`:

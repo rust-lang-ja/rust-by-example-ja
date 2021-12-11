@@ -1,7 +1,7 @@
 # `cfg`
 
 <!--
-Conditional compilation is possible through two different operators:
+Configuration conditional checks are possible through two different operators:
 -->
 環境に応じたコンパイルをするには2種類の方法があります。
 
@@ -13,8 +13,11 @@ Conditional compilation is possible through two different operators:
 * `cfg!`マクロ: `cfg!(...)`をブーリアンとして評価する。
 
 <!--
-Both utilize identical argument syntax.
+While the former enables conditional compilation, the latter conditionally
+evaluates to `true` or `false` literals allowing for checks at run-time. Both
+utilize identical argument syntax.
 -->
+前者は条件付きコンパイルを行いますが、後者は`true`または`false`リテラルに評価され実行時にチェックすることが可能です。
 いずれの場合も適切なシンタックスで記述する必要があります。
 
 ```rust,editable
@@ -34,7 +37,7 @@ fn are_you_on_linux() {
 
 fn main() {
     are_you_on_linux();
-    
+
     println!("Are you sure?");
     if cfg!(target_os = "linux") {
         println!("Yes. It's definitely linux!");
