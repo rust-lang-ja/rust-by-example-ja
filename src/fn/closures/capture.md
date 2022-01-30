@@ -118,8 +118,12 @@ fn main() {
 }
 ```
 
+<!--
 Using `move` before vertical pipes forces closure
 to take ownership of captured variables:
+-->
+
+バーティカルパイプ（訳注：縦線記号`||`）の前に`move`を使用することで、キャプチャする変数の所有権を取ることをクロージャに強制します。
 
 ```rust,editable
 fn main() {
@@ -135,10 +139,16 @@ fn main() {
     // ^ Uncommenting above line will result in compile-time error
     // because borrow checker doesn't allow re-using variable after it
     // has been moved.
-    
+    // ^ 上の行のコメントアウトを解除すると、コンパイル時エラーになる。
+    // これは変数の所有権が移された後の再利用を借用チェッカーが許可しないからである。
+
     // Removing `move` from closure's signature will cause closure
     // to borrow _haystack_ variable immutably, hence _haystack_ is still
     // available and uncommenting above line will not cause an error.
+    // クロージャのシグネチャから`move`を削除すると、クロージャは_haystack_変数を
+    // イミュータブルで借用するようになる。
+    // そのため_haystack_はまだ利用可能となり、上の行のコメントアウトを解除しても
+    // エラーを発生させなくなる。
 }
 ```
 
