@@ -60,6 +60,7 @@ fn main() {
     println!("Find 2 in array2: {:?}", array2.into_iter().find(|&&x| x == 2));
 }
 ```
+
 <!--
 `Iterator::find` gives you a reference to the item. But if you want the _index_ of the
 item, use `Iterator::position`.
