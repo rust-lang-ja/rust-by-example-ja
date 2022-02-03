@@ -3,31 +3,61 @@
 -->
 # 捕捉時の型推論
 
+<!--
 While Rust chooses how to capture variables on the fly mostly without type
 annotation, this ambiguity is not allowed when writing functions. When
 taking a closure as an input parameter, the closure's complete type must be
 annotated using one of a few `traits`. In order of decreasing restriction,
 they are:
+-->
 
+Rustは、ほとんど型アノテーションなしで即座に変数の捕捉をする方法を選択することができますが、関数を書く場合にはこの曖昧さは許されません。
+引数のパラメータとしてクロージャを取る場合、そのクロージャの完全な型はいくつかの`traits`の中の1つを使って明示されなければなりません。
+制限の少ない順に並べると、下記の通りです。
+
+<!--
 * `Fn`: the closure captures by reference (`&T`)
 * `FnMut`: the closure captures by mutable reference (`&mut T`)
 * `FnOnce`: the closure captures by value (`T`)
+-->
 
+* `Fn`: 参照(`&T`)によって捕捉するクロージャ
+* `FnMut`: ミュータブルな参照(`&mut T`)ミュータブルな参照によって捕捉するクロージャ
+* `FnOnce`: 値(`T`)によって捕捉するクロージャ
+
+<!--
 On a variable-by-variable basis, the compiler will capture variables in the
 least restrictive manner possible.
+-->
 
+変数ごとに、コンパイラは可能な限り制約の少ない方法でその変数を捕捉します。
+
+<!--
 For instance, consider a parameter annotated as `FnOnce`. This specifies
 that the closure *may* capture by `&T`, `&mut T`, or `T`, but the compiler
 will ultimately choose based on how the captured variables are used in the
 closure.
+-->
 
+例えば、`FnOnce`というアノテーションの付けられたパラメータを考えてみましょう。
+これはそのクロージャが`&T`、`&mut T`もしくは`T`の *どれか* で捕捉することを指定するものですが、コンパイラは捕捉した変数がそのクロージャの中でどのように使用されるかに基づき、最終的に捕捉する方法を選択することになります。
+
+<!--
 This is because if a move is possible, then any type of borrow should also
 be possible. Note that the reverse is not true. If the parameter is
 annotated as `Fn`, then capturing variables by `&mut T` or `T` are not
 allowed.
+-->
 
+これは、もし移動が可能であれば、いずれの種類の借用であっても同様に可能だからです。
+その逆は正しくないことに注意してください。パラメータが`Fn`としてアノテーションされている場合、変数を`&mut T`や`T`で捕捉することは許可されません。
+
+<!--
 In the following example, try swapping the usage of `Fn`, `FnMut`, and
 `FnOnce` to see what happens:
+-->
+
+以下の例では、`Fn`、`FnMut`、および`FnOnce`の使用を入れ替えて、何が起こるのかを見てみましょう。
 
 ```rust,editable
 // A function which takes a closure as an argument and calls it.
