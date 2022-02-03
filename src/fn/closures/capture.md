@@ -138,6 +138,7 @@ to take ownership of captured variables:
 ```rust,editable
 fn main() {
     // `Vec` has non-copy semantics.
+    // `Vec`はコピー不可能なセマンティクスである。
     let haystack = vec![1, 2, 3];
 
     let contains = move |needle| haystack.contains(needle);
@@ -151,13 +152,13 @@ fn main() {
     // has been moved.
     // ^ 上の行のコメントアウトを解除すると、コンパイル時エラーになる。
     // これは変数の所有権が移された後の再利用を借用チェッカーが許可しないからである。
-
+    
     // Removing `move` from closure's signature will cause closure
     // to borrow _haystack_ variable immutably, hence _haystack_ is still
     // available and uncommenting above line will not cause an error.
-    // クロージャのシグネチャから`move`を削除すると、クロージャは_haystack_変数を
+    // クロージャのシグネチャから`move`を削除すると、クロージャは _haystack_ 変数を
     // イミュータブルで借用するようになる。
-    // そのため_haystack_はまだ利用可能となり、上の行のコメントアウトを解除しても
+    // そのため _haystack_ はまだ利用可能となり、上の行のコメントアウトを解除しても
     // エラーを発生させなくなる。
 }
 ```
