@@ -52,10 +52,13 @@ fn main() {
 
     // `color` can be borrowed immutably again, because the closure only holds
     // an immutable reference to `color`. 
+    // `color`を再びイミュータブルで借用することができる。
+    // これはクロージャが`color`に対するイミュータブルな参照しか保持しないからである。
     let _reborrow = &color;
     print();
 
     // A move or reborrow is allowed after the final use of `print`
+    // 最後に`print`を使用した後は移動や再借用が許可される。
     let _color_moved = color;
 
 
@@ -85,16 +88,23 @@ fn main() {
 
     // The closure still mutably borrows `count` because it is called later.
     // An attempt to reborrow will lead to an error.
+    // クロージャはまだ `count` をミュータブルで借用することができる。
+    // なぜなら呼ばれのが後であるからである。
+    // 再借用しようとするとエラーになる。
     // let _reborrow = &count; 
     // ^ TODO: try uncommenting this line.
+    // ^ TODO: この行のコメントアウトを解除しましょう。
     inc();
 
     // The closure no longer needs to borrow `&mut count`. Therefore, it is
     // possible to reborrow without an error
+    // クロージャはもう`&mut count`を借用する必要がない。
+    // なので、エラーを起こさず再借用することができる。
     let _count_reborrowed = &mut count; 
 
     
     // A non-copy type.
+    // コピー不可能な型
     let movable = Box::new(3);
 
     // `mem::drop` requires `T` so this must take by value. A copy type
