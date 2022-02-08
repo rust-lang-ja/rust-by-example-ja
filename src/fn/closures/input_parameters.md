@@ -11,7 +11,7 @@ annotated using one of a few `traits`. In order of decreasing restriction,
 they are:
 -->
 
-Rustは、ほとんど型アノテーションなしで即座に変数の捕捉をする方法を選択することができますが、関数を書く場合にはこの曖昧さは許されません。
+Rustはたいていの場合、型アノテーションなしでも変数を捕捉する方法を臨機応変に選択してくれますが、関数を書く場合にはこの曖昧さは許されません。
 引数のパラメータとしてクロージャを取る場合、そのクロージャの完全な型はいくつかの`traits`の中の1つを使って明示されなければなりません。
 制限の少ない順に並べると、下記の通りです。
 
@@ -22,7 +22,7 @@ Rustは、ほとんど型アノテーションなしで即座に変数の捕捉�
 -->
 
 * `Fn`: 参照(`&T`)によって捕捉するクロージャ
-* `FnMut`: ミュータブルな参照(`&mut T`)ミュータブルな参照によって捕捉するクロージャ
+* `FnMut`: ミュータブルな参照(`&mut T`)によって捕捉するクロージャ
 * `FnOnce`: 値(`T`)によって捕捉するクロージャ
 
 <!--
@@ -57,7 +57,7 @@ In the following example, try swapping the usage of `Fn`, `FnMut`, and
 `FnOnce` to see what happens:
 -->
 
-以下の例では、`Fn`、`FnMut`、および`FnOnce`の使用を入れ替えて、何が起こるのかを見てみましょう。
+以下の例では、`Fn`、`FnMut`、および`FnOnce`を入れ替えて、何が起こるのかを見てみましょう。
 
 ```rust,editable
 // A function which takes a closure as an argument and calls it.

@@ -88,8 +88,8 @@ fn main() {
 
     // The closure still mutably borrows `count` because it is called later.
     // An attempt to reborrow will lead to an error.
-    // クロージャはまだ `count` をミュータブルで借用することができる。
-    // なぜなら呼ばれのが後であるからである。
+    // クロージャはまだ `count` をミュータブルで借用している。
+    // なぜなら後で呼ばれるからである。
     // 再借用しようとするとエラーになる。
     // let _reborrow = &count; 
     // ^ TODO: try uncommenting this line.
@@ -138,7 +138,7 @@ to take ownership of captured variables:
 ```rust,editable
 fn main() {
     // `Vec` has non-copy semantics.
-    // `Vec`はコピー不可能なセマンティクスである。
+    // `Vec`はコピーセマンティクスではない。
     let haystack = vec![1, 2, 3];
 
     let contains = move |needle| haystack.contains(needle);
@@ -159,7 +159,7 @@ fn main() {
     // クロージャのシグネチャから`move`を削除すると、クロージャは _haystack_ 変数を
     // イミュータブルで借用するようになる。
     // そのため _haystack_ はまだ利用可能となり、上の行のコメントアウトを解除しても
-    // エラーを発生させなくなる。
+    // エラーが発生しなくなる。
 }
 ```
 
