@@ -1,4 +1,7 @@
+<!--
 # Development dependencies
+-->
+# 開発中の依存関係
 
 Sometimes there is a need to have dependencies for tests (or examples,
 or benchmarks) only. Such dependencies are added to `Cargo.toml` in the
