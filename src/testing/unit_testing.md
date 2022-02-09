@@ -1,12 +1,22 @@
+<!--
 # Unit testing
+-->
+# ユニットテスト
 
+<!--
 Tests are Rust functions that verify that the non-test code is functioning in
 the expected manner. The bodies of test functions typically perform some setup,
 run the code we want to test, then assert whether the results are what we
 expect.
+-->
+テストは、テスト以外のコードが想定通りに動いているかを確かめるRustの関数です。一般にテスト関数は、準備をしてからテストしたいコードを実行し、そしてその結果が期待したものであるか確認します。
 
+<!--
 Most unit tests go into a `tests` [mod][mod] with the `#[cfg(test)]` [attribute][attribute].
 Test functions are marked with the `#[test]` attribute.
+-->
+大抵の場合ユニットテストは `#[cfg(test)]` [アトリビュート][attribute] を付けた `tests` [mod][mod] に配置されます。
+テスト関数は `#[test]` アトリビュートを付与します。
 
 Tests fail when something in the test function [panics][panic]. There are some
 helper [macros][macros]:
