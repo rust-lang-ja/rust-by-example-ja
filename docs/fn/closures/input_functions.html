@@ -167,12 +167,14 @@ fn call_me&lt;F: Fn()&gt;(f: F) {
 }
 
 // Define a wrapper function satisfying the `Fn` bound
+// `Fn`境界を満たすラッパ関数を定義
 fn function() {
     println!(&quot;I'm a function!&quot;);
 }
 
 fn main() {
     // Define a closure satisfying the `Fn` bound
+    // `Fn`境界を満たすクロージャを定義
     let closure = || println!(&quot;I'm a closure!&quot;);
 
     call_me(closure);

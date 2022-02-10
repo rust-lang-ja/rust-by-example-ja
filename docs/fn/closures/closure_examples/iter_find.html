@@ -203,8 +203,12 @@ condition, it returns `None`. Its signature:
     println!(&quot;Find 2 in array2: {:?}&quot;, array2.into_iter().find(|&amp;&amp;x| x == 2));
 }
 </code></pre></pre>
-<p><code>Iterator::find</code> gives you a reference to the item. But if you want the <em>index</em> of the
-item, use <code>Iterator::position</code>.</p>
+<!--
+`Iterator::find` gives you a reference to the item. But if you want the _index_ of the
+item, use `Iterator::position`.
+-->
+<p><code>Iterator::find</code>は要素への参照を返します。
+要素の <em>インデックス</em> を使用したい場合、<code>Iterator::position</code>を使用してください。</p>
 <pre><pre class="playground"><code class="language-rust editable">fn main() {
     let vec = vec![1, 9, 3, 3, 13, 2];
 

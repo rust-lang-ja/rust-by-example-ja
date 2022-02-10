@@ -4008,10 +4008,13 @@ required.
 
     // `color` can be borrowed immutably again, because the closure only holds
     // an immutable reference to `color`. 
+    // `color`を再びイミュータブルで借用することができる。
+    // これはクロージャが`color`に対するイミュータブルな参照しか保持しないからである。
     let _reborrow = &amp;color;
     print();
 
     // A move or reborrow is allowed after the final use of `print`
+    // 最後に`print`を使用した後は移動や再借用が許可される。
     let _color_moved = color;
 
 
@@ -4041,16 +4044,23 @@ required.
 
     // The closure still mutably borrows `count` because it is called later.
     // An attempt to reborrow will lead to an error.
+    // クロージャはまだ `count` をミュータブルで借用している。
+    // なぜなら後で呼ばれるからである。
+    // 再借用しようとするとエラーになる。
     // let _reborrow = &amp;count; 
     // ^ TODO: try uncommenting this line.
+    // ^ TODO: この行のコメントアウトを解除しましょう。
     inc();
 
     // The closure no longer needs to borrow `&amp;mut count`. Therefore, it is
     // possible to reborrow without an error
+    // クロージャはもう`&amp;mut count`を借用する必要がない。
+    // なので、エラーを起こさず再借用することができる。
     let _count_reborrowed = &amp;mut count; 
 
     
     // A non-copy type.
+    // コピー不可能な型
     let movable = Box::new(3);
 
     // `mem::drop` requires `T` so this must take by value. A copy type
@@ -4073,10 +4083,14 @@ required.
     // ^ TODO: この行のコメントアウトを解除しましょう。
 }
 </code></pre></pre>
-<p>Using <code>move</code> before vertical pipes forces closure
-to take ownership of captured variables:</p>
+<!--
+Using `move` before vertical pipes forces closure
+to take ownership of captured variables:
+-->
+<p>バーティカルパイプ（訳注：縦線記号<code>||</code>）の前に<code>move</code>を使用することで、キャプチャする変数の所有権を取ることをクロージャに強制します。</p>
 <pre><pre class="playground"><code class="language-rust editable">fn main() {
     // `Vec` has non-copy semantics.
+    // `Vec`はコピーセマンティクスではない。
     let haystack = vec![1, 2, 3];
 
     let contains = move |needle| haystack.contains(needle);
@@ -4088,10 +4102,16 @@ to take ownership of captured variables:</p>
     // ^ Uncommenting above line will result in compile-time error
     // because borrow checker doesn't allow re-using variable after it
     // has been moved.
+    // ^ 上の行のコメントアウトを解除すると、コンパイル時エラーになる。
+    // これは変数の所有権が移された後の再利用を借用チェッカーが許可しないからである。
     
     // Removing `move` from closure's signature will cause closure
     // to borrow _haystack_ variable immutably, hence _haystack_ is still
     // available and uncommenting above line will not cause an error.
+    // クロージャのシグネチャから`move`を削除すると、クロージャは _haystack_ 変数を
+    // イミュータブルで借用するようになる。
+    // そのため _haystack_ はまだ利用可能となり、上の行のコメントアウトを解除しても
+    // エラーが発生しなくなる。
 }
 </code></pre></pre>
 <!--
@@ -4103,28 +4123,52 @@ to take ownership of captured variables:</p>
 # As input parameters
 -->
 <h1 id="捕捉時の型推論"><a class="header" href="#捕捉時の型推論">捕捉時の型推論</a></h1>
-<p>While Rust chooses how to capture variables on the fly mostly without type
+<!--
+While Rust chooses how to capture variables on the fly mostly without type
 annotation, this ambiguity is not allowed when writing functions. When
 taking a closure as an input parameter, the closure's complete type must be
-annotated using one of a few <code>traits</code>. In order of decreasing restriction,
-they are:</p>
+annotated using one of a few `traits`. In order of decreasing restriction,
+they are:
+-->
+<p>Rustはたいていの場合、型アノテーションなしでも変数を捕捉する方法を臨機応変に選択してくれますが、関数を書く場合にはこの曖昧さは許されません。
+引数のパラメータとしてクロージャを取る場合、そのクロージャの完全な型はいくつかの<code>traits</code>の中の1つを使って明示されなければなりません。
+制限の少ない順に並べると、下記の通りです。</p>
+<!--
+* `Fn`: the closure captures by reference (`&T`)
+* `FnMut`: the closure captures by mutable reference (`&mut T`)
+* `FnOnce`: the closure captures by value (`T`)
+-->
 <ul>
-<li><code>Fn</code>: the closure captures by reference (<code>&amp;T</code>)</li>
-<li><code>FnMut</code>: the closure captures by mutable reference (<code>&amp;mut T</code>)</li>
-<li><code>FnOnce</code>: the closure captures by value (<code>T</code>)</li>
+<li><code>Fn</code>: 参照(<code>&amp;T</code>)によって捕捉するクロージャ</li>
+<li><code>FnMut</code>: ミュータブルな参照(<code>&amp;mut T</code>)によって捕捉するクロージャ</li>
+<li><code>FnOnce</code>: 値(<code>T</code>)によって捕捉するクロージャ</li>
 </ul>
-<p>On a variable-by-variable basis, the compiler will capture variables in the
-least restrictive manner possible.</p>
-<p>For instance, consider a parameter annotated as <code>FnOnce</code>. This specifies
-that the closure <em>may</em> capture by <code>&amp;T</code>, <code>&amp;mut T</code>, or <code>T</code>, but the compiler
+<!--
+On a variable-by-variable basis, the compiler will capture variables in the
+least restrictive manner possible.
+-->
+<p>変数ごとに、コンパイラは可能な限り制約の少ない方法でその変数を捕捉します。</p>
+<!--
+For instance, consider a parameter annotated as `FnOnce`. This specifies
+that the closure *may* capture by `&T`, `&mut T`, or `T`, but the compiler
 will ultimately choose based on how the captured variables are used in the
-closure.</p>
-<p>This is because if a move is possible, then any type of borrow should also
+closure.
+-->
+<p>例えば、<code>FnOnce</code>というアノテーションの付けられたパラメータを考えてみましょう。
+これはそのクロージャが<code>&amp;T</code>、<code>&amp;mut T</code>もしくは<code>T</code>の <em>どれか</em> で捕捉することを指定するものですが、コンパイラは捕捉した変数がそのクロージャの中でどのように使用されるかに基づき、最終的に捕捉する方法を選択することになります。</p>
+<!--
+This is because if a move is possible, then any type of borrow should also
 be possible. Note that the reverse is not true. If the parameter is
-annotated as <code>Fn</code>, then capturing variables by <code>&amp;mut T</code> or <code>T</code> are not
-allowed.</p>
-<p>In the following example, try swapping the usage of <code>Fn</code>, <code>FnMut</code>, and
-<code>FnOnce</code> to see what happens:</p>
+annotated as `Fn`, then capturing variables by `&mut T` or `T` are not
+allowed.
+-->
+<p>これは、もし移動が可能であれば、いずれの種類の借用であっても同様に可能だからです。
+その逆は正しくないことに注意してください。パラメータが<code>Fn</code>としてアノテーションされている場合、変数を<code>&amp;mut T</code>や<code>T</code>で捕捉することは許可されません。</p>
+<!--
+In the following example, try swapping the usage of `Fn`, `FnMut`, and
+`FnOnce` to see what happens:
+-->
+<p>以下の例では、<code>Fn</code>、<code>FnMut</code>、および<code>FnOnce</code>を入れ替えて、何が起こるのかを見てみましょう。</p>
 <pre><pre class="playground"><code class="language-rust editable">// A function which takes a closure as an argument and calls it.
 // &lt;F&gt; denotes that F is a &quot;Generic type parameter&quot;
 fn apply&lt;F&gt;(f: F) where
@@ -4283,12 +4327,14 @@ fn call_me&lt;F: Fn()&gt;(f: F) {
 }
 
 // Define a wrapper function satisfying the `Fn` bound
+// `Fn`境界を満たすラッパ関数を定義
 fn function() {
     println!(&quot;I'm a function!&quot;);
 }
 
 fn main() {
     // Define a closure satisfying the `Fn` bound
+    // `Fn`境界を満たすクロージャを定義
     let closure = || println!(&quot;I'm a closure!&quot;);
 
     call_me(closure);
@@ -4309,20 +4355,30 @@ a closure captures variables from the enclosing scope.
 # As output parameters
 -->
 <h1 id="クロージャを返す関数"><a class="header" href="#クロージャを返す関数">クロージャを返す関数</a></h1>
-<p>Closures as input parameters are possible, so returning closures as
+<!--
+Closures as input parameters are possible, so returning closures as
 output parameters should also be possible. However, anonymous
 closure types are, by definition, unknown, so we have to use
-<code>impl Trait</code> to return them.</p>
-<p>The valid traits for returning a closure are:</p>
+`impl Trait` to return them.
+-->
+<p>クロージャを引数のパラメータとして用いることができるのと同様に、クロージャを戻り値として返すことも可能です。しかし無名のクロージャの型はその定義上、不明であるため、クロージャを返すためには<code>impl Trait</code>を使用する必要があります。</p>
+<!--
+The valid traits for returning a closure are:
+-->
+<p>クロージャを返すために有効なトレイトは下記の通りです。</p>
 <ul>
 <li><code>Fn</code></li>
 <li><code>FnMut</code></li>
 <li><code>FnOnce</code></li>
 </ul>
-<p>Beyond this, the <code>move</code> keyword must be used, which signals that all captures
+<!--
+Beyond this, the `move` keyword must be used, which signals that all captures
 occur by value. This is required because any captures by reference would be
 dropped as soon as the function exited, leaving invalid references in the
-closure.</p>
+closure.
+-->
+<p>更に、<code>move</code>というキーワードを使用し、全ての捕捉が値でおこなわれることを明示しなければなりません。
+これは、関数を抜けると同時に参照による捕捉がドロップされ、無効な参照がクロージャに残ってしまうのを防ぐためです。</p>
 <pre><pre class="playground"><code class="language-rust editable">fn create_fn() -&gt; impl Fn() {
     let text = &quot;Fn&quot;.to_owned();
 
@@ -4477,8 +4533,12 @@ condition, it returns `None`. Its signature:
     println!(&quot;Find 2 in array2: {:?}&quot;, array2.into_iter().find(|&amp;&amp;x| x == 2));
 }
 </code></pre></pre>
-<p><code>Iterator::find</code> gives you a reference to the item. But if you want the <em>index</em> of the
-item, use <code>Iterator::position</code>.</p>
+<!--
+`Iterator::find` gives you a reference to the item. But if you want the _index_ of the
+item, use `Iterator::position`.
+-->
+<p><code>Iterator::find</code>は要素への参照を返します。
+要素の <em>インデックス</em> を使用したい場合、<code>Iterator::position</code>を使用してください。</p>
 <pre><pre class="playground"><code class="language-rust editable">fn main() {
     let vec = vec![1, 9, 3, 3, 13, 2];
 

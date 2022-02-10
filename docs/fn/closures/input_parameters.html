@@ -150,28 +150,52 @@
 # As input parameters
 -->
 <h1 id="捕捉時の型推論"><a class="header" href="#捕捉時の型推論">捕捉時の型推論</a></h1>
-<p>While Rust chooses how to capture variables on the fly mostly without type
+<!--
+While Rust chooses how to capture variables on the fly mostly without type
 annotation, this ambiguity is not allowed when writing functions. When
 taking a closure as an input parameter, the closure's complete type must be
-annotated using one of a few <code>traits</code>. In order of decreasing restriction,
-they are:</p>
+annotated using one of a few `traits`. In order of decreasing restriction,
+they are:
+-->
+<p>Rustはたいていの場合、型アノテーションなしでも変数を捕捉する方法を臨機応変に選択してくれますが、関数を書く場合にはこの曖昧さは許されません。
+引数のパラメータとしてクロージャを取る場合、そのクロージャの完全な型はいくつかの<code>traits</code>の中の1つを使って明示されなければなりません。
+制限の少ない順に並べると、下記の通りです。</p>
+<!--
+* `Fn`: the closure captures by reference (`&T`)
+* `FnMut`: the closure captures by mutable reference (`&mut T`)
+* `FnOnce`: the closure captures by value (`T`)
+-->
 <ul>
-<li><code>Fn</code>: the closure captures by reference (<code>&amp;T</code>)</li>
-<li><code>FnMut</code>: the closure captures by mutable reference (<code>&amp;mut T</code>)</li>
-<li><code>FnOnce</code>: the closure captures by value (<code>T</code>)</li>
+<li><code>Fn</code>: 参照(<code>&amp;T</code>)によって捕捉するクロージャ</li>
+<li><code>FnMut</code>: ミュータブルな参照(<code>&amp;mut T</code>)によって捕捉するクロージャ</li>
+<li><code>FnOnce</code>: 値(<code>T</code>)によって捕捉するクロージャ</li>
 </ul>
-<p>On a variable-by-variable basis, the compiler will capture variables in the
-least restrictive manner possible.</p>
-<p>For instance, consider a parameter annotated as <code>FnOnce</code>. This specifies
-that the closure <em>may</em> capture by <code>&amp;T</code>, <code>&amp;mut T</code>, or <code>T</code>, but the compiler
+<!--
+On a variable-by-variable basis, the compiler will capture variables in the
+least restrictive manner possible.
+-->
+<p>変数ごとに、コンパイラは可能な限り制約の少ない方法でその変数を捕捉します。</p>
+<!--
+For instance, consider a parameter annotated as `FnOnce`. This specifies
+that the closure *may* capture by `&T`, `&mut T`, or `T`, but the compiler
 will ultimately choose based on how the captured variables are used in the
-closure.</p>
-<p>This is because if a move is possible, then any type of borrow should also
+closure.
+-->
+<p>例えば、<code>FnOnce</code>というアノテーションの付けられたパラメータを考えてみましょう。
+これはそのクロージャが<code>&amp;T</code>、<code>&amp;mut T</code>もしくは<code>T</code>の <em>どれか</em> で捕捉することを指定するものですが、コンパイラは捕捉した変数がそのクロージャの中でどのように使用されるかに基づき、最終的に捕捉する方法を選択することになります。</p>
+<!--
+This is because if a move is possible, then any type of borrow should also
 be possible. Note that the reverse is not true. If the parameter is
-annotated as <code>Fn</code>, then capturing variables by <code>&amp;mut T</code> or <code>T</code> are not
-allowed.</p>
-<p>In the following example, try swapping the usage of <code>Fn</code>, <code>FnMut</code>, and
-<code>FnOnce</code> to see what happens:</p>
+annotated as `Fn`, then capturing variables by `&mut T` or `T` are not
+allowed.
+-->
+<p>これは、もし移動が可能であれば、いずれの種類の借用であっても同様に可能だからです。
+その逆は正しくないことに注意してください。パラメータが<code>Fn</code>としてアノテーションされている場合、変数を<code>&amp;mut T</code>や<code>T</code>で捕捉することは許可されません。</p>
+<!--
+In the following example, try swapping the usage of `Fn`, `FnMut`, and
+`FnOnce` to see what happens:
+-->
+<p>以下の例では、<code>Fn</code>、<code>FnMut</code>、および<code>FnOnce</code>を入れ替えて、何が起こるのかを見てみましょう。</p>
 <pre><pre class="playground"><code class="language-rust editable">// A function which takes a closure as an argument and calls it.
 // &lt;F&gt; denotes that F is a &quot;Generic type parameter&quot;
 fn apply&lt;F&gt;(f: F) where

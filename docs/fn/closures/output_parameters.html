@@ -150,20 +150,30 @@
 # As output parameters
 -->
 <h1 id="クロージャを返す関数"><a class="header" href="#クロージャを返す関数">クロージャを返す関数</a></h1>
-<p>Closures as input parameters are possible, so returning closures as
+<!--
+Closures as input parameters are possible, so returning closures as
 output parameters should also be possible. However, anonymous
 closure types are, by definition, unknown, so we have to use
-<code>impl Trait</code> to return them.</p>
-<p>The valid traits for returning a closure are:</p>
+`impl Trait` to return them.
+-->
+<p>クロージャを引数のパラメータとして用いることができるのと同様に、クロージャを戻り値として返すことも可能です。しかし無名のクロージャの型はその定義上、不明であるため、クロージャを返すためには<code>impl Trait</code>を使用する必要があります。</p>
+<!--
+The valid traits for returning a closure are:
+-->
+<p>クロージャを返すために有効なトレイトは下記の通りです。</p>
 <ul>
 <li><code>Fn</code></li>
 <li><code>FnMut</code></li>
 <li><code>FnOnce</code></li>
 </ul>
-<p>Beyond this, the <code>move</code> keyword must be used, which signals that all captures
+<!--
+Beyond this, the `move` keyword must be used, which signals that all captures
 occur by value. This is required because any captures by reference would be
 dropped as soon as the function exited, leaving invalid references in the
-closure.</p>
+closure.
+-->
+<p>更に、<code>move</code>というキーワードを使用し、全ての捕捉が値でおこなわれることを明示しなければなりません。
+これは、関数を抜けると同時に参照による捕捉がドロップされ、無効な参照がクロージャに残ってしまうのを防ぐためです。</p>
 <pre><pre class="playground"><code class="language-rust editable">fn create_fn() -&gt; impl Fn() {
     let text = &quot;Fn&quot;.to_owned();
 
