@@ -61,8 +61,12 @@ fn main() {
 }
 ```
 
+<!--
 `Iterator::find` gives you a reference to the item. But if you want the _index_ of the
 item, use `Iterator::position`.
+-->
+`Iterator::find`は要素への参照を返します。
+要素の _インデックス_ を使用したい場合、`Iterator::position`を使用してください。
 
 ```rust,editable
 fn main() {

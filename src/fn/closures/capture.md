@@ -52,10 +52,13 @@ fn main() {
 
     // `color` can be borrowed immutably again, because the closure only holds
     // an immutable reference to `color`. 
+    // `color`を再びイミュータブルで借用することができる。
+    // これはクロージャが`color`に対するイミュータブルな参照しか保持しないからである。
     let _reborrow = &color;
     print();
 
     // A move or reborrow is allowed after the final use of `print`
+    // 最後に`print`を使用した後は移動や再借用が許可される。
     let _color_moved = color;
 
 
@@ -85,16 +88,23 @@ fn main() {
 
     // The closure still mutably borrows `count` because it is called later.
     // An attempt to reborrow will lead to an error.
+    // クロージャはまだ `count` をミュータブルで借用している。
+    // なぜなら後で呼ばれるからである。
+    // 再借用しようとするとエラーになる。
     // let _reborrow = &count; 
     // ^ TODO: try uncommenting this line.
+    // ^ TODO: この行のコメントアウトを解除しましょう。
     inc();
 
     // The closure no longer needs to borrow `&mut count`. Therefore, it is
     // possible to reborrow without an error
+    // クロージャはもう`&mut count`を借用する必要がない。
+    // なので、エラーを起こさず再借用することができる。
     let _count_reborrowed = &mut count; 
 
     
     // A non-copy type.
+    // コピー不可能な型
     let movable = Box::new(3);
 
     // `mem::drop` requires `T` so this must take by value. A copy type
@@ -118,12 +128,17 @@ fn main() {
 }
 ```
 
+<!--
 Using `move` before vertical pipes forces closure
 to take ownership of captured variables:
+-->
+
+バーティカルパイプ（訳注：縦線記号`||`）の前に`move`を使用することで、キャプチャする変数の所有権を取ることをクロージャに強制します。
 
 ```rust,editable
 fn main() {
     // `Vec` has non-copy semantics.
+    // `Vec`はコピーセマンティクスではない。
     let haystack = vec![1, 2, 3];
 
     let contains = move |needle| haystack.contains(needle);
@@ -135,10 +150,16 @@ fn main() {
     // ^ Uncommenting above line will result in compile-time error
     // because borrow checker doesn't allow re-using variable after it
     // has been moved.
+    // ^ 上の行のコメントアウトを解除すると、コンパイル時エラーになる。
+    // これは変数の所有権が移された後の再利用を借用チェッカーが許可しないからである。
     
     // Removing `move` from closure's signature will cause closure
     // to borrow _haystack_ variable immutably, hence _haystack_ is still
     // available and uncommenting above line will not cause an error.
+    // クロージャのシグネチャから`move`を削除すると、クロージャは _haystack_ 変数を
+    // イミュータブルで借用するようになる。
+    // そのため _haystack_ はまだ利用可能となり、上の行のコメントアウトを解除しても
+    // エラーが発生しなくなる。
 }
 ```
 
