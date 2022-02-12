@@ -16,6 +16,7 @@ fn foo() -> ! {
     panic!("This call never returns.");
 }
 ```
+
 <!--
 As opposed to all the other types, this one cannot be instantiated, because the
 set of all possible values this type can have is empty. Note that, it is
