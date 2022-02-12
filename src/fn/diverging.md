@@ -62,6 +62,7 @@ fn main() {
     println!("You will never see this line!");
 }
 ```
+
 <!--
 Although this might seem like an abstract concept, it is in fact very useful and
 often handy. The main advantage of this type is that it can be cast to any other
