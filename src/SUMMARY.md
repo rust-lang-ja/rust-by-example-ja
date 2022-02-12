@@ -153,7 +153,7 @@
             - [Iterator::any](fn/closures/closure_examples/iter_any.md)
             - [Iterator::find](fn/closures/closure_examples/iter_find.md)
     - [高階関数](fn/hof.md)
-    - [Diverging functions](fn/diverging.md)
+    - [発散する関数](fn/diverging.md)
 
 <!--
 - [Modules](mod.md)
