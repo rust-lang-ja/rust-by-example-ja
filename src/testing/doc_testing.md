@@ -31,12 +31,13 @@ pub fn add(a: i32, b: i32) -> i32 {
 }
 
 /// Usually doc comments may include sections "Examples", "Panics" and "Failures".
-/// 一般的に、ドキュメンテーションコメントは "Examples", "Panics", "Failures" という章を含みます。
+/// 一般的に、ドキュメンテーションコメントは「実行例」「パニック」「失敗」という章から成る。
 ///
 /// The next function divides two numbers.
-/// 次の関数は除算を実行します。
+/// 次の関数は除算を実行する。
 ///
 /// # Examples
+/// # 実行例
 ///
 /// ```
 /// let result = doccomments::div(10, 2);
@@ -44,12 +45,14 @@ pub fn add(a: i32, b: i32) -> i32 {
 /// ```
 ///
 /// # Panics
+/// # パニック
 ///
 /// The function panics if the second argument is zero.
-/// 第2引数がゼロであればパニックします。
+/// 第2引数がゼロであればパニックする。
 ///
 /// ```rust,should_panic
 /// // panics on division by zero
+/// // ゼロで除算するとパニックする
 /// doccomments::div(10, 0);
 /// ```
 pub fn div(a: i32, b: i32) -> i32 {
@@ -104,7 +107,7 @@ to the rescue: one may write `fn try_main() -> Result<(), ErrorType>`, hide it a
 ///
 /// ```
 /// # // hidden lines start with `#` symbol, but they're still compileable!
-/// # // 行頭に `#` を置くと行が隠されますが、コンパイルには通ります。
+/// # // 行頭に `#` を置くと行が隠されるが、コンパイルには成功する。
 /// # fn try_main() -> Result<(), String> { // line that wraps the body shown in doc
 /// #                                       // ドキュメントの本体を囲う行
 /// let res = try::try_div(10, 2)?;

@@ -58,8 +58,8 @@ mod tests {
     #[test]
     fn test_bad_add() {
         // This assert would fire and test will fail.
-        // このアサーションはパニックして、テストは失敗する。
         // Please note, that private functions can be tested too!
+        // このアサーションはパニックして、テストは失敗する。
         // プライベートな関数もテストすることができる。
         assert_eq!(bad_add(1, 2), 3);
     }
