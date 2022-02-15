@@ -9,14 +9,14 @@ or benchmarks) only. Such dependencies are added to `Cargo.toml` in the
 `[dev-dependencies]` section. These dependencies are not propagated to other
 packages which depend on this package.
 -->
-時には、テスト（あるいは例やベンチマーク）のためだけに依存関係を持たねばならないことがあります。このような依存関係は、`Cargo.toml`の`[dev-dependencies]`セクションに追加します。ここに追加した依存関係は、このパッケージに依存するパッケージには適用されません。
+テスト（あるいは例やベンチマーク）のためだけに、あるクレートに依存しなければならないことがあります。このような依存関係は、`Cargo.toml`の`[dev-dependencies]`セクションに追加します。このセクションに追加した依存関係は、このパッケージに依存するパッケージには適用されません。
 
 <!--
 One such example is [`pretty_assertions`](https://docs.rs/pretty_assertions/1.0.0/pretty_assertions/index.html), which extends standard `assert_eq!` and `assert_ne!` macros, to provide colorful diff.  
 One such example is using a crate that extends standard `assert!` macros.  
 File `Cargo.toml`:
 -->
-そのような依存関係の例として、[`pretty_assertions`](https://docs.rs/pretty_assertions/1.0.0/pretty_assertions/index.html)クレートが挙げられます。これは、標準の`assert_eq!`と`assert_ne!`マクロを拡張して、差分をカラフルに表示するものです。
+そのようなクレートの例として、[`pretty_assertions`](https://docs.rs/pretty_assertions/1.0.0/pretty_assertions/index.html)クレートが挙げられます。これは、標準の`assert_eq!`と`assert_ne!`マクロを拡張して、差分をカラフルに表示するものです。
 ファイル`Cargo.toml`:
 
 ```toml
@@ -56,7 +56,7 @@ mod tests {
 <!--
 ## See Also
 -->
-## 参考
+## 参照
 <!--
 [Cargo][cargo] docs on specifying dependencies.
 -->
