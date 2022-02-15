@@ -16,7 +16,7 @@ Most unit tests go into a `tests` [mod][mod] with the `#[cfg(test)]` [attribute]
 Test functions are marked with the `#[test]` attribute.
 -->
 大抵の場合ユニットテストは `#[cfg(test)]` [アトリビュート][attribute] を付けた `tests` [mod][mod] に配置されます。
-テスト関数は `#[test]` アトリビュートを付与します。
+テスト関数には `#[test]` アトリビュートを付与します。
 
 <!--
 Tests fail when something in the test function [panics][panic]. There are some
@@ -100,8 +100,8 @@ None of the previous unit test examples had a return type. But in Rust 2018,
 your unit tests can return `Result<()>`, which lets you use `?` in them! This
 can make them much more concise.
 -->
-## テストと `?`
-ここまでに例示したユニットテストは返り値の型を持っていませんでしたが、Rust 2018ではユニットテストが `Result<()>` を返せるようになったので、`?` を使えます！これにより、ユニットテストをさらに簡潔に書けるようになりました。
+## テストと`?`
+ここまでに例示したユニットテストは返り値の型を持っていませんでしたが、Rust 2018ではユニットテストが`Result<()>`を返し、内部で`?`を使えるようになりました！これにより、ユニットテストをさらに簡潔に記述できます。
 
 
 ```rust,editable

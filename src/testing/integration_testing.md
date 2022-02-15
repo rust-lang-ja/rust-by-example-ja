@@ -87,8 +87,8 @@ File `tests/common.rs`:
 ```rust,ignore
 pub fn setup() {
     // some setup code, like creating required files/directories, starting
-    // 必要なファイル・ディレクトリの作成やサーバの起動といった準備を行うコードを記述する。
     // servers, etc.
+    // 必要なファイル・ディレクトリの作成やサーバの起動といった準備を行うコードを記述する。
 }
 ```
 
