@@ -15,8 +15,7 @@ expect.
 Most unit tests go into a `tests` [mod][mod] with the `#[cfg(test)]` [attribute][attribute].
 Test functions are marked with the `#[test]` attribute.
 -->
-大抵の場合ユニットテストは `#[cfg(test)]` [アトリビュート][attribute] を付けた `tests` [mod][mod] に配置されます。
-テスト関数には `#[test]` アトリビュートを付与します。
+大抵の場合ユニットテストは`#[cfg(test)]`[アトリビュート][attribute]を付けた`tests`[モジュール][mod]に配置されます。テスト関数には`#[test]`アトリビュートを付与します。
 
 <!--
 Tests fail when something in the test function [panics][panic]. There are some
@@ -29,8 +28,8 @@ helper [macros][macros]:
 * `assert_eq!(left, right)` and `assert_ne!(left, right)` - testing left and
   right expressions for equality and inequality respectively.
 -->
-* `assert!(expression)` - 式を評価した結果が `false` であればパニックします。
-* `assert_eq!(left, right)` and `assert_ne!(left, right)` - 左右の式を評価した結果が、それぞれ等しくなること、ならないことをテストします。
+* `assert!(expression)` - 式を評価した結果が`false`であればパニックします。
+* `assert_eq!(left, right)`と`assert_ne!(left, right)` - 左右の式を評価した結果が、それぞれ等しくなること、ならないことをテストします。
 
 ```rust,ignore
 pub fn add(a: i32, b: i32) -> i32 {
@@ -70,7 +69,7 @@ mod tests {
 <!--
 Tests can be run with `cargo test`.
 -->
-`cargo test` でテストを実行できます。
+`cargo test`でテストを実行できます。
 
 ```shell
 $ cargo test
@@ -142,7 +141,7 @@ To check functions that should panic under certain circumstances, use attribute
 the text of the panic message. If your function can panic in multiple ways, it helps
 make sure your test is testing the correct panic.
 -->
-ある条件下でパニックすべき関数をテストするには、 `#[should_panic]` アトリビュートを使います。このアトリビュートはパニックメッセージをオプションの引数 `expected =` で受け取れます。パニックの原因が複数あるときに、想定した原因でパニックが発生したことを確認できます。
+ある条件下でパニックすべき関数をテストするには、`#[should_panic]`アトリビュートを使います。このアトリビュートはパニックメッセージをオプションの引数`expected =`で受け取れます。パニックの原因が複数あるときに、想定した原因でパニックが発生したことを確認できます。
 
 
 ```rust,ignore
@@ -208,7 +207,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 <!--
 To run specific tests one may specify the test name to `cargo test` command.
 -->
-`cargo test` にテストの名前を与えると、そのテストだけが実行されます。
+`cargo test`にテストの名前を与えると、そのテストだけが実行されます。
 
 ```shell
 $ cargo test test_any_panic
@@ -255,7 +254,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 Tests can be marked with the `#[ignore]` attribute to exclude some tests. Or to run
 them with command `cargo test -- --ignored`
 -->
-テストを実行から除外するには、`#[ignore]` アトリビュートを使います。`cargo test -- --ignored` で、除外したものを含めてテストを実行できます。
+テストを実行から除外するには、`#[ignore]`アトリビュートを使います。`cargo test -- --ignored`で、除外したものを含めてテストを実行できます。
 
 ```rust
 pub fn add(a: i32, b: i32) -> i32 {

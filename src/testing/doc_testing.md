@@ -18,9 +18,9 @@ Rustのプロジェクトでは、ソースコードに注釈する形でドキ�
 /// The next lines present detailed documentation. Code blocks start with
 /// 以降で詳細なドキュメンテーションを記述します。コードブロックは三重のバッククォートで始まり、
 /// triple backquotes and have implicit `fn main()` inside
-/// 暗黙的に `fn main()` と `extern crate <クレート名>` で囲われます。
+/// 暗黙的に`fn main()`と`extern crate <クレート名>`で囲われます。
 /// and `extern crate <cratename>`. Assume we're testing `doccomments` crate:
-/// `doccomments` クレートをテストしたいときには、次のように記述します。
+/// `doccomments`クレートをテストしたいときには、次のように記述します。
 ///
 /// ```
 /// let result = doccomments::add(2, 3);
@@ -64,7 +64,7 @@ pub fn div(a: i32, b: i32) -> i32 {
 <!--
 Tests can be run with `cargo test`:
 -->
-`cargo test` でテストを実行できます。
+`cargo test`でテストを実行できます。
 
 ```shell
 $ cargo test
@@ -96,7 +96,7 @@ returns `unit`. The ability to hide some source lines from documentation comes
 to the rescue: one may write `fn try_main() -> Result<(), ErrorType>`, hide it and
 `unwrap` it in hidden `main`. Sounds complicated? Here's an example:
 -->
-ドキュメンテーションテストの主な目的は、実行例を示すことであり、これは最も大切な[ガイドライン][question-instead-of-unwrap]の一つにもなっています。これにより、ドキュメントの例を実際に動くコードとして使うことができます。しかしながら、`main`が`()`を返すために、`?`を使うとコンパイルに失敗してしまいます。ドキュメンテーションでコードブロックの一部を隠す機能で、この問題に対処できます。`fn try_main() -> Result<(), ErrorType>`を定義してそれを隠し、暗黙の`main`の内部で`unwrap`するのです。複雑なので、例を見てみましょう。
+ドキュメンテーションテストの主な目的は、実行例を示すことであり、これは最も大切な[ガイドライン][question-instead-of-unwrap]の一つにもなっています。これにより、ドキュメントの例を実際に動くコードとして使うことができます。しかしながら、`main`が`()`を返すために、`?`を使うとコンパイルに失敗してしまいます。ドキュメンテーションでコードブロックの一部を隠す機能で、この問題に対処できます。つまり、`fn try_main() -> Result<(), ErrorType>`を定義しておきながらそれを隠し、暗黙の`main`の内部で`unwrap`するのです。複雑なので、例を見てみましょう。
 
 ```rust,ignore
 /// Using hidden `try_main` in doc tests.
@@ -106,16 +106,16 @@ to the rescue: one may write `fn try_main() -> Result<(), ErrorType>`, hide it a
 /// # // hidden lines start with `#` symbol, but they're still compileable!
 /// # // 行頭に `#` を置くと行が隠されますが、コンパイルには通ります。
 /// # fn try_main() -> Result<(), String> { // line that wraps the body shown in doc
-/// # fn try_main() -> Result<(), String> { // ドキュメントの本体を囲う行
+/// #                                       // ドキュメントの本体を囲う行
 /// let res = try::try_div(10, 2)?;
 /// # Ok(()) // returning from try_main
-/// # Ok(()) // try_mainから値を返す
+/// #        // try_mainから値を返す
 /// # }
 /// # fn main() { // starting main that'll unwrap()
-/// # fn main() { // unwrap()を実行するmain
+/// #             // unwrap()を実行するmain
 /// #    try_main().unwrap(); // calling try_main and unwrapping
-/// #    try_main().unwrap(); // try_mainを呼びunwrapすると、エラーの場合にパニックする
 /// #                         // so that test will panic in case of error
+/// #                         // try_mainを呼びunwrapすると、エラーの場合にパニックする
 /// # }
 /// ```
 pub fn try_div(a: i32, b: i32) -> Result<i32, String> {
