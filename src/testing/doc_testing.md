@@ -16,10 +16,10 @@ Rustのプロジェクトでは、ソースコードに注釈する形でドキ�
 /// 最初の行には関数の機能の短い要約を書きます。
 ///
 /// The next lines present detailed documentation. Code blocks start with
-/// 以降で詳細なドキュメンテーションを記述します。コードブロックは三重のバッククォートで始まり、
 /// triple backquotes and have implicit `fn main()` inside
-/// 暗黙的に`fn main()`と`extern crate <クレート名>`で囲われます。
 /// and `extern crate <cratename>`. Assume we're testing `doccomments` crate:
+/// 以降で詳細なドキュメンテーションを記述します。コードブロックは三重のバッククォートで始まり、
+/// 暗黙的に`fn main()`と`extern crate <クレート名>`で囲われます。
 /// `doccomments`クレートをテストしたいときには、次のように記述します。
 ///
 /// ```
@@ -88,7 +88,7 @@ test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 <!--
 ## Motivation behind documentation tests
 -->
-## ドキュメンテーションテストの目的 
+## ドキュメンテーションテストの目的
 
 <!--
 The main purpose of documentation tests is to serve as examples that exercise
