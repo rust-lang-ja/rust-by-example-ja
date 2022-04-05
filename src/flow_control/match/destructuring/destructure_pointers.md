@@ -6,9 +6,9 @@
 <!--
 For pointers, a distinction needs to be made between destructuring
 and dereferencing as they are different concepts which are used
-differently from a language like `C`.
+differently from languages like C/C++.
 -->
-Rustのポインタは、`C`のポインタとは異なる概念なので、デストラクトとデリファレンスを同じようなやり方で扱うことはできない
+Rustのポインタは、C/C++のポインタとは異なる概念なので、デストラクトとデリファレンスを同じようなやり方で扱うことはできない
 
 <!--
  * Dereferencing uses `*`
