@@ -5,9 +5,9 @@
 
 <!--
 Closures are functions that can capture the enclosing environment. For
-example, a closure that captures the x variable:
+example, a closure that captures the `x` variable:
 -->
-Rustにおけるクロージャは、その外側の環境を捕捉した関数のことです。例えば、次のコードは変数xを捕捉したクロージャです。
+Rustにおけるクロージャは、その外側の環境を捕捉した関数のことです。例えば、次のコードは変数`x`を捕捉したクロージャです。
 
 ```Rust
 |val| val + x
