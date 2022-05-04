@@ -749,8 +749,8 @@ impl fmt::Display for Structure {
         // stream: `f`. Returns `fmt::Result` which indicates whether the
         // operation succeeded or failed. Note that `write!` uses syntax which
         // is very similar to `println!`.
-        // 必ず、第一の要素が出力されるようにしています。
-        // `f`は`fmt::Result`を返します。これはオペレーションが成功したか否か
+        // 厳密に最初の要素を、与えられた出力ストリーム `f` に書き込みます。
+        // `fmt::Result`を返します。これはオペレーションが成功したか否か
         // を表します。
         // `write!`は`println!`に非常によく似た文法を使用していることに注目。
         write!(f, &quot;{}&quot;, self.0)
