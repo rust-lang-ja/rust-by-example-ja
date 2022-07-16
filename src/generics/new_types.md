@@ -1,4 +1,7 @@
+<!--
 # New Type Idiom
+-->
+# ニュータイプイディオム
 
 The `newtype` idiom gives compile time guarantees that the right type of value is supplied
 to a program.
