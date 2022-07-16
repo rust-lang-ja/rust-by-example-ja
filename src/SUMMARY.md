@@ -222,7 +222,7 @@
         - [テストケース: 空トレイト](generics/bounds/testcase_empty.md)
     - [複数のジェネリック境界](generics/multi_bounds.md)
     - [Where句](generics/where.md)
-    - [New Type Idiom](generics/new_types.md)
+    - [ニュータイプイディオム](generics/new_types.md)
     - [関連型](generics/assoc_items.md)
         - [関連型が必要になる状況](generics/assoc_items/the_problem.md)
         - [関連型](generics/assoc_items/types.md)
