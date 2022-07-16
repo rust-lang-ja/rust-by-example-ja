@@ -254,7 +254,7 @@
     - [RAII](scope/raii.md)
     - [所有権とムーブ](scope/move.md)
         - [ミュータビリティ](scope/move/mut.md)
-        - [Partial moves](scope/move/partial_move.md)
+        - [部分的ムーブ](scope/move/partial_move.md)
     - [借用](scope/borrow.md)
         - [ミュータビリティ](scope/borrow/mut.md)
         - [エイリアス](scope/borrow/alias.md)

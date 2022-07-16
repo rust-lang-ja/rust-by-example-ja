@@ -135,6 +135,7 @@
 | parametric polymorphism          | パラメトリック多相
 | parse                            | パース、パースする
 | patch                            | パッチ
+| partial moves                    | 部分的ムーブ
 | pattern                          | パターン
 | performance                      | パフォーマンス
 | platform                         | プラットフォーム
