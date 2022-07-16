@@ -13,7 +13,7 @@ to a program.
 For example, an age verification function that checks age in years, *must* be given
 a value of type `Years`.
 -->
-例えば、年齢を年単位で確認する`old_enough`には「Years」という型の値を*与えなければならない*ようにすることが可能です。
+例えば、年齢を年単位で確認する`old_enough`には「Years」という型の値を *与えなければならない* ようにすることが可能です。
 
 ```rust, editable
 struct Years(i64);
@@ -56,7 +56,7 @@ Uncomment the last print statement to observe that the type supplied must be `Ye
 <!--
 To obtain the `newtype`'s value as the base type, you may use the tuple or destructuring syntax like so:
 -->
-`newtype`の元に使われている型のデータを取得するには、以下のようにタプルやデストラクチャリング構文を用いることで取得できます。
+`newtype`の元に使われている型のデータを取得するには、以下のようにタプルや分配構文を用いることで取得できます。
 
 ```rust, editable
 struct Years(i64);
