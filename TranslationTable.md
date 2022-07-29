@@ -60,6 +60,7 @@
 | distribution                     | 配布物
 | diverge                          | ダイバージ
 | diverging                        | ダイバージング
+| diverging function               | 発散する関数
 | documentation comment            | ドキュメンテーションコメント
 | documentation test               | ドキュメンテーションテスト
 | early return                     | 早期リターン
