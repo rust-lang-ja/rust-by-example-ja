@@ -21,7 +21,6 @@ There are three types of structures ("structs") that can be created using the
 ```rust,editable
 #[derive(Debug)]
 struct Person {
-    // The 'a defines a lifetime
     name: String,
     age: u8,
 }
