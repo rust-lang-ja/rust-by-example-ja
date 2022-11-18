@@ -43,7 +43,7 @@ fn main() {
 As an additional note, the `Fn`, `FnMut`, and `FnOnce` `traits` dictate how
 a closure captures variables from the enclosing scope.
 -->
-クロージャによる変数の補足がどのように行われているかを詳しく見たいときは`Fn`、`FnMut`、`FnOnce`を参照してください。
+クロージャによる変数の捕捉がどのように行われているかを詳しく見たいときは`Fn`、`FnMut`、`FnOnce`を参照してください。
 
 <!--
 ### See also:

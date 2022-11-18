@@ -93,7 +93,7 @@ fn main() {
 
     // Capture 2 variables: `greeting` by reference and
     // `farewell` by value.
-    // 変数を2つ補足。`greeting`は参照を、
+    // 変数を2つ捕捉。`greeting`は参照を、
     // `farewell`は値をそれぞれ捕捉する。
     let diary = || {
         // `greeting` is by reference: requires `Fn`.

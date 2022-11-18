@@ -3,7 +3,7 @@
 <!--
 We've seen that the `Option` enum can be used as a return value from functions
 that may fail, where `None` can be returned to indicate failure. However,
-sometimes it is important to express *why* an operation failed. To do this we 
+sometimes it is important to express *why* an operation failed. To do this we
 have the `Result` enum.
 -->
 これまでの例で、失敗する可能性のある関数の返り値として、列挙型`Option`が使用でき、失敗時の返り値には`None`を用いることを見てきました。しかし、時には **なぜ** そのオペレーションが失敗したのかを明示することが重要な場合があります。そのためには`Result`列挙型を使用します。
@@ -25,7 +25,7 @@ The `Result<T, E>` enum has two variants:
 ```rust,editable,ignore,mdbook-runnable
 mod checked {
     // Mathematical "errors" we want to catch
-    // 補足対象としたい、数学的な「エラー」
+    // 捕捉対象としたい、数学的な「エラー」
     #[derive(Debug)]
     pub enum MathError {
         DivisionByZero,
