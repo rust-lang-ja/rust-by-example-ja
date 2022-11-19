@@ -1,8 +1,8 @@
 # Searching through iterators
 
 <!--
-`Iterator::find` is a function which iterates over an iterator and searches for the
-first value which satisfies some condition. If none of the values satisfy the
+`Iterator::find` is a function which iterates over an iterator and searches for the 
+first value which satisfies some condition. If none of the values satisfy the 
 condition, it returns `None`. Its signature:
 -->
 `Iterator::find`はイテレータを辿る関数で、条件を満たす最初の値を探します。もし条件を満たす値がなければ`None`を返します。型シグネチャは以下のようになります。
@@ -74,8 +74,8 @@ fn main() {
 
     let index_of_first_even_number = vec.iter().position(|x| x % 2 == 0);
     assert_eq!(index_of_first_even_number, Some(5));
-
-
+    
+    
     let index_of_first_negative_number = vec.iter().position(|x| x < &0);
     assert_eq!(index_of_first_negative_number, None);
 }
