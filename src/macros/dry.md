@@ -5,7 +5,7 @@ Macros allow writing DRY code by factoring out the common parts of functions
 and/or test suites. Here is an example that implements and tests the `+=`, `*=`
 and `-=` operators on `Vec<T>`:
 -->
-マクロは関数やテストなどにおいて、共通の部分を抽出することでDRYなコードを書くのに役立ちます。ここでは`+=`、`*=`、`-=`、`Vec<T>`を実装、テストするにあたって、マクロがどのように役立つかを見ていきます。
+マクロは関数やテストなどにおいて、共通の部分を抽出することでDRYなコードを書くのに役立ちます。ここでは`Vec<T>`に`+=`、`*=`、`-=`を実装、テストするにあたって、マクロがどのように役立つかを見ていきます。
 
 ```rust,editable
 use std::ops::{Add, Mul, Sub};
