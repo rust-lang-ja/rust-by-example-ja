@@ -25,7 +25,7 @@ The `Result<T, E>` enum has two variants:
 ```rust,editable,ignore,mdbook-runnable
 mod checked {
     // Mathematical "errors" we want to catch
-    // 補足対象としたい、数学的な「エラー」
+    // 捕捉対象としたい、数学的な「エラー」
     #[derive(Debug)]
     pub enum MathError {
         DivisionByZero,

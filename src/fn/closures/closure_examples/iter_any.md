@@ -21,7 +21,7 @@ pub trait Iterator {
         // `FnMut` meaning any captured variable may at most be
         // modified, not consumed. `Self::Item` states it takes
         // arguments to the closure by value.
-        // `FnMut`はクロージャによって補足される変数が変更される
+        // `FnMut`はクロージャによって捕捉される変数が変更される
         // 事はあっても消費されることはないということを示します。
         // `Self::Item`はクロージャが変数を値として取ることを示します。
         F: FnMut(Self::Item) -> bool {}
