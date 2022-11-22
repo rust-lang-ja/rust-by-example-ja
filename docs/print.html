@@ -9068,7 +9068,7 @@ Macros allow writing DRY code by factoring out the common parts of functions
 and/or test suites. Here is an example that implements and tests the `+=`, `*=`
 and `-=` operators on `Vec<T>`:
 -->
-<p>マクロは関数やテストなどにおいて、共通の部分を抽出することでDRYなコードを書くのに役立ちます。ここでは<code>+=</code>、<code>*=</code>、<code>-=</code>、<code>Vec&lt;T&gt;</code>を実装、テストするにあたって、マクロがどのように役立つかを見ていきます。</p>
+<p>マクロは関数やテストなどにおいて、共通の部分を抽出することでDRYなコードを書くのに役立ちます。ここでは<code>Vec&lt;T&gt;</code>に<code>+=</code>、<code>*=</code>、<code>-=</code>を実装、テストするにあたって、マクロがどのように役立つかを見ていきます。</p>
 <pre><pre class="playground"><code class="language-rust editable">use std::ops::{Add, Mul, Sub};
 
 macro_rules! assert_equal_len {
