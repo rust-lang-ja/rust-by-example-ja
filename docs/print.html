@@ -4202,7 +4202,7 @@ fn main() {
 
     // Capture 2 variables: `greeting` by reference and
     // `farewell` by value.
-    // 変数を2つ補足。`greeting`は参照を、
+    // 変数を2つ捕捉。`greeting`は参照を、
     // `farewell`は値をそれぞれ捕捉する。
     let diary = || {
         // `greeting` is by reference: requires `Fn`.
@@ -4345,7 +4345,7 @@ fn main() {
 As an additional note, the `Fn`, `FnMut`, and `FnOnce` `traits` dictate how
 a closure captures variables from the enclosing scope.
 -->
-<p>クロージャによる変数の補足がどのように行われているかを詳しく見たいときは<code>Fn</code>、<code>FnMut</code>、<code>FnOnce</code>を参照してください。</p>
+<p>クロージャによる変数の捕捉がどのように行われているかを詳しく見たいときは<code>Fn</code>、<code>FnMut</code>、<code>FnOnce</code>を参照してください。</p>
 <!--
 ### See also:
 -->
@@ -4443,7 +4443,7 @@ signature:
         // `FnMut` meaning any captured variable may at most be
         // modified, not consumed. `Self::Item` states it takes
         // arguments to the closure by value.
-        // `FnMut`はクロージャによって補足される変数が変更される
+        // `FnMut`はクロージャによって捕捉される変数が変更される
         // 事はあっても消費されることはないということを示します。
         // `Self::Item`はクロージャが変数を値として取ることを示します。
         F: FnMut(Self::Item) -&gt; bool {}
@@ -4496,7 +4496,7 @@ condition, it returns `None`. Its signature:
         // `FnMut` meaning any captured variable may at most be
         // modified, not consumed. `&amp;Self::Item` states it takes
         // arguments to the closure by reference.
-        // `FnMut`はクロージャによって補足される変数が変更される
+        // `FnMut`はクロージャによって捕捉される変数が変更される
         // 事はあっても消費されることはないということを示します。
         // `&amp;Self::Item`はクロージャが変数を参照として取ることを示します。
         P: FnMut(&amp;Self::Item) -&gt; bool {}
@@ -11005,7 +11005,7 @@ is given in the <a href="https://doc.rust-lang.org/reference/tokens.html">'Token
 Sometimes it's desirable to catch the failure of some parts of a program
 instead of calling `panic!`; this can be accomplished using the `Option` enum.
 -->
-<p>プログラムの一部が失敗した際、<code>panic!</code>するよりも、エラーを補足する方が望ましい場合があります。これは<code>Option</code>という列挙型を用いることで可能になります。</p>
+<p>プログラムの一部が失敗した際、<code>panic!</code>するよりも、エラーを捕捉する方が望ましい場合があります。これは<code>Option</code>という列挙型を用いることで可能になります。</p>
 <!--
 The `Option<T>` enum has two variants:
 -->
@@ -11089,7 +11089,7 @@ The `Result<T, E>` enum has two variants:
 </ul>
 <pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">mod checked {
     // Mathematical &quot;errors&quot; we want to catch
-    // 補足対象としたい、数学的な「エラー」
+    // 捕捉対象としたい、数学的な「エラー」
     #[derive(Debug)]
     pub enum MathError {
         DivisionByZero,
