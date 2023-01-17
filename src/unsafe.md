@@ -25,10 +25,9 @@ Rustにおいて、アンセーフなブロックはコンパイラのチェッ�
 * implementing unsafe traits
 -->
 * 生ポインタのデリファレンス
-* calling functions or methods which are `unsafe` (including calling a function
-  over FFI, see [a previous chapter](std_misc/ffi.md) of the book) 
-* accessing or modifying static mutable variables
-* implementing unsafe traits
+* 安全でない関数やメソッドの呼び出し(FFI経由の関数の呼び出しを含む (詳細は [本書のFFIに関する説明](std_misc/ffi.md) を参照ください))
+* 静的なミュータブル変数へのアクセスや変更
+* 安全でないトレイトの実装
 
 <!--
 ### Raw Pointers
@@ -50,11 +49,16 @@ fn main() {
 }
 ```
 
+<!--
 ### Calling Unsafe Functions
 Some functions can be declared as `unsafe`, meaning it is the programmer's
 responsibility to ensure correctness instead of the compiler's. One example
 of this is [`std::slice::from_raw_parts`] which will create a slice given a
 pointer to the first element and a length.
+-->
+### 安全でない関数呼び出し
+関数は `unsafe` として宣言できます。これはコンパイラの代わりにプログラマの責任で正しさを保証することを意味します。
+例として [`std::slice::from_raw_parts`] があります。この関数は最初の要素へのポインタと長さを指定してスライスを作成します。
 
 ```rust,editable
 use std::slice;
@@ -73,11 +77,17 @@ fn main() {
 }
 ```
 
+<!--
 For `slice::from_raw_parts`, one of the assumptions which *must* be upheld is 
 that the pointer passed in points to valid memory and that the memory pointed to
 is of the correct type. If these invariants aren't upheld then the program's 
 behaviour is undefined and there is no knowing what will happen.
+-->
+`slice::from_raw_parts` は、以下の仮定に基づいて処理します。
+- 渡されたポインタが有効なメモリ位置を指していること
+- そのメモリに格納された値が正しい型であること
 
+この仮定を満たさない場合、プログラムの動作は不定となり、何が起こるかわかりません。
 
 [unsafe]: https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html
 [`std::slice::from_raw_parts`]: https://doc.rust-lang.org/std/slice/fn.from_raw_parts.html
