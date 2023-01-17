@@ -208,12 +208,12 @@
 | wildcard                         | ワイルドカード
 | wrapper                          | ラッパ
 | activity                         | 実践
-| cutsom type                      | カスタム型
+| custom type                      | カスタム型
 | argument type                    | 引数タイプ
 | primitive type                   | プリミティブ型
 | casting                          | キャスティング
 | least significant bit            | 最下位ビット
-| numeric riteral                  | 数値リテラル
+| numeric literal                  | 数値リテラル
 | full path                        | 絶対パス
 | r-value                          | 右辺値
 | color model                      | カラーモデル
