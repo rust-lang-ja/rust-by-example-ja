@@ -1,10 +1,19 @@
+<!--
 # New Type Idiom
+-->
+# ニュータイプイディオム
 
+<!--
 The `newtype` idiom gives compile time guarantees that the right type of value is supplied
 to a program.
+-->
+既に定義済みの型であっても`struct`を使うことであたかも別の型`newtype`であるかのように定義することが可能です。なお、それらが正しい型としてプログラムに供給されているか否かは、コンパイル時に保証されます。
 
+<!--
 For example, an age verification function that checks age in years, *must* be given
 a value of type `Years`.
+-->
+例えば、年齢を年単位で確認する`old_enough`には「Years」という型の値を *与えなければならない* ようにすることが可能です。
 
 ```rust, editable
 struct Years(i64);
@@ -20,6 +29,7 @@ impl Years {
 
 impl Days {
     /// truncates partial years
+    /// 1年に満たない日付は切り捨て
     pub fn to_years(&self) -> Years {
         Years(self.0 / 365)
     }
@@ -38,9 +48,16 @@ fn main() {
 }
 ```
 
+<!--
 Uncomment the last print statement to observe that the type supplied must be `Years`.
+-->
+最後の print文 のコメントを外して、与えられた型が `Years` でなければならないことを確認してください。
 
+<!--
 To obtain the `newtype`'s value as the base type, you may use the tuple or destructuring syntax like so:
+-->
+`newtype`の元に使われている型のデータを取得するには、以下のようにタプルや分配構文を用いることで取得できます。
+
 ```rust, editable
 struct Years(i64);
 
