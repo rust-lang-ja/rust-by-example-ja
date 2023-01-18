@@ -7,9 +7,8 @@
 
 
         <!-- Custom HTML head -->
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="A description">
+        
+        <meta name="description" content="Rust by Example (RBE) is a collection of runnable examples that illustrate various Rust concepts and standard libraries.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
@@ -35,13 +34,13 @@
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -57,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -69,7 +68,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -90,7 +89,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -100,7 +99,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -136,7 +135,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -154,41 +153,49 @@
 A `match` *guard* can be added to filter the arm.
 -->
 <p><code>match</code>内の条件文をフィルタリングするために、 <em>ガード(<code>guard</code>)</em> を使用することができます。</p>
-<pre><pre class="playground"><code class="language-rust editable">fn main() {
-    let pair = (2, -2);
-    // TODO ^ Try different values for `pair`
-    // TODO ^ `pair`の値を変更してみましょう。
-
-    println!(&quot;Tell me about {:?}&quot;, pair);
-    match pair {
-        (x, y) if x == y =&gt; println!(&quot;These are twins&quot;),
-        // The ^ `if condition` part is a guard
-        //     ^ `if`とそれに続く条件式がガードです。
-        (x, y) if x + y == 0 =&gt; println!(&quot;Antimatter, kaboom!&quot;),
-        (x, _) if x % 2 == 1 =&gt; println!(&quot;The first one is odd&quot;),
-        _ =&gt; println!(&quot;No correlation...&quot;),
-    }
+<pre><pre class="playground"><code class="language-rust editable edition2021">enum Temperature {
+    Celsius(i32),
+    Fahrenheit(i32),
 }
-</code></pre></pre>
-<p>Note that the compiler does not check arbitrary expressions for whether all
+
+fn main() {
+    let temperature = Temperature::Celsius(35);
+    // ^ TODO try different values for `temperature`
+    // ^ TODO `temperature`の値を変更してみましょう。
+
+    match temperature {
+        Temperature::Celsius(t) if t &gt; 30 =&gt; println!(&quot;{}C is above 30 Celsius&quot;, t),
+        // The `if condition` part ^ is a guard
+        //                         ^ `if`とそれに続く条件式がガードです。
+        Temperature::Celsius(t) =&gt; println!(&quot;{}C is below 30 Celsius&quot;, t),
+
+        Temperature::Fahrenheit(t) if t &gt; 86 =&gt; println!(&quot;{}F is above 86 Fahrenheit&quot;, t),
+        Temperature::Fahrenheit(t) =&gt; println!(&quot;{}F is below 86 Fahrenheit&quot;, t),
+    }
+}</code></pre></pre>
+<p>Note that the compiler won't take guard conditions into account when checking
+if all patterns are covered by the match expression.
 possible conditions have been checked.  Therefore, you must use the <code>_</code> pattern
 at the end.</p>
-<pre><pre class="playground"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable edition2021">```rust,editable
+fn main() {
     let number: u8 = 4;
 
     match number {
         i if i == 0 =&gt; println!(&quot;Zero&quot;),
         i if i &gt; 0 =&gt; println!(&quot;Greater than zero&quot;),
+        // _ =&gt; unreachable!(&quot;Should never happen.&quot;),
+        // TODO ^ uncomment to fix compilation
         _ =&gt; println!(&quot;Fell through&quot;), // This should not be possible to reach
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
 <h3 id="参照"><a class="header" href="#参照">参照</a></h3>
 <!--
 [Tuples](../../primitives/tuples.md)
+[Enums](../../custom_types/enum.md)
 -->
 <p><a href="../../primitives/tuples.html">タプル</a></p>
 
@@ -223,24 +230,27 @@ at the end.</p>
 
 
 
+        <script>
+            window.playground_line_numbers = true;
+        </script>
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
 
-        <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../ace.js"></script>
+        <script src="../../editor.js"></script>
+        <script src="../../mode-rust.js"></script>
+        <script src="../../theme-dawn.js"></script>
+        <script src="../../theme-tomorrow_night.js"></script>
 
-        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
 
-        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
 
         <!-- Custom JS scripts -->
 

@@ -7,9 +7,8 @@
 
 
         <!-- Custom HTML head -->
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="A description">
+        
+        <meta name="description" content="Rust by Example (RBE) is a collection of runnable examples that illustrate various Rust concepts and standard libraries.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
@@ -35,13 +34,13 @@
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -57,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -69,7 +68,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -90,7 +89,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -100,7 +99,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -136,7 +135,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -154,16 +153,17 @@
 While Rust chooses how to capture variables on the fly mostly without type
 annotation, this ambiguity is not allowed when writing functions. When
 taking a closure as an input parameter, the closure's complete type must be
-annotated using one of a few `traits`. In order of decreasing restriction,
+annotated using one of a few `traits`, and they're determined by what the
+closure does with captured value. In order of decreasing restriction,
 they are:
 -->
 <p>Rustはたいていの場合、型アノテーションなしでも変数を捕捉する方法を臨機応変に選択してくれますが、関数を書く場合にはこの曖昧さは許されません。
 引数のパラメータとしてクロージャを取る場合、そのクロージャの完全な型はいくつかの<code>traits</code>の中の1つを使って明示されなければなりません。
 制限の少ない順に並べると、下記の通りです。</p>
 <!--
-* `Fn`: the closure captures by reference (`&T`)
-* `FnMut`: the closure captures by mutable reference (`&mut T`)
-* `FnOnce`: the closure captures by value (`T`)
+* `Fn`: the closure uses the captured value by reference (`&T`)
+* `FnMut`: the closure uses the captured value by mutable reference (`&mut T`)
+* `FnOnce`: the closure uses the captured value by value (`T`)
 -->
 <ul>
 <li><code>Fn</code>: 参照(<code>&amp;T</code>)によって捕捉するクロージャ</li>
@@ -187,16 +187,17 @@ closure.
 This is because if a move is possible, then any type of borrow should also
 be possible. Note that the reverse is not true. If the parameter is
 annotated as `Fn`, then capturing variables by `&mut T` or `T` are not
-allowed.
+allowed. However, `&T` is allowed.
 -->
 <p>これは、もし移動が可能であれば、いずれの種類の借用であっても同様に可能だからです。
-その逆は正しくないことに注意してください。パラメータが<code>Fn</code>としてアノテーションされている場合、変数を<code>&amp;mut T</code>や<code>T</code>で捕捉することは許可されません。</p>
+その逆は正しくないことに注意してください。パラメータが<code>Fn</code>としてアノテーションされている場合、変数を<code>&amp;mut T</code>や<code>T</code>で捕捉することは許可されません。
+しかし<code>&amp;T</code>は許可されます。</p>
 <!--
 In the following example, try swapping the usage of `Fn`, `FnMut`, and
 `FnOnce` to see what happens:
 -->
 <p>以下の例では、<code>Fn</code>、<code>FnMut</code>、および<code>FnOnce</code>を入れ替えて、何が起こるのかを見てみましょう。</p>
-<pre><pre class="playground"><code class="language-rust editable">// A function which takes a closure as an argument and calls it.
+<pre><pre class="playground"><code class="language-rust editable edition2021">// A function which takes a closure as an argument and calls it.
 // &lt;F&gt; denotes that F is a &quot;Generic type parameter&quot;
 fn apply&lt;F&gt;(f: F) where
     // The closure takes no input and returns nothing.
@@ -259,8 +260,7 @@ fn main() {
     let double = |x| 2 * x;
 
     println!(&quot;3 doubled: {}&quot;, apply_to_3(double));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -298,24 +298,27 @@ fn main() {
 
 
 
+        <script>
+            window.playground_line_numbers = true;
+        </script>
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
 
-        <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../ace.js"></script>
+        <script src="../../editor.js"></script>
+        <script src="../../mode-rust.js"></script>
+        <script src="../../theme-dawn.js"></script>
+        <script src="../../theme-tomorrow_night.js"></script>
 
-        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
 
-        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
 
         <!-- Custom JS scripts -->
 

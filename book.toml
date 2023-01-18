@@ -1,19 +1,23 @@
 [book]
 title = "Rust By Example 日本語版"
-description = "A description"
+description = "Rust by Example (RBE) is a collection of runnable examples that illustrate various Rust concepts and standard libraries."
 author = "The Rust Community"
 language = "ja"
 
 [build]
 build-dir = "docs"
 
-[output.html]
-additional-css = ["css/custom.css"]
-git-repository-url = "https://github.com/rust-lang-ja/rust-by-example-ja"
-
 [output.html.playpen]
 editable = true
 editor = "ace"
+line-numbers = true
 
 [output.html.fold]
 enable = true
+
+[output.html]
+git-repository-url = "https://github.com/rust-lang-ja/rust-by-example-ja"
+additional-css = ["css/custom.css"]
+
+[rust]
+edition = "2021"

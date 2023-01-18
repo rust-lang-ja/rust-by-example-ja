@@ -7,9 +7,8 @@
 
 
         <!-- Custom HTML head -->
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="A description">
+        
+        <meta name="description" content="Rust by Example (RBE) is a collection of runnable examples that illustrate various Rust concepts and standard libraries.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
@@ -35,13 +34,13 @@
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -57,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -69,7 +68,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -90,7 +89,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -100,7 +99,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -136,7 +135,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -165,6 +164,8 @@ Underscores can be inserted in numeric literals to improve readability, e.g.
 `1_000` is the same as `1000`, and `0.000_001` is the same as `0.000001`.
 -->
 <p>可読性のため、<code>_</code>（アンダースコア）を数値リテラルの間に挿入することができます。例えば<code>1_000</code>は<code>1000</code>と、<code>0.000_001</code>は<code>0.000001</code>とそれぞれ同一です。</p>
+<p>Rust also supports scientific <a href="https://en.wikipedia.org/wiki/Scientific_notation#E_notation">E-notation</a>, e.g. <code>1e6</code>, <code>7.6e-4</code>. The
+associated type is <code>f64</code>.</p>
 <!--
 We need to tell the compiler the type of the literals we use. For now,
 we'll use the `u32` suffix to indicate that the literal is an unsigned 32-bit
@@ -172,11 +173,11 @@ integer, and the `i32` suffix to indicate that it's a signed 32-bit integer.
 -->
 <p>コンパイラに、どのリテラルを使用するのかを教えてあげなくてはなりません。現在の仕様では、リテラルが32ビット符号無し整数であることを伝える場合、<code>u32</code>サフィックスを、符号付き32ビット整数であれば<code>i32</code>を使用します。</p>
 <!--
-The operators available and their precedence [in Rust][rust op-prec] are similar to other
-[C-like languages][op-prec].
+The operators available and their precedence [in Rust][rust op-prec] are similar
+to other [C-like languages][op-prec].
 -->
 <p>Rustで使用可能な演算子と、<a href="https://doc.rust-lang.org/reference/expressions.html#expression-precedence">その実行順序</a>は、<a href="https://en.wikipedia.org/wiki/Operator_precedence#Programming_languages">Cなどの言語のもの</a>とほぼ同じです。</p>
-<pre><pre class="playground"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable edition2021">fn main() {
     // Integer addition
     // 整数の足し算
     println!(&quot;1 + 2 = {}&quot;, 1u32 + 2);
@@ -186,6 +187,9 @@ The operators available and their precedence [in Rust][rust op-prec] are similar
     println!(&quot;1 - 2 = {}&quot;, 1i32 - 2);
     // TODO ^ Try changing `1i32` to `1u32` to see why the type is important
     // TODO ^ 型が重要であることを実感するため`1i32`を`1u32`に変更してみましょう。
+
+    // Scientific notation
+    println!(&quot;1e4 is {}, -2.5e-3 is {}&quot;, 1e4, -2.5e-3);
 
     // Short-circuiting boolean logic
     // 単純な論理演算子
@@ -204,8 +208,7 @@ The operators available and their precedence [in Rust][rust op-prec] are similar
     // Use underscores to improve readability!
     // 可読性のための`_`（アンダースコア）の使用
     println!(&quot;One million is written as {}&quot;, 1_000_000u32);
-}
-</code></pre></pre>
+}</code></pre></pre>
 
                     </main>
 
@@ -238,24 +241,27 @@ The operators available and their precedence [in Rust][rust op-prec] are similar
 
 
 
+        <script>
+            window.playground_line_numbers = true;
+        </script>
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
 
-        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../ace.js"></script>
+        <script src="../editor.js"></script>
+        <script src="../mode-rust.js"></script>
+        <script src="../theme-dawn.js"></script>
+        <script src="../theme-tomorrow_night.js"></script>
 
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
 

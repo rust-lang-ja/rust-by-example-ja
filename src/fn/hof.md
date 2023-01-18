@@ -53,7 +53,6 @@ fn main() {
                                                          // そのうち上限より小さい値で
              .filter(|&n_squared| is_odd(n_squared))     // That are odd
                                                          // かつ奇数のものを
-             .fold(0, |acc, n_squared| acc + n_squared); // Sum them
              .sum();                                     // Sum them
     println!("functional style: {}", sum_of_squared_odd_numbers);
 }

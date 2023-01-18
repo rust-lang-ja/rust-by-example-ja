@@ -7,9 +7,8 @@
 
 
         <!-- Custom HTML head -->
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="A description">
+        
+        <meta name="description" content="Rust by Example (RBE) is a collection of runnable examples that illustrate various Rust concepts and standard libraries.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
@@ -35,13 +34,13 @@
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -57,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -69,7 +68,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -90,7 +89,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -100,7 +99,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -136,7 +135,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -157,14 +156,14 @@ using parentheses `()`, and each tuple itself is a value with type signature
 use tuples to return multiple values, as tuples can hold any number of values.
 -->
 <p>タプルは異なる型の値の集合です。括弧<code>()</code>を用いて生成します。タプル自体がそのメンバに対する型シグネチャを保持していますので、明示すると<code>(T1, T2, ...)</code>のようになります。タプルは大きさに制限がありませんので、関数が複数の値を返したい時に使われます。</p>
-<pre><pre class="playground"><code class="language-rust editable">// Tuples can be used as function arguments and as return values
+<pre><pre class="playground"><code class="language-rust editable edition2021">// Tuples can be used as function arguments and as return values.
 // タプルを関数の引数及び返り値として使用している。
 fn reverse(pair: (i32, bool)) -&gt; (bool, i32) {
-    // `let` can be used to bind the members of a tuple to variables
+    // `let` can be used to bind the members of a tuple to variables.
     // `let`でタプルの中の値を別の変数に束縛することができる。
-    let (integer, boolean) = pair;
+    let (int_param, bool_param) = pair;
 
-    (boolean, integer)
+    (bool_param, int_param)
 }
 
 // The following struct is for the activity.
@@ -173,46 +172,46 @@ fn reverse(pair: (i32, bool)) -&gt; (bool, i32) {
 struct Matrix(f32, f32, f32, f32);
 
 fn main() {
-    // A tuple with a bunch of different types
+    // A tuple with a bunch of different types.
     // 様々な型を値に持つタプル
     let long_tuple = (1u8, 2u16, 3u32, 4u64,
                       -1i8, -2i16, -3i32, -4i64,
                       0.1f32, 0.2f64,
                       'a', true);
 
-    // Values can be extracted from the tuple using tuple indexing
+    // Values can be extracted from the tuple using tuple indexing.
     // インデックスを用いて、タプル内の要素を参照できる。
-    println!(&quot;long tuple first value: {}&quot;, long_tuple.0);
-    println!(&quot;long tuple second value: {}&quot;, long_tuple.1);
+    println!(&quot;Long tuple first value: {}&quot;, long_tuple.0);
+    println!(&quot;Long tuple second value: {}&quot;, long_tuple.1);
 
-    // Tuples can be tuple members
+    // Tuples can be tuple members.
     // タプルはタプルのメンバになれる
     let tuple_of_tuples = ((1u8, 2u16, 2u32), (4u64, -1i8), -2i16);
 
-    // Tuples are printable
+    // Tuples are printable.
     // タプルはプリント可能である。
     println!(&quot;tuple of tuples: {:?}&quot;, tuple_of_tuples);
-    
-    // But long Tuples cannot be printed
-    // しかし長すぎるタプルはプリントできない
-    // let too_long_tuple = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
-    // println!(&quot;too long tuple: {:?}&quot;, too_long_tuple);
+
+    // But long Tuples (more than 12 elements) cannot be printed.
+    // しかし長すぎるタプル(12要素より多いもの)はプリントできない
+    //let too_long_tuple = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
+    //println!(&quot;Too long tuple: {:?}&quot;, too_long_tuple);
     // TODO ^ Uncomment the above 2 lines to see the compiler error
     // TODO ^ 上記2行のコメントを外して、コンパイルエラーになることを確認
 
     let pair = (1, true);
-    println!(&quot;pair is {:?}&quot;, pair);
+    println!(&quot;Pair is {:?}&quot;, pair);
 
-    println!(&quot;the reversed pair is {:?}&quot;, reverse(pair));
+    println!(&quot;Uhe reversed pair is {:?}&quot;, reverse(pair));
 
     // To create one element tuples, the comma is required to tell them apart
-    // from a literal surrounded by parentheses
+    // from a literal surrounded by parentheses.
     // 要素を1つしか持たないタプルを作成する場合、括弧で囲まれたただのリテラル
     // と区別するため、カンマが必要になる。
-    println!(&quot;one element tuple: {:?}&quot;, (5u32,));
-    println!(&quot;just an integer: {:?}&quot;, (5u32));
+    println!(&quot;One element tuple: {:?}&quot;, (5u32,));
+    println!(&quot;Just an integer: {:?}&quot;, (5u32));
 
-    //tuples can be destructured to create bindings
+    // Tuples can be destructured to create bindings.
     //タプルを分解して別の変数にそれぞれの値を代入
     let tuple = (1, &quot;hello&quot;, 4.5, true);
 
@@ -222,16 +221,15 @@ fn main() {
     let matrix = Matrix(1.1, 1.2, 2.1, 2.2);
     println!(&quot;{:?}&quot;, matrix);
 
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### Activity
 -->
 <h3 id="演習"><a class="header" href="#演習">演習</a></h3>
 <!--
- 1. *Recap*: Add the `fmt::Display` trait to the `Matrix` struct in the above example,
-    so that if you switch from printing the debug format `{:?}` to the display
-    format `{}`, you see the following output:
+1. *Recap*: Add the `fmt::Display` trait to the `Matrix` struct in the above
+   example, so that if you switch from printing the debug format `{:?}` to the
+   display format `{}`, you see the following output:
 -->
 <ol>
 <li>
@@ -246,18 +244,17 @@ You may want to refer back to the example for [print display][print_display].
 </ol>
 <p>必要に応じて<a href="../hello/print/print_display.html">print displayのページ</a>に戻る必要があるかもしれません。</p>
 <!--
- 2. Add a `transpose` function using the `reverse` function as a template, which
-    accepts a matrix as an argument, and returns a matrix in which two elements
-    have been swapped. For example:
+2. Add a `transpose` function using the `reverse` function as a template, which
+   accepts a matrix as an argument, and returns a matrix in which two elements
+   have been swapped. For example:
 -->
 <ol start="2">
 <li>
 <p><code>reverse</code>関数を雛形にした<code>transpose</code>関数を実装してください。この関数は<code>Matrix</code>を引数として受け取り、要素のうち2つを入れ替えたものを返します。つまり</p>
 <pre><code class="language-rust ignore">println!(&quot;Matrix:\n{}&quot;, matrix);
-println!(&quot;Transpose:\n{}&quot;, transpose(matrix));
-</code></pre>
+println!(&quot;Transpose:\n{}&quot;, transpose(matrix));</code></pre>
 <!--
-results in the output:
+Results in the output:
 -->
 <p>は以下の様な出力になります:</p>
 <pre><code class="language-text">Matrix:
@@ -301,24 +298,27 @@ Transpose:
 
 
 
+        <script>
+            window.playground_line_numbers = true;
+        </script>
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
 
-        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../ace.js"></script>
+        <script src="../editor.js"></script>
+        <script src="../mode-rust.js"></script>
+        <script src="../theme-dawn.js"></script>
+        <script src="../theme-tomorrow_night.js"></script>
 
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
 

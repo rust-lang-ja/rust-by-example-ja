@@ -7,9 +7,8 @@
 
 
         <!-- Custom HTML head -->
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="A description">
+        
+        <meta name="description" content="Rust by Example (RBE) is a collection of runnable examples that illustrate various Rust concepts and standard libraries.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
@@ -35,13 +34,13 @@
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -57,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -69,7 +68,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -90,7 +89,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -100,7 +99,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -136,7 +135,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -159,13 +158,19 @@ A `Path` can be created from an `OsStr`, and provides several methods to get
 information from the file/directory the path points to.
 -->
 <p><code>Path</code>は<code>OsStr</code>から作ることができます。そうすればそのパスが指すファイル・ディレクトリの情報を取得するためのメソッドがいくつか使えるようになります。</p>
+<p>A <code>Path</code> is immutable. The owned version of <code>Path</code> is <code>PathBuf</code>. The relation 
+between <code>Path</code> and <code>PathBuf</code> is similar to that of <code>str</code> and <code>String</code>: 
+a <code>PathBuf</code> can be mutated in-place, and can be dereferenced to a <code>Path</code>.</p>
 <!--
 Note that a `Path` is *not* internally represented as an UTF-8 string, but
-instead is stored as a vector of bytes (`Vec<u8>`). Therefore, converting a
-`Path` to a `&str` is *not* free and may fail (an `Option` is returned).
+instead is stored as an `OsString`. Therefore, converting a `Path` to a `&str`
+is *not* free and may fail (an `Option` is returned). However, a `Path` can be 
+freely converted to an `OsString` or `&OsStr` using `into_os_string` and
+`as_os_str`, respectively.
 -->
-<p><code>Path</code>の実態はUTF-8の文字列 <strong>ではなく</strong> 、バイト型のベクタ(<code>Vec&lt;u8&gt;</code>)であることに注意しましょう。したがって、<code>Path</code>を<code>&amp;str</code>に変換するのは無条件 <strong>ではなく</strong> 、失敗する可能性があります。それゆえ<code>Option</code>型が返されます。</p>
-<pre><pre class="playground"><code class="language-rust editable">use std::path::Path;
+<p><code>Path</code>の実態はUTF-8の文字列 <strong>ではなく</strong> 、<code>OsString</code>であることに注意しましょう。したがって、<code>Path</code>を<code>&amp;str</code>に変換するのは無条件 <strong>ではなく</strong> 、失敗する可能性があります。それゆえ<code>Option</code>型が返されます。
+しかし<code>Path</code>から<code>OsString</code>あるいは<code>&amp;OsStr</code>への変換はそれぞれ<code>into_os_string</code>と<code>as_os_str</code>によって無条件でできます。</p>
+<pre><pre class="playground"><code class="language-rust editable edition2021">use std::path::Path;
 
 fn main() {
     // Create a `Path` from an `&amp;'static str`
@@ -177,19 +182,25 @@ fn main() {
     let _display = path.display();
 
     // `join` merges a path with a byte container using the OS specific
-    // separator, and returns the new path
+    // separator, and returns a `PathBuf`
     // `join`はOS固有のセパレータによってバイトのコンテナ型であるパス
-    // を結合し、新しいパスを返す。
-    let new_path = path.join(&quot;a&quot;).join(&quot;b&quot;);
+    // を結合し、`PathBuf`を返す。
+    let mut new_path = path.join(&quot;a&quot;).join(&quot;b&quot;);
 
-    // Convert the path into a string slice
-    // パスを文字列のスライスに変換する。
+    // `push` extends the `PathBuf` with a `&amp;Path`
+    new_path.push(&quot;c&quot;);
+    new_path.push(&quot;myfile.tar.gz&quot;);
+
+    // `set_file_name` updates the file name of the `PathBuf`
+    new_path.set_file_name(&quot;package.tgz&quot;);
+
+    // Convert the `PathBuf` into a string slice
+    // `PathBuf`を文字列のスライスに変換する。
     match new_path.to_str() {
         None =&gt; panic!(&quot;new path is not a valid UTF-8 sequence&quot;),
         Some(s) =&gt; println!(&quot;new path is {}&quot;, s),
     }
 }
-
 </code></pre></pre>
 <!--
 Be sure to check at other `Path` methods (`posix::Path` or `windows::Path`) and
@@ -233,24 +244,27 @@ the `Metadata` struct.
 
 
 
+        <script>
+            window.playground_line_numbers = true;
+        </script>
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
 
-        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../ace.js"></script>
+        <script src="../editor.js"></script>
+        <script src="../mode-rust.js"></script>
+        <script src="../theme-dawn.js"></script>
+        <script src="../theme-tomorrow_night.js"></script>
 
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
 

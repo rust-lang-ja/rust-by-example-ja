@@ -7,9 +7,8 @@
 
 
         <!-- Custom HTML head -->
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="A description">
+        
+        <meta name="description" content="Rust by Example (RBE) is a collection of runnable examples that illustrate various Rust concepts and standard libraries.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
@@ -35,13 +34,13 @@
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -57,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -69,7 +68,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -90,7 +89,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -100,7 +99,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -136,7 +135,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -159,13 +158,13 @@ Rust provides access to a wide variety of `primitives`. A sample includes:
 -->
 <h3 id="スカラー型"><a class="header" href="#スカラー型">スカラー型</a></h3>
 <!--
-* signed integers: `i8`, `i16`, `i32`, `i64`, `i128` and `isize` (pointer size)
-* unsigned integers: `u8`, `u16`, `u32`, `u64`, `u128` and `usize` (pointer
+* Signed integers: `i8`, `i16`, `i32`, `i64`, `i128` and `isize` (pointer size)
+* Unsigned integers: `u8`, `u16`, `u32`, `u64`, `u128` and `usize` (pointer
   size)
-* floating point: `f32`, `f64`
+* Floating point: `f32`, `f64`
 * `char` Unicode scalar values like `'a'`, `'α'` and `'∞'` (4 bytes each)
 * `bool` either `true` or `false`
-* and the unit type `()`, whose only possible value is an empty tuple: `()`
+* The unit type `()`, whose only possible value is an empty tuple: `()`
 -->
 <ul>
 <li>符号付き整数: <code>i8</code>, <code>i16</code>, <code>i32</code>, <code>i64</code>, <code>i128</code>, <code>isize</code>（ポインタのサイズ）</li>
@@ -176,8 +175,8 @@ Rust provides access to a wide variety of `primitives`. A sample includes:
 <li>ユニット型: <code>()</code>が唯一の値</li>
 </ul>
 <!--
-Despite the value of a unit type being a tuple, it is not considered a
-compound type because it does not contain multiple values. 
+Despite the value of a unit type being a tuple, it is not considered a compound
+type because it does not contain multiple values.
 -->
 <p>ユニット型はその値がタプルですが、複合型とはみなされません。内部に複数の値を含んでいるわけではないからです。</p>
 <!--
@@ -185,20 +184,20 @@ compound type because it does not contain multiple values.
 -->
 <h3 id="複合型"><a class="header" href="#複合型">複合型</a></h3>
 <!--
-* arrays like `[1, 2, 3]`
-* tuples like `(1, true)`
+* Arrays like `[1, 2, 3]`
+* Tuples like `(1, true)`
 -->
 <ul>
 <li>配列: e.g. <code>[1, 2, 3]</code>など</li>
 <li>タプル: e.g. (1, true)</li>
 </ul>
 <!--
-Variables can always be *type annotated*. Numbers may additionally be
-annotated via a *suffix* or *by default*. Integers default to `i32` and
-floats to `f64`. Note that Rust can also infer types from context.
+Variables can always be *type annotated*. Numbers may additionally be annotated
+via a *suffix* or *by default*. Integers default to `i32` and floats to `f64`.
+Note that Rust can also infer types from context.
 -->
 <p>変数は常に <em>型指定(<code>type annotate</code>)可能</em> です。数値型の場合はさらにサフィックスでの指定が可能です。指定しない場合デフォルトになります。例えば整数は<code>i32</code>が、浮動小数点は<code>f64</code>がデフォルトです。また、Rustは文脈から型を推定することもできます。</p>
-<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable edition2021">fn main() {
     // Variables can be type annotated.
     // 変数に型を指定
     let logical: bool = true;
@@ -212,34 +211,34 @@ floats to `f64`. Note that Rust can also infer types from context.
     // サフィックスを指定しない場合、デフォルトを選択
     let default_float   = 3.0; // `f64`
     let default_integer = 7;   // `i32`
-    
-    // A type can also be inferred from context 
+
+    // A type can also be inferred from context.
     // 型を文脈から推定することも可能
-    let mut inferred_type = 12; // Type i64 is inferred from another line
+    let mut inferred_type = 12; // Type i64 is inferred from another line.
                                 // 型 i64 は次行の内容に基づいて推定
     inferred_type = 4294967296i64;
-    
+
     // A mutable variable's value can be changed.
     // ミュータブルな変数は値を変更できる
     let mut mutable = 12; // Mutable `i32`
                           // ミュータブルな `i32`.
     mutable = 21;
-    
+
     // Error! The type of a variable can't be changed.
     // エラー！ ミュータブルな変数でも型は不変
     mutable = true;
-    
+
     // Variables can be overwritten with shadowing.
     // 変数はシャドーイングによって上書きできる
     let mutable = true;
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
 <h3 id="参照"><a class="header" href="#参照">参照</a></h3>
 <!--
-[the `std` library][std], [`mut`][mut], [`inference`][inference], and [`shadowing`][shadowing]
+[the `std` library][std], [`mut`][mut], [`inference`][inference], and
+[`shadowing`][shadowing]
 -->
 <p><a href="https://doc.rust-lang.org/std/"><code>std</code> ライブラリ</a>, <a href="variable_bindings/mut.html"><code>mut</code></a>, <a href="types/inference.html"><code>inference</code></a>, <a href="variable_bindings/scope.html"><code>shadowing</code></a></p>
 
@@ -274,24 +273,27 @@ floats to `f64`. Note that Rust can also infer types from context.
 
 
 
+        <script>
+            window.playground_line_numbers = true;
+        </script>
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
 
-        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
-        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
-        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
-        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
 
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
 

@@ -7,9 +7,8 @@
 
 
         <!-- Custom HTML head -->
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="A description">
+        
+        <meta name="description" content="Rust by Example (RBE) is a collection of runnable examples that illustrate various Rust concepts and standard libraries.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
@@ -35,13 +34,13 @@
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -57,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -69,7 +68,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -90,7 +89,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -100,7 +99,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -136,7 +135,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -154,15 +153,13 @@
 Diverging functions never return. They are marked using `!`, which is an empty type.
 -->
 <p>発散する関数 (Diverging functions) は決してリターンしない関数です。こうした関数は <code>!</code> を使って、空の型であることが示されます。</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>fn foo() -&gt; ! {
     // この呼び出しは決してリターンしない。
     panic!(&quot;This call never returns.&quot;);
 }
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <!--
 As opposed to all the other types, this one cannot be instantiated, because the
 set of all possible values this type can have is empty. Note that, it is
@@ -177,16 +174,15 @@ For example, this function returns as usual, although there is no information
 in the return value.
 -->
 <p>例えば、この関数は通常どおりリターンしますが、戻り値には何の情報も含みません。</p>
-<pre><pre class="playground"><code class="language-rust">fn some_fn() {
+<pre><pre class="playground"><code class="language-rust edition2021">fn some_fn() {
     ()
 }
 
 fn main() {
-    let a: () = some_fn();
+    let _a: () = some_fn();
     // この関数はリターンするので、この行は実行される。
-    println!(&quot;This function returns and you can see this line.&quot;)
-}
-</code></pre></pre>
+    println!(&quot;This function returns and you can see this line.&quot;);
+}</code></pre></pre>
 <!--
 As opposed to this function, which will never return the control back to the caller.
 -->
@@ -198,8 +194,7 @@ fn main() {
     let x: ! = panic!(&quot;This call never returns.&quot;);
     // この行は決して実行されない。
     println!(&quot;You will never see this line!&quot;);
-}
-</code></pre>
+}</code></pre>
 <!--
 Although this might seem like an abstract concept, it is in fact very useful and
 often handy. The main advantage of this type is that it can be cast to any other
@@ -209,7 +204,7 @@ in `match` branches. This allows us to write code like this:
 <p>これは抽象的な概念に見えるかもしれませんが、実際のところはとても実用的で、便利なことも多いのです。
 この型の主な利点は、他のどのような型にもキャストできることです。
 そのため、例えば<code>match</code>の分岐の中のような正確な型が要求される場所でも使用できます。</p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust edition2021">fn main() {
     fn sum_odd_numbers(up_to: u32) -&gt; u32 {
         let mut acc = 0;
         for i in 0..up_to {
@@ -233,8 +228,7 @@ in `match` branches. This allows us to write code like this:
         acc
     }
     println!(&quot;Sum of odd numbers up to 9 (excluding): {}&quot;, sum_odd_numbers(9));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 It is also the return type of functions that loop forever (e.g. `loop {}`) like
 network servers or functions that terminate the process (e.g. `exit()`).
@@ -272,24 +266,27 @@ network servers or functions that terminate the process (e.g. `exit()`).
 
 
 
+        <script>
+            window.playground_line_numbers = true;
+        </script>
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
 
-        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../ace.js"></script>
+        <script src="../editor.js"></script>
+        <script src="../mode-rust.js"></script>
+        <script src="../theme-dawn.js"></script>
+        <script src="../theme-tomorrow_night.js"></script>
 
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
 
