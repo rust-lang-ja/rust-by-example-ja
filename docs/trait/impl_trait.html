@@ -7,7 +7,8 @@
 
 
         <!-- Custom HTML head -->
-        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="Rust by Example (RBE) is a collection of runnable examples that illustrate various Rust concepts and standard libraries.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -34,13 +35,13 @@
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script>
+        <script type="text/javascript">
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script>
+        <script type="text/javascript">
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -56,7 +57,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script>
+        <script type="text/javascript">
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -68,7 +69,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script>
+        <script type="text/javascript">
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -89,7 +90,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -99,7 +100,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -135,7 +136,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script>
+                <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -166,7 +167,8 @@
             })
         })
         .collect() // Collect all lines into a Vec&lt;Vec&lt;String&gt;&gt;
-}</code></pre></pre>
+}
+</code></pre></pre>
 <p><code>parse_csv_document</code> is generic, allowing it to take any type which implements BufRead, such as <code>BufReader&lt;File&gt;</code> or <code>[u8]</code>,
 but it's not important what type <code>R</code> is, and <code>R</code> is only used to declare the type of <code>src</code>, so the function can also be written as:</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">fn parse_csv_document(src: impl std::io::BufRead) -&gt; std::io::Result&lt;Vec&lt;Vec&lt;String&gt;&gt;&gt; {
@@ -181,7 +183,8 @@ but it's not important what type <code>R</code> is, and <code>R</code> is only u
             })
         })
         .collect() // Collect all lines into a Vec&lt;Vec&lt;String&gt;&gt;
-}</code></pre></pre>
+}
+</code></pre></pre>
 <p>Note that using <code>impl Trait</code> as an argument type means that you cannot explicitly state what form of the function you use, i.e. <code>parse_csv_document::&lt;std::io::Empty&gt;(std::io::empty())</code> will not work with the second example.</p>
 <h2 id="as-a-return-type"><a class="header" href="#as-a-return-type">As a return type</a></h2>
 <p>If your function returns a type that implements <code>MyTrait</code>, you can write its
@@ -217,7 +220,8 @@ fn main() {
     assert_eq!(Some(4), v3.next());
     assert_eq!(Some(5), v3.next());
     println!(&quot;all done&quot;);
-}</code></pre></pre>
+}
+</code></pre></pre>
 <p>More importantly, some Rust types can't be written out. For example, every
 closure has its own unnamed concrete type. Before <code>impl Trait</code> syntax, you had
 to allocate on the heap in order to return a closure. But now you can do it all
@@ -231,7 +235,8 @@ fn make_adder_function(y: i32) -&gt; impl Fn(i32) -&gt; i32 {
 fn main() {
     let plus_one = make_adder_function(1);
     assert_eq!(plus_one(2), 3);
-}</code></pre></pre>
+}
+</code></pre></pre>
 <p>You can also use <code>impl Trait</code> to return an iterator that uses <code>map</code> or <code>filter</code>
 closures! This makes using <code>map</code> and <code>filter</code> easier. Because closure types don't
 have names, you can't write out an explicit return type if your function returns
@@ -247,7 +252,8 @@ fn main() {
     let singles = vec![-3, -2, 2, 3];
     let doubles = double_positives(&amp;singles);
     assert_eq!(doubles.collect::&lt;Vec&lt;i32&gt;&gt;(), vec![4, 6]);
-}</code></pre></pre>
+}
+</code></pre></pre>
 
                     </main>
 
@@ -280,27 +286,27 @@ fn main() {
 
 
 
-        <script>
+        <script type="text/javascript">
             window.playground_line_numbers = true;
         </script>
 
-        <script>
+        <script type="text/javascript">
             window.playground_copyable = true;
         </script>
 
-        <script src="../ace.js"></script>
-        <script src="../editor.js"></script>
-        <script src="../mode-rust.js"></script>
-        <script src="../theme-dawn.js"></script>
-        <script src="../theme-tomorrow_night.js"></script>
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
 
-        <script src="../elasticlunr.min.js"></script>
-        <script src="../mark.min.js"></script>
-        <script src="../searcher.js"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
 
-        <script src="../clipboard.min.js"></script>
-        <script src="../highlight.js"></script>
-        <script src="../book.js"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
 
