@@ -7,7 +7,8 @@
 While Rust chooses how to capture variables on the fly mostly without type
 annotation, this ambiguity is not allowed when writing functions. When
 taking a closure as an input parameter, the closure's complete type must be
-annotated using one of a few `traits`. In order of decreasing restriction,
+annotated using one of a few `traits`, and they're determined by what the
+closure does with captured value. In order of decreasing restriction,
 they are:
 -->
 
@@ -16,9 +17,9 @@ Rustはたいていの場合、型アノテーションなしでも変数を捕�
 制限の少ない順に並べると、下記の通りです。
 
 <!--
-* `Fn`: the closure captures by reference (`&T`)
-* `FnMut`: the closure captures by mutable reference (`&mut T`)
-* `FnOnce`: the closure captures by value (`T`)
+* `Fn`: the closure uses the captured value by reference (`&T`)
+* `FnMut`: the closure uses the captured value by mutable reference (`&mut T`)
+* `FnOnce`: the closure uses the captured value by value (`T`)
 -->
 
 * `Fn`: 参照(`&T`)によって捕捉するクロージャ
@@ -46,11 +47,12 @@ closure.
 This is because if a move is possible, then any type of borrow should also
 be possible. Note that the reverse is not true. If the parameter is
 annotated as `Fn`, then capturing variables by `&mut T` or `T` are not
-allowed.
+allowed. However, `&T` is allowed.
 -->
 
 これは、もし移動が可能であれば、いずれの種類の借用であっても同様に可能だからです。
 その逆は正しくないことに注意してください。パラメータが`Fn`としてアノテーションされている場合、変数を`&mut T`や`T`で捕捉することは許可されません。
+しかし`&T`は許可されます。
 
 <!--
 In the following example, try swapping the usage of `Fn`, `FnMut`, and

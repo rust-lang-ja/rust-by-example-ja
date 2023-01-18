@@ -10,7 +10,7 @@ Boxする方法の代替として、エラーを自前のエラー型として�
 
 ```rust,editable
 use std::error;
-use std::error::Error as _;
+use std::error::Error;
 use std::num::ParseIntError;
 use std::fmt;
 

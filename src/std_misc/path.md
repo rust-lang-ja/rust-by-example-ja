@@ -14,12 +14,19 @@ information from the file/directory the path points to.
 -->
 `Path`は`OsStr`から作ることができます。そうすればそのパスが指すファイル・ディレクトリの情報を取得するためのメソッドがいくつか使えるようになります。
 
+A `Path` is immutable. The owned version of `Path` is `PathBuf`. The relation 
+between `Path` and `PathBuf` is similar to that of `str` and `String`: 
+a `PathBuf` can be mutated in-place, and can be dereferenced to a `Path`.
+
 <!--
 Note that a `Path` is *not* internally represented as an UTF-8 string, but
-instead is stored as a vector of bytes (`Vec<u8>`). Therefore, converting a
-`Path` to a `&str` is *not* free and may fail (an `Option` is returned).
+instead is stored as an `OsString`. Therefore, converting a `Path` to a `&str`
+is *not* free and may fail (an `Option` is returned). However, a `Path` can be 
+freely converted to an `OsString` or `&OsStr` using `into_os_string` and
+`as_os_str`, respectively.
 -->
-`Path`の実態はUTF-8の文字列 **ではなく** 、バイト型のベクタ(`Vec<u8>`)であることに注意しましょう。したがって、`Path`を`&str`に変換するのは無条件 **ではなく** 、失敗する可能性があります。それゆえ`Option`型が返されます。
+`Path`の実態はUTF-8の文字列 **ではなく** 、`OsString`であることに注意しましょう。したがって、`Path`を`&str`に変換するのは無条件 **ではなく** 、失敗する可能性があります。それゆえ`Option`型が返されます。
+しかし`Path`から`OsString`あるいは`&OsStr`への変換はそれぞれ`into_os_string`と`as_os_str`によって無条件でできます。
 
 ```rust,editable
 use std::path::Path;
@@ -34,13 +41,20 @@ fn main() {
     let _display = path.display();
 
     // `join` merges a path with a byte container using the OS specific
-    // separator, and returns the new path
+    // separator, and returns a `PathBuf`
     // `join`はOS固有のセパレータによってバイトのコンテナ型であるパス
-    // を結合し、新しいパスを返す。
-    let new_path = path.join("a").join("b");
+    // を結合し、`PathBuf`を返す。
+    let mut new_path = path.join("a").join("b");
 
-    // Convert the path into a string slice
-    // パスを文字列のスライスに変換する。
+    // `push` extends the `PathBuf` with a `&Path`
+    new_path.push("c");
+    new_path.push("myfile.tar.gz");
+
+    // `set_file_name` updates the file name of the `PathBuf`
+    new_path.set_file_name("package.tgz");
+
+    // Convert the `PathBuf` into a string slice
+    // `PathBuf`を文字列のスライスに変換する。
     match new_path.to_str() {
         None => panic!("new path is not a valid UTF-8 sequence"),
         Some(s) => println!("new path is {}", s),

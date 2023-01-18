@@ -17,7 +17,11 @@ its tiny block of digits, and subsequently we will sum the intermediate sums pro
 thread.
 
 Note that, although we're passing references across thread boundaries, Rust understands that we're
-only passing read-only references, and that thus no unsafety or data races can occur. Because
+only passing read-only references, and that thus no unsafety or data races can occur. Also because
+the references we're passing have `'static` lifetimes, Rust understands that our data won't be
+destroyed while these threads are still running. (When you need to share non-`static` data between
+threads, you can use a smart pointer like `Arc` to keep the data alive and avoid non-`static`
+lifetimes.)
 we're `move`-ing the data segments into the thread, Rust will also ensure the data is kept alive
 until the threads exit, so no dangling pointers occur.
 
@@ -145,6 +149,6 @@ defined by a static constant at the beginning of the program.
 [closures]: ../../fn/closures.md
 [move]: ../../scope/move.md
 [move_closure]: https://doc.rust-lang.org/book/ch13-01-closures.html#closures-can-capture-their-environment
-[turbofish]: https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect
+[turbofish]: https://doc.rust-lang.org/book/appendix-02-operators.html?highlight=turbofish
 [unwrap]: ../../error/option_unwrap.md
 [enumerate]: https://doc.rust-lang.org/book/loops.html#enumerate

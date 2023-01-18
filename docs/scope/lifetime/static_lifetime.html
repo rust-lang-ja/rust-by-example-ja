@@ -7,9 +7,8 @@
 
 
         <!-- Custom HTML head -->
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="A description">
+        
+        <meta name="description" content="Rust by Example (RBE) is a collection of runnable examples that illustrate various Rust concepts and standard libraries.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
@@ -35,13 +34,13 @@
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -57,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -69,7 +68,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -90,7 +89,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -100,7 +99,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -136,7 +135,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -155,12 +154,11 @@ Rust has a few reserved lifetime names. One of those is `'static`. You
 might encounter it in two situations:
 -->
 <p>Rustにはいくつかの予約されたライフタイム名があります。その1つが<code>static</code>で、2つの状況で使用することがあります。</p>
-<pre><pre class="playground"><code class="language-rust  editable">// A reference with 'static lifetime:
+<pre><pre class="playground"><code class="language-rust  editable edition2021">// A reference with 'static lifetime:
 let s: &amp;'static str = &quot;hello world&quot;;
 
 // 'static as part of a trait bound:
-fn generic&lt;T&gt;(x: T) where T: 'static {}
-</code></pre></pre>
+fn generic&lt;T&gt;(x: T) where T: 'static {}</code></pre></pre>
 <p>Both are related but subtly different and this is a common source for
 confusion when learning Rust. Here are some examples for each situation:</p>
 <h2 id="reference-lifetime"><a class="header" href="#reference-lifetime">Reference lifetime</a></h2>
@@ -181,7 +179,7 @@ are stored in the read-only memory of the binary:</p>
 See the following example for a display of each method:
 -->
 <p>では、それぞれの方法の例を見ていきましょう。</p>
-<pre><pre class="playground"><code class="language-rust editable">// Make a constant with `'static` lifetime.
+<pre><pre class="playground"><code class="language-rust editable edition2021">// Make a constant with `'static` lifetime.
 // `'static`ライフタイムを持つ定数を作成
 static NUM: i32 = 18;
 
@@ -219,8 +217,7 @@ fn main() {
     }
 
     println!(&quot;NUM: {} stays accessible!&quot;, NUM);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <h2 id="trait-bound"><a class="header" href="#trait-bound">Trait bound</a></h2>
 <p>As a trait bound, it means the type does not contain any non-static
 references. Eg. the receiver can hold on to the type for as long as
@@ -228,7 +225,7 @@ they want and it will never become invalid until they drop it.</p>
 <p>It's important to understand this means that any owned data always passes
 a <code>'static</code> lifetime bound, but a reference to that owned data generally
 does not:</p>
-<pre><pre class="playground"><code class="language-rust editable compile_fail">use std::fmt::Debug;
+<pre><pre class="playground"><code class="language-rust editable compile_fail edition2021">use std::fmt::Debug;
 
 fn print_it( input: impl Debug + 'static ) {
     println!( &quot;'static value passed in is: {:?}&quot;, input );
@@ -242,8 +239,7 @@ fn main() {
     // oops, &amp;i only has the lifetime defined by the scope of
     // main(), so it's not 'static:
     print_it(&amp;i);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>The compiler will tell you:</p>
 <pre><code class="language-ignore">error[E0597]: `i` does not live long enough
   --&gt; src/lib.rs:15:15
@@ -296,24 +292,27 @@ fn main() {
 
 
 
+        <script>
+            window.playground_line_numbers = true;
+        </script>
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
 
-        <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../ace.js"></script>
+        <script src="../../editor.js"></script>
+        <script src="../../mode-rust.js"></script>
+        <script src="../../theme-dawn.js"></script>
+        <script src="../../theme-tomorrow_night.js"></script>
 
-        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
 
-        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
 
         <!-- Custom JS scripts -->
 

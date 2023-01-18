@@ -7,9 +7,8 @@
 
 
         <!-- Custom HTML head -->
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="A description">
+        
+        <meta name="description" content="Rust by Example (RBE) is a collection of runnable examples that illustrate various Rust concepts and standard libraries.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
@@ -35,13 +34,13 @@
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -57,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -69,7 +68,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -90,7 +89,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -100,7 +99,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -136,7 +135,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -151,21 +150,22 @@
 -->
 <h1 id="イテレータ"><a class="header" href="#イテレータ">イテレータ</a></h1>
 <!--
-The [`Iterator`][iter] trait is used to implement iterators over collections such as arrays.
+The [`Iterator`][iter] trait is used to implement iterators over collections
+such as arrays.
 -->
 <p><a href="https://doc.rust-lang.org/core/iter/trait.Iterator.html"><code>Iterator</code></a>トレイトは、例えば配列のような、要素の集合に対してイテレータを実装するためのトレイトです。</p>
 <!--
-The trait requires only a method to be defined for the `next` element, 
-which may be manually defined in an `impl` block or automatically 
+The trait requires only a method to be defined for the `next` element,
+which may be manually defined in an `impl` block or automatically
 defined (as in arrays and ranges).
 -->
 <p>このトレイトは<code>next</code>の要素に相当するものを決定するためのメソッドのみを要求します。このメソッドは<code>impl</code>ブロック内で手動で実装するか、あるいは（配列やrangeのように）自動で定義されます。</p>
 <!--
-As a point of convenience for common situations, the `for` construct 
+As a point of convenience for common situations, the `for` construct
 turns some collections into iterators using the [`.into_iter()`][intoiter] method.
 -->
 <p>サッとイテレータを使いたい時は、<code>for</code>文で集合からイテレータを作成することが良くあります。これは<a href="https://doc.rust-lang.org/std/iter/trait.IntoIterator.html"><code>.into_iter()</code></a>メソッドを呼び出しています。</p>
-<pre><pre class="playground"><code class="language-rust editable">struct Fibonacci {
+<pre><pre class="playground"><code class="language-rust editable edition2021">struct Fibonacci {
     curr: u32,
     next: u32,
 }
@@ -177,7 +177,7 @@ turns some collections into iterators using the [`.into_iter()`][intoiter] metho
 impl Iterator for Fibonacci {
     // We can refer to this type using Self::Item
     type Item = u32;
-    
+
     // Here, we define the sequence using `.curr` and `.next`.
     // The return type is `Option&lt;T&gt;`:
     //     * When the `Iterator` is finished, `None` is returned.
@@ -189,16 +189,16 @@ impl Iterator for Fibonacci {
     //     * `Iterator`が終了した時は`None`を返し、
     //     * そうでなければ`Some`でラップされた値を返す。
     fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
-        let new_next = self.curr + self.next;
+        let current = self.curr;
 
         self.curr = self.next;
-        self.next = new_next;
+        self.next = current + self.next;
 
         // Since there's no endpoint to a Fibonacci sequence, the `Iterator` 
         // will never return `None`, and `Some` is always returned.
         // フィボナッチ数列には終端がないので、`Iterator`は決して
         // `None`を返さず、常に`Some`が返される。
-        Some(self.curr)
+        Some(current)
     }
 }
 
@@ -250,8 +250,7 @@ fn main() {
     for i in array.iter() {
         println!(&quot;&gt; {}&quot;, i);
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 
                     </main>
 
@@ -284,24 +283,27 @@ fn main() {
 
 
 
+        <script>
+            window.playground_line_numbers = true;
+        </script>
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
 
-        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../ace.js"></script>
+        <script src="../editor.js"></script>
+        <script src="../mode-rust.js"></script>
+        <script src="../theme-dawn.js"></script>
+        <script src="../theme-tomorrow_night.js"></script>
 
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
 

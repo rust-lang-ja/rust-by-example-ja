@@ -19,6 +19,7 @@ can be used to/for:
 * link to a foreign library
 * mark functions as unit tests
 * mark functions that will be part of a benchmark
+* [attribute like macros][macros]
 -->
 * [コンパイル時の条件分岐][cfg]
 * [クレート名、バージョン、種類（バイナリか、ライブラリか）の設定][crate]
@@ -57,3 +58,4 @@ Attributes can have multiple values and can be separated over multiple lines, to
 [cfg]: attribute/cfg.md
 [crate]: attribute/crate.md
 [lint]: https://en.wikipedia.org/wiki/Lint_%28software%29
+[macros]: https://doc.rust-lang.org/book/ch19-06-macros.html#attribute-like-macros

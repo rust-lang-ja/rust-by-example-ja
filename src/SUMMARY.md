@@ -100,12 +100,14 @@
     - [match](flow_control/match.md)
         - [Destructuring](flow_control/match/destructuring.md)
             - [tuples](flow_control/match/destructuring/destructure_tuple.md)
+            - [arrays/slices](flow_control/match/destructuring/destructure_slice.md)
             - [enums](flow_control/match/destructuring/destructure_enum.md)
             - [pointers/ref](flow_control/match/destructuring/destructure_pointers.md)
             - [structs](flow_control/match/destructuring/destructure_structures.md)
         - [Guards](flow_control/match/guard.md)
         - [Binding](flow_control/match/binding.md)
     - [if let](flow_control/if_let.md)
+    - [let-else](flow_control/let_else.md)
     - [while let](flow_control/while_let.md)
 -->
 - [条件分岐](flow_control.md)
@@ -315,10 +317,12 @@
 <!--
 - [Error handling](error.md)
     - [`panic`](error/panic.md)
+    - [`abort` & `unwind`](error/abort_unwind.md)
     - [`Option` & `unwrap`](error/option_unwrap.md)
         - [Unpacking options with `?`](error/option_unwrap/question_mark.md)
         - [Combinators: `map`](error/option_unwrap/map.md)
         - [Combinators: `and_then`](error/option_unwrap/and_then.md)
+        - [Defaults: `or`, `or_else`, `get_or_insert`, 'get_or_insert_with`](error/option_unwrap/defaults.md)
     - [`Result`](error/result.md)
         - [`map` for `Result`](error/result/result_map.md)
         - [aliases for `Result`](error/result/result_alias.md)
@@ -423,6 +427,7 @@
 
 <!--
 - [Unsafe Operations](unsafe.md)
+    - [Inline assembly](unsafe/asm.md)
 -->
 - [安全でない操作](unsafe.md)
 
@@ -432,7 +437,7 @@
 <!--
 - [Meta](meta.md)
     - [Documentation](meta/doc.md)
-    - [Playpen](meta/playpen.md)
+    - [Playground](meta/playground.md)
 -->
 - [周辺情報](meta.md)
     - [ドキュメンテーション](meta/doc.md)

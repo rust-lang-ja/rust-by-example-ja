@@ -81,7 +81,8 @@ fn main() {
 ### 演習
 
 <!--
-Try changing the program so that the index of each element in the vector is also printed. The new output should look like this:
+Try changing the program so that the index of each element in the vector is also
+printed. The new output should look like this:
 -->
 上記のプログラムを変更して、ベクタの各要素のインデックスも表示するようにしてみましょう。変更後の出力は次のようになります。
 

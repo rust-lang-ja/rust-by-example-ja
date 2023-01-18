@@ -63,7 +63,7 @@ So why are macros useful?
 <!--
 3. Variadic interfaces. Sometimes you want to define an interface that takes a
    variable number of arguments. An example is `println!` which could take any
-   number of arguments, depending on the format string!. (More on this later)
+   number of arguments, depending on the format string. (More on this later)
 -->
 3. 可変個引数によるインターフェース。
    取る引数の数が可変であるようなインターフェースを定義したくなることもあるでしょう。

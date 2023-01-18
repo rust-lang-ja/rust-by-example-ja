@@ -19,6 +19,9 @@ There are three types of structures ("structs") that can be created using the
 * ユニット。これはフィールドを持たず、ジェネリック型を扱う際に有効です。
 
 ```rust,editable
+// An attribute to hide warnings for unused code.
+#![allow(dead_code)]
+
 #[derive(Debug)]
 struct Person {
     name: String,

@@ -5,11 +5,12 @@
 
 <!--
 The primary way of documenting a Rust project is through annotating the source
-code. Documentation comments are written in [markdown] and support code
-blocks in them. Rust takes care about correctness, so these code blocks are
-compiled and used as tests.
+code. Documentation comments are written in 
+[CommonMark Markdown specification][commonmark] and support code blocks in them.
+Rust takes care about correctness, so these code blocks are compiled and used 
+as documentation tests.
 -->
-Rustのプロジェクトでは、ソースコードに注釈する形でドキュメントを書くのが主流です。ドキュメンテーションコメントの記述は[markdown]で行い、コードブロックも使えます。Rustは正確性を重視しているので、コードブロックもコンパイルされ、テストとして使われます。
+Rustのプロジェクトでは、ソースコードに注釈する形でドキュメントを書くのが主流です。ドキュメンテーションコメントの記述は[CommonMark Markdown specification][commonmark]で行い、コードブロックも使えます。Rustは正確性を重視しているので、コードブロックもコンパイルされ、テストとして使われます。
 
 ```rust,ignore
 /// First line is a short summary describing function.
@@ -64,10 +65,8 @@ pub fn div(a: i32, b: i32) -> i32 {
 }
 ```
 
-<!--
-Tests can be run with `cargo test`:
--->
-`cargo test`でテストを実行できます。
+Code blocks in documentation are automatically tested
+when running the regular `cargo test` command:
 
 ```shell
 $ cargo test
@@ -96,8 +95,8 @@ the functionality, which is one of the most important
 [guidelines][question-instead-of-unwrap]. It allows using examples from docs as
 complete code snippets. But using `?` makes compilation fail since `main`
 returns `unit`. The ability to hide some source lines from documentation comes
-to the rescue: one may write `fn try_main() -> Result<(), ErrorType>`, hide it and
-`unwrap` it in hidden `main`. Sounds complicated? Here's an example:
+to the rescue: one may write `fn try_main() -> Result<(), ErrorType>`, hide it
+and `unwrap` it in hidden `main`. Sounds complicated? Here's an example:
 -->
 ドキュメンテーションテストの主な目的は、実行例を示すことであり、これは最も大切な[ガイドライン][question-instead-of-unwrap]の一つにもなっています。これにより、ドキュメントの例を実際に動くコードとして使うことができます。しかしながら、`main`が`()`を返すために、`?`を使うとコンパイルに失敗してしまいます。ドキュメンテーションでコードブロックの一部を隠す機能で、この問題に対処できます。つまり、`fn try_main() -> Result<(), ErrorType>`を定義しておきながらそれを隠し、暗黙の`main`の内部で`unwrap`するのです。複雑なので、例を見てみましょう。
 
@@ -106,11 +105,11 @@ to the rescue: one may write `fn try_main() -> Result<(), ErrorType>`, hide it a
 /// ドキュメンテーションテストで、`try_main`を隠して使う。
 ///
 /// ```
-/// # // hidden lines start with `#` symbol, but they're still compileable!
+/// # // hidden lines start with `#` symbol, but they're still compilable!
 /// # // 行頭に `#` を置くと行が隠されるが、コンパイルには成功する。
 /// # fn try_main() -> Result<(), String> { // line that wraps the body shown in doc
 /// #                                       // ドキュメントの本体を囲う行
-/// let res = try::try_div(10, 2)?;
+/// let res = doccomments::try_div(10, 2)?;
 /// # Ok(()) // returning from try_main
 /// #        // try_mainから値を返す
 /// # }
@@ -143,6 +142,7 @@ pub fn try_div(a: i32, b: i32) -> Result<i32, String> {
 * [API Guidelines][doc-nursery] ドキュメンテーションのガイドラインについて
 
 [doc-nursery]: https://rust-lang-nursery.github.io/api-guidelines/documentation.html
+[commonmark]: https://commonmark.org/
 [markdown]: https://daringfireball.net/projects/markdown/
 [RFC505]: https://github.com/rust-lang/rfcs/blob/master/text/0505-api-comment-conventions.md
 [question-instead-of-unwrap]: https://rust-lang-nursery.github.io/api-guidelines/documentation.html#examples-use--not-try-not-unwrap-c-question-mark

@@ -20,12 +20,12 @@ We can extend our `calculate!` macro from the previous section to be variadic:
 macro_rules! calculate {
     // 単一の`eval`のためのパターン
     // The pattern for a single `eval`
-    (eval $e:expr) => {{
+    (eval $e:expr) => {
         {
             let val: usize = $e; // Force types to be integers
             println!("{} = {}", stringify!{$e}, val);
         }
-    }};
+    };
 
     // 複数の`eval`を再帰的に分解する
     // Decompose multiple `eval`s recursively

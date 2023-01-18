@@ -36,7 +36,7 @@ fn main() {
     let integer = decimal as u8;
     let character = integer as char;
 
-    // Error! There are limitations in conversion rules. 
+    // Error! There are limitations in conversion rules.
     // A float cannot be directly converted to a char.
     let character = decimal as char;
     // FIXME ^ Comment out this line
@@ -73,7 +73,8 @@ fn main() {
 
     // Unless it already fits, of course.
     println!(" 128 as a i16 is: {}", 128 as i16);
-    // 128 as u8 -> 128, whose two's complement in eight bits is:
+
+    // 128 as u8 -> 128, whose value in 8-bit two's complement representation is:
     // 128をu8にキャストすると128となる。128の8ビットにおける補数は -128
     println!(" 128 as a i8 is : {}", 128 as i8);
 
@@ -81,32 +82,32 @@ fn main() {
     // 上で示した例から
     // 1000 as u8 -> 232
     println!("1000 as a u8 is : {}", 1000 as u8);
-    // and the two's complement of 232 is -24
+    // and the value of 232 in 8-bit two's complement representation is -24
     // が成り立つ。232の8ビットにおける補数は -24
     println!(" 232 as a i8 is : {}", 232 as i8);
-    
-    // Since Rust 1.45, the `as` keyword performs a *saturating cast* 
-    // when casting from float to int. If the floating point value exceeds 
-    // the upper bound or is less than the lower bound, the returned value 
+
+    // Since Rust 1.45, the `as` keyword performs a *saturating cast*
+    // when casting from float to int. If the floating point value exceeds
+    // the upper bound or is less than the lower bound, the returned value
     // will be equal to the bound crossed.
-    
-    // 300.0 is 255
-    println!("300.0 is {}", 300.0_f32 as u8);
+
+    // 300.0 as u8 is 255
+    println!(" 300.0 as u8 is : {}", 300.0_f32 as u8);
     // -100.0 as u8 is 0
-    println!("-100.0 as u8 is {}", -100.0_f32 as u8);
+    println!("-100.0 as u8 is : {}", -100.0_f32 as u8);
     // nan as u8 is 0
-    println!("nan as u8 is {}", f32::NAN as u8);
-    
-    // This behavior incurs a small runtime cost and can be avoided 
-    // with unsafe methods, however the results might overflow and 
+    println!("   nan as u8 is : {}", f32::NAN as u8);
+
+    // This behavior incurs a small runtime cost and can be avoided
+    // with unsafe methods, however the results might overflow and
     // return **unsound values**. Use these methods wisely:
     unsafe {
-        // 300.0 is 44
-        println!("300.0 is {}", 300.0_f32.to_int_unchecked::<u8>());
+        // 300.0 as u8 is 44
+        println!(" 300.0 as u8 is : {}", 300.0_f32.to_int_unchecked::<u8>());
         // -100.0 as u8 is 156
-        println!("-100.0 as u8 is {}", (-100.0_f32).to_int_unchecked::<u8>());
+        println!("-100.0 as u8 is : {}", (-100.0_f32).to_int_unchecked::<u8>());
         // nan as u8 is 0
-        println!("nan as u8 is {}", f32::NAN.to_int_unchecked::<u8>());
+        println!("   nan as u8 is : {}", f32::NAN.to_int_unchecked::<u8>());
     }
 }
 ```

@@ -38,11 +38,11 @@ foo
 ```
 
 <!--
-To tell `cargo` to compile or run this binary as opposed to the default or other
-binaries, we just pass `cargo` the `--bin my_other_bin` flag, where `my_other_bin`
-is the name of the binary we want to work with.
+To tell `cargo` to only compile or run this binary, we just pass `cargo` the
+`--bin my_other_bin` flag, where `my_other_bin` is the name of the binary we
+want to work with.
 -->
-デフォルトバイナリや他のバイナリではなく、このバイナリをコンパイルや実行するように`cargo`に伝えるには、`cargo`に`--bin my_other_bin`フラグを渡します。ここでは`my_other_bin`が対象のバイナリの名前です。
+このバイナリだけをコンパイルや実行するように`cargo`に伝えるには、`cargo`に`--bin my_other_bin`フラグを渡します。ここでは`my_other_bin`が対象のバイナリの名前です。
 
 <!--
 In addition to extra binaries, `cargo` supports [more features] such as

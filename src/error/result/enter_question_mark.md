@@ -65,7 +65,7 @@ would look like this using `try!`:
 -->
 `?`ができる前、同様の動作を`try!`マクロによって行うことができました。現在は`?`オペレータが推奨されていますが、古いコードでは`try!`に出会うこともあります。`try!`を使って前の例と同じ`multiply`関数を実装すると、以下のようになるでしょう。
 
-```rust,editable
+```rust,editable,edition2015
 // To compile and run this example without errors, while using Cargo, change the value 
 // of the `edition` field, in the `[package]` section of the `Cargo.toml` file, to "2015".
 // Cargoを使いながらこの例をエラーなくコンパイル、及び実行する場合、
