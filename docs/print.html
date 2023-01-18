@@ -8,8 +8,7 @@
 
 
         <!-- Custom HTML head -->
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="Rust by Example (RBE) is a collection of runnable examples that illustrate various Rust concepts and standard libraries.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -36,13 +35,13 @@
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -58,7 +57,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -70,7 +69,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -83,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="index.html">Introduction</a></li><li class="chapter-item "><a href="hello.html"><strong aria-hidden="true">1.</strong> Hello World</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="hello/comment.html"><strong aria-hidden="true">1.1.</strong> コメント</a></li><li class="chapter-item "><a href="hello/print.html"><strong aria-hidden="true">1.2.</strong> フォーマットしてプリント</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="hello/print/print_debug.html"><strong aria-hidden="true">1.2.1.</strong> デバッグ</a></li><li class="chapter-item "><a href="hello/print/print_display.html"><strong aria-hidden="true">1.2.2.</strong> ディスプレイ</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="hello/print/print_display/testcase_list.html"><strong aria-hidden="true">1.2.2.1.</strong> テストケース: リスト</a></li></ol></li><li class="chapter-item "><a href="hello/print/fmt.html"><strong aria-hidden="true">1.2.3.</strong> フォーマット</a></li></ol></li></ol></li><li class="chapter-item "><a href="primitives.html"><strong aria-hidden="true">2.</strong> 基本データ型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="primitives/literals.html"><strong aria-hidden="true">2.1.</strong> リテラルとオペレータ</a></li><li class="chapter-item "><a href="primitives/tuples.html"><strong aria-hidden="true">2.2.</strong> タプル</a></li><li class="chapter-item "><a href="primitives/array.html"><strong aria-hidden="true">2.3.</strong> 配列とスライス</a></li></ol></li><li class="chapter-item "><a href="custom_types.html"><strong aria-hidden="true">3.</strong> カスタム型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="custom_types/structs.html"><strong aria-hidden="true">3.1.</strong> 構造体</a></li><li class="chapter-item "><a href="custom_types/enum.html"><strong aria-hidden="true">3.2.</strong> 列挙型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="custom_types/enum/enum_use.html"><strong aria-hidden="true">3.2.1.</strong> use</a></li><li class="chapter-item "><a href="custom_types/enum/c_like.html"><strong aria-hidden="true">3.2.2.</strong> C言語ライクな列挙型</a></li><li class="chapter-item "><a href="custom_types/enum/testcase_linked_list.html"><strong aria-hidden="true">3.2.3.</strong> テストケース: 連結リスト</a></li></ol></li><li class="chapter-item "><a href="custom_types/constants.html"><strong aria-hidden="true">3.3.</strong> 定数</a></li></ol></li><li class="chapter-item "><a href="variable_bindings.html"><strong aria-hidden="true">4.</strong> 変数束縛</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="variable_bindings/mut.html"><strong aria-hidden="true">4.1.</strong> ミュータビリティ</a></li><li class="chapter-item "><a href="variable_bindings/scope.html"><strong aria-hidden="true">4.2.</strong> スコープとシャドーイング</a></li><li class="chapter-item "><a href="variable_bindings/declare.html"><strong aria-hidden="true">4.3.</strong> 宣言</a></li><li class="chapter-item "><a href="variable_bindings/freeze.html"><strong aria-hidden="true">4.4.</strong> 値の凍結</a></li></ol></li><li class="chapter-item "><a href="types.html"><strong aria-hidden="true">5.</strong> 型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="types/cast.html"><strong aria-hidden="true">5.1.</strong> 型キャスティング</a></li><li class="chapter-item "><a href="types/literals.html"><strong aria-hidden="true">5.2.</strong> リテラル</a></li><li class="chapter-item "><a href="types/inference.html"><strong aria-hidden="true">5.3.</strong> 型推論</a></li><li class="chapter-item "><a href="types/alias.html"><strong aria-hidden="true">5.4.</strong> エイリアス</a></li></ol></li><li class="chapter-item "><a href="conversion.html"><strong aria-hidden="true">6.</strong> 型変換</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="conversion/from_into.html"><strong aria-hidden="true">6.1.</strong> FromおよびInto</a></li><li class="chapter-item "><a href="conversion/try_from_try_into.html"><strong aria-hidden="true">6.2.</strong> TryFromおよびTryInto</a></li><li class="chapter-item "><a href="conversion/string.html"><strong aria-hidden="true">6.3.</strong> Stringとの型変換</a></li></ol></li><li class="chapter-item "><a href="expression.html"><strong aria-hidden="true">7.</strong> 式</a></li><li class="chapter-item "><a href="flow_control.html"><strong aria-hidden="true">8.</strong> 条件分岐</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="flow_control/if_else.html"><strong aria-hidden="true">8.1.</strong> if/else</a></li><li class="chapter-item "><a href="flow_control/loop.html"><strong aria-hidden="true">8.2.</strong> loop</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="flow_control/loop/nested.html"><strong aria-hidden="true">8.2.1.</strong> ネストとラベル</a></li><li class="chapter-item "><a href="flow_control/loop/return.html"><strong aria-hidden="true">8.2.2.</strong> loopが返す値</a></li></ol></li><li class="chapter-item "><a href="flow_control/while.html"><strong aria-hidden="true">8.3.</strong> while</a></li><li class="chapter-item "><a href="flow_control/for.html"><strong aria-hidden="true">8.4.</strong> for と range</a></li><li class="chapter-item "><a href="flow_control/match.html"><strong aria-hidden="true">8.5.</strong> match</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="flow_control/match/destructuring.html"><strong aria-hidden="true">8.5.1.</strong> デストラクト</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="flow_control/match/destructuring/destructure_tuple.html"><strong aria-hidden="true">8.5.1.1.</strong> タプル</a></li><li class="chapter-item "><a href="flow_control/match/destructuring/destructure_enum.html"><strong aria-hidden="true">8.5.1.2.</strong> 列挙型</a></li><li class="chapter-item "><a href="flow_control/match/destructuring/destructure_pointers.html"><strong aria-hidden="true">8.5.1.3.</strong> ポインタとref</a></li><li class="chapter-item "><a href="flow_control/match/destructuring/destructure_structures.html"><strong aria-hidden="true">8.5.1.4.</strong> 構造体</a></li></ol></li><li class="chapter-item "><a href="flow_control/match/guard.html"><strong aria-hidden="true">8.5.2.</strong> ガード</a></li><li class="chapter-item "><a href="flow_control/match/binding.html"><strong aria-hidden="true">8.5.3.</strong> バインディング</a></li></ol></li><li class="chapter-item "><a href="flow_control/if_let.html"><strong aria-hidden="true">8.6.</strong> if let</a></li><li class="chapter-item "><a href="flow_control/while_let.html"><strong aria-hidden="true">8.7.</strong> while let</a></li></ol></li><li class="chapter-item "><a href="fn.html"><strong aria-hidden="true">9.</strong> 関数</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="fn/methods.html"><strong aria-hidden="true">9.1.</strong> メソッド</a></li><li class="chapter-item "><a href="fn/closures.html"><strong aria-hidden="true">9.2.</strong> クロージャ</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="fn/closures/capture.html"><strong aria-hidden="true">9.2.1.</strong> 要素の捕捉</a></li><li class="chapter-item "><a href="fn/closures/input_parameters.html"><strong aria-hidden="true">9.2.2.</strong> 捕捉時の型推論</a></li><li class="chapter-item "><a href="fn/closures/anonymity.html"><strong aria-hidden="true">9.2.3.</strong> クロージャを受け取る関数</a></li><li class="chapter-item "><a href="fn/closures/input_functions.html"><strong aria-hidden="true">9.2.4.</strong> 関数を受け取る関数</a></li><li class="chapter-item "><a href="fn/closures/output_parameters.html"><strong aria-hidden="true">9.2.5.</strong> クロージャを返す関数</a></li><li class="chapter-item "><a href="fn/closures/closure_examples.html"><strong aria-hidden="true">9.2.6.</strong> stdにおける使用例</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="fn/closures/closure_examples/iter_any.html"><strong aria-hidden="true">9.2.6.1.</strong> Iterator::any</a></li><li class="chapter-item "><a href="fn/closures/closure_examples/iter_find.html"><strong aria-hidden="true">9.2.6.2.</strong> Iterator::find</a></li></ol></li></ol></li><li class="chapter-item "><a href="fn/hof.html"><strong aria-hidden="true">9.3.</strong> 高階関数</a></li><li class="chapter-item "><a href="fn/diverging.html"><strong aria-hidden="true">9.4.</strong> 発散する関数</a></li></ol></li><li class="chapter-item "><a href="mod.html"><strong aria-hidden="true">10.</strong> モジュール</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="mod/visibility.html"><strong aria-hidden="true">10.1.</strong> プライベートとパブリック</a></li><li class="chapter-item "><a href="mod/struct_visibility.html"><strong aria-hidden="true">10.2.</strong> 構造体の場合</a></li><li class="chapter-item "><a href="mod/use.html"><strong aria-hidden="true">10.3.</strong> use宣言</a></li><li class="chapter-item "><a href="mod/super.html"><strong aria-hidden="true">10.4.</strong> super と self</a></li><li class="chapter-item "><a href="mod/split.html"><strong aria-hidden="true">10.5.</strong> ファイルの階層構造</a></li></ol></li><li class="chapter-item "><a href="crates.html"><strong aria-hidden="true">11.</strong> クレート</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="crates/lib.html"><strong aria-hidden="true">11.1.</strong> Creating a Library</a></li><li class="chapter-item "><a href="crates/using_lib.html"><strong aria-hidden="true">11.2.</strong> Using a Library</a></li></ol></li><li class="chapter-item "><a href="cargo.html"><strong aria-hidden="true">12.</strong> Cargo</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="cargo/deps.html"><strong aria-hidden="true">12.1.</strong> Dependencies</a></li><li class="chapter-item "><a href="cargo/conventions.html"><strong aria-hidden="true">12.2.</strong> Conventions</a></li><li class="chapter-item "><a href="cargo/test.html"><strong aria-hidden="true">12.3.</strong> Tests</a></li><li class="chapter-item "><a href="cargo/build_scripts.html"><strong aria-hidden="true">12.4.</strong> Build Scripts</a></li></ol></li><li class="chapter-item "><a href="attribute.html"><strong aria-hidden="true">13.</strong> アトリビュート</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="attribute/unused.html"><strong aria-hidden="true">13.1.</strong> dead_code</a></li><li class="chapter-item "><a href="attribute/crate.html"><strong aria-hidden="true">13.2.</strong> クレート</a></li><li class="chapter-item "><a href="attribute/cfg.html"><strong aria-hidden="true">13.3.</strong> cfg</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="attribute/cfg/custom.html"><strong aria-hidden="true">13.3.1.</strong> 条件の追加</a></li></ol></li></ol></li><li class="chapter-item "><a href="generics.html"><strong aria-hidden="true">14.</strong> ジェネリクス</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="generics/gen_fn.html"><strong aria-hidden="true">14.1.</strong> 関数</a></li><li class="chapter-item "><a href="generics/impl.html"><strong aria-hidden="true">14.2.</strong> メソッド</a></li><li class="chapter-item "><a href="generics/gen_trait.html"><strong aria-hidden="true">14.3.</strong> ジェネリックトレイト</a></li><li class="chapter-item "><a href="generics/bounds.html"><strong aria-hidden="true">14.4.</strong> ジェネリック境界</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="generics/bounds/testcase_empty.html"><strong aria-hidden="true">14.4.1.</strong> テストケース: 空トレイト</a></li></ol></li><li class="chapter-item "><a href="generics/multi_bounds.html"><strong aria-hidden="true">14.5.</strong> 複数のジェネリック境界</a></li><li class="chapter-item "><a href="generics/where.html"><strong aria-hidden="true">14.6.</strong> Where句</a></li><li class="chapter-item "><a href="generics/new_types.html"><strong aria-hidden="true">14.7.</strong> ニュータイプイディオム</a></li><li class="chapter-item "><a href="generics/assoc_items.html"><strong aria-hidden="true">14.8.</strong> 関連型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="generics/assoc_items/the_problem.html"><strong aria-hidden="true">14.8.1.</strong> 関連型が必要になる状況</a></li><li class="chapter-item "><a href="generics/assoc_items/types.html"><strong aria-hidden="true">14.8.2.</strong> 関連型</a></li></ol></li><li class="chapter-item "><a href="generics/phantom.html"><strong aria-hidden="true">14.9.</strong> 幽霊型パラメータ</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="generics/phantom/testcase_units.html"><strong aria-hidden="true">14.9.1.</strong> テストケース: 単位を扱う</a></li></ol></li></ol></li><li class="chapter-item "><a href="scope.html"><strong aria-hidden="true">15.</strong> スコーピングの規則</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="scope/raii.html"><strong aria-hidden="true">15.1.</strong> RAII</a></li><li class="chapter-item "><a href="scope/move.html"><strong aria-hidden="true">15.2.</strong> 所有権とムーブ</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="scope/move/mut.html"><strong aria-hidden="true">15.2.1.</strong> ミュータビリティ</a></li><li class="chapter-item "><a href="scope/move/partial_move.html"><strong aria-hidden="true">15.2.2.</strong> 部分的ムーブ</a></li></ol></li><li class="chapter-item "><a href="scope/borrow.html"><strong aria-hidden="true">15.3.</strong> 借用</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="scope/borrow/mut.html"><strong aria-hidden="true">15.3.1.</strong> ミュータビリティ</a></li><li class="chapter-item "><a href="scope/borrow/alias.html"><strong aria-hidden="true">15.3.2.</strong> エイリアス</a></li><li class="chapter-item "><a href="scope/borrow/ref.html"><strong aria-hidden="true">15.3.3.</strong> refパターン</a></li></ol></li><li class="chapter-item "><a href="scope/lifetime.html"><strong aria-hidden="true">15.4.</strong> ライフタイム</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="scope/lifetime/explicit.html"><strong aria-hidden="true">15.4.1.</strong> 明示的アノテーション</a></li><li class="chapter-item "><a href="scope/lifetime/fn.html"><strong aria-hidden="true">15.4.2.</strong> 関数</a></li><li class="chapter-item "><a href="scope/lifetime/methods.html"><strong aria-hidden="true">15.4.3.</strong> メソッド</a></li><li class="chapter-item "><a href="scope/lifetime/struct.html"><strong aria-hidden="true">15.4.4.</strong> 構造体</a></li><li class="chapter-item "><a href="scope/lifetime/trait.html"><strong aria-hidden="true">15.4.5.</strong> Traits</a></li><li class="chapter-item "><a href="scope/lifetime/lifetime_bounds.html"><strong aria-hidden="true">15.4.6.</strong> ライフタイム境界</a></li><li class="chapter-item "><a href="scope/lifetime/lifetime_coercion.html"><strong aria-hidden="true">15.4.7.</strong> 圧縮</a></li><li class="chapter-item "><a href="scope/lifetime/static_lifetime.html"><strong aria-hidden="true">15.4.8.</strong> スタティックライフタイム</a></li><li class="chapter-item "><a href="scope/lifetime/elision.html"><strong aria-hidden="true">15.4.9.</strong> 省略</a></li></ol></li></ol></li><li class="chapter-item "><a href="trait.html"><strong aria-hidden="true">16.</strong> トレイト</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="trait/derive.html"><strong aria-hidden="true">16.1.</strong> 継承(Derive)</a></li><li class="chapter-item "><a href="trait/dyn.html"><strong aria-hidden="true">16.2.</strong> Returning Traits with dyn</a></li><li class="chapter-item "><a href="trait/ops.html"><strong aria-hidden="true">16.3.</strong> 演算子のオーバーロード</a></li><li class="chapter-item "><a href="trait/drop.html"><strong aria-hidden="true">16.4.</strong> メモリ解放</a></li><li class="chapter-item "><a href="trait/iter.html"><strong aria-hidden="true">16.5.</strong> イテレータ</a></li><li class="chapter-item "><a href="trait/impl_trait.html"><strong aria-hidden="true">16.6.</strong> impl Trait</a></li><li class="chapter-item "><a href="trait/clone.html"><strong aria-hidden="true">16.7.</strong> クローン</a></li><li class="chapter-item "><a href="trait/supertraits.html"><strong aria-hidden="true">16.8.</strong> Supertraits</a></li><li class="chapter-item "><a href="trait/disambiguating.html"><strong aria-hidden="true">16.9.</strong> Disambiguating overlapping traits</a></li></ol></li><li class="chapter-item "><a href="macros.html"><strong aria-hidden="true">17.</strong> macro_rules!</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="macros/syntax.html"><strong aria-hidden="true">17.1.</strong> 構文</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="macros/designators.html"><strong aria-hidden="true">17.1.1.</strong> 識別子</a></li><li class="chapter-item "><a href="macros/overload.html"><strong aria-hidden="true">17.1.2.</strong> オーバーロード</a></li><li class="chapter-item "><a href="macros/repeat.html"><strong aria-hidden="true">17.1.3.</strong> 繰り返し</a></li></ol></li><li class="chapter-item "><a href="macros/dry.html"><strong aria-hidden="true">17.2.</strong> DRY (Don't Repeat Yourself)</a></li><li class="chapter-item "><a href="macros/dsl.html"><strong aria-hidden="true">17.3.</strong> Domain Specific Languages (ドメイン特化言語、DSLs)</a></li><li class="chapter-item "><a href="macros/variadics.html"><strong aria-hidden="true">17.4.</strong> 可変個引数</a></li></ol></li><li class="chapter-item "><a href="error.html"><strong aria-hidden="true">18.</strong> エラーハンドリング</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="error/panic.html"><strong aria-hidden="true">18.1.</strong> panic</a></li><li class="chapter-item "><a href="error/option_unwrap.html"><strong aria-hidden="true">18.2.</strong> Option と unwrap</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="error/option_unwrap/question_mark.html"><strong aria-hidden="true">18.2.1.</strong> ?によるOptionのアンパック</a></li><li class="chapter-item "><a href="error/option_unwrap/map.html"><strong aria-hidden="true">18.2.2.</strong> Combinators: map</a></li><li class="chapter-item "><a href="error/option_unwrap/and_then.html"><strong aria-hidden="true">18.2.3.</strong> Combinators: and_then</a></li></ol></li><li class="chapter-item "><a href="error/result.html"><strong aria-hidden="true">18.3.</strong> Result</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="error/result/result_map.html"><strong aria-hidden="true">18.3.1.</strong> Resultのmap</a></li><li class="chapter-item "><a href="error/result/result_alias.html"><strong aria-hidden="true">18.3.2.</strong> Resultに対するエイリアス</a></li><li class="chapter-item "><a href="error/result/early_returns.html"><strong aria-hidden="true">18.3.3.</strong> 早期リターン</a></li><li class="chapter-item "><a href="error/result/enter_question_mark.html"><strong aria-hidden="true">18.3.4.</strong> ?の導入</a></li></ol></li><li class="chapter-item "><a href="error/multiple_error_types.html"><strong aria-hidden="true">18.4.</strong> 複数のエラー型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="error/multiple_error_types/option_result.html"><strong aria-hidden="true">18.4.1.</strong> OptionからResultを取り出す</a></li><li class="chapter-item "><a href="error/multiple_error_types/define_error_type.html"><strong aria-hidden="true">18.4.2.</strong> エラー型を定義する</a></li><li class="chapter-item "><a href="error/multiple_error_types/boxing_errors.html"><strong aria-hidden="true">18.4.3.</strong> エラーをBoxする</a></li><li class="chapter-item "><a href="error/multiple_error_types/reenter_question_mark.html"><strong aria-hidden="true">18.4.4.</strong> ?の他の活用法</a></li><li class="chapter-item "><a href="error/multiple_error_types/wrap_error.html"><strong aria-hidden="true">18.4.5.</strong> エラーをラップする</a></li></ol></li><li class="chapter-item "><a href="error/iter_result.html"><strong aria-hidden="true">18.5.</strong> Resultをイテレートする</a></li></ol></li><li class="chapter-item "><a href="std.html"><strong aria-hidden="true">19.</strong> 標準ライブラリの型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="std/box.html"><strong aria-hidden="true">19.1.</strong> Box, スタックとヒープ</a></li><li class="chapter-item "><a href="std/vec.html"><strong aria-hidden="true">19.2.</strong> ベクタ型</a></li><li class="chapter-item "><a href="std/str.html"><strong aria-hidden="true">19.3.</strong> 文字列</a></li><li class="chapter-item "><a href="std/option.html"><strong aria-hidden="true">19.4.</strong> Option</a></li><li class="chapter-item "><a href="std/result.html"><strong aria-hidden="true">19.5.</strong> Result</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="std/result/question_mark.html"><strong aria-hidden="true">19.5.1.</strong> ?</a></li></ol></li><li class="chapter-item "><a href="std/panic.html"><strong aria-hidden="true">19.6.</strong> panic!</a></li><li class="chapter-item "><a href="std/hash.html"><strong aria-hidden="true">19.7.</strong> ハッシュマップ</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="std/hash/alt_key_types.html"><strong aria-hidden="true">19.7.1.</strong> key型の変種</a></li><li class="chapter-item "><a href="std/hash/hashset.html"><strong aria-hidden="true">19.7.2.</strong> ハッシュ集合</a></li></ol></li><li class="chapter-item "><a href="std/rc.html"><strong aria-hidden="true">19.8.</strong> Rc</a></li><li class="chapter-item "><a href="std/arc.html"><strong aria-hidden="true">19.9.</strong> Arc</a></li></ol></li><li class="chapter-item "><a href="std_misc.html"><strong aria-hidden="true">20.</strong> 標準ライブラリのその他</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="std_misc/threads.html"><strong aria-hidden="true">20.1.</strong> スレッド</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="std_misc/threads/testcase_mapreduce.html"><strong aria-hidden="true">20.1.1.</strong> Testcase: map-reduce</a></li></ol></li><li class="chapter-item "><a href="std_misc/channels.html"><strong aria-hidden="true">20.2.</strong> チャネル</a></li><li class="chapter-item "><a href="std_misc/path.html"><strong aria-hidden="true">20.3.</strong> Path</a></li><li class="chapter-item "><a href="std_misc/file.html"><strong aria-hidden="true">20.4.</strong> ファイル I/O</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="std_misc/file/open.html"><strong aria-hidden="true">20.4.1.</strong> open</a></li><li class="chapter-item "><a href="std_misc/file/create.html"><strong aria-hidden="true">20.4.2.</strong> create</a></li><li class="chapter-item "><a href="std_misc/file/read_lines.html"><strong aria-hidden="true">20.4.3.</strong> read lines</a></li></ol></li><li class="chapter-item "><a href="std_misc/process.html"><strong aria-hidden="true">20.5.</strong> 子プロセス</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="std_misc/process/pipe.html"><strong aria-hidden="true">20.5.1.</strong> パイプ</a></li><li class="chapter-item "><a href="std_misc/process/wait.html"><strong aria-hidden="true">20.5.2.</strong> dropの延期</a></li></ol></li><li class="chapter-item "><a href="std_misc/fs.html"><strong aria-hidden="true">20.6.</strong> ファイルシステムとのやり取り</a></li><li class="chapter-item "><a href="std_misc/arg.html"><strong aria-hidden="true">20.7.</strong> 引数処理</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="std_misc/arg/matching.html"><strong aria-hidden="true">20.7.1.</strong> 引数のパース</a></li></ol></li><li class="chapter-item "><a href="std_misc/ffi.html"><strong aria-hidden="true">20.8.</strong> 他言語関数インターフェイス</a></li></ol></li><li class="chapter-item "><a href="testing.html"><strong aria-hidden="true">21.</strong> Testing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="testing/unit_testing.html"><strong aria-hidden="true">21.1.</strong> Unit testing</a></li><li class="chapter-item "><a href="testing/doc_testing.html"><strong aria-hidden="true">21.2.</strong> Documentation testing</a></li><li class="chapter-item "><a href="testing/integration_testing.html"><strong aria-hidden="true">21.3.</strong> Integration testing</a></li><li class="chapter-item "><a href="testing/dev_dependencies.html"><strong aria-hidden="true">21.4.</strong> Dev-dependencies</a></li></ol></li><li class="chapter-item "><a href="unsafe.html"><strong aria-hidden="true">22.</strong> 安全でない操作</a></li><li class="chapter-item "><a href="compatibility.html"><strong aria-hidden="true">23.</strong> Compatibility</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="compatibility/raw_identifiers.html"><strong aria-hidden="true">23.1.</strong> Raw identifiers</a></li></ol></li><li class="chapter-item "><a href="meta.html"><strong aria-hidden="true">24.</strong> 周辺情報</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="meta/doc.html"><strong aria-hidden="true">24.1.</strong> ドキュメンテーション</a></li><li class="chapter-item "><a href="meta/playpen.html"><strong aria-hidden="true">24.2.</strong> Playpen</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="index.html">Introduction</a></li><li class="chapter-item "><a href="hello.html"><strong aria-hidden="true">1.</strong> Hello World</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="hello/comment.html"><strong aria-hidden="true">1.1.</strong> コメント</a></li><li class="chapter-item "><a href="hello/print.html"><strong aria-hidden="true">1.2.</strong> フォーマットしてプリント</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="hello/print/print_debug.html"><strong aria-hidden="true">1.2.1.</strong> デバッグ</a></li><li class="chapter-item "><a href="hello/print/print_display.html"><strong aria-hidden="true">1.2.2.</strong> ディスプレイ</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="hello/print/print_display/testcase_list.html"><strong aria-hidden="true">1.2.2.1.</strong> テストケース: リスト</a></li></ol></li><li class="chapter-item "><a href="hello/print/fmt.html"><strong aria-hidden="true">1.2.3.</strong> フォーマット</a></li></ol></li></ol></li><li class="chapter-item "><a href="primitives.html"><strong aria-hidden="true">2.</strong> 基本データ型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="primitives/literals.html"><strong aria-hidden="true">2.1.</strong> リテラルとオペレータ</a></li><li class="chapter-item "><a href="primitives/tuples.html"><strong aria-hidden="true">2.2.</strong> タプル</a></li><li class="chapter-item "><a href="primitives/array.html"><strong aria-hidden="true">2.3.</strong> 配列とスライス</a></li></ol></li><li class="chapter-item "><a href="custom_types.html"><strong aria-hidden="true">3.</strong> カスタム型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="custom_types/structs.html"><strong aria-hidden="true">3.1.</strong> 構造体</a></li><li class="chapter-item "><a href="custom_types/enum.html"><strong aria-hidden="true">3.2.</strong> 列挙型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="custom_types/enum/enum_use.html"><strong aria-hidden="true">3.2.1.</strong> use</a></li><li class="chapter-item "><a href="custom_types/enum/c_like.html"><strong aria-hidden="true">3.2.2.</strong> C言語ライクな列挙型</a></li><li class="chapter-item "><a href="custom_types/enum/testcase_linked_list.html"><strong aria-hidden="true">3.2.3.</strong> テストケース: 連結リスト</a></li></ol></li><li class="chapter-item "><a href="custom_types/constants.html"><strong aria-hidden="true">3.3.</strong> 定数</a></li></ol></li><li class="chapter-item "><a href="variable_bindings.html"><strong aria-hidden="true">4.</strong> 変数束縛</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="variable_bindings/mut.html"><strong aria-hidden="true">4.1.</strong> ミュータビリティ</a></li><li class="chapter-item "><a href="variable_bindings/scope.html"><strong aria-hidden="true">4.2.</strong> スコープとシャドーイング</a></li><li class="chapter-item "><a href="variable_bindings/declare.html"><strong aria-hidden="true">4.3.</strong> 宣言</a></li><li class="chapter-item "><a href="variable_bindings/freeze.html"><strong aria-hidden="true">4.4.</strong> 値の凍結</a></li></ol></li><li class="chapter-item "><a href="types.html"><strong aria-hidden="true">5.</strong> 型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="types/cast.html"><strong aria-hidden="true">5.1.</strong> 型キャスティング</a></li><li class="chapter-item "><a href="types/literals.html"><strong aria-hidden="true">5.2.</strong> リテラル</a></li><li class="chapter-item "><a href="types/inference.html"><strong aria-hidden="true">5.3.</strong> 型推論</a></li><li class="chapter-item "><a href="types/alias.html"><strong aria-hidden="true">5.4.</strong> エイリアス</a></li></ol></li><li class="chapter-item "><a href="conversion.html"><strong aria-hidden="true">6.</strong> 型変換</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="conversion/from_into.html"><strong aria-hidden="true">6.1.</strong> FromおよびInto</a></li><li class="chapter-item "><a href="conversion/try_from_try_into.html"><strong aria-hidden="true">6.2.</strong> TryFromおよびTryInto</a></li><li class="chapter-item "><a href="conversion/string.html"><strong aria-hidden="true">6.3.</strong> Stringとの型変換</a></li></ol></li><li class="chapter-item "><a href="expression.html"><strong aria-hidden="true">7.</strong> 式</a></li><li class="chapter-item "><a href="flow_control.html"><strong aria-hidden="true">8.</strong> 条件分岐</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="flow_control/if_else.html"><strong aria-hidden="true">8.1.</strong> if/else</a></li><li class="chapter-item "><a href="flow_control/loop.html"><strong aria-hidden="true">8.2.</strong> loop</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="flow_control/loop/nested.html"><strong aria-hidden="true">8.2.1.</strong> ネストとラベル</a></li><li class="chapter-item "><a href="flow_control/loop/return.html"><strong aria-hidden="true">8.2.2.</strong> loopが返す値</a></li></ol></li><li class="chapter-item "><a href="flow_control/while.html"><strong aria-hidden="true">8.3.</strong> while</a></li><li class="chapter-item "><a href="flow_control/for.html"><strong aria-hidden="true">8.4.</strong> for と range</a></li><li class="chapter-item "><a href="flow_control/match.html"><strong aria-hidden="true">8.5.</strong> match</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="flow_control/match/destructuring.html"><strong aria-hidden="true">8.5.1.</strong> デストラクト</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="flow_control/match/destructuring/destructure_tuple.html"><strong aria-hidden="true">8.5.1.1.</strong> タプル</a></li><li class="chapter-item "><a href="flow_control/match/destructuring/destructure_slice.html"><strong aria-hidden="true">8.5.1.2.</strong> arrays/slices</a></li><li class="chapter-item "><a href="flow_control/match/destructuring/destructure_enum.html"><strong aria-hidden="true">8.5.1.3.</strong> 列挙型</a></li><li class="chapter-item "><a href="flow_control/match/destructuring/destructure_pointers.html"><strong aria-hidden="true">8.5.1.4.</strong> ポインタとref</a></li><li class="chapter-item "><a href="flow_control/match/destructuring/destructure_structures.html"><strong aria-hidden="true">8.5.1.5.</strong> 構造体</a></li></ol></li><li class="chapter-item "><a href="flow_control/match/guard.html"><strong aria-hidden="true">8.5.2.</strong> ガード</a></li><li class="chapter-item "><a href="flow_control/match/binding.html"><strong aria-hidden="true">8.5.3.</strong> バインディング</a></li></ol></li><li class="chapter-item "><a href="flow_control/if_let.html"><strong aria-hidden="true">8.6.</strong> if let</a></li><li class="chapter-item "><a href="flow_control/let_else.html"><strong aria-hidden="true">8.7.</strong> let-else</a></li><li class="chapter-item "><a href="flow_control/while_let.html"><strong aria-hidden="true">8.8.</strong> while let</a></li></ol></li><li class="chapter-item "><a href="fn.html"><strong aria-hidden="true">9.</strong> 関数</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="fn/methods.html"><strong aria-hidden="true">9.1.</strong> メソッド</a></li><li class="chapter-item "><a href="fn/closures.html"><strong aria-hidden="true">9.2.</strong> クロージャ</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="fn/closures/capture.html"><strong aria-hidden="true">9.2.1.</strong> 要素の捕捉</a></li><li class="chapter-item "><a href="fn/closures/input_parameters.html"><strong aria-hidden="true">9.2.2.</strong> 捕捉時の型推論</a></li><li class="chapter-item "><a href="fn/closures/anonymity.html"><strong aria-hidden="true">9.2.3.</strong> クロージャを受け取る関数</a></li><li class="chapter-item "><a href="fn/closures/input_functions.html"><strong aria-hidden="true">9.2.4.</strong> 関数を受け取る関数</a></li><li class="chapter-item "><a href="fn/closures/output_parameters.html"><strong aria-hidden="true">9.2.5.</strong> クロージャを返す関数</a></li><li class="chapter-item "><a href="fn/closures/closure_examples.html"><strong aria-hidden="true">9.2.6.</strong> stdにおける使用例</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="fn/closures/closure_examples/iter_any.html"><strong aria-hidden="true">9.2.6.1.</strong> Iterator::any</a></li><li class="chapter-item "><a href="fn/closures/closure_examples/iter_find.html"><strong aria-hidden="true">9.2.6.2.</strong> Iterator::find</a></li></ol></li></ol></li><li class="chapter-item "><a href="fn/hof.html"><strong aria-hidden="true">9.3.</strong> 高階関数</a></li><li class="chapter-item "><a href="fn/diverging.html"><strong aria-hidden="true">9.4.</strong> 発散する関数</a></li></ol></li><li class="chapter-item "><a href="mod.html"><strong aria-hidden="true">10.</strong> モジュール</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="mod/visibility.html"><strong aria-hidden="true">10.1.</strong> プライベートとパブリック</a></li><li class="chapter-item "><a href="mod/struct_visibility.html"><strong aria-hidden="true">10.2.</strong> 構造体の場合</a></li><li class="chapter-item "><a href="mod/use.html"><strong aria-hidden="true">10.3.</strong> use宣言</a></li><li class="chapter-item "><a href="mod/super.html"><strong aria-hidden="true">10.4.</strong> super と self</a></li><li class="chapter-item "><a href="mod/split.html"><strong aria-hidden="true">10.5.</strong> ファイルの階層構造</a></li></ol></li><li class="chapter-item "><a href="crates.html"><strong aria-hidden="true">11.</strong> クレート</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="crates/lib.html"><strong aria-hidden="true">11.1.</strong> Creating a Library</a></li><li class="chapter-item "><a href="crates/using_lib.html"><strong aria-hidden="true">11.2.</strong> Using a Library</a></li></ol></li><li class="chapter-item "><a href="cargo.html"><strong aria-hidden="true">12.</strong> Cargo</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="cargo/deps.html"><strong aria-hidden="true">12.1.</strong> Dependencies</a></li><li class="chapter-item "><a href="cargo/conventions.html"><strong aria-hidden="true">12.2.</strong> Conventions</a></li><li class="chapter-item "><a href="cargo/test.html"><strong aria-hidden="true">12.3.</strong> Tests</a></li><li class="chapter-item "><a href="cargo/build_scripts.html"><strong aria-hidden="true">12.4.</strong> Build Scripts</a></li></ol></li><li class="chapter-item "><a href="attribute.html"><strong aria-hidden="true">13.</strong> アトリビュート</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="attribute/unused.html"><strong aria-hidden="true">13.1.</strong> dead_code</a></li><li class="chapter-item "><a href="attribute/crate.html"><strong aria-hidden="true">13.2.</strong> クレート</a></li><li class="chapter-item "><a href="attribute/cfg.html"><strong aria-hidden="true">13.3.</strong> cfg</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="attribute/cfg/custom.html"><strong aria-hidden="true">13.3.1.</strong> 条件の追加</a></li></ol></li></ol></li><li class="chapter-item "><a href="generics.html"><strong aria-hidden="true">14.</strong> ジェネリクス</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="generics/gen_fn.html"><strong aria-hidden="true">14.1.</strong> 関数</a></li><li class="chapter-item "><a href="generics/impl.html"><strong aria-hidden="true">14.2.</strong> メソッド</a></li><li class="chapter-item "><a href="generics/gen_trait.html"><strong aria-hidden="true">14.3.</strong> ジェネリックトレイト</a></li><li class="chapter-item "><a href="generics/bounds.html"><strong aria-hidden="true">14.4.</strong> ジェネリック境界</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="generics/bounds/testcase_empty.html"><strong aria-hidden="true">14.4.1.</strong> テストケース: 空トレイト</a></li></ol></li><li class="chapter-item "><a href="generics/multi_bounds.html"><strong aria-hidden="true">14.5.</strong> 複数のジェネリック境界</a></li><li class="chapter-item "><a href="generics/where.html"><strong aria-hidden="true">14.6.</strong> Where句</a></li><li class="chapter-item "><a href="generics/new_types.html"><strong aria-hidden="true">14.7.</strong> ニュータイプイディオム</a></li><li class="chapter-item "><a href="generics/assoc_items.html"><strong aria-hidden="true">14.8.</strong> 関連型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="generics/assoc_items/the_problem.html"><strong aria-hidden="true">14.8.1.</strong> 関連型が必要になる状況</a></li><li class="chapter-item "><a href="generics/assoc_items/types.html"><strong aria-hidden="true">14.8.2.</strong> 関連型</a></li></ol></li><li class="chapter-item "><a href="generics/phantom.html"><strong aria-hidden="true">14.9.</strong> 幽霊型パラメータ</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="generics/phantom/testcase_units.html"><strong aria-hidden="true">14.9.1.</strong> テストケース: 単位を扱う</a></li></ol></li></ol></li><li class="chapter-item "><a href="scope.html"><strong aria-hidden="true">15.</strong> スコーピングの規則</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="scope/raii.html"><strong aria-hidden="true">15.1.</strong> RAII</a></li><li class="chapter-item "><a href="scope/move.html"><strong aria-hidden="true">15.2.</strong> 所有権とムーブ</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="scope/move/mut.html"><strong aria-hidden="true">15.2.1.</strong> ミュータビリティ</a></li><li class="chapter-item "><a href="scope/move/partial_move.html"><strong aria-hidden="true">15.2.2.</strong> 部分的ムーブ</a></li></ol></li><li class="chapter-item "><a href="scope/borrow.html"><strong aria-hidden="true">15.3.</strong> 借用</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="scope/borrow/mut.html"><strong aria-hidden="true">15.3.1.</strong> ミュータビリティ</a></li><li class="chapter-item "><a href="scope/borrow/alias.html"><strong aria-hidden="true">15.3.2.</strong> エイリアス</a></li><li class="chapter-item "><a href="scope/borrow/ref.html"><strong aria-hidden="true">15.3.3.</strong> refパターン</a></li></ol></li><li class="chapter-item "><a href="scope/lifetime.html"><strong aria-hidden="true">15.4.</strong> ライフタイム</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="scope/lifetime/explicit.html"><strong aria-hidden="true">15.4.1.</strong> 明示的アノテーション</a></li><li class="chapter-item "><a href="scope/lifetime/fn.html"><strong aria-hidden="true">15.4.2.</strong> 関数</a></li><li class="chapter-item "><a href="scope/lifetime/methods.html"><strong aria-hidden="true">15.4.3.</strong> メソッド</a></li><li class="chapter-item "><a href="scope/lifetime/struct.html"><strong aria-hidden="true">15.4.4.</strong> 構造体</a></li><li class="chapter-item "><a href="scope/lifetime/trait.html"><strong aria-hidden="true">15.4.5.</strong> Traits</a></li><li class="chapter-item "><a href="scope/lifetime/lifetime_bounds.html"><strong aria-hidden="true">15.4.6.</strong> ライフタイム境界</a></li><li class="chapter-item "><a href="scope/lifetime/lifetime_coercion.html"><strong aria-hidden="true">15.4.7.</strong> 圧縮</a></li><li class="chapter-item "><a href="scope/lifetime/static_lifetime.html"><strong aria-hidden="true">15.4.8.</strong> スタティックライフタイム</a></li><li class="chapter-item "><a href="scope/lifetime/elision.html"><strong aria-hidden="true">15.4.9.</strong> 省略</a></li></ol></li></ol></li><li class="chapter-item "><a href="trait.html"><strong aria-hidden="true">16.</strong> トレイト</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="trait/derive.html"><strong aria-hidden="true">16.1.</strong> 継承(Derive)</a></li><li class="chapter-item "><a href="trait/dyn.html"><strong aria-hidden="true">16.2.</strong> Returning Traits with dyn</a></li><li class="chapter-item "><a href="trait/ops.html"><strong aria-hidden="true">16.3.</strong> 演算子のオーバーロード</a></li><li class="chapter-item "><a href="trait/drop.html"><strong aria-hidden="true">16.4.</strong> メモリ解放</a></li><li class="chapter-item "><a href="trait/iter.html"><strong aria-hidden="true">16.5.</strong> イテレータ</a></li><li class="chapter-item "><a href="trait/impl_trait.html"><strong aria-hidden="true">16.6.</strong> impl Trait</a></li><li class="chapter-item "><a href="trait/clone.html"><strong aria-hidden="true">16.7.</strong> クローン</a></li><li class="chapter-item "><a href="trait/supertraits.html"><strong aria-hidden="true">16.8.</strong> Supertraits</a></li><li class="chapter-item "><a href="trait/disambiguating.html"><strong aria-hidden="true">16.9.</strong> Disambiguating overlapping traits</a></li></ol></li><li class="chapter-item "><a href="macros.html"><strong aria-hidden="true">17.</strong> macro_rules!</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="macros/syntax.html"><strong aria-hidden="true">17.1.</strong> 構文</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="macros/designators.html"><strong aria-hidden="true">17.1.1.</strong> 識別子</a></li><li class="chapter-item "><a href="macros/overload.html"><strong aria-hidden="true">17.1.2.</strong> オーバーロード</a></li><li class="chapter-item "><a href="macros/repeat.html"><strong aria-hidden="true">17.1.3.</strong> 繰り返し</a></li></ol></li><li class="chapter-item "><a href="macros/dry.html"><strong aria-hidden="true">17.2.</strong> DRY (Don't Repeat Yourself)</a></li><li class="chapter-item "><a href="macros/dsl.html"><strong aria-hidden="true">17.3.</strong> Domain Specific Languages (ドメイン特化言語、DSLs)</a></li><li class="chapter-item "><a href="macros/variadics.html"><strong aria-hidden="true">17.4.</strong> 可変個引数</a></li></ol></li><li class="chapter-item "><a href="error.html"><strong aria-hidden="true">18.</strong> エラーハンドリング</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="error/panic.html"><strong aria-hidden="true">18.1.</strong> panic</a></li><li class="chapter-item "><a href="error/abort_unwind.html"><strong aria-hidden="true">18.2.</strong> abort & unwind</a></li><li class="chapter-item "><a href="error/option_unwrap.html"><strong aria-hidden="true">18.3.</strong> Option と unwrap</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="error/option_unwrap/question_mark.html"><strong aria-hidden="true">18.3.1.</strong> ?によるOptionのアンパック</a></li><li class="chapter-item "><a href="error/option_unwrap/map.html"><strong aria-hidden="true">18.3.2.</strong> Combinators: map</a></li><li class="chapter-item "><a href="error/option_unwrap/and_then.html"><strong aria-hidden="true">18.3.3.</strong> Combinators: and_then</a></li><li class="chapter-item "><a href="error/option_unwrap/defaults.html"><strong aria-hidden="true">18.3.4.</strong> Defaults: or, or_else, get_or_insert, 'get_or_insert_with`</a></li></ol></li><li class="chapter-item "><a href="error/result.html"><strong aria-hidden="true">18.4.</strong> Result</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="error/result/result_map.html"><strong aria-hidden="true">18.4.1.</strong> Resultのmap</a></li><li class="chapter-item "><a href="error/result/result_alias.html"><strong aria-hidden="true">18.4.2.</strong> Resultに対するエイリアス</a></li><li class="chapter-item "><a href="error/result/early_returns.html"><strong aria-hidden="true">18.4.3.</strong> 早期リターン</a></li><li class="chapter-item "><a href="error/result/enter_question_mark.html"><strong aria-hidden="true">18.4.4.</strong> ?の導入</a></li></ol></li><li class="chapter-item "><a href="error/multiple_error_types.html"><strong aria-hidden="true">18.5.</strong> 複数のエラー型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="error/multiple_error_types/option_result.html"><strong aria-hidden="true">18.5.1.</strong> OptionからResultを取り出す</a></li><li class="chapter-item "><a href="error/multiple_error_types/define_error_type.html"><strong aria-hidden="true">18.5.2.</strong> エラー型を定義する</a></li><li class="chapter-item "><a href="error/multiple_error_types/boxing_errors.html"><strong aria-hidden="true">18.5.3.</strong> エラーをBoxする</a></li><li class="chapter-item "><a href="error/multiple_error_types/reenter_question_mark.html"><strong aria-hidden="true">18.5.4.</strong> ?の他の活用法</a></li><li class="chapter-item "><a href="error/multiple_error_types/wrap_error.html"><strong aria-hidden="true">18.5.5.</strong> エラーをラップする</a></li></ol></li><li class="chapter-item "><a href="error/iter_result.html"><strong aria-hidden="true">18.6.</strong> Resultをイテレートする</a></li></ol></li><li class="chapter-item "><a href="std.html"><strong aria-hidden="true">19.</strong> 標準ライブラリの型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="std/box.html"><strong aria-hidden="true">19.1.</strong> Box, スタックとヒープ</a></li><li class="chapter-item "><a href="std/vec.html"><strong aria-hidden="true">19.2.</strong> ベクタ型</a></li><li class="chapter-item "><a href="std/str.html"><strong aria-hidden="true">19.3.</strong> 文字列</a></li><li class="chapter-item "><a href="std/option.html"><strong aria-hidden="true">19.4.</strong> Option</a></li><li class="chapter-item "><a href="std/result.html"><strong aria-hidden="true">19.5.</strong> Result</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="std/result/question_mark.html"><strong aria-hidden="true">19.5.1.</strong> ?</a></li></ol></li><li class="chapter-item "><a href="std/panic.html"><strong aria-hidden="true">19.6.</strong> panic!</a></li><li class="chapter-item "><a href="std/hash.html"><strong aria-hidden="true">19.7.</strong> ハッシュマップ</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="std/hash/alt_key_types.html"><strong aria-hidden="true">19.7.1.</strong> key型の変種</a></li><li class="chapter-item "><a href="std/hash/hashset.html"><strong aria-hidden="true">19.7.2.</strong> ハッシュ集合</a></li></ol></li><li class="chapter-item "><a href="std/rc.html"><strong aria-hidden="true">19.8.</strong> Rc</a></li><li class="chapter-item "><a href="std/arc.html"><strong aria-hidden="true">19.9.</strong> Arc</a></li></ol></li><li class="chapter-item "><a href="std_misc.html"><strong aria-hidden="true">20.</strong> 標準ライブラリのその他</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="std_misc/threads.html"><strong aria-hidden="true">20.1.</strong> スレッド</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="std_misc/threads/testcase_mapreduce.html"><strong aria-hidden="true">20.1.1.</strong> Testcase: map-reduce</a></li></ol></li><li class="chapter-item "><a href="std_misc/channels.html"><strong aria-hidden="true">20.2.</strong> チャネル</a></li><li class="chapter-item "><a href="std_misc/path.html"><strong aria-hidden="true">20.3.</strong> Path</a></li><li class="chapter-item "><a href="std_misc/file.html"><strong aria-hidden="true">20.4.</strong> ファイル I/O</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="std_misc/file/open.html"><strong aria-hidden="true">20.4.1.</strong> open</a></li><li class="chapter-item "><a href="std_misc/file/create.html"><strong aria-hidden="true">20.4.2.</strong> create</a></li><li class="chapter-item "><a href="std_misc/file/read_lines.html"><strong aria-hidden="true">20.4.3.</strong> read lines</a></li></ol></li><li class="chapter-item "><a href="std_misc/process.html"><strong aria-hidden="true">20.5.</strong> 子プロセス</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="std_misc/process/pipe.html"><strong aria-hidden="true">20.5.1.</strong> パイプ</a></li><li class="chapter-item "><a href="std_misc/process/wait.html"><strong aria-hidden="true">20.5.2.</strong> dropの延期</a></li></ol></li><li class="chapter-item "><a href="std_misc/fs.html"><strong aria-hidden="true">20.6.</strong> ファイルシステムとのやり取り</a></li><li class="chapter-item "><a href="std_misc/arg.html"><strong aria-hidden="true">20.7.</strong> 引数処理</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="std_misc/arg/matching.html"><strong aria-hidden="true">20.7.1.</strong> 引数のパース</a></li></ol></li><li class="chapter-item "><a href="std_misc/ffi.html"><strong aria-hidden="true">20.8.</strong> 他言語関数インターフェイス</a></li></ol></li><li class="chapter-item "><a href="testing.html"><strong aria-hidden="true">21.</strong> Testing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="testing/unit_testing.html"><strong aria-hidden="true">21.1.</strong> Unit testing</a></li><li class="chapter-item "><a href="testing/doc_testing.html"><strong aria-hidden="true">21.2.</strong> Documentation testing</a></li><li class="chapter-item "><a href="testing/integration_testing.html"><strong aria-hidden="true">21.3.</strong> Integration testing</a></li><li class="chapter-item "><a href="testing/dev_dependencies.html"><strong aria-hidden="true">21.4.</strong> Dev-dependencies</a></li></ol></li><li class="chapter-item "><a href="unsafe.html"><strong aria-hidden="true">22.</strong> 安全でない操作</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="unsafe/asm.html"><strong aria-hidden="true">22.1.</strong> Inline assembly</a></li></ol></li><li class="chapter-item "><a href="compatibility.html"><strong aria-hidden="true">23.</strong> Compatibility</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="compatibility/raw_identifiers.html"><strong aria-hidden="true">23.1.</strong> Raw identifiers</a></li></ol></li><li class="chapter-item "><a href="meta.html"><strong aria-hidden="true">24.</strong> 周辺情報</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="meta/doc.html"><strong aria-hidden="true">24.1.</strong> ドキュメンテーション</a></li><li class="chapter-item "><a href="meta/playground.html"><strong aria-hidden="true">24.2.</strong> Playground</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -91,7 +90,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -101,7 +100,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -137,7 +136,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -348,8 +347,7 @@ fn main() {
     // Print text to the console.
     // コンソールに文字列を出力する
     println!(&quot;Hello World!&quot;);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 `println!` is a [*macro*][macros] that prints text to the
 console.
@@ -455,7 +453,6 @@ a few different varieties:
     let x = 5 + /* 90 + */ 5;
     println!(&quot;Is `x` 10 or 100? x = {}&quot;, x);
 }
-
 </code></pre></pre>
 <!--
 ### See also:
@@ -579,8 +576,7 @@ correctness at compile time.
     let number: f64 = 1.0;
     let width: usize = 5;
     println!(&quot;{number:&gt;width$}&quot;);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 [`std::fmt`][fmt] contains many [`traits`][traits] which govern the display
 of text. The base form of two important ones are listed below:
@@ -653,8 +649,7 @@ not true for `fmt::Display` which must be manually implemented.
 -->
 <p><code>fmt::Debug</code>という<code>トレイト</code>はこれを簡略化します。 <em>すべての</em> 型は<code>fmt::Debug</code>の実装を<code>derive</code>、（すなわち自動で作成）することができるためです。
 <code>fmt::Display</code>の場合はやはり手動で実装しなくてはなりません。</p>
-<pre><pre class="playground"><code class="language-rust edition2021">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// This structure cannot be printed either with `fmt::Display` or
 // with `fmt::Debug`.
@@ -668,8 +663,7 @@ struct UnPrintable(i32);
 // この構造体を`fmt::Debug`でプリントするための実装を自動で提供します。
 #[derive(Debug)]
 struct DebugPrintable(i32);
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <!--
 All `std` library types are automatically printable with `{:?}` too:
 -->
@@ -707,8 +701,7 @@ fn main() {
     // コントロールする方法がないことです。
     // 出力を`7`だけにするためにはどうしたらよいでしょう？
     println!(&quot;Now {:?} will print!&quot;, Deep(Structure(7)));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 So `fmt::Debug` definitely makes this printable but sacrifices some elegance.
 Rust also provides "pretty printing" with `{:#?}`.
@@ -728,8 +721,7 @@ fn main() {
 
     // Pretty print
     println!(&quot;{:#?}&quot;, peter);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 One can manually implement `fmt::Display` to control the display.
 -->
@@ -755,8 +747,7 @@ customize the output appearance. This is done by manually implementing
 looks like this:
 -->
 <p><code>fmt::Debug</code>はコンパクトでクリーンであるようには見えませんね。大抵の場合は、アウトプットの見た目をカスタマイズしたほうが好ましいでしょう。これは<code>{}</code>を使用する<a href="https://doc.rust-lang.org/std/fmt/"><code>fmt::Display</code></a>を手動で実装することで可能です。</p>
-<pre><pre class="playground"><code class="language-rust edition2021">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// Import (via `use`) the `fmt` module to make it available.
 // （`use`を使用し、）`fmt`モジュールをインポートします。
@@ -787,8 +778,7 @@ impl fmt::Display for Structure {
         write!(f, &quot;{}&quot;, self.0)
     }
 }
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <!--
 `fmt::Display` may be cleaner than `fmt::Debug` but this presents
 a problem for the `std` library. How should ambiguous types be displayed?
@@ -878,8 +868,7 @@ fn main() {
     // `Debug`と`Display`は実装されていますが、`fmt::Binary`はされていないため
     // `{:b}`使用している以下の例はエラーになります、
     // println!(&quot;What does Point2D look like in binary: {:b}?&quot;, point);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 So, `fmt::Display` has been implemented but `fmt::Binary` has not, and therefore
 cannot be used. `std::fmt` has many such [`traits`][traits] and each requires
@@ -928,13 +917,11 @@ Using `?` on `write!` looks like this:
 <pre><code class="language-rust ignore">// Try `write!` to see if it errors. If it errors, return
 // the error. Otherwise continue.
 // `write!`を実行し、エラーが生じた場合はerrorを返す。そうでなければ実行を継続する。
-write!(f, &quot;{}&quot;, value)?;
-</code></pre>
+write!(f, &quot;{}&quot;, value)?;</code></pre>
 <p>Alternatively, you can also use the <code>try!</code> macro, which works the same way. 
 This is a bit more verbose and no longer recommended, but you may still see it in
 older Rust code. Using <code>try!</code> looks like this:</p>
-<pre><code class="language-rust ignore">try!(write!(f, &quot;{}&quot;, value));
-</code></pre>
+<pre><code class="language-rust ignore">try!(write!(f, &quot;{}&quot;, value));</code></pre>
 <!--
 With `?` available, implementing `fmt::Display` for a `Vec` is
 straightforward:
@@ -974,8 +961,7 @@ impl fmt::Display for List {
 fn main() {
     let v = List(vec![1, 2, 3]);
     println!(&quot;{}&quot;, v);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### Activity
 -->
@@ -985,8 +971,7 @@ Try changing the program so that the index of each element in the vector is also
 printed. The new output should look like this:
 -->
 <p>上記のプログラムを変更して、ベクタの各要素のインデックスも表示するようにしてみましょう。変更後の出力は次のようになります。</p>
-<pre><code class="language-rust ignore">[0: 1, 1: 2, 2: 3]
-</code></pre>
+<pre><code class="language-rust ignore">[0: 1, 1: 2, 2: 3]</code></pre>
 <!--
 ### See also:
 -->
@@ -1077,8 +1062,7 @@ fn main() {
         // fmt::Displayに実装を追加したら、 {} を使用するように変更してください。
         println!(&quot;{:?}&quot;, *color);
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 You can view a [full list of formatting traits][fmt_traits] and their argument
 types in the [`std::fmt`][fmt] documentation.
@@ -1198,8 +1182,7 @@ Note that Rust can also infer types from context.
     // Variables can be overwritten with shadowing.
     // 変数はシャドーイングによって上書きできる
     let mutable = true;
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -1272,8 +1255,7 @@ to other [C-like languages][op-prec].
     // Use underscores to improve readability!
     // 可読性のための`_`（アンダースコア）の使用
     println!(&quot;One million is written as {}&quot;, 1_000_000u32);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Tuples
 -->
@@ -1350,8 +1332,7 @@ fn main() {
     let matrix = Matrix(1.1, 1.2, 2.1, 2.2);
     println!(&quot;{:?}&quot;, matrix);
 
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### Activity
 -->
@@ -1382,8 +1363,7 @@ You may want to refer back to the example for [print display][print_display].
 <li>
 <p><code>reverse</code>関数を雛形にした<code>transpose</code>関数を実装してください。この関数は<code>Matrix</code>を引数として受け取り、要素のうち2つを入れ替えたものを返します。つまり</p>
 <pre><code class="language-rust ignore">println!(&quot;Matrix:\n{}&quot;, matrix);
-println!(&quot;Transpose:\n{}&quot;, transpose(matrix));
-</code></pre>
+println!(&quot;Transpose:\n{}&quot;, transpose(matrix));</code></pre>
 <!--
 Results in the output:
 -->
@@ -1481,8 +1461,7 @@ fn main() {
     // Out of bound indexing causes runtime error.
     // インデックスが範囲外のときはコンパイルエラー
     //println!(&quot;{}&quot;, xs[5]);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Custom Types
 -->
@@ -1617,8 +1596,7 @@ fn main() {
     let Pair(integer, decimal) = pair;
 
     println!(&quot;pair contains {:?} and {:?}&quot;, integer, decimal);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### Activity
 -->
@@ -1704,7 +1682,6 @@ fn main() {
     inspect(load);
     inspect(unload);
 }
-
 </code></pre></pre>
 <!--
 ## Type aliases
@@ -1730,8 +1707,7 @@ fn main() {
     // name.
     // 長くて不便な列挙型の名前ではなく、別名を使って要素型を参照できる
     let x = Operations::Add;
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 The most common place you'll see this is in `impl` blocks using the `Self` alias.
 -->
@@ -1748,8 +1724,7 @@ impl VeryVerboseEnumOfThingsToDoWithNumbers {
             Self::Subtract =&gt; x - y,
         }
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 To learn more about enums and type aliases, you can read the
 [stabilization report][aliasreport] from when this feature was stabilized into
@@ -1812,8 +1787,7 @@ fn main() {
         Civilian =&gt; println!(&quot;Civilians work!&quot;),
         Soldier  =&gt; println!(&quot;Soldiers fight!&quot;),
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -1858,8 +1832,7 @@ fn main() {
 
     println!(&quot;roses are #{:06x}&quot;, Color::Red as i32);
     println!(&quot;violets are #{:06x}&quot;, Color::Blue as i32);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -1965,8 +1938,7 @@ fn main() {
     // 追加後の状態を表示
     println!(&quot;linked list has length: {}&quot;, list.len());
     println!(&quot;{}&quot;, list.stringify());
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -2021,8 +1993,7 @@ fn main() {
     THRESHOLD = 5;
     // FIXME ^ Comment out this line
     // FIXME ^ この行をコメントアウトしましょう
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -2072,8 +2043,7 @@ Values (like literals) can be bound to variables, using the `let` binding.
     // FIXME ^ Prefix with an underscore to suppress the warning
     // Please note that warnings may not be shown in a browser
     // FIXME ^ 頭にアンダーバーを付けて、警告を抑えましょう。
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Mutability
 -->
@@ -2098,8 +2068,7 @@ the `mut` modifier.
     _immutable_binding += 1;
     // FIXME ^ Comment out this line
     // FIXME ^ この行をコメントアウトしましょう
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 The compiler will throw a detailed diagnostic about mutability errors.
 -->
@@ -2149,8 +2118,7 @@ block is a collection of statements enclosed by braces `{}`.
     let long_lived_binding = 'a';
     
     println!(&quot;outer long: {}&quot;, long_lived_binding);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>Also, <a href="https://en.wikipedia.org/wiki/Variable_shadowing">variable shadowing</a> is allowed.</p>
 <pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable edition2021">fn main() {
     let shadowed_binding = 1;
@@ -2168,8 +2136,7 @@ block is a collection of statements enclosed by braces `{}`.
     // This binding *shadows* the previous binding
     let shadowed_binding = 2;
     println!(&quot;shadowed in outer block: {}&quot;, shadowed_binding);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Declare first
 -->
@@ -2207,8 +2174,7 @@ variables.
     another_binding = 1;
 
     println!(&quot;another binding: {}&quot;, another_binding);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 The compiler forbids use of uninitialized variables, as this would lead to
 undefined behavior.
@@ -2244,8 +2210,7 @@ modified until the immutable binding goes out of scope:
     // Ok! `_mutable_integer` is not frozen in this scope
     // OK! `_mutable_integer`はこのスコープでは凍結していない。
     _mutable_integer = 3;
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Types
 -->
@@ -2381,8 +2346,7 @@ fn main() {
         // nan as u8 is 0
         println!(&quot;   nan as u8 is : {}&quot;, f32::NAN.to_int_unchecked::&lt;u8&gt;());
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Literals
 -->
@@ -2417,8 +2381,7 @@ floating-point numbers.
     println!(&quot;size of `z` in bytes: {}&quot;, std::mem::size_of_val(&amp;z));
     println!(&quot;size of `i` in bytes: {}&quot;, std::mem::size_of_val(&amp;i));
     println!(&quot;size of `f` in bytes: {}&quot;, std::mem::size_of_val(&amp;f));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 There are some concepts used in the previous code that haven't been explained
 yet, here's a brief explanation for the impatient readers:
@@ -2467,8 +2430,7 @@ to infer its type. Here's an advanced example of type inference:
     // TODO ^ 上の `vec.push(elem)` をコメントアウトしてみましょう。
 
     println!(&quot;{:?}&quot;, vec);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 No type annotation of variables was needed, the compiler is happy and so is the
 programmer!
@@ -2510,8 +2472,7 @@ fn main() {
              nanoseconds,
              inches,
              nanoseconds + inches);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 The main use of aliases is to reduce boilerplate; for example the `io::Result<T>` type
 is an alias for the `Result<T, io::Error>` type.
@@ -2560,13 +2521,11 @@ library for conversion of primitive and common types.
 For example we can easily convert a `str` into a `String`
 -->
 <p>例えば、<code>str</code>から<code>String</code>への型変換は簡単です。</p>
-<pre><pre class="playground"><code class="language-rust edition2021">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let my_str = &quot;hello&quot;;
 let my_string = String::from(my_str);
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <!--
 We can do similar for defining a conversion for our own type.
 -->
@@ -2587,8 +2546,7 @@ impl From&lt;i32&gt; for Number {
 fn main() {
     let num = Number::from(30);
     println!(&quot;My number is {:?}&quot;, num);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <h2 id="into"><a class="header" href="#into"><code>Into</code></a></h2>
 <!--
 The [`Into`] trait is simply the reciprocal of the `From` trait. That is, if you
@@ -2620,8 +2578,7 @@ fn main() {
     // Try removing the type annotation
     let num: Number = int.into();
     println!(&quot;My number is {:?}&quot;, num);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # `TryFrom` and `TryInto`
 -->
@@ -2663,8 +2620,7 @@ fn main() {
     assert_eq!(result, Ok(EvenNumber(8)));
     let result: Result&lt;EvenNumber, ()&gt; = 5i32.try_into();
     assert_eq!(result, Err(()));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # To and from Strings
 -->
@@ -2695,8 +2651,7 @@ impl fmt::Display for Circle {
 fn main() {
     let circle = Circle { radius: 6 };
     println!(&quot;{}&quot;, circle.to_string());
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ## Parsing a String
 -->
@@ -2721,8 +2676,7 @@ simply implement the [`FromStr`] trait for that type.
 
     let sum = parsed + turbo_parsed;
     println!(&quot;Sum: {:?}&quot;, sum);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Expressions
 -->
@@ -2735,8 +2689,7 @@ A Rust program is (mostly) made up of a series of statements:
     // statement
     // statement
     // statement
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 There are a few kinds of statements in Rust. The most common two are declaring
 a variable binding, and using a `;` with an expression:
@@ -2752,8 +2705,7 @@ a variable binding, and using a `;` with an expression:
     x;
     x + 1;
     15;
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 Blocks are expressions too, so they can be used as values in
 assignments. The last expression in the block will be assigned to the
@@ -2782,8 +2734,7 @@ semicolon, the return value will be `()`.
     println!(&quot;x is {:?}&quot;, x);
     println!(&quot;y is {:?}&quot;, y);
     println!(&quot;z is {:?}&quot;, z);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Flow of Control
 -->
@@ -2834,8 +2785,7 @@ and, all branches must return the same type.
     //   `let`による変数束縛の際には必ず必要です!
 
     println!(&quot;{} -&gt; {}&quot;, n, big_n);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="loop"><a class="header" href="#loop">loop</a></h1>
 <!--
 Rust provides a `loop` keyword to indicate an infinite loop.
@@ -2878,8 +2828,7 @@ new one.
             break;
         }
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Nesting and labels
 -->
@@ -2912,8 +2861,7 @@ fn main() {
     }
 
     println!(&quot;Exited the outer loop&quot;);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Returning from loops
 -->
@@ -2937,8 +2885,7 @@ expression.
     };
 
     assert_eq!(result, 20);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="while"><a class="header" href="#while">while</a></h1>
 <!--
 The `while` keyword can be used to run a loop while a condition is true.
@@ -2970,8 +2917,7 @@ Let's write the infamous [FizzBuzz][fizzbuzz] using a `while` loop.
         // カウンタに1を追加
         n += 1;
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # for loops
 -->
@@ -3005,8 +2951,7 @@ Let's write FizzBuzz using `for` instead of `while`.
             println!(&quot;{}&quot;, n);
         }
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 Alternatively, `a..=b` can be used for a range that is inclusive on both ends.
 The above can be written as:
@@ -3026,8 +2971,7 @@ The above can be written as:
             println!(&quot;{}&quot;, n);
         }
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ## for and iterators
 -->
@@ -3064,8 +3008,7 @@ within.
     }
     
     println!(&quot;names: {:?}&quot;, names);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 * `into_iter` - This consumes the collection so that on each iteration the exact
   data is provided. Once the collection has been consumed it is no longer
@@ -3086,8 +3029,7 @@ within.
     
     println!(&quot;names: {:?}&quot;, names);
     // FIXME ^ Comment out this line
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 * `iter_mut` - This mutably borrows each element of the collection, allowing for
   the collection to be modified in place.
@@ -3106,8 +3048,7 @@ within.
     }
 
     println!(&quot;names: {:?}&quot;, names);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 In the above snippets note the type of `match` branch, that is the key
 difference in the types of iteration. The difference in type then of course
@@ -3167,8 +3108,7 @@ covered.
     };
 
     println!(&quot;{} -&gt; {}&quot;, boolean, binary);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Destructuring
 -->
@@ -3218,8 +3158,7 @@ Tuples can be destructured in a `match` as follows:
         // `_` means don't bind the value to a variable
         // ここでは`_`は、値を変数に束縛しないことを意味します。
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -3228,6 +3167,48 @@ Tuples can be destructured in a `match` as follows:
 [Tuples](../../../primitives/tuples.md)
 -->
 <p><a href="flow_control/match/destructuring/../../../primitives/tuples.html">タプル</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="arraysslices"><a class="header" href="#arraysslices">arrays/slices</a></h1>
+<p>Like tuples, arrays and slices can be destructured this way:</p>
+<pre><pre class="playground"><code class="language-rust editable edition2021">fn main() {
+    // Try changing the values in the array, or make it a slice!
+    let array = [1, -2, 6];
+
+    match array {
+        // Binds the second and the third elements to the respective variables
+        [0, second, third] =&gt;
+            println!(&quot;array[0] = 0, array[1] = {}, array[2] = {}&quot;, second, third),
+
+        // Single values can be ignored with _
+        [1, _, third] =&gt; println!(
+            &quot;array[0] = 1, array[2] = {} and array[1] was ignored&quot;,
+            third
+        ),
+
+        // You can also bind some and ignore the rest
+        [-1, second, ..] =&gt; println!(
+            &quot;array[0] = -1, array[1] = {} and all the other ones were ignored&quot;,
+            second
+        ),
+        // The code below would not compile
+        // [-1, second] =&gt; ...
+
+        // Or store them in another array/slice (the type depends on
+        // that of the value that is being matched against)
+        [3, second, tail @ ..] =&gt; println!(
+            &quot;array[0] = 3, array[1] = {} and the other elements were {:?}&quot;,
+            second, tail
+        ),
+
+        // Combining these patterns, we can, for example, bind the first and
+        // last values, and store the rest of them in a single array
+        [first, middle @ .., last] =&gt; println!(
+            &quot;array[0] = {}, middle = {:?}, array[2] = {}&quot;,
+            first, middle, last
+        ),
+    }
+}</code></pre></pre>
+<h3 id="see-also-1"><a class="header" href="#see-also-1">See also:</a></h3>
+<p><a href="flow_control/match/destructuring/../../../primitives/array.html">Arrays and Slices</a> and <a href="flow_control/match/destructuring/../binding.html">Binding</a> for <code>@</code> sigil</p>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # enums
 -->
@@ -3282,8 +3263,7 @@ fn main() {
         // Don't need another arm because all variants have been examined
         // 全ての値を列挙したのでその他の場合の処理は必要ない。
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -3375,9 +3355,8 @@ differently from languages like C/C++.
             println!(&quot;We added 10. `mut_value`: {:?}&quot;, m);
         },
     }
-}
-</code></pre></pre>
-<h3 id="see-also-1"><a class="header" href="#see-also-1">See also:</a></h3>
+}</code></pre></pre>
+<h3 id="see-also-2"><a class="header" href="#see-also-2">See also:</a></h3>
 <p><a href="flow_control/match/destructuring/../../../scope/borrow/ref.html">The ref pattern</a></p>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # structs
@@ -3412,8 +3391,7 @@ Similarly, a `struct` can be destructured as shown:
         // `x`に言及していないため、以下はエラーになる。
         //Foo { y } =&gt; println!(&quot;y = {}&quot;, y),
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -3449,8 +3427,7 @@ fn main() {
         Temperature::Fahrenheit(t) if t &gt; 86 =&gt; println!(&quot;{}F is above 86 Fahrenheit&quot;, t),
         Temperature::Fahrenheit(t) =&gt; println!(&quot;{}F is below 86 Fahrenheit&quot;, t),
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>Note that the compiler won't take guard conditions into account when checking
 if all patterns are covered by the match expression.
 possible conditions have been checked.  Therefore, you must use the <code>_</code> pattern
@@ -3466,8 +3443,7 @@ fn main() {
         // TODO ^ uncomment to fix compilation
         _ =&gt; println!(&quot;Fell through&quot;), // This should not be possible to reach
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -3510,8 +3486,7 @@ fn main() {
         // マッチしなかった場合の処理
         n             =&gt; println!(&quot;I'm an old person of age {:?}&quot;, n),
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>You can also use binding to &quot;destructure&quot; <code>enum</code> variants, such as <code>Option</code>:</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">fn some_number() -&gt; Option&lt;u32&gt; {
     Some(42)
@@ -3527,8 +3502,7 @@ fn main() {
         // Match anything else (`None` variant).
         _            =&gt; (),
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -3542,8 +3516,7 @@ fn main() {
 For some use cases, when matching enums, `match` is awkward. For example:
 -->
 <p>列挙型をマッチさせるとき、場合によっては<code>match</code>を使用すると不自然な書き方になってしまう場合があります。例えば...</p>
-<pre><pre class="playground"><code class="language-rust edition2021">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// Make `optional` of type `Option&lt;i32&gt;`
 // `optional`という変数の型を`Option&lt;i32&gt;`に指定
@@ -3564,8 +3537,7 @@ match optional {
     // 冗長に見えませんか？
 };
 
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <!--
 `if let` is cleaner for this use case and in addition allows various
 failure options to be specified:
@@ -3615,8 +3587,7 @@ failure options to be specified:
         // 今回は`else if`の評価がfalseなので、このブロック内がデフォルト
         println!(&quot;I don't like letters. Let's go with an emoticon :)!&quot;);
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>In the same way, <code>if let</code> can be used to match any enum value:</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">// Our example enum
 enum Foo {
@@ -3652,8 +3623,7 @@ fn main() {
     if let Foo::Qux(value @ 100) = c {
         println!(&quot;c is one hundred&quot;);
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>Another benefit is that <code>if let</code> allows us to match non-parameterized enum variants. This is true even in cases where the enum doesn't implement or derive <code>PartialEq</code>. In such cases <code>if Foo::Bar == a</code> would fail to compile, because instances of the enum cannot be equated, however <code>if let</code> will continue to work.</p>
 <p>Would you like a challenge? Fix the following example to use <code>if let</code>:</p>
 <pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable edition2021">// This enum purposely neither implements nor derives PartialEq.
@@ -3668,8 +3638,7 @@ fn main() {
     // ^-- this causes a compile-time error. Use `if let` instead.
         println!(&quot;a is foobar&quot;);
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -3678,14 +3647,62 @@ fn main() {
 [`enum`][enum], [`Option`][option], and the [RFC][if_let_rfc]
 -->
 <p><a href="flow_control/../custom_types/enum.html">列挙型</a>, <a href="flow_control/../std/option.html">オプション</a>, <a href="https://github.com/rust-lang/rfcs/pull/160">RFC</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="let-else"><a class="header" href="#let-else">let-else</a></h1>
+<blockquote>
+<p>🛈 stable since: rust 1.65</p>
+</blockquote>
+<p>With <code>let</code>-<code>else</code>, a refutable pattern can match and bind variables
+in the surrounding scope like a normal <code>let</code>, or else diverge (e.g. <code>break</code>,
+<code>return</code>, <code>panic!</code>) when the pattern doesn't match.</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::str::FromStr;
+
+fn get_count_item(s: &amp;str) -&gt; (u64, &amp;str) {
+    let mut it = s.split(' ');
+    let (Some(count_str), Some(item)) = (it.next(), it.next()) else {
+        panic!(&quot;Can't segment count item pair: '{s}'&quot;);
+    };
+    let Ok(count) = u64::from_str(count_str) else {
+        panic!(&quot;Can't parse integer: '{count_str}'&quot;);
+    };
+    (count, item)
+}
+
+assert_eq!(get_count_item(&quot;3 chairs&quot;), (3, &quot;chairs&quot;));
+<span class="boring">}</span></code></pre></pre>
+<p>The scope of name bindings is the main thing that makes this different from
+<code>match</code> or <code>if let</code>-<code>else</code> expressions. You could previously approximate these
+patterns with an unfortunate bit of repetition and an outer <code>let</code>:</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span><span class="boring">use std::str::FromStr;
+</span><span class="boring">
+</span><span class="boring">fn get_count_item(s: &amp;str) -&gt; (u64, &amp;str) {
+</span><span class="boring">    let mut it = s.split(' ');
+</span>    let (count_str, item) = match (it.next(), it.next()) {
+        (Some(count_str), Some(item)) =&gt; (count_str, item),
+        _ =&gt; panic!(&quot;Can't segment count item pair: '{s}'&quot;),
+    };
+    let count = if let Ok(count) = u64::from_str(count_str) {
+        count
+    } else {
+        panic!(&quot;Can't parse integer: '{count_str}'&quot;);
+    };
+<span class="boring">    (count, item)
+</span><span class="boring">}
+</span><span class="boring">
+</span><span class="boring">assert_eq!(get_count_item(&quot;3 chairs&quot;), (3, &quot;chairs&quot;));
+</span><span class="boring">}</span></code></pre></pre>
+<h3 id="see-also-3"><a class="header" href="#see-also-3">See also:</a></h3>
+<p><a href="flow_control/../std/option.html">option</a>, <a href="flow_control/./match.html">match</a>, <a href="flow_control/./if_let.html">if let</a> and the <a href="https://rust-lang.github.io/rfcs/3137-let-else.html">let-else RFC</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="while-let"><a class="header" href="#while-let">while let</a></h1>
 <!--
 Similar to `if let`, `while let` can make awkward `match` sequences
 more tolerable. Consider the following sequence that increments `i`:
 -->
 <p><code>if let</code>と同様に、<code>while let</code>も不格好な<code>match</code>処理を多少マシにしてくれます。例えば、以下の<code>i</code>をインクリメントする処理を見てください。</p>
-<pre><pre class="playground"><code class="language-rust edition2021">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// Make `optional` of type `Option&lt;i32&gt;`
 // `Option&lt;i32&gt;`の`optional`を作成
@@ -3715,8 +3732,7 @@ loop {
         // どうしてこんな行を書く必要が?もっと良い方法があるはずです!
     }
 }
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <!--
 Using `while let` makes this sequence much nicer:
 -->
@@ -3746,8 +3762,7 @@ Using `while let` makes this sequence much nicer:
     // clauses. `while let` does not have these.
     // ^ `if let`の場合は`else`/`else if`句が一つ余分にあったが、
     // `while let`では必要が無い。
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -3819,8 +3834,7 @@ fn fizzbuzz_to(n: u32) {
     for n in 1..=n {
         fizzbuzz(n);
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Associated functions & Methods
 -->
@@ -3966,8 +3980,7 @@ fn main() {
     //pair.destroy();
     // TODO ^ Try uncommenting this line
     // TODO ^ この行をアンコメントしてみましょう。
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Closures
 -->
@@ -4033,8 +4046,7 @@ Other characteristics of closures include:
     let one = || 1;
     println!(&quot;closure returning one: {}&quot;, one());
 
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Capturing
 -->
@@ -4159,8 +4171,7 @@ required.
     // consume();
     // ^ TODO: Try uncommenting this line.
     // ^ TODO: この行のコメントアウトを解除しましょう。
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 Using `move` before vertical pipes forces closure
 to take ownership of captured variables:
@@ -4190,8 +4201,7 @@ to take ownership of captured variables:
     // イミュータブルで借用するようになる。
     // そのため _haystack_ はまだ利用可能となり、上の行のコメントアウトを解除しても
     // エラーが発生しなくなる。
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -4312,8 +4322,7 @@ fn main() {
     let double = |x| 2 * x;
 
     println!(&quot;3 doubled: {}&quot;, apply_to_3(double));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -4331,8 +4340,7 @@ defined:
 -->
 <p>クロージャが周辺の環境から変数を取得するやり方は非常に明瞭です。何か注意すべき点はあるのでしょうか？
 もちろんです。関数内でクロージャを使う場合、[ジェネリック]型を使用する必要があります。詳しく見ていきましょう。</p>
-<pre><pre class="playground"><code class="language-rust edition2021">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// `F` must be generic.
 // `F` はジェネリック型でなくてはならない
@@ -4340,8 +4348,7 @@ fn apply&lt;F&gt;(f: F) where
     F: FnOnce() {
     f();
 }
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <!--
 When a closure is defined, the compiler implicitly creates a new
 anonymous structure to store the captured variables inside, meanwhile
@@ -4378,8 +4385,7 @@ fn main() {
     let print = || println!(&quot;{}&quot;, x);
 
     apply(print);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -4419,8 +4425,7 @@ fn main() {
 
     call_me(closure);
     call_me(function);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 As an additional note, the `Fn`, `FnMut`, and `FnOnce` `traits` dictate how
 a closure captures variables from the enclosing scope.
@@ -4485,8 +4490,7 @@ fn main() {
     fn_plain();
     fn_mut();
     fn_once();
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -4527,8 +4531,7 @@ signature:
         // 事はあっても消費されることはないということを示します。
         // `Self::Item`はクロージャが変数を値として取ることを示します。
         F: FnMut(Self::Item) -&gt; bool;
-}
-</code></pre>
+}</code></pre>
 <pre><pre class="playground"><code class="language-rust editable edition2021">fn main() {
     let vec1 = vec![1, 2, 3];
     let vec2 = vec![4, 5, 6];
@@ -4557,8 +4560,7 @@ signature:
     // `into_iter()` for arrays yields `i32`.
     // 配列に`into_iter()`を使うと`&amp;i32`を`yield`する。
     println!(&quot;2 in array2: {}&quot;, array2.into_iter().any(|x| x == 2));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -4588,8 +4590,7 @@ condition, it returns `None`. Its signature:
         // 事はあっても消費されることはないということを示します。
         // `&amp;Self::Item`はクロージャが変数を参照として取ることを示します。
         P: FnMut(&amp;Self::Item) -&gt; bool;
-}
-</code></pre>
+}</code></pre>
 <pre><pre class="playground"><code class="language-rust editable edition2021">fn main() {
     let vec1 = vec![1, 2, 3];
     let vec2 = vec![4, 5, 6];
@@ -4619,8 +4620,7 @@ condition, it returns `None`. Its signature:
     // `into_iter()` for arrays yields `i32`
     // 配列に`into_iter()`を使うと`&amp;i32`を`yield`する。
     println!(&quot;Find 2 in array2: {:?}&quot;, array2.into_iter().find(|&amp;x| x == 2));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 `Iterator::find` gives you a reference to the item. But if you want the _index_ of the
 item, use `Iterator::position`.
@@ -4639,8 +4639,7 @@ item, use `Iterator::position`.
     // we do not have to destructure    
     let index_of_first_negative_number = vec.into_iter().position(|x| x &lt; 0);
     assert_eq!(index_of_first_negative_number, None);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -4703,8 +4702,7 @@ fn main() {
                                                          // かつ奇数のものを
              .sum();                                     // Sum them
     println!(&quot;functional style: {}&quot;, sum_of_squared_odd_numbers);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 [Option][option]
 and
@@ -4722,15 +4720,13 @@ implement their fair share of HOFs.
 Diverging functions never return. They are marked using `!`, which is an empty type.
 -->
 <p>発散する関数 (Diverging functions) は決してリターンしない関数です。こうした関数は <code>!</code> を使って、空の型であることが示されます。</p>
-<pre><pre class="playground"><code class="language-rust edition2021">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>fn foo() -&gt; ! {
     // この呼び出しは決してリターンしない。
     panic!(&quot;This call never returns.&quot;);
 }
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <!--
 As opposed to all the other types, this one cannot be instantiated, because the
 set of all possible values this type can have is empty. Note that, it is
@@ -4753,8 +4749,7 @@ fn main() {
     let _a: () = some_fn();
     // この関数はリターンするので、この行は実行される。
     println!(&quot;This function returns and you can see this line.&quot;);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 As opposed to this function, which will never return the control back to the caller.
 -->
@@ -4766,8 +4761,7 @@ fn main() {
     let x: ! = panic!(&quot;This call never returns.&quot;);
     // この行は決して実行されない。
     println!(&quot;You will never see this line!&quot;);
-}
-</code></pre>
+}</code></pre>
 <!--
 Although this might seem like an abstract concept, it is in fact very useful and
 often handy. The main advantage of this type is that it can be cast to any other
@@ -4801,8 +4795,7 @@ in `match` branches. This allows us to write code like this:
         acc
     }
     println!(&quot;Sum of odd numbers up to 9 (excluding): {}&quot;, sum_odd_numbers(9));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 It is also the return type of functions that loop forever (e.g. `loop {}`) like
 network servers or functions that terminate the process (e.g. `exit()`).
@@ -4968,8 +4961,7 @@ fn main() {
     // Error! `private_nested` is a private module
     //my_mod::private_nested::restricted_function();
     // TODO ^ Try uncommenting this line
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Struct visibility
 -->
@@ -5039,8 +5031,7 @@ fn main() {
     //println!(&quot;The closed box contains: {}&quot;, _closed_box.contents);
     // TODO ^ Try uncommenting this line
     // TODO ^ ここをアンコメントしてみましょう。
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -5068,8 +5059,7 @@ use crate::deeply::nested::{
 
 fn main() {
     my_first_function();
-}
-</code></pre>
+}</code></pre>
 <!--
 You can use the `as` keyword to bind imports to a different name:
 -->
@@ -5114,8 +5104,7 @@ fn main() {
     }
 
     function();
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # `super` and `self`
 -->
@@ -5180,8 +5169,7 @@ mod my {
 
 fn main() {
     my::indirect_call();
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # File hierarchy
 -->
@@ -5219,7 +5207,6 @@ fn main() {
 
     my::nested::function();
 }
-
 </code></pre>
 <p>In <code>my.rs</code>:</p>
 <pre><code class="language-rust ignore">// Similarly `mod inaccessible` and `mod nested` will locate the `nested.rs`
@@ -5242,8 +5229,7 @@ pub fn indirect_access() {
     print!(&quot;called `my::indirect_access()`, that\n&gt; &quot;);
 
     private_function();
-}
-</code></pre>
+}</code></pre>
 <p>In <code>my/nested.rs</code>:</p>
 <pre><code class="language-rust ignore">pub fn function() {
     println!(&quot;called `my::nested::function()`&quot;);
@@ -5252,14 +5238,12 @@ pub fn indirect_access() {
 #[allow(dead_code)]
 fn private_function() {
     println!(&quot;called `my::nested::private_function()`&quot;);
-}
-</code></pre>
+}</code></pre>
 <p>In <code>my/inaccessible.rs</code>:</p>
 <pre><code class="language-rust ignore">#[allow(dead_code)]
 pub fn public_function() {
     println!(&quot;called `my::inaccessible::public_function()`&quot;);
-}
-</code></pre>
+}</code></pre>
 <!--
 Let's check that things still work as before:
 -->
@@ -5310,8 +5294,7 @@ pub fn indirect_access() {
     print!(&quot;called rary's `indirect_access()`, that\n&gt; &quot;);
 
     private_function();
-}
-</code></pre>
+}</code></pre>
 <pre><code class="language-shell">$ rustc --crate-type=lib rary.rs
 $ ls lib*
 library.rlib
@@ -5336,8 +5319,7 @@ fn main() {
     //rary::private_function();
 
     rary::indirect_access();
-}
-</code></pre>
+}</code></pre>
 <pre><code class="language-txt"># Where library.rlib is the path to the compiled library, assumed that it's
 # in the same directory here:
 $ rustc executable.rs --extern rary=library.rlib &amp;&amp; ./executable 
@@ -5619,8 +5601,7 @@ that they don't race with each other.
 <p>注意：Cargoは複数のテストを並列で実行することがありますので、それらが互いに競合しないようにしてください。</p>
 <p>One example of this concurrency causing issues is if two tests output to a
 file, such as below:</p>
-<pre><pre class="playground"><code class="language-rust edition2021">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>#[cfg(test)]
 mod tests {
@@ -5662,8 +5643,7 @@ mod tests {
         }
     }
 }
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <p>Although the intent is to get the following:</p>
 <pre><code class="language-shell">$ cat ferris.txt
 Ferris
@@ -5790,8 +5770,7 @@ Attributes can take arguments with different syntaxes:
 
 
 #[attribute(value, value2, value3,
-            value4, value5)]
-</code></pre>
+            value4, value5)]</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="dead_code"><a class="header" href="#dead_code"><code>dead_code</code></a></h1>
 <!--
 The compiler provides a `dead_code`
@@ -5812,8 +5791,7 @@ fn noisy_unused_function() {}
 
 fn main() {
     used_function();
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 Note that in real programs, you should eliminate dead code. In these examples
 we'll allow dead code in some places because of the interactive nature of the
@@ -5853,8 +5831,7 @@ pub fn indirect_access() {
     print!(&quot;called rary's `indirect_access()`, that\n&gt; &quot;);
 
     private_function();
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 When the `crate_type` attribute is used, we no longer need to pass the
 `--crate-type` flag to `rustc`.
@@ -5908,8 +5885,7 @@ fn main() {
     } else {
         println!(&quot;Yes. It's definitely *not* linux!&quot;);
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -5934,8 +5910,7 @@ fn conditional_function() {
 
 fn main() {
     conditional_function();
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>Try to run this to see what happens without the custom <code>cfg</code> flag.</p>
 <!--
 With the custom `cfg` flag:
@@ -5971,8 +5946,7 @@ For example, defining a *generic function* named `foo` that takes an argument
 `T` of any type:
 -->
 <p>例として、あらゆる型の引数<code>T</code>をとる <em>ジェネリック関数</em> <code>foo</code>を定義すると:</p>
-<pre><code class="language-rust ignore">fn foo&lt;T&gt;(arg: T) { ... }
-</code></pre>
+<pre><code class="language-rust ignore">fn foo&lt;T&gt;(arg: T) { ... }</code></pre>
 <!--
 Because `T` has been specified as a generic type parameter using `<T>`, it 
 is considered generic when used here as `(arg: T)`. This is the case even if `T` 
@@ -6024,8 +5998,7 @@ fn main() {
                               // `i32`を使用
     let _char = SingleGen('a'); // Uses `char`.
                                 // `char`を使用
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -6116,8 +6089,7 @@ fn main() {
     // Implicitly specified type parameter `char` to `generic()`.
     // 型パラメータ`char`を暗黙的に`generic()`に渡す
     generic(SGen('c'));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -6134,8 +6106,7 @@ fn main() {
 Similar to functions, implementations require care to remain generic.
 -->
 <p>関数と同様、<code>impl</code>でメソッドを実装する際にもジェネリック型特有の記法が必要です。</p>
-<pre><pre class="playground"><code class="language-rust edition2021">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>struct S; // Concrete type `S`
           // 具象型`S`
@@ -6152,8 +6123,7 @@ impl GenericVal&lt;S&gt; {} // Specify `S` as defined above
 // `&lt;T&gt;` Must precede the type to remain generic
 // ジェネリック型のまま扱うには`&lt;T&gt;`が先に来る必要がある。
 impl&lt;T&gt; GenericVal&lt;T&gt; {}
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <pre><pre class="playground"><code class="language-rust editable edition2021">struct Val {
     val: f64,
 }
@@ -6183,8 +6153,7 @@ fn main() {
     let y = GenVal { gen_val: 3i32 };
 
     println!(&quot;{}, {}&quot;, x.value(), y.value());
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -6241,8 +6210,7 @@ fn main() {
     //null;
     // ^ TODO: Try uncommenting these lines.
     // ^ TODO: これらの行をアンコメントしてみましょう。
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -6268,8 +6236,7 @@ by `Display`; that is, `T` *must* implement `Display`.
 // `printer`という関数を定義。
 fn printer&lt;T: Display&gt;(t: T) {
     println!(&quot;{}&quot;, t);
-}
-</code></pre>
+}</code></pre>
 <!--
 Bounding restricts the generic to types that conform to the bounds. That is:
 -->
@@ -6283,8 +6250,7 @@ Bounding restricts the generic to types that conform to the bounds. That is:
 // specialization will fail.
 // エラー! `Vec&lt;T&gt;`は`Display`を実装していないため、この特殊化
 // は失敗します。
-let s = S(vec![1]);
-</code></pre>
+let s = S(vec![1]);</code></pre>
 <!--
 Another effect of bounding is that generic instances are allowed to access the 
 [methods] of traits specified in the bounds. For example:
@@ -6334,8 +6300,7 @@ fn main() {
     // | Error: Does not implement either `Debug` or `HasArea`. 
     // ^ TODO: これらの行をアンコメントしてみましょう。
     // | Error: `Debug` も `HasArea`もどちらも実装されていません!
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 As an additional note, [`where`][where] clauses can also be used to apply bounds in
 some cases to be more expressive.
@@ -6394,8 +6359,7 @@ fn main() {
     //println!(&quot;A turkey is {}&quot;, red(&amp;_turkey));
     // ^ TODO: Try uncommenting this line.
     // ^ TODO: この行をアンコメントしてみましょう。
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -6436,8 +6400,7 @@ fn main() {
     // TODO ^ ここをアンコメントしてみましょう。
 
     compare_types(&amp;array, &amp;vec);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -6474,8 +6437,7 @@ Some cases that a `where` clause is useful:
 // `where`を用いてジェネリック境界を設ける。
 impl &lt;A, D&gt; MyTrait&lt;A, D&gt; for YourType where
     A: TraitB + TraitC,
-    D: TraitE + TraitF {}
-</code></pre>
+    D: TraitE + TraitF {}</code></pre>
 <!--
 * When using a `where` clause is more expressive than using normal syntax. 
 The `impl` in this example cannot be directly expressed without a `where` clause:
@@ -6510,8 +6472,7 @@ fn main() {
     let vec = vec![1, 2, 3];
 
     vec.print_in_option();
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -6563,8 +6524,7 @@ fn main() {
     println!(&quot;Old enough {}&quot;, old_enough(&amp;age));
     println!(&quot;Old enough {}&quot;, old_enough(&amp;age_days.to_years()));
     // println!(&quot;Old enough {}&quot;, old_enough(&amp;age_days));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 Uncomment the last print statement to observe that the type supplied must be `Years`.
 -->
@@ -6579,8 +6539,7 @@ fn main() {
     let years = Years(42);
     let years_as_primitive_1: i64 = years.0; // Tuple
     let Years(years_as_primitive_2) = years; // Destructuring
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -6681,8 +6640,7 @@ fn main() {
     println!(&quot;Last number: {}&quot;, container.last());
 
     println!(&quot;The difference is: {}&quot;, difference(&amp;container));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -6701,8 +6659,7 @@ by moving inner types locally into a trait as *output* types. Syntax
 for the `trait` definition is as follows:
 -->
 <p>関連型を使用すると、コンテナ型の中の要素をトレイトの中に <em>出力型</em> として書くことで、全体の可読性を上げることができます。トレイトを定義する際の構文は以下のようになります。</p>
-<pre><pre class="playground"><code class="language-rust edition2021">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// `A` and `B` are defined in the trait via the `type` keyword.
 // (Note: `type` in this context is different from `type` when used for
@@ -6719,8 +6676,7 @@ trait Contains {
     // アップデートされています。
     fn contains(&amp;self, _: &amp;Self::A, _: &amp;Self::B) -&gt; bool;
 }
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <!--
 Note that functions that use the `trait` `Contains` are no longer required
 to express `A` or `B` at all:
@@ -6733,8 +6689,7 @@ fn difference&lt;A, B, C&gt;(container: &amp;C) -&gt; i32 where
 
 // Using associated types
 // 使用する場合
-fn difference&lt;C: Contains&gt;(container: &amp;C) -&gt; i32 { ... }
-</code></pre>
+fn difference&lt;C: Contains&gt;(container: &amp;C) -&gt; i32 { ... }</code></pre>
 <!--
 Let's rewrite the example from the previous section using associated types:
 -->
@@ -6796,8 +6751,7 @@ fn main() {
     println!(&quot;Last number: {}&quot;, container.last());
     
     println!(&quot;The difference is: {}&quot;, difference(&amp;container));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Phantom type parameters
 -->
@@ -6869,8 +6823,7 @@ fn main() {
     // コンパイルエラー! 型が違うので比較することができない!
     // println!(&quot;_struct1 == _struct2 yields: {}&quot;,
     //           _struct1 == _struct2);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -6907,8 +6860,7 @@ pub trait Add&lt;RHS = Self&gt; {
 impl&lt;U&gt; Add for T&lt;U&gt; {
     type Output = T&lt;U&gt;;
     ...
-}
-</code></pre>
+}</code></pre>
 <!--
 The whole implementation:
 -->
@@ -6976,8 +6928,7 @@ fn main() {
     // 以下はきちんとコンパイルエラーになる。
     // コンパイルエラー: タイプミスマッチ
     //let one_feter = one_foot + one_meter;
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -7047,8 +6998,7 @@ fn main() {
 
     // `_box2` is destroyed here, and memory gets freed
     // `_box2`はここで破棄され、メモリは解放される。
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 Of course, we can double check for memory errors using [`valgrind`][valgrind]:
 -->
@@ -7100,8 +7050,7 @@ impl Drop for ToDrop {
 fn main() {
     let x = ToDrop;
     println!(&quot;Made a ToDrop!&quot;);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -7189,8 +7138,7 @@ fn main() {
     //println!(&quot;b contains: {}&quot;, b);
     // TODO ^ Try uncommenting this line
     // TODO ^ 試しにここをアンコメントしてみましょう。
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Mutability
 -->
@@ -7219,8 +7167,7 @@ Mutability of data can be changed when ownership is transferred.
     *mutable_box = 4;
 
     println!(&quot;mutable_box now contains {}&quot;, mutable_box);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Partial moves
 -->
@@ -7262,8 +7209,7 @@ can still be used.
     // `person` cannot be used but `person.age` can be used as it is not moved
     // `person` は使用できないが、 `person.age` はムーブしていないので使用できる
     println!(&quot;The person's age from person struct is {}&quot;, person.age);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>(In this example, we store the <code>age</code> variable on the heap to 
 illustrate the partial move: deleting <code>ref</code> in the above code would 
 give an error as the ownership of <code>person.age</code> would be moved to the 
@@ -7342,8 +7288,7 @@ fn main() {
     // `boxed_i32` can now give up ownership to `eat_box` and be destroyed
     // ここでようやく、`eat_box`は所有権を移譲し、破棄することができます。
     eat_box_i32(boxed_i32);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Mutability
 -->
@@ -7411,8 +7356,7 @@ fn main() {
     new_edition(&amp;mut immutabook);
     // FIXME ^ Comment out this line
     // FIXME ^ この行をコメントアウトしましょう
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -7486,8 +7430,7 @@ fn main() {
     let new_borrowed_point = &amp;point;
     println!(&quot;Point now has coordinates: ({}, {}, {})&quot;,
              new_borrowed_point.x, new_borrowed_point.y, new_borrowed_point.z);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # The ref pattern
 -->
@@ -7555,8 +7498,7 @@ fn main() {
     }
     
     println!(&quot;tuple is {:?}&quot;, mutable_tuple);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Lifetimes
 -->
@@ -7604,8 +7546,7 @@ fn main() {
         println!(&quot;borrow2: {}&quot;, borrow2); //              ││
     } // `borrow2` ends. ─────────────────────────────────┘│
     //                                                     │
-}   // Lifetime ends. ─────────────────────────────────────┘
-</code></pre></pre>
+}   // Lifetime ends. ─────────────────────────────────────┘</code></pre></pre>
 <p>Note that no names or types are assigned to label lifetimes.
 This restricts how lifetimes will be able to be used as we will see.</p>
 <div style="break-before: page; page-break-before: always;"></div><!--
@@ -7622,8 +7563,7 @@ a lifetime uses an apostrophe character as follows:
 <p>借用チェッカーは参照がどれだけの間有効かを決定するために、明示的なアノテーションを使用します。ライフタイムが省略<sup class="footnote-reference"><a href="#1">1</a></sup>されなかった場合、Rustは参照のライフタイムがどのようなものであるか、明示的なアノテーションを必要とします。</p>
 <pre><code class="language-rust ignore">foo&lt;'a&gt;
 // `foo` has a lifetime parameter `'a`
-// `foo`は`'a`というライフタイムパラメータを持ちます。
-</code></pre>
+// `foo`は`'a`というライフタイムパラメータを持ちます。</code></pre>
 <!--
 Similar to [closures][anonymity], using lifetimes requires generics. 
 Additionally, this lifetime syntax indicates that the lifetime of `foo` 
@@ -7637,8 +7577,7 @@ In cases with multiple lifetimes, the syntax is similar:
 <p>ライフタイムが複数ある場合も、同じような構文になります。</p>
 <pre><code class="language-rust ignore">foo&lt;'a, 'b&gt;
 // `foo` has lifetime parameters `'a` and `'b`
-// `foo`は`'a`と`'b`というライフタイムパラメータを持ちます。
-</code></pre>
+// `foo`は`'a`と`'b`というライフタイムパラメータを持ちます。</code></pre>
 <!--
 In this case, the lifetime of `foo` cannot exceed that of either `'a` *or* `'b`.
 -->
@@ -7695,8 +7634,7 @@ fn main() {
     // `failed_borrow`は関数のライフタイムよりも`'a`を長くさせるような
     // 参照を持たないが、それでも`'a`のほうが長くなる。なぜならそのような
     // 場合`'a`はデフォルトで`'static`になるからである。
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 [^1]: [elision] implicitly annotates lifetimes and so is different.
 -->
@@ -7787,8 +7725,7 @@ fn main() {
     let mut t = 3;
     add_one(&amp;mut t);
     print_one(&amp;t);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -7818,8 +7755,7 @@ fn main() {
 
     owner.add_one();
     owner.print();
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -7872,8 +7808,7 @@ fn main() {
     println!(&quot;x and y are borrowed in {:?}&quot;, double);
     println!(&quot;x is borrowed in {:?}&quot;, reference);
     println!(&quot;y is *not* borrowed in {:?}&quot;, number);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -7900,8 +7835,7 @@ impl&lt;'a&gt; Default for Borrowed&lt;'a&gt; {
 fn main() {
     let b: Borrowed = Default::default();
     println!(&quot;b is {:?}&quot;, b);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -7967,8 +7901,7 @@ fn main() {
 
     print_ref(&amp;ref_x);
     print(ref_x);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -8017,8 +7950,7 @@ fn main() {
         println!(&quot;The product is {}&quot;, multiply(&amp;first, &amp;second));
         println!(&quot;{} is the first&quot;, choose_first(&amp;first, &amp;second));
     };
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Static
 -->
@@ -8032,8 +7964,7 @@ might encounter it in two situations:
 let s: &amp;'static str = &quot;hello world&quot;;
 
 // 'static as part of a trait bound:
-fn generic&lt;T&gt;(x: T) where T: 'static {}
-</code></pre></pre>
+fn generic&lt;T&gt;(x: T) where T: 'static {}</code></pre></pre>
 <p>Both are related but subtly different and this is a common source for
 confusion when learning Rust. Here are some examples for each situation:</p>
 <h2 id="reference-lifetime"><a class="header" href="#reference-lifetime">Reference lifetime</a></h2>
@@ -8092,8 +8023,7 @@ fn main() {
     }
 
     println!(&quot;NUM: {} stays accessible!&quot;, NUM);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <h2 id="trait-bound"><a class="header" href="#trait-bound">Trait bound</a></h2>
 <p>As a trait bound, it means the type does not contain any non-static
 references. Eg. the receiver can hold on to the type for as long as
@@ -8115,8 +8045,7 @@ fn main() {
     // oops, &amp;i only has the lifetime defined by the scope of
     // main(), so it's not 'static:
     print_it(&amp;i);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>The compiler will tell you:</p>
 <pre><code class="language-ignore">error[E0597]: `i` does not live long enough
   --&gt; src/lib.rs:15:15
@@ -8180,8 +8109,7 @@ fn main() {
 
     println!(&quot;`elided_pass`: {}&quot;, elided_pass(&amp;x));
     println!(&quot;`annotated_pass`: {}&quot;, annotated_pass(&amp;x));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -8286,8 +8214,7 @@ fn main() {
     dolly.talk();
     dolly.shear();
     dolly.talk();
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Derive
 -->
@@ -8369,8 +8296,7 @@ fn main() {
         };
 
     println!(&quot;One foot is {} than one meter.&quot;, cmp);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -8416,7 +8342,6 @@ fn main() {
     let animal = random_animal(random_number);
     println!(&quot;You've randomly chosen an animal, and it says {}&quot;, animal.noise());
 }
-
 </code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Operator Overloading
@@ -8481,9 +8406,8 @@ impl ops::Add&lt;Foo&gt; for Bar {
 fn main() {
     println!(&quot;Foo + Bar = {:?}&quot;, Foo + Bar);
     println!(&quot;Bar + Foo = {:?}&quot;, Bar + Foo);
-}
-</code></pre></pre>
-<h3 id="see-also-2"><a class="header" href="#see-also-2">See Also</a></h3>
+}</code></pre></pre>
+<h3 id="see-also-4"><a class="header" href="#see-also-4">See Also</a></h3>
 <!--
 [Add][add], [Syntax Index][syntax]
 -->
@@ -8553,8 +8477,7 @@ fn main() {
     // (manually) `drop`ed
     // `_a`はここで`drop`されることは *ない* 。なぜならば、上ですでに
     // （手動で）`drop`されているため。
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Iterators
 -->
@@ -8660,8 +8583,7 @@ fn main() {
     for i in array.iter() {
         println!(&quot;&gt; {}&quot;, i);
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="impl-trait"><a class="header" href="#impl-trait"><code>impl Trait</code></a></h1>
 <p><code>impl Trait</code> can be used in two locations:</p>
 <ol>
@@ -8683,8 +8605,7 @@ fn main() {
             })
         })
         .collect() // Collect all lines into a Vec&lt;Vec&lt;String&gt;&gt;
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p><code>parse_csv_document</code> is generic, allowing it to take any type which implements BufRead, such as <code>BufReader&lt;File&gt;</code> or <code>[u8]</code>,
 but it's not important what type <code>R</code> is, and <code>R</code> is only used to declare the type of <code>src</code>, so the function can also be written as:</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">fn parse_csv_document(src: impl std::io::BufRead) -&gt; std::io::Result&lt;Vec&lt;Vec&lt;String&gt;&gt;&gt; {
@@ -8699,8 +8620,7 @@ but it's not important what type <code>R</code> is, and <code>R</code> is only u
             })
         })
         .collect() // Collect all lines into a Vec&lt;Vec&lt;String&gt;&gt;
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>Note that using <code>impl Trait</code> as an argument type means that you cannot explicitly state what form of the function you use, i.e. <code>parse_csv_document::&lt;std::io::Empty&gt;(std::io::empty())</code> will not work with the second example.</p>
 <h2 id="as-a-return-type"><a class="header" href="#as-a-return-type">As a return type</a></h2>
 <p>If your function returns a type that implements <code>MyTrait</code>, you can write its
@@ -8736,8 +8656,7 @@ fn main() {
     assert_eq!(Some(4), v3.next());
     assert_eq!(Some(5), v3.next());
     println!(&quot;all done&quot;);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>More importantly, some Rust types can't be written out. For example, every
 closure has its own unnamed concrete type. Before <code>impl Trait</code> syntax, you had
 to allocate on the heap in order to return a closure. But now you can do it all
@@ -8751,8 +8670,7 @@ fn make_adder_function(y: i32) -&gt; impl Fn(i32) -&gt; i32 {
 fn main() {
     let plus_one = make_adder_function(1);
     assert_eq!(plus_one(2), 3);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>You can also use <code>impl Trait</code> to return an iterator that uses <code>map</code> or <code>filter</code>
 closures! This makes using <code>map</code> and <code>filter</code> easier. Because closure types don't
 have names, you can't write out an explicit return type if your function returns
@@ -8768,8 +8686,7 @@ fn main() {
     let singles = vec![-3, -2, 2, 3];
     let doubles = double_positives(&amp;singles);
     assert_eq!(doubles.collect::&lt;Vec&lt;i32&gt;&gt;(), vec![4, 6]);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Clone
 -->
@@ -8840,8 +8757,7 @@ fn main() {
     // The result from .clone() can still be used!
     // .clone()した値はまだ使用可能！
     println!(&quot;clone: {:?}&quot;, cloned_pair);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="supertraits"><a class="header" href="#supertraits">Supertraits</a></h1>
 <p>Rust doesn't have &quot;inheritance&quot;, but you can define a trait as being a superset
 of another trait. For example:</p>
@@ -8875,8 +8791,7 @@ fn comp_sci_student_greeting(student: &amp;dyn CompSciStudent) -&gt; String {
     )
 }
 
-fn main() {}
-</code></pre></pre>
+fn main() {}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -8934,8 +8849,7 @@ fn main() {
     assert_eq!(&quot;rustacean&quot;.to_owned(), username);
     let age = &lt;Form as AgeWidget&gt;::get(&amp;form);
     assert_eq!(28, age);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -8975,8 +8889,7 @@ fn main() {
     // This call will expand into `println!(&quot;Hello&quot;);`
     // この呼び出しは`println!(&quot;Hello&quot;);`に置き換えられます。
     say_hello!()
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 So why are macros useful?
 -->
@@ -9088,8 +9001,7 @@ fn main() {
 
         x * x + 2 * x - 1
     });
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 These are some of the available designators:
 -->
@@ -9161,8 +9073,7 @@ macro_rules! test {
 fn main() {
     test!(1i32 + 1 == 2i32; and 2i32 * 2 == 4i32);
     test!(true; or false);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Repeat
 -->
@@ -9198,8 +9109,7 @@ fn main() {
     println!(&quot;{}&quot;, find_min!(1));
     println!(&quot;{}&quot;, find_min!(1 + 2, 2));
     println!(&quot;{}&quot;, find_min!(5, 2 * 3, 4));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="dry-dont-repeat-yourself"><a class="header" href="#dry-dont-repeat-yourself">DRY (Don't Repeat Yourself)</a></h1>
 <!--
 Macros allow writing DRY code by factoring out the common parts of functions
@@ -9266,8 +9176,7 @@ mod test {
     test!(add_assign, 1u32, 2u32, 3u32);
     test!(mul_assign, 2u32, 3u32, 6u32);
     test!(sub_assign, 3u32, 2u32, 1u32);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <pre><code class="language-shell">$ rustc --test dry.rs &amp;&amp; ./dry
 running 3 tests
 test test::mul_assign ... ok
@@ -9314,8 +9223,7 @@ fn main() {
     calculate! {
         eval (1 + 2) * (3 / 4)
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 Output:
 -->
@@ -9375,8 +9283,7 @@ fn main() {
         eval 3 + 4,
         eval (2 * 3) + 1
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 Output:
 -->
@@ -9452,8 +9359,44 @@ Here, we explicitly call `panic` on our error condition:
 fn main() {
     drink(&quot;water&quot;);
     drink(&quot;lemonade&quot;);
+}</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="abort-and-unwind"><a class="header" href="#abort-and-unwind"><code>abort</code> and <code>unwind</code></a></h1>
+<p>The previous section illustrates the error handling mechanism <code>panic</code>.  Different code paths can be conditionally compiled based on the panic setting. The current values available are <code>unwind</code> and <code>abort</code>. </p>
+<p>Building on the prior lemonade example, we explicitly use the panic strategy to exercise different lines of code.</p>
+<pre><pre class="playground"><code class="language-rust editable mdbook-runnable edition2021">
+fn drink(beverage: &amp;str) {
+   // You shouldn't drink too much sugary beverages.
+    if beverage == &quot;lemonade&quot; {
+        if cfg!(panic=&quot;abort&quot;){ println!(&quot;This is not your party. Run!!!!&quot;);}
+        else{ println!(&quot;Spit it out!!!!&quot;);}
+    }
+    else{ println!(&quot;Some refreshing {} is all I need.&quot;, beverage); }
 }
-</code></pre></pre>
+
+fn main() {
+    drink(&quot;water&quot;);
+    drink(&quot;lemonade&quot;);
+}</code></pre></pre>
+<p>Here is another example focusing on rewriting <code>drink()</code> and explicitly use the <code>unwind</code> keyword.</p>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+#[cfg(panic = &quot;unwind&quot;)]
+fn ah(){ println!(&quot;Spit it out!!!!&quot;);}
+
+#[cfg(not(panic=&quot;unwind&quot;))]
+fn ah(){ println!(&quot;This is not your party. Run!!!!&quot;);}
+
+fn drink(beverage: &amp;str){
+    if beverage == &quot;lemonade&quot;{ ah();}
+    else{println!(&quot;Some refreshing {} is all I need.&quot;, beverage);}
+}
+
+fn main() {
+    drink(&quot;water&quot;);
+    drink(&quot;lemonade&quot;);
+}</code></pre></pre>
+<p>The panic strategy can be set from the command line by using <code>abort</code> or <code>unwind</code>.</p>
+<pre><code class="language-console">rustc  lemonade.rs -C panic=abort
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # `Option` & `unwrap`
 -->
@@ -9536,8 +9479,7 @@ fn main() {
 
     drink(coffee);
     drink(nothing);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Unpacking options with `?`
 -->
@@ -9556,8 +9498,7 @@ function is being executed and return `None`.
     // `current_age`が`Some`の場合、内部の`u8`型の値が`next_age`に代入される。
     let next_age: u8 = current_age? + 1;
     Some(format!(&quot;Next year I will be {}&quot;, next_age))
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 You can chain many `?`s together to make your code much more readable.
 -->
@@ -9602,8 +9543,7 @@ fn main() {
     };
 
     assert_eq!(p.work_phone_area_code(), Some(61));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="combinators-map"><a class="header" href="#combinators-map">Combinators: <code>map</code></a></h1>
 <!--
 `match` is a valid method for handling `Option`s. However, you may 
@@ -9692,8 +9632,7 @@ fn main() {
     eat(cooked_apple);
     eat(cooked_carrot);
     eat(cooked_potato);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -9774,8 +9713,7 @@ fn main() {
     eat(cordon_bleu, Day::Monday);
     eat(steak, Day::Tuesday);
     eat(sushi, Day::Wednesday);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -9784,6 +9722,102 @@ fn main() {
 [closures][closures], [`Option`][option], and [`Option::and_then()`][and_then]
 -->
 <p><a href="error/option_unwrap/../../fn/closures.html">closures</a>, <a href="https://doc.rust-lang.org/std/option/enum.Option.html"><code>Option</code></a>, <a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.and_then"><code>Option::and_then()</code></a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="unpacking-options-and-defaults"><a class="header" href="#unpacking-options-and-defaults">Unpacking options and defaults</a></h1>
+<p>There is more than one way to unpack an <code>Option</code> and fall back on a default if it is <code>None</code>. To choose the one that meets our needs, we need to consider the following:</p>
+<ul>
+<li>do we need eager or lazy evaluation?</li>
+<li>do we need to keep the original empty value intact, or modify it in place?</li>
+</ul>
+<h2 id="or-is-chainable-evaluates-eagerly-keeps-empty-value-intact"><a class="header" href="#or-is-chainable-evaluates-eagerly-keeps-empty-value-intact"><code>or()</code> is chainable, evaluates eagerly, keeps empty value intact</a></h2>
+<p><code>or()</code>is chainable and eagerly evaluates its argument, as is shown in the following example. Note that because <code>or</code>'s arguments are evaluated eagerly, the variable passed to <code>or</code> is moved.</p>
+<pre><pre class="playground"><code class="language-rust editable edition2021">#[derive(Debug)] 
+enum Fruit { Apple, Orange, Banana, Kiwi, Lemon }
+
+fn main() {
+    let apple = Some(Fruit::Apple);
+    let orange = Some(Fruit::Orange);
+    let no_fruit: Option&lt;Fruit&gt; = None;
+
+    let first_available_fruit = no_fruit.or(orange).or(apple);
+    println!(&quot;first_available_fruit: {:?}&quot;, first_available_fruit);
+    // first_available_fruit: Some(Orange)
+
+    // `or` moves its argument.
+    // In the example above, `or(orange)` returned a `Some`, so `or(apple)` was not invoked.
+    // But the variable named `apple` has been moved regardless, and cannot be used anymore.
+    // println!(&quot;Variable apple was moved, so this line won't compile: {:?}&quot;, apple);
+    // TODO: uncomment the line above to see the compiler error
+ }</code></pre></pre>
+<h2 id="or_else-is-chainable-evaluates-lazily-keeps-empty-value-intact"><a class="header" href="#or_else-is-chainable-evaluates-lazily-keeps-empty-value-intact"><code>or_else()</code> is chainable, evaluates lazily, keeps empty value intact</a></h2>
+<p>Another alternative is to use <code>or_else</code>, which is also chainable, and evaluates lazily, as is shown in the following example:</p>
+<pre><pre class="playground"><code class="language-rust editable edition2021">#[derive(Debug)] 
+enum Fruit { Apple, Orange, Banana, Kiwi, Lemon }
+
+fn main() {
+    let apple = Some(Fruit::Apple);
+    let no_fruit: Option&lt;Fruit&gt; = None;
+    let get_kiwi_as_fallback = || {
+        println!(&quot;Providing kiwi as fallback&quot;);
+        Some(Fruit::Kiwi)
+    };
+    let get_lemon_as_fallback = || {
+        println!(&quot;Providing lemon as fallback&quot;);
+        Some(Fruit::Lemon)
+    };
+
+    let first_available_fruit = no_fruit
+        .or_else(get_kiwi_as_fallback)
+        .or_else(get_lemon_as_fallback);
+    println!(&quot;first_available_fruit: {:?}&quot;, first_available_fruit);
+    // Providing kiwi as fallback
+    // first_available_fruit: Some(Kiwi)
+}</code></pre></pre>
+<h2 id="get_or_insert-evaluates-eagerly-modifies-empty-value-in-place"><a class="header" href="#get_or_insert-evaluates-eagerly-modifies-empty-value-in-place"><code>get_or_insert()</code> evaluates eagerly, modifies empty value in place</a></h2>
+<p>To make sure that an <code>Option</code> contains a value, we can use <code>get_or_insert</code> to modify it in place with a fallback value, as is shown in the following example. Note that <code>get_or_insert</code> eagerly evaluates its parameter, so variable <code>apple</code> is moved:</p>
+<pre><pre class="playground"><code class="language-rust editable edition2021">#[derive(Debug)]
+enum Fruit { Apple, Orange, Banana, Kiwi, Lemon }
+
+fn main() {
+    let mut my_fruit: Option&lt;Fruit&gt; = None;
+    let apple = Fruit::Apple;
+    let first_available_fruit = my_fruit.get_or_insert(apple);
+    println!(&quot;first_available_fruit is: {:?}&quot;, first_available_fruit);
+    println!(&quot;my_fruit is: {:?}&quot;, my_fruit);
+    // first_available_fruit is: Apple
+    // my_fruit is: Some(Apple)
+    //println!(&quot;Variable named `apple` is moved: {:?}&quot;, apple);
+    // TODO: uncomment the line above to see the compiler error
+}</code></pre></pre>
+<h2 id="get_or_insert_with-evaluates-lazily-modifies-empty-value-in-place"><a class="header" href="#get_or_insert_with-evaluates-lazily-modifies-empty-value-in-place"><code>get_or_insert_with()</code> evaluates lazily, modifies empty value in place</a></h2>
+<p>Instead of explicitly providing a value to fall back on, we can pass a closure to <code>get_or_insert_with</code>, as follows:</p>
+<pre><pre class="playground"><code class="language-rust editable edition2021">#[derive(Debug)] 
+enum Fruit { Apple, Orange, Banana, Kiwi, Lemon }
+
+fn main() {
+    let mut my_fruit: Option&lt;Fruit&gt; = None;
+    let get_lemon_as_fallback = || {
+        println!(&quot;Providing lemon as fallback&quot;);
+        Fruit::Lemon
+    };
+    let first_available_fruit = my_fruit
+        .get_or_insert_with(get_lemon_as_fallback);
+    println!(&quot;first_available_fruit is: {:?}&quot;, first_available_fruit);
+    println!(&quot;my_fruit is: {:?}&quot;, my_fruit);
+    // Providing lemon as fallback
+    // first_available_fruit is: Lemon
+    // my_fruit is: Some(Lemon)
+
+    // If the Option has a value, it is left unchanged, and the closure is not invoked
+    let mut my_apple = Some(Fruit::Apple);
+    let should_be_apple = my_apple.get_or_insert_with(get_lemon_as_fallback);
+    println!(&quot;should_be_apple is: {:?}&quot;, should_be_apple);
+    println!(&quot;my_apple is unchanged: {:?}&quot;, my_apple);
+    // The output is a follows. Note that the closure `get_lemon_as_fallback` is not invoked
+    // should_be_apple is: Apple
+    // my_apple is unchanged: Some(Apple)
+}</code></pre></pre>
+<h3 id="see-also-5"><a class="header" href="#see-also-5">See also:</a></h3>
+<p><a href="https://doc.rust-lang.org/book/ch13-01-closures.html"><code>closures</code></a>, <a href="https://doc.rust-lang.org/core/option/enum.Option.html#method.get_or_insert"><code>get_or_insert</code></a>, <a href="https://doc.rust-lang.org/core/option/enum.Option.html#method.get_or_insert_with"><code>get_or_insert_with</code></a>, ,<a href="https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html"><code>moved variables</code></a>, <a href="https://doc.rust-lang.org/core/option/enum.Option.html#method.or"><code>or</code></a>, <a href="https://doc.rust-lang.org/core/option/enum.Option.html#method.or_else"><code>or_else</code></a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="result"><a class="header" href="#result"><code>Result</code></a></h1>
 <!--
 [`Result`][result] is a richer version of the [`Option`][option] type that
@@ -9838,8 +9872,7 @@ fn main() {
 
     let tt = multiply(&quot;t&quot;, &quot;2&quot;);
     println!(&quot;double is {}&quot;, tt);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 In the unsuccessful case, `parse()` leaves us with an error for `unwrap()`
 to `panic` on. Additionally, the `panic` exits our program and provides an
@@ -9862,8 +9895,7 @@ specified explicitly. Typically the `main` function will be of the form:
 <p><code>Result</code>型は、明示的な指定により<code>main</code>関数のリターン型にもなります。一般に、<code>main</code>関数は以下のような形になるでしょう。</p>
 <pre><pre class="playground"><code class="language-rust edition2021">fn main() {
     println!(&quot;Hello World!&quot;);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 However `main` is also able to have a return type of `Result`. If an error
 occurs within the `main` function it will return an error code and print a debug
@@ -9881,8 +9913,7 @@ fn main() -&gt; Result&lt;(), ParseIntError&gt; {
     };
     println!(&quot;{}&quot;, number);
     Ok(())
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 [the following section]: result/early_returns.md
 -->
@@ -9943,8 +9974,7 @@ fn main() {
     // こちらは今度は有益なエラーメッセージを与えます。
     let tt = multiply(&quot;t&quot;, &quot;2&quot;);
     print(tt);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 Luckily, `Option`'s `map`, `and_then`, and many other combinators are also
 implemented for `Result`. [`Result`][result] contains a complete listing.
@@ -9981,8 +10011,7 @@ fn main() {
     // こちらは今度は有益なエラーメッセージを与えます。
     let tt = multiply(&quot;t&quot;, &quot;2&quot;);
     print(tt);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # aliases for `Result`
 -->
@@ -10030,8 +10059,7 @@ fn print(result: AliasedResult&lt;i32&gt;) {
 fn main() {
     print(multiply(&quot;10&quot;, &quot;2&quot;));
     print(multiply(&quot;t&quot;, &quot;2&quot;));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -10079,8 +10107,7 @@ fn print(result: Result&lt;i32, ParseIntError&gt;) {
 fn main() {
     print(multiply(&quot;10&quot;, &quot;2&quot;));
     print(multiply(&quot;t&quot;, &quot;2&quot;));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 At this point, we've learned to explicitly handle errors using combinators
 and early returns. While we generally want to avoid panicking, explicitly
@@ -10139,8 +10166,7 @@ fn print(result: Result&lt;i32, ParseIntError&gt;) {
 fn main() {
     print(multiply(&quot;10&quot;, &quot;2&quot;));
     print(multiply(&quot;t&quot;, &quot;2&quot;));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ## The `try!` macro
 -->
@@ -10176,8 +10202,7 @@ fn print(result: Result&lt;i32, ParseIntError&gt;) {
 fn main() {
     print(multiply(&quot;10&quot;, &quot;2&quot;));
     print(multiply(&quot;t&quot;, &quot;2&quot;));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 [^†]: See [re-enter ?][re_enter_?] for more details.
 -->
@@ -10227,8 +10252,7 @@ fn main() {
     println!(&quot;The first doubled is {}&quot;, double_first(strings));
     // Error 2: the element doesn't parse to a number
     // エラー２：要素が数字としてパースできない
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 Over the next sections, we'll see several strategies for handling these kind of problems.
 -->
@@ -10264,8 +10288,7 @@ fn main() {
     println!(&quot;The first doubled is {:?}&quot;, double_first(strings));
     // Error 2: the element doesn't parse to a number
     // エラー２：要素が数字としてパースできない
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 There are times when we'll want to stop processing on errors (like with
 [`?`][enter_question_mark]) but keep going when the `Option` is `None`. A
@@ -10290,8 +10313,7 @@ fn main() {
     println!(&quot;The first doubled is {:?}&quot;, double_first(numbers));
     println!(&quot;The first doubled is {:?}&quot;, double_first(empty));
     println!(&quot;The first doubled is {:?}&quot;, double_first(strings));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Defining an error type
 -->
@@ -10401,8 +10423,7 @@ fn main() {
     print(double_first(numbers));
     print(double_first(empty));
     print(double_first(strings));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # `Box`ing errors
 -->
@@ -10464,8 +10485,7 @@ fn main() {
     print(double_first(numbers));
     print(double_first(empty));
     print(double_first(strings));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -10482,8 +10502,7 @@ error:
 -->
 <p>以前の例では<code>parse</code>の呼び出しに対するその場での対応として、エラーをライブラリのエラーからboxされたエラーへと<code>map</code>していました。</p>
 <pre><code class="language-rust ignore">.and_then(|s| s.parse::&lt;i32&gt;()
-    .map_err(|e| e.into())
-</code></pre>
+    .map_err(|e| e.into())</code></pre>
 <!--
 Since this is a simple and common operation, it would be convenient if it
 could be elided. Alas, because `and_then` is not sufficiently flexible, it
@@ -10546,8 +10565,7 @@ fn main() {
     print(double_first(numbers));
     print(double_first(empty));
     print(double_first(strings));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 This is actually fairly clean now. Compared with the original `panic`, it
 is very similar to replacing the `unwrap` calls with `?` except that the
@@ -10656,8 +10674,7 @@ fn main() {
     print(double_first(numbers));
     print(double_first(empty));
     print(double_first(strings));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 This adds a bit more boilerplate for handling errors and might not be needed in
 all applications. There are some libraries that can take care of the boilerplate
@@ -10684,8 +10701,7 @@ An `Iter::map` operation might fail, for example:
         .map(|s| s.parse::&lt;i32&gt;())
         .collect();
     println!(&quot;Results: {:?}&quot;, numbers);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 Let's step through strategies for handling this.
 -->
@@ -10705,8 +10721,7 @@ Let's step through strategies for handling this.
         .filter_map(|s| s.parse::&lt;i32&gt;().ok())
         .collect();
     println!(&quot;Results: {:?}&quot;, numbers);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <h2 id="collect-the-failed-items-with-map_err-and-filter_map"><a class="header" href="#collect-the-failed-items-with-map_err-and-filter_map">Collect the failed items with <code>map_err()</code> and <code>filter_map()</code></a></h2>
 <p><code>map_err</code> calls a function with the error, so by adding that to the previous
 <code>filter_map</code> solution we can save them off to the side while iterating.</p>
@@ -10720,8 +10735,7 @@ Let's step through strategies for handling this.
         .collect();
     println!(&quot;Numbers: {:?}&quot;, numbers);
     println!(&quot;Errors: {:?}&quot;, errors);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ## Fail the entire operation with `collect()`
 -->
@@ -10739,8 +10753,7 @@ can be turned into a result with a vector (`Result<Vec<T>, E>`). Once an
         .map(|s| s.parse::&lt;i32&gt;())
         .collect();
     println!(&quot;Results: {:?}&quot;, numbers);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 This same technique can be used with `Option`.
 -->
@@ -10757,8 +10770,7 @@ This same technique can be used with `Option`.
         .partition(Result::is_ok);
     println!(&quot;Numbers: {:?}&quot;, numbers);
     println!(&quot;Errors: {:?}&quot;, errors);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 When you look at the results, you'll note that everything is still wrapped in
 `Result`.  A little more boilerplate is needed for this.
@@ -10774,8 +10786,7 @@ When you look at the results, you'll note that everything is still wrapped in
     let errors: Vec&lt;_&gt; = errors.into_iter().map(Result::unwrap_err).collect();
     println!(&quot;Numbers: {:?}&quot;, numbers);
     println!(&quot;Errors: {:?}&quot;, errors);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Std library types
 -->
@@ -10894,8 +10905,7 @@ fn main() {
     let unboxed_point: Point = *boxed_point;
     println!(&quot;Unboxed point occupies {} bytes on the stack&quot;,
              mem::size_of_val(&amp;unboxed_point));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Vectors
 -->
@@ -10979,8 +10989,7 @@ needs to be surpassed, the vector is reallocated with a larger capacity.
         *x *= 3;
     }
     println!(&quot;Updated vector: {:?}&quot;, xs);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 More `Vec` methods can be found under the
 [std::vec][vec] module
@@ -11055,8 +11064,7 @@ can be used to view into a `String`, just like `&[T]` is a view into `Vec<T>`.
 
     println!(&quot;Alice says: {}&quot;, alice);
     println!(&quot;Bob says: {}&quot;, bob);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 More `str`/`String` methods can be found under the
 [std::str][str] and
@@ -11092,8 +11100,7 @@ escape it with another one: <code>\\</code></p>
                         The linebreak and indentation here -&gt;\
                         &lt;- can be escaped too!&quot;;
     println!(&quot;{}&quot;, long_string);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>Sometimes there are just too many characters that need to be escaped or it's just
 much more convenient to write a string out as-is. This is where raw string literals come into play.</p>
 <pre><pre class="playground"><code class="language-rust  editable edition2021">fn main() {
@@ -11109,8 +11116,7 @@ much more convenient to write a string out as-is. This is where raw string liter
     // There is no limit for the number of #s you can use.
     let longer_delimiter = r###&quot;A string with &quot;# in it. And even &quot;##!&quot;###;
     println!(&quot;{}&quot;, longer_delimiter);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>Want a string that's not UTF-8? (Remember, <code>str</code> and <code>String</code> must be valid UTF-8).
 Or maybe you want an array of bytes that's mostly text? Byte strings to the rescue!</p>
 <pre><pre class="playground"><code class="language-rust  editable edition2021">use std::str;
@@ -11149,8 +11155,7 @@ fn main() {
         Ok(my_str) =&gt; println!(&quot;Conversion successful: '{}'&quot;, my_str),
         Err(e) =&gt; println!(&quot;Conversion failed: {:?}&quot;, e),
     };
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>For conversions between character encodings check out the <a href="https://crates.io/crates/encoding">encoding</a> crate.</p>
 <p>A more detailed listing of the ways to write string literals and escape characters
 is given in the <a href="https://doc.rust-lang.org/reference/tokens.html">'Tokens' chapter</a> of the Rust Reference.</p>
@@ -11217,8 +11222,7 @@ fn main() {
     // Unwrapping a `None` variant will `panic!`
     // `None`をアンラップしようとすると`panic!`る
     println!(&quot;{:?} unwraps to {:?}&quot;, none, none.unwrap());
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="result-1"><a class="header" href="#result-1"><code>Result</code></a></h1>
 <!--
 We've seen that the `Option` enum can be used as a return value from functions
@@ -11304,8 +11308,7 @@ fn main() {
     // Will this fail?
     // これは失敗するだろうか？
     println!(&quot;{}&quot;, op(1.0, 10.0));
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id=""><a class="header" href="#"><code>?</code></a></h1>
 <p>Chaining results using match can get pretty untidy; luckily, the <code>?</code> operator
 can be used to make things pretty again. <code>?</code> is used at the end of an expression
@@ -11374,8 +11377,7 @@ branch expands to an <code>ok</code> expression.</p>
 
 fn main() {
     checked::op(1.0, 10.0);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>Be sure to check the <a href="https://doc.rust-lang.org/std/result/index.html">documentation</a>,
 as there are many methods to map/compose <code>Result</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="panic-1"><a class="header" href="#panic-1"><code>panic!</code></a></h1>
@@ -11417,8 +11419,7 @@ fn main() {
 
     // `_x` should get destroyed at this point
     // `_x`はここに到達する前に破棄される。
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 Let's check that `panic!` doesn't leak memory.
 -->
@@ -11507,8 +11508,7 @@ fn main() {
     for (contact, &amp;number) in contacts.iter() {
         println!(&quot;Calling {}: {}&quot;, contact, call(number)); 
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 For more information on how hashing and hash maps 
 (sometimes called hash tables) work, have a look at 
@@ -11620,8 +11620,7 @@ fn main(){
     try_logon(&amp;accounts, &quot;j.everyman&quot;, &quot;psasword123&quot;);
 
     try_logon(&amp;accounts, &quot;j.everyman&quot;, &quot;password123&quot;);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # HashSet
 -->
@@ -11734,8 +11733,7 @@ fn main() {
     // [1, 5]をプリント
     println!(&quot;Symmetric Difference: {:?}&quot;,
              a.symmetric_difference(&amp;b).collect::&lt;Vec&lt;&amp;i32&gt;&gt;());
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 (Examples are adapted from the [documentation.][hash-set])
 -->
@@ -11780,8 +11778,7 @@ fn main() {
     // And when `rc_a` is dropped, `rc_examples` is dropped together
     // println!(&quot;rc_examples: {}&quot;, rc_examples);
     // TODO ^ Try uncommenting this line
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### See also:
 -->
@@ -11817,7 +11814,6 @@ fn main() {
     // Make sure all Arc instances are printed from spawned threads.
     thread::sleep(Duration::from_secs(1));
 }
-
 </code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Std misc
@@ -11883,8 +11879,7 @@ fn main() {
         // 子スレッドが終了するのを待ち、結果を返す。
         let _ = child.join();
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 These threads will be scheduled by the OS.
 -->
@@ -12004,7 +11999,6 @@ fn main() {
     println!(&quot;Final sum result: {}&quot;, final_result);
 }
 
-
 </code></pre></pre>
 <h3 id="assignments"><a class="header" href="#assignments">Assignments</a></h3>
 <p>It is not wise to let our number of threads depend on user inputted data.
@@ -12094,8 +12088,7 @@ fn main() {
     // Show the order in which the messages were sent
     // メッセージが送信された順番を表示
     println!(&quot;{:?}&quot;, ids);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="path"><a class="header" href="#path">Path</a></h1>
 <!--
 The `Path` struct represents file paths in the underlying filesystem. There are
@@ -12152,7 +12145,6 @@ fn main() {
         Some(s) =&gt; println!(&quot;new path is {}&quot;, s),
     }
 }
-
 </code></pre></pre>
 <!--
 Be sure to check at other `Path` methods (`posix::Path` or `windows::Path`) and
@@ -12224,7 +12216,6 @@ fn main() {
     // `file` goes out of scope, and the &quot;hello.txt&quot; file gets closed
     // `file`がスコープから抜け、&quot;hello.txt&quot;が閉じられる。
 }
-
 </code></pre>
 <!--
 Here's the expected successful output:
@@ -12279,8 +12270,7 @@ fn main() {
         Err(why) =&gt; panic!(&quot;couldn't write to {}: {}&quot;, display, why),
         Ok(_) =&gt; println!(&quot;successfully wrote to {}&quot;, display),
     }
-}
-</code></pre>
+}</code></pre>
 <!--
 Here's the expected successful output:
 -->
@@ -12323,8 +12313,7 @@ fn main() {
     for line in lines {
         println!(&quot;{}&quot;, line.unwrap());
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>Running this program simply prints the lines individually.</p>
 <pre><code class="language-shell">$ echo -e &quot;127.0.0.1\n192.168.0.1\n&quot; &gt; hosts
 $ rustc read_lines.rs &amp;&amp; ./read_lines
@@ -12358,8 +12347,7 @@ fn read_lines&lt;P&gt;(filename: P) -&gt; io::Result&lt;io::Lines&lt;io::BufRead
 where P: AsRef&lt;Path&gt;, {
     let file = File::open(filename)?;
     Ok(io::BufReader::new(file).lines())
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>Running this program simply prints the lines individually.</p>
 <pre><code class="language-shell">$ echo -e &quot;127.0.0.1\n192.168.0.1\n&quot; &gt; hosts
 $ rustc read_lines.rs &amp;&amp; ./read_lines
@@ -12395,8 +12383,7 @@ fn main() {
 
         print!(&quot;rustc failed and stderr was:\n{}&quot;, s);
     }
-}
-</code></pre>
+}</code></pre>
 <!--
 (You are encouraged to try the previous example with an incorrect flag passed
 to `rustc`)
@@ -12459,8 +12446,7 @@ fn main() {
         Err(why) =&gt; panic!(&quot;couldn't read wc stdout: {}&quot;, why),
         Ok(_) =&gt; print!(&quot;wc responded with:\n{}&quot;, s),
     }
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Wait
 -->
@@ -12474,8 +12460,7 @@ fn main() {
     let _result = child.wait().unwrap();
 
     println!(&quot;reached end of main&quot;);
-}
-</code></pre>
+}</code></pre>
 <pre><code class="language-bash">$ rustc wait.rs &amp;&amp; ./wait
 # `wait` keeps running for 5 seconds until the `sleep 5` command finishes
 reached end of main
@@ -12590,7 +12575,6 @@ fn main() {
         println!(&quot;! {:?}&quot;, why.kind());
     });
 }
-
 </code></pre>
 <!--
 Here's the expected successful output:
@@ -12628,8 +12612,7 @@ a
     let mut s = String::new();
     f.read_to_string(&amp;mut s)?;
     Ok(s)
-}
-</code></pre>
+}</code></pre>
 <!--
 ### See also:
 -->
@@ -12660,8 +12643,7 @@ fn main() {
     // プログラムはこんなふうに呼び出す。
     //   $ ./args arg1 arg2
     println!(&quot;I got {:?} arguments: {:?}.&quot;, args.len() - 1, &amp;args[1..]);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <pre><code class="language-shell">$ ./args 1 2 3
 My path is ./args.
 I got 3 arguments: [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;].
@@ -12750,8 +12732,7 @@ fn main() {
             help();
         }
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <pre><code class="language-shell">$ ./match_args Rust
 This is not the answer.
 $ ./match_args 42
@@ -12835,8 +12816,7 @@ impl fmt::Debug for Complex {
             write!(f, &quot;{}+{}i&quot;, self.re, self.im)
         }
     }
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Testing
 -->
@@ -12940,8 +12920,7 @@ mod tests {
         // プライベートな関数もテストすることができる。
         assert_eq!(bad_add(1, 2), 3);
     }
-}
-</code></pre>
+}</code></pre>
 <!--
 Tests can be run with `cargo test`.
 -->
@@ -12992,8 +12971,7 @@ mod tests {
         assert_eq!(sqrt(x)?.powf(2.0), x);
         Ok(())
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 See ["The Edition Guide"][editionguide] for more details.
 -->
@@ -13038,8 +13016,7 @@ mod tests {
     fn test_specific_panic() {
         divide_non_zero_result(1, 10);
     }
-}
-</code></pre>
+}</code></pre>
 <!--
 Running these tests gives us:
 -->
@@ -13106,8 +13083,7 @@ Tests can be marked with the `#[ignore]` attribute to exclude some tests. Or to 
 them with command `cargo test -- --ignored`
 -->
 <p>テストを実行から除外するには、<code>#[ignore]</code>アトリビュートを使います。<code>cargo test -- --ignored</code>で、除外したものを含めてテストを実行できます。</p>
-<pre><pre class="playground"><code class="language-rust edition2021">
-<span class="boring">#![allow(unused)]
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>pub fn add(a: i32, b: i32) -&gt; i32 {
     a + b
@@ -13134,8 +13110,7 @@ mod tests {
         assert_eq!(add(0, 0), 0);
     }
 }
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <pre><code class="language-shell">$ cargo test
 running 3 tests
 test tests::ignored_test ... ignored
@@ -13223,8 +13198,7 @@ pub fn div(a: i32, b: i32) -&gt; i32 {
     }
 
     a / b
-}
-</code></pre>
+}</code></pre>
 <p>Code blocks in documentation are automatically tested
 when running the regular <code>cargo test</code> command:</p>
 <pre><code class="language-shell">$ cargo test
@@ -13280,8 +13254,7 @@ pub fn try_div(a: i32, b: i32) -&gt; Result&lt;i32, String&gt; {
     } else {
         Ok(a / b)
     }
-}
-</code></pre>
+}</code></pre>
 <!--
 ## See Also
 -->
@@ -13319,8 +13292,7 @@ File `src/lib.rs`:
 // インテグレーションテストでadderクレートをexternで宣言する。
 pub fn add(a: i32, b: i32) -&gt; i32 {
     a + b
-}
-</code></pre>
+}</code></pre>
 <!--
 File with test: `tests/integration_test.rs`:
 -->
@@ -13332,8 +13304,7 @@ extern crate adder;
 #[test]
 fn test_add() {
     assert_eq!(adder::add(3, 2), 5);
-}
-</code></pre>
+}</code></pre>
 <!--
 Running tests with `cargo test` command:
 -->
@@ -13370,8 +13341,7 @@ File `tests/common/mod.rs`:
     // some setup code, like creating required files/directories, starting
     // servers, etc.
     // 必要なファイル・ディレクトリの作成やサーバの起動といった準備を行うコードを記述する。
-}
-</code></pre>
+}</code></pre>
 <!--
 File with test: `tests/integration_test.rs`
 -->
@@ -13390,8 +13360,7 @@ fn test_add() {
     // 共通のコードを利用する。
     common::setup();
     assert_eq!(adder::add(3, 2), 5);
-}
-</code></pre>
+}</code></pre>
 <p>Creating the module as <code>tests/common.rs</code> also works, but is not recommended
 because the test runner will treat the file as a test crate and try to run tests
 inside it.</p>
@@ -13440,8 +13409,7 @@ mod tests {
     fn test_add() {
         assert_eq!(add(2, 3), 5);
     }
-}
-</code></pre>
+}</code></pre>
 <!--
 ## See Also
 -->
@@ -13495,8 +13463,7 @@ block.
     unsafe {
         assert!(*raw_p == 10);
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 ### Calling Unsafe Functions
 Some functions can be declared as `unsafe`, meaning it is the programmer's
@@ -13520,8 +13487,7 @@ fn main() {
 
         assert_eq!(some_vector.as_slice(), my_slice);
     }
-}
-</code></pre></pre>
+}</code></pre></pre>
 <!--
 For `slice::from_raw_parts`, one of the assumptions which *must* be upheld is 
 that the pointer passed in points to valid memory and that the memory pointed to
@@ -13534,6 +13500,389 @@ behaviour is undefined and there is no knowing what will happen.
 <li>そのメモリに格納された値が正しい型であること</li>
 </ul>
 <p>この仮定を満たさない場合、プログラムの動作は不定となり、何が起こるかわかりません。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="inline-assembly"><a class="header" href="#inline-assembly">Inline assembly</a></h1>
+<p>Rust provides support for inline assembly via the <code>asm!</code> macro.
+It can be used to embed handwritten assembly in the assembly output generated by the compiler.
+Generally this should not be necessary, but might be where the required performance or timing
+cannot be otherwise achieved. Accessing low level hardware primitives, e.g. in kernel code, may also demand this functionality.</p>
+<blockquote>
+<p><strong>Note</strong>: the examples here are given in x86/x86-64 assembly, but other architectures are also supported.</p>
+</blockquote>
+<p>Inline assembly is currently supported on the following architectures:</p>
+<ul>
+<li>x86 and x86-64</li>
+<li>ARM</li>
+<li>AArch64</li>
+<li>RISC-V</li>
+</ul>
+<h2 id="basic-usage"><a class="header" href="#basic-usage">Basic usage</a></h2>
+<p>Let us start with the simplest possible example:</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::arch::asm;
+
+unsafe {
+    asm!(&quot;nop&quot;);
+}
+<span class="boring">}</span></code></pre></pre>
+<p>This will insert a NOP (no operation) instruction into the assembly generated by the compiler.
+Note that all <code>asm!</code> invocations have to be inside an <code>unsafe</code> block, as they could insert
+arbitrary instructions and break various invariants. The instructions to be inserted are listed
+in the first argument of the <code>asm!</code> macro as a string literal.</p>
+<h2 id="inputs-and-outputs"><a class="header" href="#inputs-and-outputs">Inputs and outputs</a></h2>
+<p>Now inserting an instruction that does nothing is rather boring. Let us do something that
+actually acts on data:</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::arch::asm;
+
+let x: u64;
+unsafe {
+    asm!(&quot;mov {}, 5&quot;, out(reg) x);
+}
+assert_eq!(x, 5);
+<span class="boring">}</span></code></pre></pre>
+<p>This will write the value <code>5</code> into the <code>u64</code> variable <code>x</code>.
+You can see that the string literal we use to specify instructions is actually a template string.
+It is governed by the same rules as Rust <a href="https://doc.rust-lang.org/std/fmt/#syntax">format strings</a>.
+The arguments that are inserted into the template however look a bit different than you may
+be familiar with. First we need to specify if the variable is an input or an output of the
+inline assembly. In this case it is an output. We declared this by writing <code>out</code>.
+We also need to specify in what kind of register the assembly expects the variable.
+In this case we put it in an arbitrary general purpose register by specifying <code>reg</code>.
+The compiler will choose an appropriate register to insert into
+the template and will read the variable from there after the inline assembly finishes executing.</p>
+<p>Let us see another example that also uses an input:</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::arch::asm;
+
+let i: u64 = 3;
+let o: u64;
+unsafe {
+    asm!(
+        &quot;mov {0}, {1}&quot;,
+        &quot;add {0}, 5&quot;,
+        out(reg) o,
+        in(reg) i,
+    );
+}
+assert_eq!(o, 8);
+<span class="boring">}</span></code></pre></pre>
+<p>This will add <code>5</code> to the input in variable <code>i</code> and write the result to variable <code>o</code>.
+The particular way this assembly does this is first copying the value from <code>i</code> to the output,
+and then adding <code>5</code> to it.</p>
+<p>The example shows a few things:</p>
+<p>First, we can see that <code>asm!</code> allows multiple template string arguments; each
+one is treated as a separate line of assembly code, as if they were all joined
+together with newlines between them. This makes it easy to format assembly
+code.</p>
+<p>Second, we can see that inputs are declared by writing <code>in</code> instead of <code>out</code>.</p>
+<p>Third, we can see that we can specify an argument number, or name as in any format string.
+For inline assembly templates this is particularly useful as arguments are often used more than once.
+For more complex inline assembly using this facility is generally recommended, as it improves
+readability, and allows reordering instructions without changing the argument order.</p>
+<p>We can further refine the above example to avoid the <code>mov</code> instruction:</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::arch::asm;
+
+let mut x: u64 = 3;
+unsafe {
+    asm!(&quot;add {0}, 5&quot;, inout(reg) x);
+}
+assert_eq!(x, 8);
+<span class="boring">}</span></code></pre></pre>
+<p>We can see that <code>inout</code> is used to specify an argument that is both input and output.
+This is different from specifying an input and output separately in that it is guaranteed to assign both to the same register.</p>
+<p>It is also possible to specify different variables for the input and output parts of an <code>inout</code> operand:</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::arch::asm;
+
+let x: u64 = 3;
+let y: u64;
+unsafe {
+    asm!(&quot;add {0}, 5&quot;, inout(reg) x =&gt; y);
+}
+assert_eq!(y, 8);
+<span class="boring">}</span></code></pre></pre>
+<h2 id="late-output-operands"><a class="header" href="#late-output-operands">Late output operands</a></h2>
+<p>The Rust compiler is conservative with its allocation of operands. It is assumed that an <code>out</code>
+can be written at any time, and can therefore not share its location with any other argument.
+However, to guarantee optimal performance it is important to use as few registers as possible,
+so they won't have to be saved and reloaded around the inline assembly block.
+To achieve this Rust provides a <code>lateout</code> specifier. This can be used on any output that is
+written only after all inputs have been consumed.
+There is also a <code>inlateout</code> variant of this specifier.</p>
+<p>Here is an example where <code>inlateout</code> <em>cannot</em> be used in <code>release</code> mode or other optimized cases:</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::arch::asm;
+
+let mut a: u64 = 4;
+let b: u64 = 4;
+let c: u64 = 4;
+unsafe {
+    asm!(
+        &quot;add {0}, {1}&quot;,
+        &quot;add {0}, {2}&quot;,
+        inout(reg) a,
+        in(reg) b,
+        in(reg) c,
+    );
+}
+assert_eq!(a, 12);
+<span class="boring">}</span></code></pre></pre>
+<p>The above could work well in unoptimized cases (<code>Debug</code> mode), but if you want optimized performance (<code>release</code> mode or other optimized cases), it could not work.</p>
+<p>That is because in optimized cases, the compiler is free to allocate the same register for inputs <code>b</code> and <code>c</code> since it knows they have the same value. However it must allocate a separate register for <code>a</code> since it uses <code>inout</code> and not <code>inlateout</code>. If <code>inlateout</code> was used, then <code>a</code> and <code>c</code> could be allocated to the same register, in which case the first instruction to overwrite the value of <code>c</code> and cause the assembly code to produce the wrong result.</p>
+<p>However the following example can use <code>inlateout</code> since the output is only modified after all input registers have been read:</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::arch::asm;
+
+let mut a: u64 = 4;
+let b: u64 = 4;
+unsafe {
+    asm!(&quot;add {0}, {1}&quot;, inlateout(reg) a, in(reg) b);
+}
+assert_eq!(a, 8);
+<span class="boring">}</span></code></pre></pre>
+<p>As you can see, this assembly fragment will still work correctly if <code>a</code> and <code>b</code> are assigned to the same register.</p>
+<h2 id="explicit-register-operands"><a class="header" href="#explicit-register-operands">Explicit register operands</a></h2>
+<p>Some instructions require that the operands be in a specific register.
+Therefore, Rust inline assembly provides some more specific constraint specifiers.
+While <code>reg</code> is generally available on any architecture, explicit registers are highly architecture specific. E.g. for x86 the general purpose registers <code>eax</code>, <code>ebx</code>, <code>ecx</code>, <code>edx</code>, <code>ebp</code>, <code>esi</code>, and <code>edi</code> among others can be addressed by their name.</p>
+<pre><pre class="playground"><code class="language-rust no_run edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::arch::asm;
+
+let cmd = 0xd1;
+unsafe {
+    asm!(&quot;out 0x64, eax&quot;, in(&quot;eax&quot;) cmd);
+}
+<span class="boring">}</span></code></pre></pre>
+<p>In this example we call the <code>out</code> instruction to output the content of the <code>cmd</code> variable to port <code>0x64</code>. Since the <code>out</code> instruction only accepts <code>eax</code> (and its sub registers) as operand we had to use the <code>eax</code> constraint specifier.</p>
+<blockquote>
+<p><strong>Note</strong>: unlike other operand types, explicit register operands cannot be used in the template string: you can't use <code>{}</code> and should write the register name directly instead. Also, they must appear at the end of the operand list after all other operand types.</p>
+</blockquote>
+<p>Consider this example which uses the x86 <code>mul</code> instruction:</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::arch::asm;
+
+fn mul(a: u64, b: u64) -&gt; u128 {
+    let lo: u64;
+    let hi: u64;
+
+    unsafe {
+        asm!(
+            // The x86 mul instruction takes rax as an implicit input and writes
+            // the 128-bit result of the multiplication to rax:rdx.
+            &quot;mul {}&quot;,
+            in(reg) a,
+            inlateout(&quot;rax&quot;) b =&gt; lo,
+            lateout(&quot;rdx&quot;) hi
+        );
+    }
+
+    ((hi as u128) &lt;&lt; 64) + lo as u128
+}
+<span class="boring">}</span></code></pre></pre>
+<p>This uses the <code>mul</code> instruction to multiply two 64-bit inputs with a 128-bit result.
+The only explicit operand is a register, that we fill from the variable <code>a</code>.
+The second operand is implicit, and must be the <code>rax</code> register, which we fill from the variable <code>b</code>.
+The lower 64 bits of the result are stored in <code>rax</code> from which we fill the variable <code>lo</code>.
+The higher 64 bits are stored in <code>rdx</code> from which we fill the variable <code>hi</code>.</p>
+<h2 id="clobbered-registers"><a class="header" href="#clobbered-registers">Clobbered registers</a></h2>
+<p>In many cases inline assembly will modify state that is not needed as an output.
+Usually this is either because we have to use a scratch register in the assembly or because instructions modify state that we don't need to further examine.
+This state is generally referred to as being &quot;clobbered&quot;.
+We need to tell the compiler about this since it may need to save and restore this state around the inline assembly block.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::arch::asm;
+
+fn main() {
+    // three entries of four bytes each
+    let mut name_buf = [0_u8; 12];
+    // String is stored as ascii in ebx, edx, ecx in order
+    // Because ebx is reserved, the asm needs to preserve the value of it.
+    // So we push and pop it around the main asm.
+    // (in 64 bit mode for 64 bit processors, 32 bit processors would use ebx)
+
+    unsafe {
+        asm!(
+            &quot;push rbx&quot;,
+            &quot;cpuid&quot;,
+            &quot;mov [rdi], ebx&quot;,
+            &quot;mov [rdi + 4], edx&quot;,
+            &quot;mov [rdi + 8], ecx&quot;,
+            &quot;pop rbx&quot;,
+            // We use a pointer to an array for storing the values to simplify
+            // the Rust code at the cost of a couple more asm instructions
+            // This is more explicit with how the asm works however, as opposed
+            // to explicit register outputs such as `out(&quot;ecx&quot;) val`
+            // The *pointer itself* is only an input even though it's written behind
+            in(&quot;rdi&quot;) name_buf.as_mut_ptr(),
+            // select cpuid 0, also specify eax as clobbered
+            inout(&quot;eax&quot;) 0 =&gt; _,
+            // cpuid clobbers these registers too
+            out(&quot;ecx&quot;) _,
+            out(&quot;edx&quot;) _,
+        );
+    }
+
+    let name = core::str::from_utf8(&amp;name_buf).unwrap();
+    println!(&quot;CPU Manufacturer ID: {}&quot;, name);
+}</code></pre></pre>
+<p>In the example above we use the <code>cpuid</code> instruction to read the CPU manufacturer ID.
+This instruction writes to <code>eax</code> with the maximum supported <code>cpuid</code> argument and <code>ebx</code>, <code>edx</code>, and <code>ecx</code> with the CPU manufacturer ID as ASCII bytes in that order.</p>
+<p>Even though <code>eax</code> is never read we still need to tell the compiler that the register has been modified so that the compiler can save any values that were in these registers before the asm. This is done by declaring it as an output but with <code>_</code> instead of a variable name, which indicates that the output value is to be discarded.</p>
+<p>This code also works around the limitation that <code>ebx</code> is a reserved register by LLVM. That means that LLVM assumes that it has full control over the register and it must be restored to its original state before exiting the asm block, so it cannot be used as an input or output <strong>except</strong> if the compiler uses it to fulfill a general register class (e.g. <code>in(reg)</code>). This makes <code>reg</code> operands dangerous when using reserved registers as we could unknowingly corrupt out input or output because they share the same register.</p>
+<p>To work around this we use <code>rdi</code> to store the pointer to the output array, save <code>ebx</code> via <code>push</code>, read from <code>ebx</code> inside the asm block into the array and then restoring <code>ebx</code> to its original state via <code>pop</code>. The <code>push</code> and <code>pop</code> use the full 64-bit <code>rbx</code> version of the register to ensure that the entire register is saved. On 32 bit targets the code would instead use <code>ebx</code> in the <code>push</code>/<code>pop</code>.</p>
+<p>This can also be used with a general register class to obtain a scratch register for use inside the asm code:</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::arch::asm;
+
+// Multiply x by 6 using shifts and adds
+let mut x: u64 = 4;
+unsafe {
+    asm!(
+        &quot;mov {tmp}, {x}&quot;,
+        &quot;shl {tmp}, 1&quot;,
+        &quot;shl {x}, 2&quot;,
+        &quot;add {x}, {tmp}&quot;,
+        x = inout(reg) x,
+        tmp = out(reg) _,
+    );
+}
+assert_eq!(x, 4 * 6);
+<span class="boring">}</span></code></pre></pre>
+<h2 id="symbol-operands-and-abi-clobbers"><a class="header" href="#symbol-operands-and-abi-clobbers">Symbol operands and ABI clobbers</a></h2>
+<p>By default, <code>asm!</code> assumes that any register not specified as an output will have its contents preserved by the assembly code. The <a href="unsafe/../../reference/inline-assembly.html#abi-clobbers"><code>clobber_abi</code></a> argument to <code>asm!</code> tells the compiler to automatically insert the necessary clobber operands according to the given calling convention ABI: any register which is not fully preserved in that ABI will be treated as clobbered.  Multiple <code>clobber_abi</code> arguments may be provided and all clobbers from all specified ABIs will be inserted.</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::arch::asm;
+
+extern &quot;C&quot; fn foo(arg: i32) -&gt; i32 {
+    println!(&quot;arg = {}&quot;, arg);
+    arg * 2
+}
+
+fn call_foo(arg: i32) -&gt; i32 {
+    unsafe {
+        let result;
+        asm!(
+            &quot;call {}&quot;,
+            // Function pointer to call
+            in(reg) foo,
+            // 1st argument in rdi
+            in(&quot;rdi&quot;) arg,
+            // Return value in rax
+            out(&quot;rax&quot;) result,
+            // Mark all registers which are not preserved by the &quot;C&quot; calling
+            // convention as clobbered.
+            clobber_abi(&quot;C&quot;),
+        );
+        result
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<h2 id="register-template-modifiers"><a class="header" href="#register-template-modifiers">Register template modifiers</a></h2>
+<p>In some cases, fine control is needed over the way a register name is formatted when inserted into the template string. This is needed when an architecture's assembly language has several names for the same register, each typically being a &quot;view&quot; over a subset of the register (e.g. the low 32 bits of a 64-bit register).</p>
+<p>By default the compiler will always choose the name that refers to the full register size (e.g. <code>rax</code> on x86-64, <code>eax</code> on x86, etc).</p>
+<p>This default can be overridden by using modifiers on the template string operands, just like you would with format strings:</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::arch::asm;
+
+let mut x: u16 = 0xab;
+
+unsafe {
+    asm!(&quot;mov {0:h}, {0:l}&quot;, inout(reg_abcd) x);
+}
+
+assert_eq!(x, 0xabab);
+<span class="boring">}</span></code></pre></pre>
+<p>In this example, we use the <code>reg_abcd</code> register class to restrict the register allocator to the 4 legacy x86 registers (<code>ax</code>, <code>bx</code>, <code>cx</code>, <code>dx</code>) of which the first two bytes can be addressed independently.</p>
+<p>Let us assume that the register allocator has chosen to allocate <code>x</code> in the <code>ax</code> register.
+The <code>h</code> modifier will emit the register name for the high byte of that register and the <code>l</code> modifier will emit the register name for the low byte. The asm code will therefore be expanded as <code>mov ah, al</code> which copies the low byte of the value into the high byte.</p>
+<p>If you use a smaller data type (e.g. <code>u16</code>) with an operand and forget to use template modifiers, the compiler will emit a warning and suggest the correct modifier to use.</p>
+<h2 id="memory-address-operands"><a class="header" href="#memory-address-operands">Memory address operands</a></h2>
+<p>Sometimes assembly instructions require operands passed via memory addresses/memory locations.
+You have to manually use the memory address syntax specified by the target architecture.
+For example, on x86/x86_64 using Intel assembly syntax, you should wrap inputs/outputs in <code>[]</code> to indicate they are memory operands:</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::arch::asm;
+
+fn load_fpu_control_word(control: u16) {
+    unsafe {
+        asm!(&quot;fldcw [{}]&quot;, in(reg) &amp;control, options(nostack));
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<h2 id="labels"><a class="header" href="#labels">Labels</a></h2>
+<p>Any reuse of a named label, local or otherwise, can result in an assembler or linker error or may cause other strange behavior. Reuse of a named label can happen in a variety of ways including:</p>
+<ul>
+<li>explicitly: using a label more than once in one <code>asm!</code> block, or multiple times across blocks.</li>
+<li>implicitly via inlining: the compiler is allowed to instantiate multiple copies of an <code>asm!</code> block, for example when the function containing it is inlined in multiple places.</li>
+<li>implicitly via LTO: LTO can cause code from <em>other crates</em> to be placed in the same codegen unit, and so could bring in arbitrary labels.</li>
+</ul>
+<p>As a consequence, you should only use GNU assembler <strong>numeric</strong> <a href="https://sourceware.org/binutils/docs/as/Symbol-Names.html#Local-Labels">local labels</a> inside inline assembly code. Defining symbols in assembly code may lead to assembler and/or linker errors due to duplicate symbol definitions.</p>
+<p>Moreover, on x86 when using the default Intel syntax, due to <a href="https://bugs.llvm.org/show_bug.cgi?id=36144">an LLVM bug</a>, you shouldn't use labels exclusively made of <code>0</code> and <code>1</code> digits, e.g. <code>0</code>, <code>11</code> or <code>101010</code>, as they may end up being interpreted as binary values. Using <code>options(att_syntax)</code> will avoid any ambiguity, but that affects the syntax of the <em>entire</em> <code>asm!</code> block. (See <a href="unsafe/asm.html#options">Options</a>, below, for more on <code>options</code>.)</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::arch::asm;
+
+let mut a = 0;
+unsafe {
+    asm!(
+        &quot;mov {0}, 10&quot;,
+        &quot;2:&quot;,
+        &quot;sub {0}, 1&quot;,
+        &quot;cmp {0}, 3&quot;,
+        &quot;jle 2f&quot;,
+        &quot;jmp 2b&quot;,
+        &quot;2:&quot;,
+        &quot;add {0}, 2&quot;,
+        out(reg) a
+    );
+}
+assert_eq!(a, 5);
+<span class="boring">}</span></code></pre></pre>
+<p>This will decrement the <code>{0}</code> register value from 10 to 3, then add 2 and store it in <code>a</code>.</p>
+<p>This example shows a few things:</p>
+<ul>
+<li>First, that the same number can be used as a label multiple times in the same inline block.</li>
+<li>Second, that when a numeric label is used as a reference (as an instruction operand, for example), the suffixes “b” (“backward”) or ”f” (“forward”) should be added to the numeric label. It will then refer to the nearest label defined by this number in this direction.</li>
+</ul>
+<h2 id="options"><a class="header" href="#options">Options</a></h2>
+<p>By default, an inline assembly block is treated the same way as an external FFI function call with a custom calling convention: it may read/write memory, have observable side effects, etc. However, in many cases it is desirable to give the compiler more information about what the assembly code is actually doing so that it can optimize better.</p>
+<p>Let's take our previous example of an <code>add</code> instruction:</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::arch::asm;
+
+let mut a: u64 = 4;
+let b: u64 = 4;
+unsafe {
+    asm!(
+        &quot;add {0}, {1}&quot;,
+        inlateout(reg) a, in(reg) b,
+        options(pure, nomem, nostack),
+    );
+}
+assert_eq!(a, 8);
+<span class="boring">}</span></code></pre></pre>
+<p>Options can be provided as an optional final argument to the <code>asm!</code> macro. We specified three options here:</p>
+<ul>
+<li><code>pure</code> means that the asm code has no observable side effects and that its output depends only on its inputs. This allows the compiler optimizer to call the inline asm fewer times or even eliminate it entirely.</li>
+<li><code>nomem</code> means that the asm code does not read or write to memory. By default the compiler will assume that inline assembly can read or write any memory address that is accessible to it (e.g. through a pointer passed as an operand, or a global).</li>
+<li><code>nostack</code> means that the asm code does not push any data onto the stack. This allows the compiler to use optimizations such as the stack red zone on x86-64 to avoid stack pointer adjustments.</li>
+</ul>
+<p>These allow the compiler to better optimize code using <code>asm!</code>, for example by eliminating pure <code>asm!</code> blocks whose outputs are not needed.</p>
+<p>See the <a href="unsafe/../../reference/inline-assembly.html">reference</a> for the full list of available options and their effects.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="compatibility"><a class="header" href="#compatibility">Compatibility</a></h1>
 <p>The Rust language is fastly evolving, and because of this certain compatibility
 issues can arise, despite efforts to ensure forwards-compatibility wherever
@@ -13557,8 +13906,7 @@ function.</p>
 
 fn main() {
     foo::try();
-}
-</code></pre>
+}</code></pre>
 <p>You'll get this error:</p>
 <pre><code class="language-text">error: expected identifier, found keyword `try`
  --&gt; src/main.rs:4:4
@@ -13571,8 +13919,7 @@ fn main() {
 
 fn main() {
     foo::r#try();
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Meta
 -->
@@ -13658,8 +14005,7 @@ fn main() {
     let john = Person::new(&quot;John&quot;);
 
     john.hello();
-}
-</code></pre>
+}</code></pre>
 <p>To run the tests, first build the code as a library, then tell <code>rustdoc</code> where
 to find the library so it can link it into each doctest program:</p>
 <pre><code class="language-shell">$ rustc doc.rs --crate-type lib
@@ -13676,20 +14022,17 @@ pub use bar::Bar;
 mod bar {
     /// the docs for Bar
     pub struct Bar;
-}
-</code></pre>
+}</code></pre>
 <h3 id="no_inline"><a class="header" href="#no_inline"><code>no_inline</code></a></h3>
 <p>Used to prevent linking out to separate page or anywhere.</p>
 <pre><code class="language-rust ignore">// Example from libcore/prelude
 #[doc(no_inline)]
-pub use crate::mem::drop;
-</code></pre>
+pub use crate::mem::drop;</code></pre>
 <h3 id="hidden"><a class="header" href="#hidden"><code>hidden</code></a></h3>
 <p>Using this tells <code>rustdoc</code> not to include this in documentation:</p>
 <pre><code class="language-rust editable ignore">// Example from the futures-rs library
 #[doc(hidden)]
-pub use self::async_await::*;
-</code></pre>
+pub use self::async_await::*;</code></pre>
 <p>For documentation, <code>rustdoc</code> is widely used by the community. It's what is used to generate the <a href="https://doc.rust-lang.org/std/">std library docs</a>.</p>
 <!--
 ### See also:
@@ -13703,14 +14046,13 @@ pub use self::async_await::*;
 <li><a href="https://rust-lang.github.io/rfcs/1946-intra-rustdoc-links.html">RFC 1946: Relative links to other items from doc comments (intra-rustdoc links)</a></li>
 <li><a href="https://www.reddit.com/r/rust/comments/ahb50s/is_there_any_documentation_style_guide_for/">Is there any documentation style guide for comments? (reddit)</a></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="playpen"><a class="header" href="#playpen">Playpen</a></h1>
-<p>The <a href="https://github.com/rust-lang/rust-playpen">Rust Playpen</a> is a way to experiment with Rust code through a web interface. This project is now commonly referred to as <a href="https://play.rust-lang.org/">Rust Playground</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="playground"><a class="header" href="#playground">Playground</a></h1>
+<p>The <a href="https://play.rust-lang.org/">Rust Playground</a> is a way to experiment with Rust code through a web interface.</p>
 <h2 id="using-it-with-mdbook"><a class="header" href="#using-it-with-mdbook">Using it with <code>mdbook</code></a></h2>
 <p>In <a href="https://github.com/rust-lang/mdBook"><code>mdbook</code></a>, you can make code examples playable and editable.</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">fn main() {
     println!(&quot;Hello World!&quot;);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>This allows the reader to both run your code sample, but also modify and tweak it. The key here is the adding the word <code>editable</code> to your codefence block separated by a comma.</p>
 <pre><code class="language-markdown">```rust,editable
 //...place your code here
@@ -13723,10 +14065,10 @@ pub use self::async_await::*;
 </code></pre>
 <h2 id="using-it-with-docs"><a class="header" href="#using-it-with-docs">Using it with docs</a></h2>
 <p>You may have noticed in some of the <a href="https://doc.rust-lang.org/core/">official Rust docs</a> a button that says &quot;Run&quot;, which opens the code sample up in a new tab in Rust Playground. This feature is enabled if you use the #[doc] attribute called <a href="https://doc.rust-lang.org/rustdoc/the-doc-attribute.html#html_playground_url"><code>html_playground_url</code></a>.</p>
-<h3 id="see-also-3"><a class="header" href="#see-also-3">See also:</a></h3>
+<h3 id="see-also-6"><a class="header" href="#see-also-6">See also:</a></h3>
 <ul>
 <li><a href="https://play.rust-lang.org/">The Rust Playground</a></li>
-<li><a href="https://github.com/integer32llc/rust-playground/">The next-gen playpen</a></li>
+<li><a href="https://play.rust-lang.org/">rust-playground</a></li>
 <li><a href="https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html">The rustdoc Book</a></li>
 </ul>
 
@@ -13749,31 +14091,31 @@ pub use self::async_await::*;
 
 
 
-        <script type="text/javascript">
+        <script>
             window.playground_line_numbers = true;
         </script>
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
 
-        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
-        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
-        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
-        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
 
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
 
-        <script type="text/javascript">
+        <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
