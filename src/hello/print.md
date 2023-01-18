@@ -4,17 +4,19 @@
 # フォーマットしてプリント
 
 <!--
-Printing is handled by a series of [`macros`][macros] defined in [`std::fmt`][fmt]
-some of which include:
+Printing is handled by a series of [`macros`][macros] defined in
+[`std::fmt`][fmt] some of which include:
 -->
 プリント関係の機能は[`std::fmt`][fmt]で定義される幾つかの[マクロ][macros]によって扱われます。このマクロには以下が含まれます。
 
 <!--
 * `format!`: write formatted text to [`String`][string]
-* `print!`: same as `format!` but the text is printed to the console (io::stdout).
+* `print!`: same as `format!` but the text is printed to the console
+  (io::stdout).
 * `println!`: same as `print!` but a newline is appended.
-* `eprint!`: same as `format!` but the text is printed to the standard error (io::stderr).
-* `eprintln!`: same as `eprint!`but a newline is appended.
+* `eprint!`: same as `print!` but the text is printed to the standard error
+  (io::stderr).
+* `eprintln!`: same as `eprint!` but a newline is appended.
 -->
 * `format!`: フォーマットされたテキストを文字列(String)型に書き込みます。
 * `print!`: `format!` と同様ですが、コンソール (io::stdout) にそのテキストを出力します。
@@ -36,11 +38,13 @@ fn main() {
     // 例えば以下は文字列に変換されます
     println!("{} days", 31);
 
+    // Positional arguments can be used. Specifying an integer inside `{}`
+    // determines which additional argument will be replaced. Arguments start
+    // at 0 immediately after the format string.
     // Without a suffix, 31 becomes an i32. You can change what type 31 is
     // by providing a suffix. The number 31i64 for example has the type i64.
     // サフィックスで型を指定しなければ31はi32として扱われます。
     // サフィックスの指定により、31の型を自由に変換することができます。
-
     // There are various optional patterns this works with. Positional
     // arguments can be used.
     // 引数の位置から埋め込まれる場所を指定することができます。
@@ -53,9 +57,14 @@ fn main() {
              subject="the quick brown fox",
              verb="jumps over");
 
-    // Special formatting can be specified after a `:`.
-    // `:` のあとにフォーマット型を指定することによる特殊なフォーマットも可能です.
-    println!("{} of {:b} people know binary, the other half doesn't", 1, 2);
+    // Different formatting can be invoked by specifying the format character
+    // after a `:`.
+    // `:` のあとにフォーマット型を指定することにより異なるフォーマットも可能です.
+    println!("Base 10:               {}",   69420); // 69420
+    println!("Base 2 (binary):       {:b}", 69420); // 10000111100101100
+    println!("Base 8 (octal):        {:o}", 69420); // 207454
+    println!("Base 16 (hexadecimal): {:x}", 69420); // 10f2c
+    println!("Base 16 (hexadecimal): {:X}", 69420); // 10F2C
 
     // You can right-align text with a specified width. This will output
     // "     1". 5 white spaces and a "1".
@@ -63,27 +72,49 @@ fn main() {
     // 以下の例では"     1". というように、５つの半角空白のあとに"1"が入ります.
     println!("{number:>width$}", number=1, width=6);
 
-    // You can pad numbers with extra zeroes. This will output "000001".
-    // 空白の代わりに0を使うこともできます. このアウトプットは "000001" になります.
-    println!("{number:0>width$}", number=1, width=6);
+    // You can right-justify text with a specified width. This will
+    // output "    1". (Four white spaces and a "1", for a total width of 5.)
+    // 特定の幅に右詰めすることもできます. このアウトプットは "    1" になります.
+    // (4つの空白と"1"で合計幅は5です)
+    println!("{number:>5}", number=1);
 
-    // Rust even checks to make sure the correct number of arguments are
+    // You can pad numbers with extra zeroes,
+    // and left-adjust by flipping the sign. This will output "10000".
+    println!("{number:0<5}", number=1);
+
+    // You can use named arguments in the format specifier by appending a `$`.
+    println!("{number:0>width$}", number=1, width=5);
+
+
+    // Rust even checks to make sure the correct number of arguments are used.
     // used.
     // 引数の数が正しいかのチェックも行ってくれます。
     println!("My name is {0}, {1} {0}", "Bond");
     // FIXME ^ Add the missing argument: "James"
 
+    // Only types that implement fmt::Display can be formatted with `{}`. User-
+    // defined types do not implement fmt::Display by default.
+
+    #[allow(dead_code)] // disable `dead_code` which warn against unused module
     // Create a structure named `Structure` which contains an `i32`.
     // `i32`保持する `Structure` という名の構造体を定義します.
-    #[allow(dead_code)]
     struct Structure(i32);
 
+    // This will not compile because `Structure` does not implement
+    // fmt::Display.
     // However, custom types such as this structure require more complicated
     // handling. This will not work.
     // このようにカスタム型を用いる場合、少々扱いが複雑になります。
     // 以下は動作しません。
-    println!("This struct `{}` won't print...", Structure(3));
-    // FIXME ^ Comment out this line.
+    //println!("This struct `{}` won't print...", Structure(3));
+    // TODO ^ Try uncommenting this line
+
+    // For Rust 1.58 and above, you can directly capture the argument from a
+    // surrounding variable. Just like the above, this will output
+    // "    1", 4 white spaces and a "1".
+    let number: f64 = 1.0;
+    let width: usize = 5;
+    println!("{number:>width$}");
 }
 ```
 
@@ -97,7 +128,7 @@ of text. The base form of two important ones are listed below:
 <!--
 * `fmt::Debug`: Uses the `{:?}` marker. Format text for debugging purposes.
 * `fmt::Display`: Uses the `{}` marker. Format text in a more elegant, user
-friendly fashion.
+  friendly fashion.
 -->
 * `fmt::Debug`: は、`{:?}`というマーカーを使用し、デバッギング目的に使われます。
 * `fmt::Display`: は `{}`というマーカーを使用し、より美しく、ユーザフレンドリーに表示します。
@@ -114,19 +145,22 @@ Implementing the `fmt::Display` trait automatically implements the
 -->
 `fmt::Display`トレイトを実装すると、自動的に[`ToString`]トレイトが実装されます。これにより[`String`][string]型への型変換ができるようになります。
 
+In *line 46*, `#[allow(dead_code)]` is an [attribute] which only apply to the module after it.
+
 <!--
 ### Activities
 -->
 ### 演習
 
 <!--
- * Fix the two issues in the above code (see FIXME) so that it runs without
-   error.
- * Add a `println!` macro that prints: `Pi is roughly 3.142` by controlling
-   the number of decimal places shown. For the purposes of this exercise,
-   use `let pi = 3.141592` as an estimate for pi. (Hint: you may need to
-   check the [`std::fmt`][fmt] documentation for setting the number of
-   decimals to display)
+* Fix the issue in the above code (see FIXME) so that it runs without
+  error.
+* Try uncommenting the line that attempts to format the `Structure` struct
+  (see TODO)
+* Add a `println!` macro call that prints: `Pi is roughly 3.142` by controlling
+  the number of decimal places shown. For the purposes of this exercise, use
+  `let pi = 3.141592` as an estimate for pi. (Hint: you may need to check the
+  [`std::fmt`][fmt] documentation for setting the number of decimals to display)
 -->
  * 上の例を実行した際に生じるエラーを修復しましょう。
  * `println!`マクロを追加し、表示される小数部の桁数を調整して`Pi is roughly 3.142`という文字列を出力しましょう。
@@ -138,8 +172,7 @@ Implementing the `fmt::Display` trait automatically implements the
 ### 参照
 
 <!--
-[`std::fmt`][fmt], [`macros`][macros], [`struct`][structs],
-and [`traits`][traits]
+[`std::fmt`][fmt], [`macros`][macros], [`struct`][structs], [`traits`][traits], and [`dead_code`][dead_code]
 -->
 [`std::fmt`][fmt], [マクロ][macros], [構造体][structs],
 [トレイト][traits]
@@ -151,3 +184,5 @@ and [`traits`][traits]
 [traits]: https://doc.rust-lang.org/std/fmt/#formatting-traits
 [`ToString`]: https://doc.rust-lang.org/std/string/trait.ToString.html
 [convert]: ../conversion/string.md
+[attribute]: ../attribute.md
+[dead_code]: ../attribute/unused.md

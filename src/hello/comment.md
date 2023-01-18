@@ -11,25 +11,24 @@ a few different varieties:
 
 <!--
 * *Regular comments* which are ignored by the compiler:
-   * `// Line comments which go to the end of the line.`
-   * `/* Block comments which go to the closing delimiter. */`
-* *Doc comments* which are parsed into HTML library
-  [documentation][docs]:
-   * `/// Generate library docs for the following item.`
-   * `//! Generate library docs for the enclosing item.`
+  * `// Line comments which go to the end of the line.`
+  * `/* Block comments which go to the closing delimiter. */`
+* *Doc comments* which are parsed into HTML library [documentation][docs]:
+  * `/// Generate library docs for the following item.`
+  * `//! Generate library docs for the enclosing item.`
 -->
 * *通常のコメント* これはコンパイラによって完全に無視されます。
-   * `// 行末までコメントアウト`
-   * `/* ブロックによって囲まれた部分をコメントアウト */`
+  * `// 行末までコメントアウト`
+  * `/* ブロックによって囲まれた部分をコメントアウト */`
 * *ドキュメンテーションコメント* ライブラリのドキュメンテーションとしてhtmlにパースされます。
-   * `/// このコメントの下の内容に関するドキュメントとなります`
-   * `//! このコメントを含むソースのドキュメントになります`
+  * `/// このコメントの下の内容に関するドキュメントとなります`
+  * `//! このコメントを含むソースのドキュメントになります`
 
 ```rust,editable
 fn main() {
-    // This is an example of a line comment
-    // There are two slashes at the beginning of the line
-    // And nothing written inside these will be read by the compiler
+    // This is an example of a line comment.
+    // There are two slashes at the beginning of the line.
+    // And nothing written inside these will be read by the compiler.
     // こちらはラインコメントです
     // 一番左にスラッシュが2つある行と、何も書かれていない行は
     // どちらもコンパイラによって無視されます。試しに実行してみてください
@@ -39,13 +38,13 @@ fn main() {
     // Run it. See? Now try deleting the two slashes, and run it again.
     // でしょ？では次に、左のスラッシュを消去してから実行してください
 
-    /* 
+    /*
      * This is another type of comment, a block comment. In general,
-     * line comments are the recommended comment style. But
-     * block comments are extremely useful for temporarily disabling
-     * chunks of code. /* Block comments can be /* nested, */ */
-     * so it takes only a few keystrokes to comment out everything
-     * in this main() function. /*/*/* Try it yourself! */*/*/
+     * line comments are the recommended comment style. But block comments
+     * are extremely useful for temporarily disabling chunks of code.
+     * /* Block comments can be /* nested, */ */ so it takes only a few
+     * keystrokes to comment out everything in this main() function.
+     * /*/*/* Try it yourself! */*/*/
      */
     /*
      * こちらはもう一つのタイプのコメントでブロックコメントと呼ばれます。

@@ -95,7 +95,7 @@ This way you can add any character to your string, even unprintable ones
 and ones that you don't know how to type. If you want a literal backslash,
 escape it with another one: `\\`
 
-String or character literal delimiters occuring within a literal must be escaped: `"\""`, `'\''`.
+String or character literal delimiters occurring within a literal must be escaped: `"\""`, `'\''`.
 
 ```rust,editable
 fn main() {
@@ -132,6 +132,7 @@ fn main() {
     println!("{}", quotes);
 
     // If you need "# in your string, just use more #s in the delimiter.
+    // You can use up to 65535 #s.
     // There is no limit for the number of #s you can use.
     let longer_delimiter = r###"A string with "# in it. And even "##!"###;
     println!("{}", longer_delimiter);

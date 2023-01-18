@@ -5,7 +5,7 @@
 
 <!--
 The `enum` keyword allows the creation of a type which may be one of a few
-different variants. Any variant which is valid as a `struct` is also valid as
+different variants. Any variant which is valid as a `struct` is also valid in
 an `enum`.
 -->
 列挙型(`enum`)はいくつかの異なる要素型の中から1つを選ぶような場合に使用します。構造体(`struct`)の定義を満たすものならば何でも`enum` の要素型として使用できます。
@@ -21,7 +21,7 @@ an `enum`.
 // `KeyPress(char) != Paste(String)` である。
 // 要素型は互いに異なり、互いに非依存である。
 enum WebEvent {
-    // An `enum` may either be `unit-like`,
+    // An `enum` variant may either be `unit-like`,
     // `enum`要素型はユニット風でもよい
     PageLoad,
     PageUnload,
@@ -41,7 +41,7 @@ fn inspect(event: WebEvent) {
     match event {
         WebEvent::PageLoad => println!("page loaded"),
         WebEvent::PageUnload => println!("page unloaded"),
-        // Destructure `c` from inside the `enum`.
+        // Destructure `c` from inside the `enum` variant.
         WebEvent::KeyPress(c) => println!("pressed '{}'.", c),
         WebEvent::Paste(s) => println!("pasted \"{}\".", s),
         // Destructure `Click` into `x` and `y`.

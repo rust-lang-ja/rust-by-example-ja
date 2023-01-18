@@ -24,7 +24,7 @@ trait Contains {
     // Updated syntax to refer to these new types generically.
     // これらの新しい型をジェネリックに使用するために、構文が
     // アップデートされています。
-    fn contains(&self, &Self::A, &Self::B) -> bool;
+    fn contains(&self, _: &Self::A, _: &Self::B) -> bool;
 }
 ```
 

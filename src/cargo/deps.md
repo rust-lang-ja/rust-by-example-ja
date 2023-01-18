@@ -21,9 +21,9 @@ Rustのプロジェクトを新しく作るには下記のようにします。
 # バイナリ
 cargo new foo
 
-# OR A library
-# またはライブラリ
-cargo new --lib foo
+# A library
+# ライブラリ
+cargo new --lib bar
 ```
 
 <!--
@@ -38,18 +38,23 @@ After the above commands, you should see a file hierarchy like this:
 上のコマンドを実行すると、次のようなファイル階層ができます。
 
 ```txt
-foo
-├── Cargo.toml
-└── src
-    └── main.rs
+.
+├── bar
+│   ├── Cargo.toml
+│   └── src
+│       └── lib.rs
+└── foo
+    ├── Cargo.toml
+    └── src
+        └── main.rs
 ```
 
 <!--
-The `main.rs` is the root source file for your new project -- nothing new there.
-The `Cargo.toml` is the config file for `cargo` for this project (`foo`). If you
+The `main.rs` is the root source file for your new `foo` project -- nothing new there.
+The `Cargo.toml` is the config file for `cargo` for this project. If you
 look inside it, you should see something like this:
 -->
-`main.rs`がこの新規プロジェクトのルートのソースファイルです。なにも新しいことはありませんね。`Cargo.toml`はこのプロジェクト（`foo`）の`cargo`の設定ファイルです。中を見てみるとこのようになっています。
+`main.rs`がこの新規プロジェクト `foo` のルートのソースファイルです。なにも新しいことはありませんね。`Cargo.toml`はこのプロジェクトの`cargo`の設定ファイルです。中を見てみるとこのようになっています。
 
 ```toml
 [package]

@@ -9,7 +9,7 @@ We've seen that formatting is specified via a *format string*:
 これまで、文字列がどのようにフォーマットされるかは *フォーマット文字列* によって決まるということを見てきました 。
 
 * `format!("{}", foo)` -> `"3735928559"`
-* `format!("0x{:X}", foo)` ->
+* `format!("0x{:X}", foo)` -> [`"0xDEADBEEF"`][deadbeef]
   [`"0xDEADBEEF"`][deadbeef]
 * `format!("0o{:o}", foo)` -> `"0o33653337357"`
 
@@ -41,7 +41,7 @@ struct City {
 }
 
 impl Display for City {
-    // `f` is a buffer, and this method must write the formatted string into it
+    // `f` is a buffer, and this method must write the formatted string into it.
     // `f` はバッファです。このメソッドは
     // ここにフォーマットされた文字列を書き込みます。
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
@@ -49,7 +49,7 @@ impl Display for City {
         let lon_c = if self.lon >= 0.0 { 'E' } else { 'W' };
 
         // `write!` is like `format!`, but it will write the formatted string
-        // into a buffer (the first argument)
+        // into a buffer (the first argument).
         // `write!`は`format!`に似ていますが、フォーマットされた文字列を
         // バッファ（第一引数）に書き込みます。
         write!(f, "{}: {:.3}°{} {:.3}°{}",
@@ -93,6 +93,7 @@ types in the [`std::fmt`][fmt] documentation.
 
 <!--
 ### Activity
+
 Add an implementation of the `fmt::Display` trait for the `Color` struct above
 so that the output displays as:
 -->
@@ -108,10 +109,12 @@ RGB (0, 0, 0) 0x000000
 
 <!--
 Two hints if you get stuck:
- * You [may need to list each color more than once][named_parameters],
- * You can [pad with zeros to a width of 2][fmt_width] with `:0>2`.
+
+* You [may need to list each color more than once][named_parameters].
+* You can [pad with zeros to a width of 2][fmt_width] with `:0>2`.
 -->
 詰まったら以下の2つがヒントになります。
+
  * [それぞれの色を2回以上記述する必要があるかもしれません。][named_parameters]
  * `:02`で、[幅を2に指定し、空白を0で埋める事ができます。][fmt_width]
 

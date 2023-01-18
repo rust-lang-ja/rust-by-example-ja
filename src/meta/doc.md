@@ -59,8 +59,8 @@ impl Person {
     /// Gives a friendly hello!
     /// フレンドリーに挨拶しましょう！
     ///
-    /// Says "Hello, [name]" to the `Person` it is called on.
-    /// このメソッドを呼び出した`Person`に対して"Hello, [name]"
+    /// Says "Hello, [name](Person::name)" to the `Person` it is called on.
+    /// このメソッドを呼び出した`Person`に対して"Hello, [name](Person::name)"
     /// と話しかけます。
     pub fn hello(& self) {
         println!("Hello, {}!", self.name);

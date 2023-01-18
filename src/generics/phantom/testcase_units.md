@@ -59,7 +59,7 @@ struct Length<Unit>(f64, PhantomData<Unit>);
 /// The `Add` trait defines the behavior of the `+` operator.
 /// `Add`トレイトは加算演算子(`+`)の挙動を定義する。
 impl<Unit> Add for Length<Unit> {
-     type Output = Length<Unit>;
+    type Output = Length<Unit>;
 
     // add() returns a new `Length` struct containing the sum.
     // add()は`Length`の新しいインスタンスを返す。

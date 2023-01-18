@@ -41,9 +41,9 @@ fn some_fn() {
 }
 
 fn main() {
-    let a: () = some_fn();
+    let _a: () = some_fn();
     // この関数はリターンするので、この行は実行される。
-    println!("This function returns and you can see this line.")
+    println!("This function returns and you can see this line.");
 }
 ```
 

@@ -66,7 +66,7 @@ fn main() {
     // `Structure` is printable!
     // `Structure`はプリント可能です！
     println!("Now {:?} will print!", Structure(3));
-    
+
     // The problem with `derive` is there is no control over how
     // the results look. What if I want this to just show a `7`?
     // `derive`を用いることの問題は、結果がどのように見えるか
@@ -77,8 +77,8 @@ fn main() {
 ```
 
 <!--
-So `fmt::Debug` definitely makes this printable but sacrifices some
-elegance. Rust also provides "pretty printing" with `{:#?}`.
+So `fmt::Debug` definitely makes this printable but sacrifices some elegance.
+Rust also provides "pretty printing" with `{:#?}`.
 -->
 `fmt::Debug`は確実にプリント可能にしてくれるのですが、一方である種の美しさを犠牲にしています。
 Rustは`{:#?}`による「見栄えの良いプリント」も提供します。

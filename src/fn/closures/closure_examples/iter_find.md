@@ -24,7 +24,7 @@ pub trait Iterator {
         // `FnMut`はクロージャによって捕捉される変数が変更される
         // 事はあっても消費されることはないということを示します。
         // `&Self::Item`はクロージャが変数を参照として取ることを示します。
-        P: FnMut(&Self::Item) -> bool {}
+        P: FnMut(&Self::Item) -> bool;
 }
 ```
 
@@ -55,9 +55,9 @@ fn main() {
     // `iter()` for arrays yields `&i32`
     // 配列に対する`iter`も`&i32`を`yield`する。
     println!("Find 2 in array1: {:?}", array1.iter()     .find(|&&x| x == 2));
-    // `into_iter()` for arrays unusually yields `&i32`
-    // 配列に`into_iter()`を使うと例外的に`&i32`を`yield`する。
-    println!("Find 2 in array2: {:?}", array2.into_iter().find(|&&x| x == 2));
+    // `into_iter()` for arrays yields `i32`
+    // 配列に`into_iter()`を使うと`&i32`を`yield`する。
+    println!("Find 2 in array2: {:?}", array2.into_iter().find(|&x| x == 2));
 }
 ```
 
@@ -72,11 +72,14 @@ item, use `Iterator::position`.
 fn main() {
     let vec = vec![1, 9, 3, 3, 13, 2];
 
-    let index_of_first_even_number = vec.iter().position(|x| x % 2 == 0);
+    // `iter()` for vecs yields `&i32` and `position()` does not take a reference, so
+    // we have to destructure `&i32` to `i32`
+    let index_of_first_even_number = vec.iter().position(|&x| x % 2 == 0);
     assert_eq!(index_of_first_even_number, Some(5));
     
-    
-    let index_of_first_negative_number = vec.iter().position(|x| x < &0);
+    // `into_iter()` for vecs yields `i32` and `position()` does not take a reference, so
+    // we do not have to destructure    
+    let index_of_first_negative_number = vec.into_iter().position(|x| x < 0);
     assert_eq!(index_of_first_negative_number, None);
 }
 ```

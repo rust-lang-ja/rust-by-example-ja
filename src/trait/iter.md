@@ -4,19 +4,20 @@
 # イテレータ
 
 <!--
-The [`Iterator`][iter] trait is used to implement iterators over collections such as arrays.
+The [`Iterator`][iter] trait is used to implement iterators over collections
+such as arrays.
 -->
 [`Iterator`][iter]トレイトは、例えば配列のような、要素の集合に対してイテレータを実装するためのトレイトです。
 
 <!--
-The trait requires only a method to be defined for the `next` element, 
-which may be manually defined in an `impl` block or automatically 
+The trait requires only a method to be defined for the `next` element,
+which may be manually defined in an `impl` block or automatically
 defined (as in arrays and ranges).
 -->
 このトレイトは`next`の要素に相当するものを決定するためのメソッドのみを要求します。このメソッドは`impl`ブロック内で手動で実装するか、あるいは（配列やrangeのように）自動で定義されます。
 
 <!--
-As a point of convenience for common situations, the `for` construct 
+As a point of convenience for common situations, the `for` construct
 turns some collections into iterators using the [`.into_iter()`][intoiter] method.
 -->
 サッとイテレータを使いたい時は、`for`文で集合からイテレータを作成することが良くあります。これは[`.into_iter()`][intoiter]メソッドを呼び出しています。
@@ -34,7 +35,7 @@ struct Fibonacci {
 impl Iterator for Fibonacci {
     // We can refer to this type using Self::Item
     type Item = u32;
-    
+
     // Here, we define the sequence using `.curr` and `.next`.
     // The return type is `Option<T>`:
     //     * When the `Iterator` is finished, `None` is returned.
@@ -46,16 +47,16 @@ impl Iterator for Fibonacci {
     //     * `Iterator`が終了した時は`None`を返し、
     //     * そうでなければ`Some`でラップされた値を返す。
     fn next(&mut self) -> Option<Self::Item> {
-        let new_next = self.curr + self.next;
+        let current = self.curr;
 
         self.curr = self.next;
-        self.next = new_next;
+        self.next = current + self.next;
 
         // Since there's no endpoint to a Fibonacci sequence, the `Iterator` 
         // will never return `None`, and `Some` is always returned.
         // フィボナッチ数列には終端がないので、`Iterator`は決して
         // `None`を返さず、常に`Some`が返される。
-        Some(self.curr)
+        Some(current)
     }
 }
 

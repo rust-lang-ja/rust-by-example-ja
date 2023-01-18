@@ -18,7 +18,7 @@ fn next_birthday(current_age: Option<u8>) -> Option<String> {
 	// If `current_age` is `Some`, the inner `u8` gets assigned to `next_age`
     // `current_age`が`None`の場合、`None`を返す。
     // `current_age`が`Some`の場合、内部の`u8`型の値が`next_age`に代入される。
-    let next_age: u8 = current_age?;
+    let next_age: u8 = current_age? + 1;
     Some(format!("Next year I will be {}", next_age))
 }
 ```

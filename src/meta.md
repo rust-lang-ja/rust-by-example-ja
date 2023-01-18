@@ -13,10 +13,10 @@ everyone. These topics include:
 <!--
 - [Documentation][doc]: Generate library documentation for users via the included
   `rustdoc`.
-- [Playpen][playpen]: Integrate the Rust Playpen(also known as the Rust Playground) in your documentation.
+- [Playground][playground]: Integrate the Rust Playground in your documentation.
 -->
 - [ドキュメンテーション][doc]: Rust付属コマンド`rustdoc`を用いて、ライブラリのドキュメントを生成します。
 - [Playpen][playpen]: Integrate the Rust Playpen(also known as the Rust Playground) in your documentation.
 
 [doc]: meta/doc.md
-[playpen]: meta/playpen.md
+[playground]: meta/playground.md

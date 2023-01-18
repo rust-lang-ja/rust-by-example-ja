@@ -73,14 +73,14 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 ```
 
 <!--
-Each Rust source file in the `tests` directory is compiled as a separate crate. One
-way of sharing some code between integration tests is making a module with public
+Each Rust source file in the `tests` directory is compiled as a separate crate. In
+order to share some code between integration tests we can make a module with public
 functions, importing and using it within tests.
 -->
 `tests`ディレクトリにあるRustのソースファイルは別のクレートしてコンパイルされます。インテグレーションテストの間でコードを共有するには、パブリックな関数をモジュールに入れて、それぞれのテストでインポートして利用する方法があります。
 
 <!--
-File `tests/common.rs`:
+File `tests/common/mod.rs`:
 -->
 ファイル`tests/common.rs`:
 
@@ -115,11 +115,9 @@ fn test_add() {
 }
 ```
 
-<!--
-Modules with common code follow the ordinary [modules][mod] rules, so it's ok to
-create common module as `tests/common/mod.rs`.
--->
-コードを共有するモジュールは一般的な[モジュール][mod]のルールに従うので、共通のモジュールを`tests/common/mod.rs`に作成してもかまいません。
+Creating the module as `tests/common.rs` also works, but is not recommended
+because the test runner will treat the file as a test crate and try to run tests
+inside it.
 
 [unit]: unit_testing.md
 [mod]: ../mod.md

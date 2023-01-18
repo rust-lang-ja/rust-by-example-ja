@@ -77,7 +77,7 @@ fn main() {
     // シンボリックリンクを作成、返り値は`io::Result<()>`
     if cfg!(target_family = "unix") {
         unix::fs::symlink("../b.txt", "a/c/b.txt").unwrap_or_else(|why| {
-        println!("! {:?}", why.kind());
+            println!("! {:?}", why.kind());
         });
     }
 
