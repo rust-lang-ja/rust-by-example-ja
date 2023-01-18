@@ -13,7 +13,6 @@ packages which depend on this package.
 
 <!--
 One such example is [`pretty_assertions`](https://docs.rs/pretty_assertions/1.0.0/pretty_assertions/index.html), which extends standard `assert_eq!` and `assert_ne!` macros, to provide colorful diff.  
-One such example is using a crate that extends standard `assert!` macros.  
 File `Cargo.toml`:
 -->
 そのようなクレートの例として、[`pretty_assertions`](https://docs.rs/pretty_assertions/1.0.0/pretty_assertions/index.html)クレートが挙げられます。これは、標準の`assert_eq!`と`assert_ne!`マクロを拡張して、差分をカラフルに表示するものです。
@@ -24,6 +23,7 @@ File `Cargo.toml`:
 [dev-dependencies]
 pretty_assertions = "1"
 ```
+
 <!--
 File `src/lib.rs`:
 -->
