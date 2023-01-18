@@ -4609,7 +4609,6 @@ fn main() {
                                                          // そのうち上限より小さい値で
              .filter(|&amp;n_squared| is_odd(n_squared))     // That are odd
                                                          // かつ奇数のものを
-             .fold(0, |acc, n_squared| acc + n_squared); // Sum them
              .sum();                                     // Sum them
     println!(&quot;functional style: {}&quot;, sum_of_squared_odd_numbers);
 }</code></pre></pre>
@@ -7448,7 +7447,6 @@ fn main() {
         //                                                ││
         println!(&quot;borrow1: {}&quot;, borrow1); //              ││
     } // `borrow1` ends. ─────────────────────────────────┘│
-    } // `borrow1 ends. ──────────────────────────────────┘│
     //                                                     │
     //                                                     │
     { //                                                   │
