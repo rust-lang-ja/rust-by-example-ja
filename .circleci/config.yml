@@ -12,6 +12,7 @@ jobs:
       # Remove .gitconfig added by Circle CI as cargo doesn't support ssh authentication.
       - run: rm -f ~/.gitconfig
       - run: rm -rf docs
+      - run: rustc -Vv
       - run: mdbook -V
       - run: mdbook-transcheck -V
       - run: mdbook build
