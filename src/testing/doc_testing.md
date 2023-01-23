@@ -65,8 +65,10 @@ pub fn div(a: i32, b: i32) -> i32 {
 }
 ```
 
+<!-- 
 Code blocks in documentation are automatically tested
-when running the regular `cargo test` command:
+when running the regular `cargo test` command: 
+-->
 ドキュメンテーションコメント中のコードブロックは、`cargo test`コマンドで自動的にテストされます。
 
 ```shell
