@@ -77,7 +77,7 @@ Each Rust source file in the `tests` directory is compiled as a separate crate. 
 order to share some code between integration tests we can make a module with public
 functions, importing and using it within tests.
 -->
-`tests`ディレクトリにあるRustのソースファイルは別のクレートしてコンパイルされます。インテグレーションテストの間でコードを共有するには、パブリックな関数をモジュールに入れて、それぞれのテストでインポートして利用する方法があります。
+`tests`ディレクトリにあるRustのソースファイルは別のクレートとしてコンパイルされます。インテグレーションテストの間でコードを共有するには、パブリックな関数をモジュールに入れて、それぞれのテストでインポートして利用する方法があります。
 
 <!--
 File `tests/common/mod.rs`:
@@ -115,9 +115,12 @@ fn test_add() {
 }
 ```
 
+<!-- 
 Creating the module as `tests/common.rs` also works, but is not recommended
 because the test runner will treat the file as a test crate and try to run tests
 inside it.
+-->
+モジュールを`tests/common.rs`に記述することも可能ですが、`tests/common.rs`中のテストも自動的に実行されてしまうため非推奨です。
 
 [unit]: unit_testing.md
 [mod]: ../mod.md
