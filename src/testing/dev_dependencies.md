@@ -16,10 +16,12 @@ One such example is [`pretty_assertions`](https://docs.rs/pretty_assertions/1.0.
 File `Cargo.toml`:
 -->
 そのようなクレートの例として、[`pretty_assertions`](https://docs.rs/pretty_assertions/1.0.0/pretty_assertions/index.html)クレートが挙げられます。これは、標準の`assert_eq!`と`assert_ne!`マクロを拡張して、差分をカラフルに表示するものです。
+
 ファイル`Cargo.toml`:
 
 ```toml
 # standard crate data is left out
+# 本節の内容に関係のない行は省略しています。
 [dev-dependencies]
 pretty_assertions = "1"
 ```
