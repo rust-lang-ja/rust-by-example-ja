@@ -67,7 +67,7 @@ pub fn div(a: i32, b: i32) -> i32 {
 
 <!-- 
 Code blocks in documentation are automatically tested
-when running the regular `cargo test` command: 
+when running the regular `cargo test` command:
 -->
 ドキュメンテーションコメント中のコードブロックは、`cargo test`コマンドで自動的にテストされます。
 
@@ -146,6 +146,5 @@ pub fn try_div(a: i32, b: i32) -> Result<i32, String> {
 
 [doc-nursery]: https://rust-lang-nursery.github.io/api-guidelines/documentation.html
 [commonmark]: https://commonmark.org/
-[markdown]: https://daringfireball.net/projects/markdown/
 [RFC505]: https://github.com/rust-lang/rfcs/blob/master/text/0505-api-comment-conventions.md
 [question-instead-of-unwrap]: https://rust-lang-nursery.github.io/api-guidelines/documentation.html#examples-use--not-try-not-unwrap-c-question-mark
