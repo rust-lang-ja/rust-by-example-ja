@@ -423,11 +423,13 @@
         - [引数のパース](std_misc/arg/matching.md)
     - [他言語関数インターフェイス](std_misc/ffi.md)
 
-<!-- - [Testing](testing.md)
+<!-- 
+- [Testing](testing.md)
     - [Unit testing](testing/unit_testing.md)
     - [Documentation testing](testing/doc_testing.md)
     - [Integration testing](testing/integration_testing.md)
-    - [Dev-dependencies](testing/dev_dependencies.md) -->
+    - [Dev-dependencies](testing/dev_dependencies.md) 
+-->
 
 - [テスト](testing.md)
   - [ユニットテスト](testing/unit_testing.md)

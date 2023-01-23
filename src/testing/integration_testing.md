@@ -115,9 +115,11 @@ fn test_add() {
 }
 ```
 
-<!-- Creating the module as `tests/common.rs` also works, but is not recommended
+<!-- 
+Creating the module as `tests/common.rs` also works, but is not recommended
 because the test runner will treat the file as a test crate and try to run tests
-inside it. -->
+inside it. 
+-->
 モジュールを`tests/common.rs`に記述することも可能ですが、`tests/common.rs`中のテストも自動的に実行されてしまうため非推奨です。
 
 [unit]: unit_testing.md
