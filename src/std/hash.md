@@ -9,7 +9,7 @@ Where vectors store values by an integer index, `HashMap`s store values by key.
 or any other type that implements the `Eq` and `Hash` traits. 
 More on this in the next section.
 -->
-ベクタ型が値を整数のインデックスで保持するのに対し、`HashMap`ではキーで保持します。`HashMap`のキーはブーリアン、整数、文字列等の`Eq`あるいは`Hash`トレイトを保持する型なら何でもOKです。後でより詳しく見ていきます。
+ベクタ型が値を整数のインデックスで保持するのに対し、`HashMap`ではキーで保持します。`HashMap`のキーはブーリアン、整数、文字列等の`Eq`と`Hash`トレイトを保持する型なら何でもOKです。次のセクションでより詳しく見ていきます。
 
 <!--
 Like vectors, `HashMap`s are growable, but HashMaps can also shrink themselves 
