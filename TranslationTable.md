@@ -52,6 +52,7 @@
 | deadlock                         | デッドロック
 | declaration statement            | 宣言文
 | dereferencing                    | 参照外し
+| derive                           | 導出
 | destructor                       | デストラクタ
 | destructuring                    | 分配
 | directive                        | ディレクティブ

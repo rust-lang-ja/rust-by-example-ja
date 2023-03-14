@@ -1,7 +1,7 @@
 <!--
 # Derive
 -->
-# 継承(Derive)
+# 導出(Derive)
 
 <!--
 The compiler is capable of providing basic implementations for some traits via
