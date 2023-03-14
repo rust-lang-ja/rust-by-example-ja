@@ -287,7 +287,7 @@
     - [Disambiguating overlapping traits](trait/disambiguating.md)
 -->
 - [トレイト](trait.md)
-    - [継承(Derive)](trait/derive.md)
+    - [導出(Derive)](trait/derive.md)
     - [Returning Traits with `dyn`](trait/dyn.md)
     - [演算子のオーバーロード](trait/ops.md)
     - [メモリ解放](trait/drop.md)

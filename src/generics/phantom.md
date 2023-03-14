@@ -85,7 +85,7 @@ fn main() {
 <!--
 [Derive], [struct], and [TupleStructs]
 -->
-[継承(`Derive`)][Derive], [構造体][struct], [タプル][TupleStructs]
+[導出(`Derive`)][Derive], [構造体][struct], [タプル][TupleStructs]
 
 [Derive]: ../trait/derive.md
 [struct]: ../custom_types/structs.md
