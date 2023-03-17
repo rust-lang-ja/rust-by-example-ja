@@ -8,7 +8,7 @@ The compiler is capable of providing basic implementations for some traits via
 the `#[derive]` [attribute][attribute]. These traits can still be
 manually implemented if a more complex behavior is required.
 -->
-コンパイラには、`[#derive]`[アトリビュート][attribute]を用いることで型に対して特定のトレイトの標準的な実装を提供する機能があります。より複雑なことを行わせたい場合には、同名のトレイトを手動で実装することも可能です。
+コンパイラには、`#[derive]`[アトリビュート][attribute]を用いることで型に対して特定のトレイトの標準的な実装を提供する機能があります。より複雑なことを行わせたい場合には、同名のトレイトを手動で実装することも可能です。
 
 <!--
 The following is a list of derivable traits:
