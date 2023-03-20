@@ -11854,7 +11854,7 @@ These expand beyond what the [primitives] provide.
 Rust provides a mechanism for spawning native OS threads via the `spawn`
 function, the argument of this function is a moving closure.
 -->
-<p>Rustは<code>spawn</code>関数を用いてOSのネイティブスレッドを開始することができます。この関数の引数はmoveクロージャ（訳注: 参照ではなく値を取るクロージャ。　詳しくは[クロージャを返す関数][fn_output]を参照）です。</p>
+<p>Rustは<code>spawn</code>関数を用いてOSのネイティブスレッドを開始することができます。この関数の引数はmoveクロージャ（訳注: 参照ではなく値を取るクロージャ。　詳しくは<a href="std_misc/../fn/closures/output_parameters.html">クロージャを返す関数</a>を参照）です。</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">use std::thread;
 
 const NTHREADS: u32 = 10;
