@@ -41,3 +41,5 @@ fn main() {
 These threads will be scheduled by the OS.
 -->
 これらのスレッドのスケジューリングはOSによって行われる。
+
+[fn_output]: ../fn/closures/output_parameters.md
