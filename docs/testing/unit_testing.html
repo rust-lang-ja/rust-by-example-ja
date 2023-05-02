@@ -368,7 +368,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 Tests can be marked with the `#[ignore]` attribute to exclude some tests. Or to run
 them with command `cargo test -- --ignored`
 -->
-<p>テストを実行から除外するには、<code>#[ignore]</code>アトリビュートを使います。<code>cargo test -- --ignored</code>で、除外したものを含めてテストを実行できます。</p>
+<p>テストを実行から除外するには、<code>#[ignore]</code>アトリビュートを使います。また、<code>cargo test -- --ignored</code>で、除外したテストのみを実行できます。</p>
 <pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>pub fn add(a: i32, b: i32) -&gt; i32 {
