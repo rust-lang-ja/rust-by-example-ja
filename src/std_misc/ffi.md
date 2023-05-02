@@ -28,7 +28,7 @@ extern {
 
 // Since calling foreign functions is considered unsafe,
 // it's common to write safe wrappers around them.
-// 型安全ににするためのラッパ
+// 型安全にするためのラッパ
 fn cos(z: Complex) -> Complex {
     unsafe { ccosf(z) }
 }
