@@ -20,7 +20,10 @@ fn main() {
 }
 ```
 
+<!--
 Try to run this to see what happens without the custom `cfg` flag.
+-->
+独自の`cfg`フラグを用いない場合、何が起きるかやってみてください。
 
 <!--
 With the custom `cfg` flag:

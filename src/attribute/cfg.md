@@ -20,7 +20,11 @@ utilize identical argument syntax.
 前者は条件付きコンパイルを行いますが、後者は`true`または`false`リテラルに評価され実行時にチェックすることが可能です。
 いずれの場合も適切なシンタックスで記述する必要があります。
 
+<!--
 `cfg!`, unlike `#[cfg]`, does not remove any code and only evaluates to true or false. For example, all blocks in an if/else expression need to be valid when `cfg!` is used for the condition, regardless of what `cfg!` is evaluating.
+-->
+`#[cfg]`と異なり、`cfg!`はコードを削除せず、trueまたはfalseに評価されるだけです。
+例えば、`cfg!`が何を評価しているかに関係なく、`cfg!`が条件に利用されるとき、if/else式の中のすべてのブロックが有効でなくてはなりません。
 
 ```rust,editable
 // This function only gets compiled if the target OS is linux

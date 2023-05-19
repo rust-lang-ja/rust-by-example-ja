@@ -45,7 +45,10 @@ Attributes can take arguments with different syntaxes:
 * `#[attribute(key = "value")]`
 * `#[attribute(value)]`
 
+<!--
 Attributes can have multiple values and can be separated over multiple lines, too:
+-->
+アトリビュートは複数の値を取ることができ、複数の行に分割することもできます。
 
 ```rust,ignore
 #[attribute(value, value2)]
