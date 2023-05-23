@@ -37,7 +37,10 @@ fn main() {
 }
 ```
 
+<!--
 You can also use binding to "destructure" `enum` variants, such as `Option`:
+-->
+`Option`のような、`enum`の値をデストラクトするためにも、バインディングを利用できます。
 
 ```rust,editable
 fn some_number() -> Option<u32> {
@@ -48,10 +51,13 @@ fn main() {
     match some_number() {
         // Got `Some` variant, match if its value, bound to `n`,
         // is equal to 42.
+        // `n`にバインドされた`Some`の値が42に等しいときにマッチ。
         Some(n @ 42) => println!("The Answer: {}!", n),
         // Match any other number.
+        // それ以外の数値にマッチ。
         Some(n)      => println!("Not interesting... {}", n),
         // Match anything else (`None` variant).
+        // それ以外にマッチ（`None`の値）。
         _            => (),
     }
 }
