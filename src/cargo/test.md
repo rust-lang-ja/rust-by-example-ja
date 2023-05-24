@@ -38,8 +38,11 @@ crate.
 `tests`内の各ファイルは個別の[統合テスト](https://doc.rust-lang.org/book/ch11-03-test-organization.html#integration-tests)です。
 これはライブラリを依存クレートから呼ばれたかのようにテストできます。
 
+<!--
 The [Testing][testing] chapter elaborates on the three different testing styles: 
 [Unit][unit_testing], [Doc][doc_testing], and [Integration][integration_testing]. 
+-->
+[テスト][testing]の章は3つの異なるテストスタイルについて解説しています：[単体テスト][unit_testing]、[ドキュメンテーションテスト][doc_testing]、そして[結合テスト][integration_testing]です。
 
 <!--
 `cargo` naturally provides an easy way to run all of your tests!
@@ -98,20 +101,26 @@ that they don't race with each other.
 -->
 注意：Cargoは複数のテストを並列で実行することがありますので、それらが互いに競合しないようにしてください。
 
+<!--
 One example of this concurrency causing issues is if two tests output to a
 file, such as below:
+-->
+並行性が問題を引き起こす一例として、以下のように、2つのテストが1つのファイルに出力するケースがあります。
 
 ```rust
 #[cfg(test)]
 mod tests {
     // Import the necessary modules
+    // 必要なモジュールをインポートする。
     use std::fs::OpenOptions;
     use std::io::Write;
 
     // This test writes to a file
+    // ファイルに書き込むテスト。
     #[test]
     fn test_file() {
         // Opens the file ferris.txt or creates one if it doesn't exist.
+        // ferris.txtというファイルを開くか、存在しない場合は作成する。
         let mut file = OpenOptions::new()
             .append(true)
             .create(true)
@@ -119,6 +128,7 @@ mod tests {
             .expect("Failed to open ferris.txt");
 
         // Print "Ferris" 5 times.
+        // "Ferris"と5回書き込む。
         for _ in 0..5 {
             file.write_all("Ferris\n".as_bytes())
                 .expect("Could not write to ferris.txt");
@@ -126,9 +136,11 @@ mod tests {
     }
 
     // This test tries to write to the same file
+    // 同じファイルに書き込むテスト。
     #[test]
     fn test_file_also() {
         // Opens the file ferris.txt or creates one if it doesn't exist.
+        // ferris.txtというファイルを開くか、存在しない場合は作成する。
         let mut file = OpenOptions::new()
             .append(true)
             .create(true)
@@ -136,6 +148,7 @@ mod tests {
             .expect("Failed to open ferris.txt");
 
         // Print "Corro" 5 times.
+        // "Corro"と5回書き込む。
         for _ in 0..5 {
             file.write_all("Corro\n".as_bytes())
                 .expect("Could not write to ferris.txt");
@@ -144,7 +157,10 @@ mod tests {
 }
 ```
 
+<!--
 Although the intent is to get the following:
+-->
+以下のような結果を得ようと意図しています。
 ```shell
 $ cat ferris.txt
 Ferris
@@ -158,7 +174,10 @@ Corro
 Corro
 Corro
 ```
+<!--
 What actually gets put into `ferris.txt` is this:
+-->
+しかし、実際に`ferris.txt`に出力されるのは、以下の通りです。
 ```shell
 $ cargo test test_foo
 Corro
