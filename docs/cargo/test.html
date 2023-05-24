@@ -179,8 +179,11 @@ crate.
 -->
 <p><code>tests</code>内の各ファイルは個別の<a href="https://doc.rust-lang.org/book/ch11-03-test-organization.html#integration-tests">統合テスト</a>です。
 これはライブラリを依存クレートから呼ばれたかのようにテストできます。</p>
-<p>The <a href="../testing.html">Testing</a> chapter elaborates on the three different testing styles: 
-<a href="../testing/unit_testing.html">Unit</a>, <a href="../testing/doc_testing.html">Doc</a>, and <a href="../testing/integration_testing.html">Integration</a>. </p>
+<!--
+The [Testing][testing] chapter elaborates on the three different testing styles: 
+[Unit][unit_testing], [Doc][doc_testing], and [Integration][integration_testing]. 
+-->
+<p><a href="../testing.html">テスト</a>の章は3つの異なるテストスタイルについて解説しています：<a href="../testing/unit_testing.html">単体テスト</a>、<a href="../testing/doc_testing.html">ドキュメンテーションテスト</a>、そして<a href="../testing/integration_testing.html">結合テスト</a>です。</p>
 <!--
 `cargo` naturally provides an easy way to run all of your tests!
 -->
@@ -226,20 +229,26 @@ One word of caution: Cargo may run multiple tests concurrently, so make sure
 that they don't race with each other. 
 -->
 <p>注意：Cargoは複数のテストを並列で実行することがありますので、それらが互いに競合しないようにしてください。</p>
-<p>One example of this concurrency causing issues is if two tests output to a
-file, such as below:</p>
+<!--
+One example of this concurrency causing issues is if two tests output to a
+file, such as below:
+-->
+<p>並行性が問題を引き起こす一例として、以下のように、2つのテストが1つのファイルに出力するケースがあります。</p>
 <pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>#[cfg(test)]
 mod tests {
     // Import the necessary modules
+    // 必要なモジュールをインポートする。
     use std::fs::OpenOptions;
     use std::io::Write;
 
     // This test writes to a file
+    // ファイルに書き込むテスト。
     #[test]
     fn test_file() {
         // Opens the file ferris.txt or creates one if it doesn't exist.
+        // ferris.txtというファイルを開くか、存在しない場合は作成する。
         let mut file = OpenOptions::new()
             .append(true)
             .create(true)
@@ -247,6 +256,7 @@ mod tests {
             .expect(&quot;Failed to open ferris.txt&quot;);
 
         // Print &quot;Ferris&quot; 5 times.
+        // &quot;Ferris&quot;と5回書き込む。
         for _ in 0..5 {
             file.write_all(&quot;Ferris\n&quot;.as_bytes())
                 .expect(&quot;Could not write to ferris.txt&quot;);
@@ -254,9 +264,11 @@ mod tests {
     }
 
     // This test tries to write to the same file
+    // 同じファイルに書き込むテスト。
     #[test]
     fn test_file_also() {
         // Opens the file ferris.txt or creates one if it doesn't exist.
+        // ferris.txtというファイルを開くか、存在しない場合は作成する。
         let mut file = OpenOptions::new()
             .append(true)
             .create(true)
@@ -264,6 +276,7 @@ mod tests {
             .expect(&quot;Failed to open ferris.txt&quot;);
 
         // Print &quot;Corro&quot; 5 times.
+        // &quot;Corro&quot;と5回書き込む。
         for _ in 0..5 {
             file.write_all(&quot;Corro\n&quot;.as_bytes())
                 .expect(&quot;Could not write to ferris.txt&quot;);
@@ -271,7 +284,10 @@ mod tests {
     }
 }
 <span class="boring">}</span></code></pre></pre>
-<p>Although the intent is to get the following:</p>
+<!--
+Although the intent is to get the following:
+-->
+<p>以下のような結果を得ようと意図しています。</p>
 <pre><code class="language-shell">$ cat ferris.txt
 Ferris
 Ferris
@@ -284,7 +300,10 @@ Corro
 Corro
 Corro
 </code></pre>
-<p>What actually gets put into <code>ferris.txt</code> is this:</p>
+<!--
+What actually gets put into `ferris.txt` is this:
+-->
+<p>しかし、実際に<code>ferris.txt</code>に出力されるのは、以下の通りです。</p>
 <pre><code class="language-shell">$ cargo test test_foo
 Corro
 Ferris

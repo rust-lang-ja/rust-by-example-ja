@@ -153,7 +153,7 @@ with an input. In these cases, [combinators][combinators] can be used to
 manage control flow in a modular fashion.
 -->
 <p><code>match</code>は<code>Option</code>を扱うのに適したメソッドです。しかし、大量にこれを使用しているとじきに億劫になってくるでしょう。引数の値が有効である（訳注: この場合は<code>None</code>でない）必要がある関数を扱う際には特にそうです。
-In these cases, <a href="https://doc.rust-lang.org/reference/glossary.html#combinator">combinators</a> can be used to manage control flow in a modular fashion.</p>
+そうした場合には、<a href="https://doc.rust-lang.org/reference/glossary.html#combinator">コンビネータ</a>を使うと、処理の流れをモジュール化されたやり方で管理できます。</p>
 <!--
 `Option` has a built in method called `map()`, a combinator for the simple 
 mapping of `Some -> Some` and `None -> None`. Multiple `map()` calls can be 

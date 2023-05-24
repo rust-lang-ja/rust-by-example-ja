@@ -3490,7 +3490,10 @@ fn main() {
         n             =&gt; println!(&quot;I'm an old person of age {:?}&quot;, n),
     }
 }</code></pre></pre>
-<p>You can also use binding to &quot;destructure&quot; <code>enum</code> variants, such as <code>Option</code>:</p>
+<!--
+You can also use binding to "destructure" `enum` variants, such as `Option`:
+-->
+<p><code>Option</code>のような、<code>enum</code>の値をデストラクトするためにも、バインディングを利用できます。</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">fn some_number() -&gt; Option&lt;u32&gt; {
     Some(42)
 }
@@ -3499,10 +3502,13 @@ fn main() {
     match some_number() {
         // Got `Some` variant, match if its value, bound to `n`,
         // is equal to 42.
+        // `n`にバインドされた`Some`の値が42に等しいときにマッチ。
         Some(n @ 42) =&gt; println!(&quot;The Answer: {}!&quot;, n),
         // Match any other number.
+        // それ以外の数値にマッチ。
         Some(n)      =&gt; println!(&quot;Not interesting... {}&quot;, n),
         // Match anything else (`None` variant).
+        // それ以外にマッチ（`None`の値）。
         _            =&gt; (),
     }
 }</code></pre></pre>
@@ -5555,8 +5561,11 @@ crate.
 -->
 <p><code>tests</code>内の各ファイルは個別の<a href="https://doc.rust-lang.org/book/ch11-03-test-organization.html#integration-tests">統合テスト</a>です。
 これはライブラリを依存クレートから呼ばれたかのようにテストできます。</p>
-<p>The <a href="cargo/../testing.html">Testing</a> chapter elaborates on the three different testing styles: 
-<a href="cargo/../testing/unit_testing.html">Unit</a>, <a href="cargo/../testing/doc_testing.html">Doc</a>, and <a href="cargo/../testing/integration_testing.html">Integration</a>. </p>
+<!--
+The [Testing][testing] chapter elaborates on the three different testing styles: 
+[Unit][unit_testing], [Doc][doc_testing], and [Integration][integration_testing]. 
+-->
+<p><a href="cargo/../testing.html">テスト</a>の章は3つの異なるテストスタイルについて解説しています：<a href="cargo/../testing/unit_testing.html">単体テスト</a>、<a href="cargo/../testing/doc_testing.html">ドキュメンテーションテスト</a>、そして<a href="cargo/../testing/integration_testing.html">結合テスト</a>です。</p>
 <!--
 `cargo` naturally provides an easy way to run all of your tests!
 -->
@@ -5602,20 +5611,26 @@ One word of caution: Cargo may run multiple tests concurrently, so make sure
 that they don't race with each other. 
 -->
 <p>注意：Cargoは複数のテストを並列で実行することがありますので、それらが互いに競合しないようにしてください。</p>
-<p>One example of this concurrency causing issues is if two tests output to a
-file, such as below:</p>
+<!--
+One example of this concurrency causing issues is if two tests output to a
+file, such as below:
+-->
+<p>並行性が問題を引き起こす一例として、以下のように、2つのテストが1つのファイルに出力するケースがあります。</p>
 <pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>#[cfg(test)]
 mod tests {
     // Import the necessary modules
+    // 必要なモジュールをインポートする。
     use std::fs::OpenOptions;
     use std::io::Write;
 
     // This test writes to a file
+    // ファイルに書き込むテスト。
     #[test]
     fn test_file() {
         // Opens the file ferris.txt or creates one if it doesn't exist.
+        // ferris.txtというファイルを開くか、存在しない場合は作成する。
         let mut file = OpenOptions::new()
             .append(true)
             .create(true)
@@ -5623,6 +5638,7 @@ mod tests {
             .expect(&quot;Failed to open ferris.txt&quot;);
 
         // Print &quot;Ferris&quot; 5 times.
+        // &quot;Ferris&quot;と5回書き込む。
         for _ in 0..5 {
             file.write_all(&quot;Ferris\n&quot;.as_bytes())
                 .expect(&quot;Could not write to ferris.txt&quot;);
@@ -5630,9 +5646,11 @@ mod tests {
     }
 
     // This test tries to write to the same file
+    // 同じファイルに書き込むテスト。
     #[test]
     fn test_file_also() {
         // Opens the file ferris.txt or creates one if it doesn't exist.
+        // ferris.txtというファイルを開くか、存在しない場合は作成する。
         let mut file = OpenOptions::new()
             .append(true)
             .create(true)
@@ -5640,6 +5658,7 @@ mod tests {
             .expect(&quot;Failed to open ferris.txt&quot;);
 
         // Print &quot;Corro&quot; 5 times.
+        // &quot;Corro&quot;と5回書き込む。
         for _ in 0..5 {
             file.write_all(&quot;Corro\n&quot;.as_bytes())
                 .expect(&quot;Could not write to ferris.txt&quot;);
@@ -5647,7 +5666,10 @@ mod tests {
     }
 }
 <span class="boring">}</span></code></pre></pre>
-<p>Although the intent is to get the following:</p>
+<!--
+Although the intent is to get the following:
+-->
+<p>以下のような結果を得ようと意図しています。</p>
 <pre><code class="language-shell">$ cat ferris.txt
 Ferris
 Ferris
@@ -5660,7 +5682,10 @@ Corro
 Corro
 Corro
 </code></pre>
-<p>What actually gets put into <code>ferris.txt</code> is this:</p>
+<!--
+What actually gets put into `ferris.txt` is this:
+-->
+<p>しかし、実際に<code>ferris.txt</code>に出力されるのは、以下の通りです。</p>
 <pre><code class="language-shell">$ cargo test test_foo
 Corro
 Ferris
@@ -5768,7 +5793,10 @@ Attributes can take arguments with different syntaxes:
 <li><code>#[attribute(key = &quot;value&quot;)]</code></li>
 <li><code>#[attribute(value)]</code></li>
 </ul>
-<p>Attributes can have multiple values and can be separated over multiple lines, too:</p>
+<!--
+Attributes can have multiple values and can be separated over multiple lines, too:
+-->
+<p>アトリビュートは複数の値を取ることができ、複数の行に分割することもできます。</p>
 <pre><code class="language-rust ignore">#[attribute(value, value2)]
 
 
@@ -5811,10 +5839,13 @@ a binary or a library (and even which type of library), and the `crate_name`
 attribute can be used to set the name of the crate.
 -->
 <p><code>crate_type</code>アトリビュートは、そのクレートがライブラリ、バイナリのいずれにコンパイルされるべきかをコンパイラに伝えるために使用します。ライブラリの場合は、どのタイプのライブラリであるかも伝えることができます。<code>crate_name</code>はクレートの名前を決定するのに使用します。</p>
-<p>However, it is important to note that both the <code>crate_type</code> and <code>crate_name</code>
-attributes have <strong>no</strong> effect whatsoever when using Cargo, the Rust package
+<!--
+However, it is important to note that both the `crate_type` and `crate_name`
+attributes have **no** effect whatsoever when using Cargo, the Rust package
 manager. Since Cargo is used for the majority of Rust projects, this means
-real-world uses of <code>crate_type</code> and <code>crate_name</code> are relatively limited.</p>
+real-world uses of `crate_type` and `crate_name` are relatively limited.
+-->
+<p>しかし、<code>crate_type</code>アトリビュートも<code>crate_name</code>アトリビュートも、RustのパッケージマネージャCargoを利用している場合は<strong>何の</strong>影響もないと知っておくことは重要です。Cargoは大半のRustプロジェクトで利用されており、実世界での<code>crate_type</code>と<code>crate_name</code>の利用は比較的限られています。</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">// This crate is a library
 // このクレートはライブラリである。
 #![crate_type = &quot;lib&quot;]
@@ -5864,7 +5895,11 @@ utilize identical argument syntax.
 -->
 <p>前者は条件付きコンパイルを行いますが、後者は<code>true</code>または<code>false</code>リテラルに評価され実行時にチェックすることが可能です。
 いずれの場合も適切なシンタックスで記述する必要があります。</p>
-<p><code>cfg!</code>, unlike <code>#[cfg]</code>, does not remove any code and only evaluates to true or false. For example, all blocks in an if/else expression need to be valid when <code>cfg!</code> is used for the condition, regardless of what <code>cfg!</code> is evaluating.</p>
+<!--
+`cfg!`, unlike `#[cfg]`, does not remove any code and only evaluates to true or false. For example, all blocks in an if/else expression need to be valid when `cfg!` is used for the condition, regardless of what `cfg!` is evaluating.
+-->
+<p><code>#[cfg]</code>と異なり、<code>cfg!</code>はコードを削除せず、trueまたはfalseに評価されるだけです。
+例えば、<code>cfg!</code>が何を評価しているかに関係なく、<code>cfg!</code>が条件に利用されるとき、if/else式の中のすべてのブロックが有効でなくてはなりません。</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">// This function only gets compiled if the target OS is linux
 // この関数はターゲットOSがLinuxの時のみコンパイルされる。
 #[cfg(target_os = &quot;linux&quot;)]
@@ -5914,7 +5949,10 @@ fn conditional_function() {
 fn main() {
     conditional_function();
 }</code></pre></pre>
-<p>Try to run this to see what happens without the custom <code>cfg</code> flag.</p>
+<!--
+Try to run this to see what happens without the custom `cfg` flag.
+-->
+<p>独自の<code>cfg</code>フラグを用いない場合、何が起きるかやってみてください。</p>
 <!--
 With the custom `cfg` flag:
 -->
@@ -9555,7 +9593,7 @@ with an input. In these cases, [combinators][combinators] can be used to
 manage control flow in a modular fashion.
 -->
 <p><code>match</code>は<code>Option</code>を扱うのに適したメソッドです。しかし、大量にこれを使用しているとじきに億劫になってくるでしょう。引数の値が有効である（訳注: この場合は<code>None</code>でない）必要がある関数を扱う際には特にそうです。
-In these cases, <a href="https://doc.rust-lang.org/reference/glossary.html#combinator">combinators</a> can be used to manage control flow in a modular fashion.</p>
+そうした場合には、<a href="https://doc.rust-lang.org/reference/glossary.html#combinator">コンビネータ</a>を使うと、処理の流れをモジュール化されたやり方で管理できます。</p>
 <!--
 `Option` has a built in method called `map()`, a combinator for the simple 
 mapping of `Some -> Some` and `None -> None`. Multiple `map()` calls can be 

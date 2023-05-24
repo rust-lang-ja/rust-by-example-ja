@@ -155,10 +155,13 @@ a binary or a library (and even which type of library), and the `crate_name`
 attribute can be used to set the name of the crate.
 -->
 <p><code>crate_type</code>アトリビュートは、そのクレートがライブラリ、バイナリのいずれにコンパイルされるべきかをコンパイラに伝えるために使用します。ライブラリの場合は、どのタイプのライブラリであるかも伝えることができます。<code>crate_name</code>はクレートの名前を決定するのに使用します。</p>
-<p>However, it is important to note that both the <code>crate_type</code> and <code>crate_name</code>
-attributes have <strong>no</strong> effect whatsoever when using Cargo, the Rust package
+<!--
+However, it is important to note that both the `crate_type` and `crate_name`
+attributes have **no** effect whatsoever when using Cargo, the Rust package
 manager. Since Cargo is used for the majority of Rust projects, this means
-real-world uses of <code>crate_type</code> and <code>crate_name</code> are relatively limited.</p>
+real-world uses of `crate_type` and `crate_name` are relatively limited.
+-->
+<p>しかし、<code>crate_type</code>アトリビュートも<code>crate_name</code>アトリビュートも、RustのパッケージマネージャCargoを利用している場合は<strong>何の</strong>影響もないと知っておくことは重要です。Cargoは大半のRustプロジェクトで利用されており、実世界での<code>crate_type</code>と<code>crate_name</code>の利用は比較的限られています。</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">// This crate is a library
 // このクレートはライブラリである。
 #![crate_type = &quot;lib&quot;]

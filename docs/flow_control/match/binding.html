@@ -179,7 +179,10 @@ fn main() {
         n             =&gt; println!(&quot;I'm an old person of age {:?}&quot;, n),
     }
 }</code></pre></pre>
-<p>You can also use binding to &quot;destructure&quot; <code>enum</code> variants, such as <code>Option</code>:</p>
+<!--
+You can also use binding to "destructure" `enum` variants, such as `Option`:
+-->
+<p><code>Option</code>のような、<code>enum</code>の値をデストラクトするためにも、バインディングを利用できます。</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">fn some_number() -&gt; Option&lt;u32&gt; {
     Some(42)
 }
@@ -188,10 +191,13 @@ fn main() {
     match some_number() {
         // Got `Some` variant, match if its value, bound to `n`,
         // is equal to 42.
+        // `n`にバインドされた`Some`の値が42に等しいときにマッチ。
         Some(n @ 42) =&gt; println!(&quot;The Answer: {}!&quot;, n),
         // Match any other number.
+        // それ以外の数値にマッチ。
         Some(n)      =&gt; println!(&quot;Not interesting... {}&quot;, n),
         // Match anything else (`None` variant).
+        // それ以外にマッチ（`None`の値）。
         _            =&gt; (),
     }
 }</code></pre></pre>

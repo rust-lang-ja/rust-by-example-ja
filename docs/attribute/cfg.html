@@ -165,7 +165,11 @@ utilize identical argument syntax.
 -->
 <p>前者は条件付きコンパイルを行いますが、後者は<code>true</code>または<code>false</code>リテラルに評価され実行時にチェックすることが可能です。
 いずれの場合も適切なシンタックスで記述する必要があります。</p>
-<p><code>cfg!</code>, unlike <code>#[cfg]</code>, does not remove any code and only evaluates to true or false. For example, all blocks in an if/else expression need to be valid when <code>cfg!</code> is used for the condition, regardless of what <code>cfg!</code> is evaluating.</p>
+<!--
+`cfg!`, unlike `#[cfg]`, does not remove any code and only evaluates to true or false. For example, all blocks in an if/else expression need to be valid when `cfg!` is used for the condition, regardless of what `cfg!` is evaluating.
+-->
+<p><code>#[cfg]</code>と異なり、<code>cfg!</code>はコードを削除せず、trueまたはfalseに評価されるだけです。
+例えば、<code>cfg!</code>が何を評価しているかに関係なく、<code>cfg!</code>が条件に利用されるとき、if/else式の中のすべてのブロックが有効でなくてはなりません。</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">// This function only gets compiled if the target OS is linux
 // この関数はターゲットOSがLinuxの時のみコンパイルされる。
 #[cfg(target_os = &quot;linux&quot;)]
