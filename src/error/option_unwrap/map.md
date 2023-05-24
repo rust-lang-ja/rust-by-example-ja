@@ -7,7 +7,7 @@ with an input. In these cases, [combinators][combinators] can be used to
 manage control flow in a modular fashion.
 -->
 `match`は`Option`を扱うのに適したメソッドです。しかし、大量にこれを使用しているとじきに億劫になってくるでしょう。引数の値が有効である（訳注: この場合は`None`でない）必要がある関数を扱う際には特にそうです。
-In these cases, [combinators][combinators] can be used to manage control flow in a modular fashion.
+そうした場合には、[コンビネータ][combinators]を使うと、処理の流れをモジュール化されたやり方で管理できます。
 
 <!--
 `Option` has a built in method called `map()`, a combinator for the simple 
