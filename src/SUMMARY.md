@@ -455,4 +455,4 @@
 -->
 - [周辺情報](meta.md)
     - [ドキュメンテーション](meta/doc.md)
-    - [Playground](meta/playground.md)
+    - [プレイグラウンド](meta/playground.md)
