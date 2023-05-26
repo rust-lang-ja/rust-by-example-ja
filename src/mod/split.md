@@ -19,7 +19,10 @@ $ tree .
 └── split.rs
 ```
 
+<!--
 In `split.rs`:
+-->
+`split.rs`は以下のようになります:
 
 ```rust,ignore
 // This declaration will look for a file named `my.rs` and will
@@ -44,7 +47,10 @@ fn main() {
 
 ```
 
+<!--
 In `my.rs`:
+-->
+`my.rs`は以下のようになります:
 
 ```rust,ignore
 // Similarly `mod inaccessible` and `mod nested` will locate the `nested.rs`
@@ -70,7 +76,10 @@ pub fn indirect_access() {
 }
 ```
 
+<!--
 In `my/nested.rs`:
+-->
+`my/nested.rs`は以下のようになります:
 
 ```rust,ignore
 pub fn function() {
@@ -83,7 +92,10 @@ fn private_function() {
 }
 ```
 
+<!--
 In `my/inaccessible.rs`:
+-->
+`my/inaccessible.rs`は以下のようになります:
 
 ```rust,ignore
 #[allow(dead_code)]
