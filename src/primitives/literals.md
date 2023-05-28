@@ -21,8 +21,12 @@ Underscores can be inserted in numeric literals to improve readability, e.g.
 -->
 可読性のため、`_`（アンダースコア）を数値リテラルの間に挿入することができます。例えば`1_000`は`1000`と、`0.000_001`は`0.000001`とそれぞれ同一です。
 
+<!--
 Rust also supports scientific [E-notation][enote], e.g. `1e6`, `7.6e-4`. The
 associated type is `f64`.
+-->
+また、Rustは`1e6`や`7.6e-4`などの科学的な[E表記][enote]をサポートしています。
+関連型は`f64`です。
 
 <!--
 We need to tell the compiler the type of the literals we use. For now,
@@ -50,6 +54,7 @@ fn main() {
     // TODO ^ 型が重要であることを実感するため`1i32`を`1u32`に変更してみましょう。
 
     // Scientific notation
+    // 科学的表記
     println!("1e4 is {}, -2.5e-3 is {}", 1e4, -2.5e-3);
 
     // Short-circuiting boolean logic
