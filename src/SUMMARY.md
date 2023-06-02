@@ -68,7 +68,7 @@
     - [Aliasing](types/alias.md)
 -->
 - [型](types.md)
-    - [型キャスティング](types/cast.md)
+    - [型キャスト](types/cast.md)
     - [リテラル](types/literals.md)
     - [型推論](types/inference.md)
     - [エイリアス](types/alias.md)

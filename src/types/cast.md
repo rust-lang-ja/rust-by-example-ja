@@ -1,7 +1,7 @@
 <!--
 # Casting
 -->
-# 型キャスティング
+# 型キャスト
 
 <!--
 Rust provides no implicit type conversion (coercion) between primitive types.
@@ -19,7 +19,7 @@ C言語で未定義の場合の挙動も、Rustでは完全に定義されてい
 
 ```rust,editable,ignore,mdbook-runnable
 // Suppress all warnings from casts which overflow.
-// オーバーフローを起こすようなキャスティングによる警告を無視する。
+// オーバーフローを起こすようなキャストによる警告を無視する。
 #![allow(overflowing_literals)]
 
 fn main() {
@@ -46,7 +46,7 @@ fn main() {
     // when casting any value to an unsigned type, T,
     // T::MAX + 1 is added or subtracted until the value
     // fits into the new type
-    // 何らかの値を符号なしの型（仮にTとする）へキャスティングすると
+    // 何らかの値を符号なしの型（仮にTとする）へキャストすると
     // 値がTに収まるまで、T::MAX + 1 が加算あるいは減算される。
 
     // 1000 already fits in a u16

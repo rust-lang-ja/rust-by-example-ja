@@ -213,7 +213,7 @@
 | custom type                      | カスタム型
 | argument type                    | 引数タイプ
 | primitive type                   | プリミティブ型
-| casting                          | キャスティング
+| casting                          | キャスト
 | least significant bit            | 最下位ビット
 | numeric literal                  | 数値リテラル
 | full path                        | 絶対パス
