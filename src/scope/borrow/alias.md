@@ -31,17 +31,21 @@ fn main() {
     // ミュータブルに借用することができない。
     // let mutable_borrow = &mut point;
     // TODO ^ Try uncommenting this line
+    // TODO ^ この行をアンコメントしてみましょう。
 
     // The borrowed values are used again here
+    // 借用された値はここで再び利用されます。
     println!("Point has coordinates: ({}, {}, {})",
                 borrowed_point.x, another_borrow.y, point.z);
 
     // The immutable references are no longer used for the rest of the code so
     // it is possible to reborrow with a mutable reference.
+    // イミュータブルな参照がこれ以降のコードで利用されていないため、
+    // ミュータブルな参照として再借用できます。
     let mutable_borrow = &mut point;
 
     // Change data via mutable reference
-    // ミュータブルなリファレンスを介してデータを変更する
+    // ミュータブルな参照を介してデータを変更する
     mutable_borrow.x = 5;
     mutable_borrow.y = 2;
     mutable_borrow.z = 1;
@@ -55,17 +59,19 @@ fn main() {
     // TODO ^ この行をアンコメントしてみましょう。
 
     // Error! Can't print because `println!` takes an immutable reference.
-    // エラー！`println!`はイミュータブルなリファレンスを取るため、printできません。
+    // エラー！`println!`はイミュータブルな参照を取るため、printできません。
     // println!("Point Z coordinate is {}", point.z);
     // TODO ^ Try uncommenting this line
     // TODO ^ この行をアンコメントしてみましょう。
 
     // Ok! Mutable references can be passed as immutable to `println!`
+    // OK!ミュータブルな参照は`println!`にイミュータブルな参照として渡せます。
     println!("Point has coordinates: ({}, {}, {})",
                 mutable_borrow.x, mutable_borrow.y, mutable_borrow.z);
 
     // The mutable reference is no longer used for the rest of the code so it
     // is possible to reborrow
+    // ミュータブルな参照がこれ以降のコードで利用されていないため、再借用できます。
     let new_borrowed_point = &point;
     println!("Point now has coordinates: ({}, {}, {})",
              new_borrowed_point.x, new_borrowed_point.y, new_borrowed_point.z);
