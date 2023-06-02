@@ -1211,8 +1211,12 @@ Underscores can be inserted in numeric literals to improve readability, e.g.
 `1_000` is the same as `1000`, and `0.000_001` is the same as `0.000001`.
 -->
 <p>可読性のため、<code>_</code>（アンダースコア）を数値リテラルの間に挿入することができます。例えば<code>1_000</code>は<code>1000</code>と、<code>0.000_001</code>は<code>0.000001</code>とそれぞれ同一です。</p>
-<p>Rust also supports scientific <a href="https://en.wikipedia.org/wiki/Scientific_notation#E_notation">E-notation</a>, e.g. <code>1e6</code>, <code>7.6e-4</code>. The
-associated type is <code>f64</code>.</p>
+<!--
+Rust also supports scientific [E-notation][enote], e.g. `1e6`, `7.6e-4`. The
+associated type is `f64`.
+-->
+<p>また、Rustは<code>1e6</code>や<code>7.6e-4</code>などの科学的な<a href="https://en.wikipedia.org/wiki/Scientific_notation#E_notation">E表記</a>をサポートしています。
+関連型は<code>f64</code>です。</p>
 <!--
 We need to tell the compiler the type of the literals we use. For now,
 we'll use the `u32` suffix to indicate that the literal is an unsigned 32-bit
@@ -1236,6 +1240,7 @@ to other [C-like languages][op-prec].
     // TODO ^ 型が重要であることを実感するため`1i32`を`1u32`に変更してみましょう。
 
     // Scientific notation
+    // 科学的表記
     println!(&quot;1e4 is {}, -2.5e-3 is {}&quot;, 1e4, -2.5e-3);
 
     // Short-circuiting boolean logic
@@ -4859,6 +4864,7 @@ mod my_mod {
     }
 
     // Modules can also be nested
+    // モジュールもネストできる
     pub mod nested {
         pub fn function() {
             println!(&quot;called `my_mod::nested::function()`&quot;);
@@ -4871,6 +4877,8 @@ mod my_mod {
 
         // Functions declared using `pub(in path)` syntax are only visible
         // within the given path. `path` must be a parent or ancestor module
+        // `pub(in path)`形式で宣言された関数は該当のパス内でのみアクセスできる。
+        // `path`は親や先祖のモジュールでなくてはならない。
         pub(in crate::my_mod) fn public_function_in_my_mod() {
             print!(&quot;called `my_mod::nested::public_function_in_my_mod()`, that\n&gt; &quot;);
             public_function_in_nested();
@@ -4878,12 +4886,15 @@ mod my_mod {
 
         // Functions declared using `pub(self)` syntax are only visible within
         // the current module, which is the same as leaving them private
+        // `pub(self)`形式で宣言された関数は現在のモジュール内でのみアクセスできる。
+        // つまり、プライベートにするのと同じである。
         pub(self) fn public_function_in_nested() {
             println!(&quot;called `my_mod::nested::public_function_in_nested()`&quot;);
         }
 
         // Functions declared using `pub(super)` syntax are only visible within
         // the parent module
+        // `pub(super)`形式で宣言された関数は親モジュール内でのみアクセスできる。
         pub(super) fn public_function_in_super_mod() {
             println!(&quot;called `my_mod::nested::public_function_in_super_mod()`&quot;);
         }
@@ -4897,6 +4908,7 @@ mod my_mod {
     }
 
     // pub(crate) makes functions visible only within the current crate
+    // pub(crate)により関数は現在のクレート内でのみアクセスできる。
     pub(crate) fn public_function_in_crate() {
         println!(&quot;called `my_mod::public_function_in_crate()`&quot;);
     }
@@ -4911,6 +4923,8 @@ mod my_mod {
 
         // Private parent items will still restrict the visibility of a child item,
         // even if it is declared as visible within a bigger scope.
+        // 親がプライベートな場合、子要素がより大きなスコープでアクセスできるように宣言されていても、
+        // 子要素にアクセス可能な範囲は制限されます。
         #[allow(dead_code)]
         pub(crate) fn restricted_function() {
             println!(&quot;called `my_mod::private_nested::restricted_function()`&quot;);
@@ -4937,12 +4951,16 @@ fn main() {
     my_mod::call_public_function_in_my_mod();
 
     // pub(crate) items can be called from anywhere in the same crate
+    // pub(crate)の要素は同じクレートのどこからでも呼び出すことができる。
     my_mod::public_function_in_crate();
 
     // pub(in path) items can only be called from within the module specified
     // Error! function `public_function_in_my_mod` is private
+    // pub(in path)の要素は指定されたモジュールからのみ呼び出すことができる。
+    // エラー! `public_function_in_my_mod`関数はプライベート。
     //my_mod::nested::public_function_in_my_mod();
     // TODO ^ Try uncommenting this line
+    // TODO ^ 試しにこの行をアンコメントしてみましょう。
 
     // Private items of a module cannot be directly accessed, even if
     // nested in a public module:
@@ -4962,14 +4980,16 @@ fn main() {
     // TODO ^ 試しにこの行をアンコメントしてみましょう。
 
     // Error! `private_nested` is a private module
-    // エラー！`private_nested`はプライベートなモジュール 。
+    // エラー！`private_nested`はプライベートなモジュール。
     //my_mod::private_nested::function();
     // TODO ^ Try uncommenting this line
     // TODO ^ 試しにこの行をアンコメントしてみましょう。
 
     // Error! `private_nested` is a private module
+    // エラー! `private_nested`はプライベートなモジュール。
     //my_mod::private_nested::restricted_function();
     // TODO ^ Try uncommenting this line
+    // TODO ^ 試しにこの行をアンコメントしてみましょう。
 }</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Struct visibility
@@ -7445,17 +7465,21 @@ fn main() {
     // ミュータブルに借用することができない。
     // let mutable_borrow = &amp;mut point;
     // TODO ^ Try uncommenting this line
+    // TODO ^ この行をアンコメントしてみましょう。
 
     // The borrowed values are used again here
+    // 借用された値はここで再び利用されます。
     println!(&quot;Point has coordinates: ({}, {}, {})&quot;,
                 borrowed_point.x, another_borrow.y, point.z);
 
     // The immutable references are no longer used for the rest of the code so
     // it is possible to reborrow with a mutable reference.
+    // イミュータブルな参照がこれ以降のコードで利用されていないため、
+    // ミュータブルな参照として再借用できます。
     let mutable_borrow = &amp;mut point;
 
     // Change data via mutable reference
-    // ミュータブルなリファレンスを介してデータを変更する
+    // ミュータブルな参照を介してデータを変更する
     mutable_borrow.x = 5;
     mutable_borrow.y = 2;
     mutable_borrow.z = 1;
@@ -7469,17 +7493,19 @@ fn main() {
     // TODO ^ この行をアンコメントしてみましょう。
 
     // Error! Can't print because `println!` takes an immutable reference.
-    // エラー！`println!`はイミュータブルなリファレンスを取るため、printできません。
+    // エラー！`println!`はイミュータブルな参照を取るため、printできません。
     // println!(&quot;Point Z coordinate is {}&quot;, point.z);
     // TODO ^ Try uncommenting this line
     // TODO ^ この行をアンコメントしてみましょう。
 
     // Ok! Mutable references can be passed as immutable to `println!`
+    // OK!ミュータブルな参照は`println!`にイミュータブルな参照として渡せます。
     println!(&quot;Point has coordinates: ({}, {}, {})&quot;,
                 mutable_borrow.x, mutable_borrow.y, mutable_borrow.z);
 
     // The mutable reference is no longer used for the rest of the code so it
     // is possible to reborrow
+    // ミュータブルな参照がこれ以降のコードで利用されていないため、再借用できます。
     let new_borrowed_point = &amp;point;
     println!(&quot;Point now has coordinates: ({}, {}, {})&quot;,
              new_borrowed_point.x, new_borrowed_point.y, new_borrowed_point.z);
