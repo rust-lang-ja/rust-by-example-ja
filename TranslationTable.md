@@ -10,13 +10,19 @@
 
 | English                          | 日本語
 | :------------------------------- | :-------------
-| abort                            | アボート
 | (lockの) acquire                 | 獲得
+| (lockの) release                 | 解放
+| Intrinsics                       | Intrinsic
+| Lang Items                       | Lang Item
+| Universal Function Call Syntax   | 共通の関数呼び出し構文
+| abort                            | アボート
+| activity                         | 実践
 | aggregate type                   | 合成型
 | alignment                        | アラインメント
 | allocator                        | アロケータ
 | antipattern                      | アンチパターン
 | application                      | アプリケーション
+| argument type                    | 引数タイプ
 | arity                            | アリティ
 | array                            | 配列
 | assignment                       | 代入
@@ -26,15 +32,18 @@
 | binary                           | バイナリ
 | binding                          | 束縛
 | block                            | ブロック
+| borrow  checker                  | 借用チェッカー
 | borrowing                        | 借用
 | bounds                           | 境界
 | bug                              | バグ
 | capture                          | キャプチャ
 | case analysis                    | 場合分け
+| casting                          | キャスト
 | channel                          | チャネル
 | closure                          | クロージャ
-| coercion                         | 型強制
 | code bloat                       | コードの膨張
+| coercion                         | 型強制
+| color model                      | カラーモデル
 | combinator                       | コンビネータ
 | comma                            | カンマ
 | command line                     | コマンドライン
@@ -47,12 +56,14 @@
 | constructor                      | コンストラクタ
 | continuous integration           | 継続的インテグレーション
 | crate                            | クレート
+| custom type                      | カスタム型
 | dangling                         | ダングリング
 | data race                        | データ競合
 | deadlock                         | デッドロック
 | declaration statement            | 宣言文
 | dereferencing                    | 参照外し
 | derive                           | 導出
+| designator                       | 識別子
 | destructor                       | デストラクタ
 | destructuring                    | 分配
 | directive                        | ディレクティブ
@@ -67,6 +78,7 @@
 | early return                     | 早期リターン
 | empty tuple                      | 空タプル
 | encode                           | エンコード
+| endpoint                         | エンドポイント
 | entry point                      | エントリポイント
 | enum                             | 列挙型
 | equality                         | 等値性
@@ -78,8 +90,10 @@
 | expression statement             | 式文
 | exterior                         | 外側の
 | feature                          | フィーチャ
+| field                            | フィールド
 | foreign                          | 他言語
 | free-standing function           | フリースタンディングな関数
+| full path                        | 絶対パス
 | generic parameter                | ジェネリックパラメータ
 | generics                         | ジェネリクス
 | glob                             | グロブ
@@ -88,28 +102,28 @@
 | handle                           | ハンドル
 | hash                             | ハッシュ
 | hash set                         | ハッシュ集合
+| higher order functions           | 高階関数
 | identifier                       | 識別子
-| immutable                        | イミュータブル
 | immutability                     | イミュータビリティ
+| immutable                        | イミュータブル
 | implement                        | 実装する
 | initialize                       | 初期化する
 | input lifetime                   | 入力ライフタイム
-| interior                         | 内側の
 | install                          | インストール
 | installer                        | インストーラ
+| interior                         | 内側の
 | interpolate                      | インターポーレートする
 | interpolation                    | インターポーレーション
-| Intrinsics                       | Intrinsic
 | key                              | キー
 | keyword                          | キーワード
-| Lang Items                       | Lang Item
 | leak                             | リーク
+| least significant bit            | 最下位ビット
 | lending                          | 貸付け
 | library                          | ライブラリ
 | lifetime                         | ライフタイム
+| lifetime coercion                | ライフタイムの圧縮
 | lifetime elision                 | ライフタイムの省略
 | lifetime parameter               | ライフタイムパラメータ
-| lifetime coercion                | ライフタイムの圧縮
 | link                             | リンク
 | lint                             | リント
 | mangling                         | マングリング
@@ -123,12 +137,14 @@
 | mutable binding                  | ミュータブルな束縛
 | mutual-exclusion                 | 相互排他
 | null                             | ヌル
+| numeric literal                  | 数値リテラル
 | object-safe                      | オブジェクト安全
 | offline                          | オフライン
 | opaque                           | オペーク
 | open source                      | オープンソース
 | option                           | オプション
 | output lifetime                  | 出力ライフタイム
+| output type                      | アウトプット型
 | overflow                         | オーバーフロー
 | owner                            | 所有者
 | ownership                        | 所有権
@@ -136,13 +152,18 @@
 | parameter                        | パラメータ
 | parametric polymorphism          | パラメトリック多相
 | parse                            | パース、パースする
-| patch                            | パッチ
 | partial moves                    | 部分的ムーブ
+| patch                            | パッチ
 | pattern                          | パターン
 | performance                      | パフォーマンス
+| phantom type                     | 幽霊型
 | platform                         | プラットフォーム
 | pointer                          | ポインタ
+| primitive type                   | プリミティブ型
+| private                          | プライベート
 | process                          | プロセス
+| public                           | パブリック
+| r-value                          | 右辺値
 | range                            | レンジ
 | raw pointer                      | 生ポインタ
 | re-assignment                    | 再代入
@@ -150,7 +171,6 @@
 | reference count                  | 参照カウント
 | regression                       | リグレッション
 | release                          | リリース
-| (lockの) release                 | 解放
 | return                           | 返す
 | return type                      | リターン型
 | return value                     | 戻り値
@@ -183,10 +203,11 @@
 | thread-locality                  | スレッドローカル性
 | threadsafe                       | スレッドセーフ
 | tick                             | クオート
+| token trees                      | トークン木
 | trait                            | トレイト
+| transmute                        | トランスミュート
 | tuple                            | タプル
 | tuple struct                     | タプル
-| token trees                      | トークン木
 | type alias                       | 型エイリアス
 | type erasure                     | 型消去
 | type family                      | 型族
@@ -194,7 +215,6 @@
 | type parameter                   | 型パラメータ
 | uninstall                        | アンインストール
 | unit  注: `()` の読み            | ユニット
-| Universal Function Call Syntax   | 共通の関数呼び出し構文
 | unsafe                           | アンセーフ
 | unsigned                         | 符号無し
 | unsized type                     | サイズ不定型
@@ -209,23 +229,3 @@
 | warning                          | ウォーニング
 | wildcard                         | ワイルドカード
 | wrapper                          | ラッパ
-| activity                         | 実践
-| custom type                      | カスタム型
-| argument type                    | 引数タイプ
-| primitive type                   | プリミティブ型
-| casting                          | キャスティング
-| least significant bit            | 最下位ビット
-| numeric literal                  | 数値リテラル
-| full path                        | 絶対パス
-| r-value                          | 右辺値
-| color model                      | カラーモデル
-| higher order functions           | 高階関数
-| designator                       | 識別子
-| field                            | フィールド
-| public                           | パブリック
-| private                          | プライベート
-| borrow  checker                  | 借用チェッカー
-| endpoint                         | エンドポイント
-| transmute                        | トランスミュート
-| output type                      | アウトプット型
-| phantom type                     | 幽霊型

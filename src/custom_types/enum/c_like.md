@@ -48,6 +48,6 @@ fn main() {
 <!--
 [casting][cast]
 -->
-[キャスティング][cast]
+[キャスト][cast]
 
 [cast]: ../../types/cast.md

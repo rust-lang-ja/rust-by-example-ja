@@ -6,7 +6,7 @@
 <!--
 Primitive types can be converted to each other through [casting].
 -->
-プリミティブ型同士は[キャスティング][casting]を用いて変換できます。
+プリミティブ型同士は[キャスト][casting]を用いて変換できます。
 
 <!--
 Rust addresses conversion between custom types (i.e., `struct` and `enum`)
