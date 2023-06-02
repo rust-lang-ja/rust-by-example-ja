@@ -16,7 +16,7 @@ everyone. These topics include:
 - [Playground][playground]: Integrate the Rust Playground in your documentation.
 -->
 - [ドキュメンテーション][doc]: Rust付属コマンド`rustdoc`を用いて、ライブラリのドキュメントを生成します。
-- [Playpen][playpen]: Integrate the Rust Playpen(also known as the Rust Playground) in your documentation.
+- [プレイグラウンド][playground]: あなたのドキュメンテーションにRust Playgroundを組み込めます。
 
 [doc]: meta/doc.md
 [playground]: meta/playground.md
