@@ -2100,12 +2100,6 @@ block is a collection of statements enclosed by braces `{}`.
         let short_lived_binding = 2;
 
         println!(&quot;inner short: {}&quot;, short_lived_binding);
-
-        // This binding *shadows* the outer one
-        // この変数はスコープ外の同名の変数を *シャドーイング* します。
-        let long_lived_binding = 5_f32;
-
-        println!(&quot;inner long: {}&quot;, long_lived_binding);
     }
     // End of the block
     // ブロックの終わり
@@ -2117,14 +2111,11 @@ block is a collection of statements enclosed by braces `{}`.
     // FIXME ^ コメントアウトしましょう
 
     println!(&quot;outer long: {}&quot;, long_lived_binding);
-    
-    // This binding also *shadows* the previous binding
-    // この変数バインディングも以前に定義した変数を *シャドーイング* します
-    let long_lived_binding = 'a';
-    
-    println!(&quot;outer long: {}&quot;, long_lived_binding);
 }</code></pre></pre>
-<p>Also, <a href="https://en.wikipedia.org/wiki/Variable_shadowing">variable shadowing</a> is allowed.</p>
+<!--
+Also, [variable shadowing][variable-shadow] is allowed.
+-->
+<p>同様に、<a href="https://en.wikipedia.org/wiki/Variable_shadowing">変数のシャドーイング</a>も可能です。</p>
 <pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable edition2021">fn main() {
     let shadowed_binding = 1;
 
@@ -2132,6 +2123,7 @@ block is a collection of statements enclosed by braces `{}`.
         println!(&quot;before being shadowed: {}&quot;, shadowed_binding);
 
         // This binding *shadows* the outer one
+        // この変数はスコープ外の同名の変数を *シャドーイング* します
         let shadowed_binding = &quot;abc&quot;;
 
         println!(&quot;shadowed in inner block: {}&quot;, shadowed_binding);
@@ -2139,6 +2131,7 @@ block is a collection of statements enclosed by braces `{}`.
     println!(&quot;outside inner block: {}&quot;, shadowed_binding);
 
     // This binding *shadows* the previous binding
+    // この変数バインディングは以前に定義した変数を *シャドーイング* します
     let shadowed_binding = 2;
     println!(&quot;shadowed in outer block: {}&quot;, shadowed_binding);
 }</code></pre></pre>
@@ -2584,6 +2577,7 @@ impl From&lt;i32&gt; for Number {
 fn main() {
     let int = 5;
     // Try removing the type annotation
+    // ここの型アノテーションを消してみましょう。
     let num: Number = int.into();
     println!(&quot;My number is {:?}&quot;, num);
 }</code></pre></pre>

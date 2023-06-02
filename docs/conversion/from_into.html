@@ -222,6 +222,7 @@ impl From&lt;i32&gt; for Number {
 fn main() {
     let int = 5;
     // Try removing the type annotation
+    // ここの型アノテーションを消してみましょう。
     let num: Number = int.into();
     println!(&quot;My number is {:?}&quot;, num);
 }</code></pre></pre>
