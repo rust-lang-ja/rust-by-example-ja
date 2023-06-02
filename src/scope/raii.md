@@ -59,6 +59,8 @@ Of course, we can double check for memory errors using [`valgrind`][valgrind]:
 -->
 [`valgrind`][valgrind]を用いて、メモリエラーが起きていないか2重チェックすることももちろん可能です。
 
+
+
 ```shell
 $ rustc raii.rs && valgrind ./raii
 ==26873== Memcheck, a memory error detector
@@ -76,6 +78,7 @@ $ rustc raii.rs && valgrind ./raii
 ==26873== For counts of detected and suppressed errors, rerun with: -v
 ==26873== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
 ```
+
 
 <!--
 No leaks here!

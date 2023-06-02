@@ -83,8 +83,10 @@ fn main() {
         }
     }
 
-    // Out of bound indexing causes runtime error.
+    // Out of bound indexing on array causes compile time error.
     // インデックスが範囲外のときはコンパイルエラー
     //println!("{}", xs[5]);
+    // Out of bound indexing on slice causes runtime error.
+    //println!("{}", xs[..][5]);
 }
 ```

@@ -34,6 +34,12 @@ fn main() {
         // `x`に言及していないため、以下はエラーになる。
         //Foo { y } => println!("y = {}", y),
     }
+
+    let faa = Foo { x: (1, 2), y: 3 };
+
+    // You do not need a match block to destructure structs:
+    let Foo { x : x0, y: y0 } = faa;
+    println!("Outside: x0 = {x0:?}, y0 = {y0}");
 }
 ```
 

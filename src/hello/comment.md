@@ -28,7 +28,7 @@ a few different varieties:
 fn main() {
     // This is an example of a line comment.
     // There are two slashes at the beginning of the line.
-    // And nothing written inside these will be read by the compiler.
+    // And nothing written after these will be read by the compiler.
     // こちらはラインコメントです
     // 一番左にスラッシュが2つある行と、何も書かれていない行は
     // どちらもコンパイラによって無視されます。試しに実行してみてください

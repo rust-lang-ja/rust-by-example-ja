@@ -73,7 +73,7 @@ Now let's begin!
 - [制御フロー](flow_control.md) - `if`や`else`、`for`など。
 
 <!--
-- [Functions](fn.md) - Learn about Methods, Closures and High Order Functions.
+- [Functions](fn.md) - Learn about Methods, Closures and Higher Order Functions.
 -->
 - [関数](fn.md) - メソッド、クロージャ、高階関数について。
 
