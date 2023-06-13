@@ -294,7 +294,7 @@
     - [イテレータ](trait/iter.md)
     - [`impl Trait`](trait/impl_trait.md)
     - [クローン](trait/clone.md)
-    - [Supertraits](trait/supertraits.md)
+    - [スーパートレイト](trait/supertraits.md)
     - [Disambiguating overlapping traits](trait/disambiguating.md)
 
 <!--
