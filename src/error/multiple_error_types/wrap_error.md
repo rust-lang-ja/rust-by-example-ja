@@ -50,8 +50,8 @@ impl error::Error for DoubleError {
             // cast to the trait object `&error::Error`. This works because the
             // underlying type already implements the `Error` trait.
             // 元の実装のエラー型が原因。
-            // `&error::Error`トレートオブジェクトに暗にキャストされる。
-            // 元となる型が`Error`トレートをすでに実装しているため問題なく動く。
+            // `&error::Error`トレイトオブジェクトに暗にキャストされる。
+            // 元となる型が`Error`トレイトをすでに実装しているため問題なく動く。
             DoubleError::Parse(ref e) => Some(e),
         }
     }
