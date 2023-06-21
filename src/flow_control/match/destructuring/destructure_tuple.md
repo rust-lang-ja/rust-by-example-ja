@@ -25,6 +25,7 @@ fn main() {
         (.., 2)  => println!("last is `2` and the rest doesn't matter"),
         (3, .., 4)  => println!("First is `3`, last is `4`, and the rest doesn't matter"),
         // `..` can be used to ignore the rest of the tuple
+        // `..`を使うと、タプルの残りの部分を無視できます。
         _      => println!("It doesn't matter what they are"),
         // `_` means don't bind the value to a variable
         // ここでは`_`は、値を変数に束縛しないことを意味します。
