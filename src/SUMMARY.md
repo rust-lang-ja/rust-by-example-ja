@@ -445,8 +445,12 @@
 - [安全でない操作](unsafe.md)
     - [Inline assembly](unsafe/asm.md)
 
+<!--
 - [Compatibility](compatibility.md)
     - [Raw identifiers](compatibility/raw_identifiers.md)
+-->
+- [互換性](compatibility.md)
+    - [生識別子](compatibility/raw_identifiers.md)
 
 <!--
 - [Meta](meta.md)

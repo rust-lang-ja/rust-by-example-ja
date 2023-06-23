@@ -166,6 +166,7 @@
 | r-value                          | 右辺値
 | range                            | レンジ
 | raw pointer                      | 生ポインタ
+| raw identifier                   | 生識別子
 | re-assignment                    | 再代入
 | rebind                           | 再束縛
 | reference count                  | 参照カウント
