@@ -49,6 +49,8 @@ Let's check that `panic!` doesn't leak memory.
 -->
 `panic!`がメモリリークを引き起こさないことを確認しましょう。
 
+
+
 ```shell
 $ rustc panic.rs && valgrind ./panic
 ==4401== Memcheck, a memory error detector

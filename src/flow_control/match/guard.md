@@ -9,6 +9,7 @@ A `match` *guard* can be added to filter the arm.
 `match`内の条件文をフィルタリングするために、 *ガード(`guard`)* を使用することができます。
 
 ```rust,editable
+#[allow(dead_code)]
 enum Temperature {
     Celsius(i32),
     Fahrenheit(i32),

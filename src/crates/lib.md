@@ -8,6 +8,8 @@ Let's create a library, and then see how to link it to another crate.
 -->
 ではライブラリを作成し、それを別のクレートにリンクする方法を見ていきましょう。
 
+In `rary.rs`:
+
 ```rust,ignore
 pub fn public_function() {
     println!("called rary's `public_function()`");

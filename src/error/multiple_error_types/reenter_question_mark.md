@@ -11,7 +11,7 @@ error:
 以前の例では`parse`の呼び出しに対するその場での対応として、エラーをライブラリのエラーからboxされたエラーへと`map`していました。
 
 ```rust,ignore
-.and_then(|s| s.parse::<i32>()
+.and_then(|s| s.parse::<i32>())
     .map_err(|e| e.into())
 ```
 

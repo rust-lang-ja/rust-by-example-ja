@@ -41,7 +41,7 @@ fn main() {
 ## Stringの解析
 
 <!--
-One of the more common types to convert a string into is a number. The idiomatic
+One of the more common types to convert a string into a number. The idiomatic
 approach to this is to use the [`parse`] function and either to arrange for
 type inference or to specify the type to parse using the 'turbofish' syntax.
 Both alternatives are shown in the following example.

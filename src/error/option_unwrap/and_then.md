@@ -15,11 +15,11 @@ known in some languages as flatmap, comes in.
 `and_then()`は引数として与えられた関数にラップされた値を渡しますが、その値が`None`だった場合は`None`を返します。
 
 <!--
-In the following example, `cookable_v2()` results in an `Option<Food>`. 
+In the following example, `cookable_v3()` results in an `Option<Food>`. 
 Using `map()` instead of `and_then()` would have given an 
 `Option<Option<Food>>`, which is an invalid type for `eat()`.
 -->
-以下の例では`cookable_v2()`は`Option<Food>`を返すため、`and_then()`ではなく`map()`を使用すると最終的に`Option<Option<Food>>`になります。これは`eat()`には不適切な型です。
+以下の例では`cookable_v3()`は`Option<Food>`を返すため、`and_then()`ではなく`map()`を使用すると最終的に`Option<Option<Food>>`になります。これは`eat()`には不適切な型です。
 
 ```rust,editable
 #![allow(dead_code)]
@@ -52,21 +52,24 @@ fn have_recipe(food: Food) -> Option<Food> {
 fn cookable_v1(food: Food) -> Option<Food> {
     match have_recipe(food) {
         None       => None,
-        Some(food) => match have_ingredients(food) {
-            None       => None,
-            Some(food) => Some(food),
-        },
+        Some(food) => have_ingredients(food),
     }
 }
 
 // This can conveniently be rewritten more compactly with `and_then()`:
 // `and_then()`を用いることで、同じことをよりコンパクトに表現できる。
-fn cookable_v2(food: Food) -> Option<Food> {
+fn cookable_v3(food: Food) -> Option<Food> {
     have_recipe(food).and_then(have_ingredients)
 }
 
+// Otherwise we'd need to `flatten()` an `Option<Option<Food>>`
+// to get an `Option<Food>`:
+fn cookable_v2(food: Food) -> Option<Food> {
+    have_recipe(food).map(have_ingredients).flatten()
+}
+
 fn eat(food: Food, day: Day) {
-    match cookable_v2(food) {
+    match cookable_v3(food) {
         Some(food) => println!("Yay! On {:?} we get to eat {:?}.", day, food),
         None       => println!("Oh no. We don't get to eat on {:?}?", day),
     }
@@ -87,10 +90,10 @@ fn main() {
 ### 参照
 
 <!--
-[closures][closures], [`Option`][option], and [`Option::and_then()`][and_then]
 -->
-[closures][closures], [`Option`][option], [`Option::and_then()`][and_then]
+[closures][closures], [`Option`][option], [`Option::and_then()`][and_then], and [`Option::flatten()`][flatten]
 
 [closures]: ../../fn/closures.md
 [option]: https://doc.rust-lang.org/std/option/enum.Option.html
 [and_then]: https://doc.rust-lang.org/std/option/enum.Option.html#method.and_then
+[flatten]: https://doc.rust-lang.org/std/option/enum.Option.html#method.flatten

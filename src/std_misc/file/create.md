@@ -66,6 +66,6 @@ failure conditions.)
 -->
 前項の例と同じように、様々な失敗パターンをためしてみることをオススメします。
 
-There is [`OpenOptions`] struct that can be used to configure how a file is opened.
+The [`OpenOptions`] struct can be used to configure how a file is opened.
 
 [`OpenOptions`]: https://doc.rust-lang.org/std/fs/struct.OpenOptions.html
