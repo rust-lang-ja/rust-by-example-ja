@@ -169,6 +169,7 @@ Tuples can be destructured in a `match` as follows:
         (.., 2)  =&gt; println!(&quot;last is `2` and the rest doesn't matter&quot;),
         (3, .., 4)  =&gt; println!(&quot;First is `3`, last is `4`, and the rest doesn't matter&quot;),
         // `..` can be used to ignore the rest of the tuple
+        // `..`を使うと、タプルの残りの部分を無視できます。
         _      =&gt; println!(&quot;It doesn't matter what they are&quot;),
         // `_` means don't bind the value to a variable
         // ここでは`_`は、値を変数に束縛しないことを意味します。
