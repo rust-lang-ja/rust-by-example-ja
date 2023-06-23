@@ -15,7 +15,7 @@ The stdlib helps in boxing our errors by having `Box` implement conversion from
 any type that implements the `Error` trait into the trait object `Box<Error>`,
 via [`From`][from].
 -->
-標準ライブラリは`Box`に、[`From`][from]を介してあらゆる`Error`トレートを実装した型から`Box<Error>`トレートオブジェクトへの変換を実装させることで、エラーをboxしやすくしてくれます。
+標準ライブラリは`Box`に、[`From`][from]を介してあらゆる`Error`トレイトを実装した型から`Box<Error>`トレイトオブジェクトへの変換を実装させることで、エラーをboxしやすくしてくれます。
 
 ```rust,editable
 use std::error;

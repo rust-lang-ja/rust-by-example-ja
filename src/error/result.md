@@ -98,7 +98,7 @@ occurs within the `main` function it will return an error code and print a debug
 representation of the error (using the [`Debug`] trait). The following example
 shows such a scenario and touches on aspects covered in [the following section].
 -->
-一方`main`で`Result`をリターン型とすることも可能です。エラーが`main`関数内で発生した時、エラーコードを返し、エラーに関するデバッグ表記を（[`Debug`]トレートを使って）出力します。以下の例ではそのようなシナリオを示し、[この先の節]でカバーする内容に触れていきます。
+一方`main`で`Result`をリターン型とすることも可能です。エラーが`main`関数内で発生した時、エラーコードを返し、エラーに関するデバッグ表記を（[`Debug`]トレイトを使って）出力します。以下の例ではそのようなシナリオを示し、[この先の節]でカバーする内容に触れていきます。
 
 ```rust,editable
 use std::num::ParseIntError;
