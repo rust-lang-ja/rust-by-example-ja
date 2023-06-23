@@ -180,8 +180,8 @@
     - [Using a Library](crates/using_lib.md)
 -->
 - [クレート](crates.md)
-    - [Creating a Library](crates/lib.md)
-    - [Using a Library](crates/using_lib.md)
+    - [ライブラリ](crates/lib.md)
+    - [ライブラリの利用](crates/using_lib.md)
 
 - [Cargo](cargo.md)
     - [Dependencies](cargo/deps.md)
