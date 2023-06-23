@@ -160,7 +160,7 @@ The stdlib helps in boxing our errors by having `Box` implement conversion from
 any type that implements the `Error` trait into the trait object `Box<Error>`,
 via [`From`][from].
 -->
-<p>標準ライブラリは<code>Box</code>に、<a href="https://doc.rust-lang.org/std/convert/trait.From.html"><code>From</code></a>を介してあらゆる<code>Error</code>トレートを実装した型から<code>Box&lt;Error&gt;</code>トレートオブジェクトへの変換を実装させることで、エラーをboxしやすくしてくれます。</p>
+<p>標準ライブラリは<code>Box</code>に、<a href="https://doc.rust-lang.org/std/convert/trait.From.html"><code>From</code></a>を介してあらゆる<code>Error</code>トレイトを実装した型から<code>Box&lt;Error&gt;</code>トレイトオブジェクトへの変換を実装させることで、エラーをboxしやすくしてくれます。</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">use std::error;
 use std::fmt;
 

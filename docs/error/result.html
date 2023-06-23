@@ -229,7 +229,7 @@ occurs within the `main` function it will return an error code and print a debug
 representation of the error (using the [`Debug`] trait). The following example
 shows such a scenario and touches on aspects covered in [the following section].
 -->
-<p>一方<code>main</code>で<code>Result</code>をリターン型とすることも可能です。エラーが<code>main</code>関数内で発生した時、エラーコードを返し、エラーに関するデバッグ表記を（<a href="https://doc.rust-lang.org/std/fmt/trait.Debug.html"><code>Debug</code></a>トレートを使って）出力します。以下の例ではそのようなシナリオを示し、<a href="result/early_returns.html">この先の節</a>でカバーする内容に触れていきます。</p>
+<p>一方<code>main</code>で<code>Result</code>をリターン型とすることも可能です。エラーが<code>main</code>関数内で発生した時、エラーコードを返し、エラーに関するデバッグ表記を（<a href="https://doc.rust-lang.org/std/fmt/trait.Debug.html"><code>Debug</code></a>トレイトを使って）出力します。以下の例ではそのようなシナリオを示し、<a href="result/early_returns.html">この先の節</a>でカバーする内容に触れていきます。</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">use std::num::ParseIntError;
 
 fn main() -&gt; Result&lt;(), ParseIntError&gt; {

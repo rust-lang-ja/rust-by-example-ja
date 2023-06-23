@@ -161,7 +161,7 @@ the `Err` type, we look to [`parse()`][parse], which is implemented with the
 [`FromStr`][from_str] trait for [`i32`][i32]. As a result, the `Err` type is
 specified as [`ParseIntError`][parse_int_error].
 -->
-<p>まずは、どのようなエラー型を扱っているのかを知る必要があります。<code>Err</code>型を定めるために、<a href="https://doc.rust-lang.org/std/primitive.i32.html"><code>i32</code></a>に対し<a href="https://doc.rust-lang.org/std/str/trait.FromStr.html"><code>FromStr</code></a>トレートを使って実装された<a href="https://doc.rust-lang.org/std/primitive.str.html#method.parse"><code>parse()</code></a>を見てみましょう。結果、<code>Err</code>型は<a href="https://doc.rust-lang.org/std/num/struct.ParseIntError.html"><code>ParseIntError</code></a>というものであることが分かります。</p>
+<p>まずは、どのようなエラー型を扱っているのかを知る必要があります。<code>Err</code>型を定めるために、<a href="https://doc.rust-lang.org/std/primitive.i32.html"><code>i32</code></a>に対し<a href="https://doc.rust-lang.org/std/str/trait.FromStr.html"><code>FromStr</code></a>トレイトを使って実装された<a href="https://doc.rust-lang.org/std/primitive.str.html#method.parse"><code>parse()</code></a>を見てみましょう。結果、<code>Err</code>型は<a href="https://doc.rust-lang.org/std/num/struct.ParseIntError.html"><code>ParseIntError</code></a>というものであることが分かります。</p>
 <!--
 In the example below, the straightforward `match` statement leads to code
 that is overall more cumbersome.
