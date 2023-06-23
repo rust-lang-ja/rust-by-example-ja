@@ -179,6 +179,12 @@ Similarly, a `struct` can be destructured as shown:
         // `x`に言及していないため、以下はエラーになる。
         //Foo { y } =&gt; println!(&quot;y = {}&quot;, y),
     }
+
+    let faa = Foo { x: (1, 2), y: 3 };
+
+    // You do not need a match block to destructure structs:
+    let Foo { x : x0, y: y0 } = faa;
+    println!(&quot;Outside: x0 = {x0:?}, y0 = {y0}&quot;);
 }</code></pre></pre>
 <!--
 ### See also:

@@ -153,7 +153,8 @@
 A `match` *guard* can be added to filter the arm.
 -->
 <p><code>match</code>内の条件文をフィルタリングするために、 <em>ガード(<code>guard</code>)</em> を使用することができます。</p>
-<pre><pre class="playground"><code class="language-rust editable edition2021">enum Temperature {
+<pre><pre class="playground"><code class="language-rust editable edition2021">#[allow(dead_code)]
+enum Temperature {
     Celsius(i32),
     Fahrenheit(i32),
 }

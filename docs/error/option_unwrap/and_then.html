@@ -159,11 +159,11 @@ known in some languages as flatmap, comes in.
 -->
 <p><code>and_then()</code>は引数として与えられた関数にラップされた値を渡しますが、その値が<code>None</code>だった場合は<code>None</code>を返します。</p>
 <!--
-In the following example, `cookable_v2()` results in an `Option<Food>`. 
+In the following example, `cookable_v3()` results in an `Option<Food>`. 
 Using `map()` instead of `and_then()` would have given an 
 `Option<Option<Food>>`, which is an invalid type for `eat()`.
 -->
-<p>以下の例では<code>cookable_v2()</code>は<code>Option&lt;Food&gt;</code>を返すため、<code>and_then()</code>ではなく<code>map()</code>を使用すると最終的に<code>Option&lt;Option&lt;Food&gt;&gt;</code>になります。これは<code>eat()</code>には不適切な型です。</p>
+<p>以下の例では<code>cookable_v3()</code>は<code>Option&lt;Food&gt;</code>を返すため、<code>and_then()</code>ではなく<code>map()</code>を使用すると最終的に<code>Option&lt;Option&lt;Food&gt;&gt;</code>になります。これは<code>eat()</code>には不適切な型です。</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">#![allow(dead_code)]
 
 #[derive(Debug)] enum Food { CordonBleu, Steak, Sushi }
@@ -194,21 +194,24 @@ fn have_recipe(food: Food) -&gt; Option&lt;Food&gt; {
 fn cookable_v1(food: Food) -&gt; Option&lt;Food&gt; {
     match have_recipe(food) {
         None       =&gt; None,
-        Some(food) =&gt; match have_ingredients(food) {
-            None       =&gt; None,
-            Some(food) =&gt; Some(food),
-        },
+        Some(food) =&gt; have_ingredients(food),
     }
 }
 
 // This can conveniently be rewritten more compactly with `and_then()`:
 // `and_then()`を用いることで、同じことをよりコンパクトに表現できる。
-fn cookable_v2(food: Food) -&gt; Option&lt;Food&gt; {
+fn cookable_v3(food: Food) -&gt; Option&lt;Food&gt; {
     have_recipe(food).and_then(have_ingredients)
 }
 
+// Otherwise we'd need to `flatten()` an `Option&lt;Option&lt;Food&gt;&gt;`
+// to get an `Option&lt;Food&gt;`:
+fn cookable_v2(food: Food) -&gt; Option&lt;Food&gt; {
+    have_recipe(food).map(have_ingredients).flatten()
+}
+
 fn eat(food: Food, day: Day) {
-    match cookable_v2(food) {
+    match cookable_v3(food) {
         Some(food) =&gt; println!(&quot;Yay! On {:?} we get to eat {:?}.&quot;, day, food),
         None       =&gt; println!(&quot;Oh no. We don't get to eat on {:?}?&quot;, day),
     }
@@ -226,9 +229,8 @@ fn main() {
 -->
 <h3 id="参照"><a class="header" href="#参照">参照</a></h3>
 <!--
-[closures][closures], [`Option`][option], and [`Option::and_then()`][and_then]
 -->
-<p><a href="../../fn/closures.html">closures</a>, <a href="https://doc.rust-lang.org/std/option/enum.Option.html"><code>Option</code></a>, <a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.and_then"><code>Option::and_then()</code></a></p>
+<p><a href="../../fn/closures.html">closures</a>, <a href="https://doc.rust-lang.org/std/option/enum.Option.html"><code>Option</code></a>, <a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.and_then"><code>Option::and_then()</code></a>, and <a href="https://doc.rust-lang.org/std/option/enum.Option.html#method.flatten"><code>Option::flatten()</code></a></p>
 
                     </main>
 

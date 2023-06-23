@@ -223,8 +223,9 @@ correctness at compile time.
     println!(&quot;{number:&gt;5}&quot;, number=1);
 
     // You can pad numbers with extra zeroes,
+    println!(&quot;{number:0&gt;5}&quot;, number=1); // 00001
     // and left-adjust by flipping the sign. This will output &quot;10000&quot;.
-    println!(&quot;{number:0&lt;5}&quot;, number=1);
+    println!(&quot;{number:0&lt;5}&quot;, number=1); // 10000
 
     // You can use named arguments in the format specifier by appending a `$`.
     println!(&quot;{number:0&gt;width$}&quot;, number=1, width=5);
@@ -250,7 +251,7 @@ correctness at compile time.
     // handling. This will not work.
     // このようにカスタム型を用いる場合、少々扱いが複雑になります。
     // 以下は動作しません。
-    //println!(&quot;This struct `{}` won't print...&quot;, Structure(3));
+    // println!(&quot;This struct `{}` won't print...&quot;, Structure(3));
     // TODO ^ Try uncommenting this line
 
     // For Rust 1.58 and above, you can directly capture the argument from a

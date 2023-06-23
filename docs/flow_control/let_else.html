@@ -148,13 +148,13 @@
                         <h1 id="let-else"><a class="header" href="#let-else">let-else</a></h1>
 <blockquote>
 <p>🛈 stable since: rust 1.65</p>
+<p>🛈 you can target specific edition by compiling like this
+<code>rustc --edition=2021 main.rs</code></p>
 </blockquote>
 <p>With <code>let</code>-<code>else</code>, a refutable pattern can match and bind variables
 in the surrounding scope like a normal <code>let</code>, or else diverge (e.g. <code>break</code>,
 <code>return</code>, <code>panic!</code>) when the pattern doesn't match.</p>
-<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>use std::str::FromStr;
+<pre><pre class="playground"><code class="language-rust edition2021">use std::str::FromStr;
 
 fn get_count_item(s: &amp;str) -&gt; (u64, &amp;str) {
     let mut it = s.split(' ');
@@ -167,8 +167,9 @@ fn get_count_item(s: &amp;str) -&gt; (u64, &amp;str) {
     (count, item)
 }
 
-assert_eq!(get_count_item(&quot;3 chairs&quot;), (3, &quot;chairs&quot;));
-<span class="boring">}</span></code></pre></pre>
+fn main() {
+    assert_eq!(get_count_item(&quot;3 chairs&quot;), (3, &quot;chairs&quot;));
+}</code></pre></pre>
 <p>The scope of name bindings is the main thing that makes this different from
 <code>match</code> or <code>if let</code>-<code>else</code> expressions. You could previously approximate these
 patterns with an unfortunate bit of repetition and an outer <code>let</code>:</p>

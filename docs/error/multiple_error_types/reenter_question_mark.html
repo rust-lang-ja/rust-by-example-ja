@@ -155,7 +155,7 @@ Notice in the previous example that our immediate reaction to calling
 error:
 -->
 <p>以前の例では<code>parse</code>の呼び出しに対するその場での対応として、エラーをライブラリのエラーからboxされたエラーへと<code>map</code>していました。</p>
-<pre><code class="language-rust ignore">.and_then(|s| s.parse::&lt;i32&gt;()
+<pre><code class="language-rust ignore">.and_then(|s| s.parse::&lt;i32&gt;())
     .map_err(|e| e.into())</code></pre>
 <!--
 Since this is a simple and common operation, it would be convenient if it
