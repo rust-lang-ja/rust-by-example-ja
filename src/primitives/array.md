@@ -68,15 +68,22 @@ fn main() {
     analyze_slice(&ys[1 .. 4]);
 
     // Example of empty slice `&[]`:
+    // 空のスライスの例：`&[]`
     let empty_array: [u32; 0] = [];
     assert_eq!(&empty_array, &[]);
     assert_eq!(&empty_array, &[][..]); // Same but more verbose
+                                       // 同じ意味だがより冗長な書き方
 
     // Arrays can be safely accessed using `.get`, which returns an
     // `Option`. This can be matched as shown below, or used with
     // `.expect()` if you would like the program to exit with a nice
     // message instead of happily continue.
+    // 配列は、`Option`を返す`.get`で安全にアクセスできます。
+    // `Option`は以下のようにマッチさせることもできますし、
+    // 運よく処理を続ける代わりに、`.expect()`で素敵なメッセージとともに
+    // プログラムを終了することもできます。
     for i in 0..xs.len() + 1 { // Oops, one element too far!
+                               // おっと、1要素余分!
         match xs.get(i) {
             Some(xval) => println!("{}: {}", i, xval),
             None => println!("Slow down! {} is too far!", i),
