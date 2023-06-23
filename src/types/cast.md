@@ -38,8 +38,11 @@ fn main() {
 
     // Error! There are limitations in conversion rules.
     // A float cannot be directly converted to a char.
+    // エラー！ 変換ルールには制限があります。
+    // 浮動小数点数を文字に直接変換することはできません。
     let character = decimal as char;
     // FIXME ^ Comment out this line
+    // FIXME ^ この行をコメントアウトしましょう。
 
     println!("Casting: {} -> {} -> {}", decimal, integer, character);
 
@@ -62,6 +65,7 @@ fn main() {
     println!("  -1 as a u8 is : {}", (-1i8) as u8);
 
     // For positive numbers, this is the same as the modulus
+    // 正の数では、これは剰余と同じです。
     println!("1000 mod 256 is : {}", 1000 % 256);
 
     // When casting to a signed type, the (bitwise) result is the same as
@@ -72,6 +76,7 @@ fn main() {
     // 2. 2の補数(two's complement)をとる
 
     // Unless it already fits, of course.
+    // すでに収まっている場合はそのままです。
     println!(" 128 as a i16 is: {}", 128 as i16);
 
     // 128 as u8 -> 128, whose value in 8-bit two's complement representation is:
@@ -90,6 +95,10 @@ fn main() {
     // when casting from float to int. If the floating point value exceeds
     // the upper bound or is less than the lower bound, the returned value
     // will be equal to the bound crossed.
+    // Rust 1.45以降、浮動小数点数を整数にキャストするとき、
+    // `as`キーワードが *飽和的キャスト* を行います。
+    // 浮動小数点数の値が上限を超えたり下限を下回ったりする場合は、
+    // 戻り値は越えられた境界の値となります。
 
     // 300.0 as u8 is 255
     println!(" 300.0 as u8 is : {}", 300.0_f32 as u8);
@@ -101,6 +110,9 @@ fn main() {
     // This behavior incurs a small runtime cost and can be avoided
     // with unsafe methods, however the results might overflow and
     // return **unsound values**. Use these methods wisely:
+    // この挙動は実行時にややコストがかかるため、安全でない方法で回避できます。
+    // ただし、結果はオーバーフローしたり *不正確な値* を返す場合があります。
+    // この方法は賢く使いましょう:
     unsafe {
         // 300.0 as u8 is 44
         println!(" 300.0 as u8 is : {}", 300.0_f32.to_int_unchecked::<u8>());
