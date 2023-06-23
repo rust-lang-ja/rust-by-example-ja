@@ -16,6 +16,7 @@ fn main() {
     }
 
     // Try changing the values in the struct to see what happens
+    // 構造体の中の値を変えて、何が起きるか見てみよう。
     let foo = Foo { x: (1, 2), y: 3 };
 
     match foo {
