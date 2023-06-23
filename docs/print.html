@@ -2280,8 +2280,11 @@ fn main() {
 
     // Error! There are limitations in conversion rules.
     // A float cannot be directly converted to a char.
+    // エラー！ 変換ルールには制限があります。
+    // 浮動小数点数を文字に直接変換することはできません。
     let character = decimal as char;
     // FIXME ^ Comment out this line
+    // FIXME ^ この行をコメントアウトしましょう。
 
     println!(&quot;Casting: {} -&gt; {} -&gt; {}&quot;, decimal, integer, character);
 
@@ -2304,6 +2307,7 @@ fn main() {
     println!(&quot;  -1 as a u8 is : {}&quot;, (-1i8) as u8);
 
     // For positive numbers, this is the same as the modulus
+    // 正の数では、これは剰余と同じです。
     println!(&quot;1000 mod 256 is : {}&quot;, 1000 % 256);
 
     // When casting to a signed type, the (bitwise) result is the same as
@@ -2314,6 +2318,7 @@ fn main() {
     // 2. 2の補数(two's complement)をとる
 
     // Unless it already fits, of course.
+    // すでに収まっている場合はそのままです。
     println!(&quot; 128 as a i16 is: {}&quot;, 128 as i16);
 
     // 128 as u8 -&gt; 128, whose value in 8-bit two's complement representation is:
@@ -2332,6 +2337,10 @@ fn main() {
     // when casting from float to int. If the floating point value exceeds
     // the upper bound or is less than the lower bound, the returned value
     // will be equal to the bound crossed.
+    // Rust 1.45以降、浮動小数点数を整数にキャストするとき、
+    // `as`キーワードが *飽和的キャスト* を行います。
+    // 浮動小数点数の値が上限を超えたり下限を下回ったりする場合は、
+    // 戻り値は越えられた境界の値となります。
 
     // 300.0 as u8 is 255
     println!(&quot; 300.0 as u8 is : {}&quot;, 300.0_f32 as u8);
@@ -2343,6 +2352,9 @@ fn main() {
     // This behavior incurs a small runtime cost and can be avoided
     // with unsafe methods, however the results might overflow and
     // return **unsound values**. Use these methods wisely:
+    // この挙動は実行時にややコストがかかるため、安全でない方法で回避できます。
+    // ただし、結果はオーバーフローしたり *不正確な値* を返す場合があります。
+    // この方法は賢く使いましょう:
     unsafe {
         // 300.0 as u8 is 44
         println!(&quot; 300.0 as u8 is : {}&quot;, 300.0_f32.to_int_unchecked::&lt;u8&gt;());
@@ -6018,7 +6030,7 @@ is actually considered valid. The simplest and most common use of generics
 is for type parameters.
 -->
 <p>ジェネリクスとは、型と関数の機能をより汎用的に使えるようにするための機能です。これはあらゆる局面でコードの重複を避けるために非常に役立ちますが、多少構文が複雑になります。すなわち、ジェネリック型を使いこなすには、どのようなジェネリック型がきちんと機能するかに細心の注意を払う必要があります。
-The simplest and most common use of generics is for type parameters.</p>
+最もシンプルで一般的なジェネリクスの利用法は型パラメータです。</p>
 <!--
 A type parameter is specified as generic by the use of angle brackets and upper
 [camel case][camelcase]: `<Aaa, Bbb, ...>`. "Generic type parameters" are
