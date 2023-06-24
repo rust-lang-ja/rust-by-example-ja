@@ -17,7 +17,7 @@ trait Person {
 
 // Person is a supertrait of Student.
 // Implementing Student requires you to also impl Person.
-// PersonはStudentの上位集合です。
+// PersonはStudentのスーパートレイトです。
 // Studentを実装するにはPersonも実装する必要があります。
 trait Student: Person {
     fn university(&self) -> String;
