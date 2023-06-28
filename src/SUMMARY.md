@@ -288,7 +288,7 @@
 -->
 - [トレイト](trait.md)
     - [導出(Derive)](trait/derive.md)
-    - [Returning Traits with `dyn`](trait/dyn.md)
+    - [`dyn`を利用してトレイトを返す](trait/dyn.md)
     - [演算子のオーバーロード](trait/ops.md)
     - [メモリ解放](trait/drop.md)
     - [イテレータ](trait/iter.md)
