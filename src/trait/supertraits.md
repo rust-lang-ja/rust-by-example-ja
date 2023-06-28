@@ -1,7 +1,14 @@
+<!--
 # Supertraits
+-->
+# スーパートレイト
 
+<!--
 Rust doesn't have "inheritance", but you can define a trait as being a superset
 of another trait. For example:
+-->
+Rustには"継承"はありませんが、あるトレイトを別のトレイトの上位集合として定義できます。
+例えば：
 
 ```rust,editable
 trait Person {
@@ -10,6 +17,8 @@ trait Person {
 
 // Person is a supertrait of Student.
 // Implementing Student requires you to also impl Person.
+// PersonはStudentのスーパートレイトです。
+// Studentを実装するにはPersonも実装する必要があります。
 trait Student: Person {
     fn university(&self) -> String;
 }
@@ -20,6 +29,8 @@ trait Programmer {
 
 // CompSciStudent (computer science student) is a subtrait of both Programmer 
 // and Student. Implementing CompSciStudent requires you to impl both supertraits.
+// CompSciStudent（コンピュータサイエンスの学生）はProgrammerとStudent両方のサブトレイトです。
+// CompSciStudentを実装するには、両方のスーパートレイトを実装する必要があります。
 trait CompSciStudent: Programmer + Student {
     fn git_username(&self) -> String;
 }

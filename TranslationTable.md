@@ -195,6 +195,8 @@
 | struct                           | 構造体
 | structure                        | 構造体
 | sum type                         | 直和型
+| subtrait                         | サブトレイト
+| supertrait                       | スーパートレイト
 | symbol                           | シンボル
 | syntactic sugar                  | 糖衣構文
 | syntax tree                      | 構文木
