@@ -88,6 +88,7 @@ struct MinMax(i64, i64);
 impl fmt::Display for MinMax {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         // Use `self.number` to refer to each positional data point.
+        // `self.number`でそれぞれのデータポイントを参照できます。
         write!(f, "({}, {})", self.0, self.1)
     }
 }
