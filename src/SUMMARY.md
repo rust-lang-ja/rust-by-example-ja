@@ -120,7 +120,7 @@
     - [match](flow_control/match.md)
         - [デストラクト](flow_control/match/destructuring.md)
             - [タプル](flow_control/match/destructuring/destructure_tuple.md)
-            - [arrays/slices](flow_control/match/destructuring/destructure_slice.md)
+            - [配列とスライス](flow_control/match/destructuring/destructure_slice.md)
             - [列挙型](flow_control/match/destructuring/destructure_enum.md)
             - [ポインタとref](flow_control/match/destructuring/destructure_pointers.md)
             - [構造体](flow_control/match/destructuring/destructure_structures.md)
