@@ -150,7 +150,10 @@ a
 1 directory, 2 files
 ```
 
+<!--
 An alternative way to define the function `cat` is with `?` notation:
+-->
+別のやり方で`cat`関数を定義するには、`?`記法を使います：
 
 ```rust,ignore
 fn cat(path: &Path) -> io::Result<String> {
