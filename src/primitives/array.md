@@ -91,9 +91,10 @@ fn main() {
     }
 
     // Out of bound indexing on array causes compile time error.
-    // インデックスが範囲外のときはコンパイルエラー
+    // 配列のインデックスが範囲外のときはコンパイルエラー
     //println!("{}", xs[5]);
     // Out of bound indexing on slice causes runtime error.
+    // スライスのインデックスが範囲外のときはランタイムエラー
     //println!("{}", xs[..][5]);
 }
 ```
