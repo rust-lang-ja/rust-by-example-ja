@@ -65,8 +65,10 @@ fn main() {
     // 不正なインデックスアクセスはpanicを引き起こします。
     println!("Fourth element: {}", xs[3]);
     // FIXME ^ Comment out this line
+    // FIXME ^ この行をコメントアウトしましょう。
 
     // `Vector`s can be easily iterated over
+    // `Vector`は簡単にイテレートできます。
     println!("Contents of xs:");
     for x in xs.iter() {
         println!("> {}", x);
@@ -74,12 +76,16 @@ fn main() {
 
     // A `Vector` can also be iterated over while the iteration
     // count is enumerated in a separate variable (`i`)
+    // `Vector`をイテレートしながら、
+    // イテレーションの回数を別の変数(`i`)に列挙することもできます。
     for (i, x) in xs.iter().enumerate() {
         println!("In position {} we have value {}", i, x);
     }
 
     // Thanks to `iter_mut`, mutable `Vector`s can also be iterated
     // over in a way that allows modifying each value
+    // `iter_mut`を使うと、ミュータブルな`Vector`をイテレートし、
+    // それぞれの値を修正することができます。
     for x in xs.iter_mut() {
         *x *= 3;
     }
