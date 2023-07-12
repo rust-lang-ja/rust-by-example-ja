@@ -14,6 +14,7 @@ they are:
 
 Rustはたいていの場合、型アノテーションなしでも変数を捕捉する方法を臨機応変に選択してくれますが、関数を書く場合にはこの曖昧さは許されません。
 引数のパラメータとしてクロージャを取る場合、そのクロージャの完全な型はいくつかの`traits`の中の1つを使って明示されなければなりません。
+どれが使われるかは、捕捉された値でクロージャが何をするかによって決まります。
 制限の少ない順に並べると、下記の通りです。
 
 <!--
@@ -64,6 +65,8 @@ In the following example, try swapping the usage of `Fn`, `FnMut`, and
 ```rust,editable
 // A function which takes a closure as an argument and calls it.
 // <F> denotes that F is a "Generic type parameter"
+// クロージャを引数として取り、クロージャを呼び出す関数。
+// <F>はFが「ジェネリックな型パラメータ」であることを示す。
 fn apply<F>(f: F) where
     // The closure takes no input and returns nothing.
     // クロージャには引数も返り値もない。
@@ -122,6 +125,7 @@ fn main() {
     apply(diary);
 
     // `double` satisfies `apply_to_3`'s trait bound
+    // `double`は`apply_to_3`のトレイト境界を満たす。
     let double = |x| 2 * x;
 
     println!("3 doubled: {}", apply_to_3(double));
