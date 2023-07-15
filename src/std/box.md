@@ -29,6 +29,7 @@ struct Point {
 
 // A Rectangle can be specified by where its top left and bottom right 
 // corners are in space
+// 長方形(`Rectangle`)は左上の角と右下の角がどこにあるかによって特定できる
 #[allow(dead_code)]
 struct Rectangle {
     top_left: Point,
