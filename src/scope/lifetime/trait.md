@@ -40,6 +40,9 @@ fn main() {
 -->
 ### 参照
 
+<!--
+[`trait`s][trait]
+-->
 [トレイト][trait]
 
 
