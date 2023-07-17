@@ -46,12 +46,19 @@ fn main() {
     println!("The person's age from person struct is {}", person.age);
 }
 ```
+<!--
 (In this example, we store the `age` variable on the heap to 
 illustrate the partial move: deleting `ref` in the above code would 
 give an error as the ownership of `person.age` would be moved to the 
 variable `age`. If `Person.age` were stored on the stack, `ref` would 
 not be required as the definition of `age` would copy the data from 
 `person.age` without moving it.)
+-->
+この例では、`age`変数をヒープ上に保持し、部分的ムーブを説明しています。
+上記コードで`ref`を削除すると、`person.age`の所有権が`age`変数にムーブされるため、エラーになります。
+もしも`person.age`がスタック上に保持されていたら、
+`age`の定義が`person.age`をムーブすることなくデータをコピーするので、
+`ref`は必須ではないのですが、実際にはヒープ上に保持されているため`ref`は必須です。
 
 <!--
 ### See also:
