@@ -23,6 +23,7 @@ macro_rules! calculate {
     (eval $e:expr) => {
         {
             let val: usize = $e; // Force types to be integers
+                                 // 強制的に型を整数にする
             println!("{} = {}", stringify!{$e}, val);
         }
     };
