@@ -36,22 +36,31 @@ lifetimes relate to scopes, as well as how the two differ.
 // のスコープを完全に包含します。`borrow1`と`borrow2`の存続期間は一切重なりません。
 fn main() {
     let i = 3; // Lifetime for `i` starts. ────────────────┐
+               // `i`のライフタイム開始                       │
     //                                                     │
     { //                                                   │
         let borrow1 = &i; // `borrow1` lifetime starts. ──┐│
+                          // `borrow1`のライフタイム開始     ││
         //                                                ││
         println!("borrow1: {}", borrow1); //              ││
     } // `borrow1` ends. ─────────────────────────────────┘│
+      // `borrow1`終了                                     │
     //                                                     │
     //                                                     │
     { //                                                   │
         let borrow2 = &i; // `borrow2` lifetime starts. ──┐│
+                          // `borrow2`のライフタイム開始     ││
         //                                                ││
         println!("borrow2: {}", borrow2); //              ││
     } // `borrow2` ends. ─────────────────────────────────┘│
+      // `borrow2`終了                                     │
     //                                                     │
 }   // Lifetime ends. ─────────────────────────────────────┘
+    // ライフタイム終了
 ```
 
+<!--
 Note that no names or types are assigned to label lifetimes.
 This restricts how lifetimes will be able to be used as we will see.
+-->
+ここで、一切の名前や型がライフタイムにアサインされていないことに注意しましょう。これにより、ライフタイムの使われ方がこれから見ていくようなやり方に制限されます。
