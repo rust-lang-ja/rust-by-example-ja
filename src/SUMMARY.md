@@ -268,7 +268,7 @@
         - [関数](scope/lifetime/fn.md)
         - [メソッド](scope/lifetime/methods.md)
         - [構造体](scope/lifetime/struct.md)
-        - [Traits](scope/lifetime/trait.md)
+        - [トレイト](scope/lifetime/trait.md)
         - [ライフタイム境界](scope/lifetime/lifetime_bounds.md)
         - [圧縮](scope/lifetime/lifetime_coercion.md)
         - [スタティックライフタイム](scope/lifetime/static_lifetime.md)
