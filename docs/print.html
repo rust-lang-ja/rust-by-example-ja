@@ -822,6 +822,7 @@ struct MinMax(i64, i64);
 impl fmt::Display for MinMax {
     fn fmt(&amp;self, f: &amp;mut fmt::Formatter) -&gt; fmt::Result {
         // Use `self.number` to refer to each positional data point.
+        // `self.number`でそれぞれのデータポイントを参照できます。
         write!(f, &quot;({}, {})&quot;, self.0, self.1)
     }
 }
@@ -8724,51 +8725,98 @@ fn main() {
     }
 }</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="impl-trait"><a class="header" href="#impl-trait"><code>impl Trait</code></a></h1>
-<p><code>impl Trait</code> can be used in two locations:</p>
+<!--
+`impl Trait` can be used in two locations:
+-->
+<p><code>impl Trait</code>は2つの利用方法があります：</p>
+<!--
+1. as an argument type
+2. as a return type
+-->
 <ol>
-<li>as an argument type</li>
-<li>as a return type</li>
+<li>引数の型</li>
+<li>リターン型</li>
 </ol>
-<h2 id="as-an-argument-type"><a class="header" href="#as-an-argument-type">As an argument type</a></h2>
-<p>If your function is generic over a trait but you don't mind the specific type, you can simplify the function declaration using <code>impl Trait</code> as the type of the argument.</p>
-<p>For example, consider the following code:</p>
+<!--
+## As an argument type
+-->
+<h2 id="引数の型"><a class="header" href="#引数の型">引数の型</a></h2>
+<!--
+If your function is generic over a trait but you don't mind the specific type, you can simplify the function declaration using `impl Trait` as the type of the argument.
+-->
+<p>あなたの関数がジェネリックなトレイトを使用していて、特定の型を意識していない場合、<code>impl Trait</code>を引数の型として利用して、関数宣言をシンプルにできます。</p>
+<!--
+For example, consider the following code:
+-->
+<p>例えば、次のコードを考えてみましょう：</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">fn parse_csv_document&lt;R: std::io::BufRead&gt;(src: R) -&gt; std::io::Result&lt;Vec&lt;Vec&lt;String&gt;&gt;&gt; {
     src.lines()
         .map(|line| {
             // For each line in the source
+            // ソースのそれぞれの行について
             line.map(|line| {
                 // If the line was read successfully, process it, if not, return the error
+                // 行を読み込んだら処理する。そうでなければエラーを返す。
                 line.split(',') // Split the line separated by commas
+                                // 行をカンマで分割する
                     .map(|entry| String::from(entry.trim())) // Remove leading and trailing whitespace
+                                                             // 前後の空白を削除する
                     .collect() // Collect all strings in a row into a Vec&lt;String&gt;
+                               // 各行の全ての文字列をVec&lt;String&gt;に集める
             })
         })
         .collect() // Collect all lines into a Vec&lt;Vec&lt;String&gt;&gt;
+                   // 全ての行をVec&lt;Vec&lt;String&gt;&gt;に集める
 }</code></pre></pre>
-<p><code>parse_csv_document</code> is generic, allowing it to take any type which implements BufRead, such as <code>BufReader&lt;File&gt;</code> or <code>[u8]</code>,
-but it's not important what type <code>R</code> is, and <code>R</code> is only used to declare the type of <code>src</code>, so the function can also be written as:</p>
+<!--
+`parse_csv_document` is generic, allowing it to take any type which implements BufRead, such as `BufReader<File>` or `[u8]`,
+but it's not important what type `R` is, and `R` is only used to declare the type of `src`, so the function can also be written as:
+-->
+<p><code>parse_csv_document</code>はジェネリックなので、BufReadを実装する任意の型を取ることができます。
+例えば、<code>BufReader&lt;File&gt;</code>や<code>[u8]</code>です。
+<code>R</code>がどんな型かは重要ではなく、<code>src</code>の型宣言に使われているだけなので、この関数は以下のように書くこともできます：</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">fn parse_csv_document(src: impl std::io::BufRead) -&gt; std::io::Result&lt;Vec&lt;Vec&lt;String&gt;&gt;&gt; {
     src.lines()
         .map(|line| {
             // For each line in the source
+            // ソースのそれぞれの行について
             line.map(|line| {
                 // If the line was read successfully, process it, if not, return the error
+                // 行を読み込んだら処理する。そうでなければエラーを返す。
                 line.split(',') // Split the line separated by commas
+                                // 行をカンマで分割する
                     .map(|entry| String::from(entry.trim())) // Remove leading and trailing whitespace
+                                                             // 前後の空白を削除する
                     .collect() // Collect all strings in a row into a Vec&lt;String&gt;
+                               // 各行の全ての文字列をVec&lt;String&gt;に集める
             })
         })
         .collect() // Collect all lines into a Vec&lt;Vec&lt;String&gt;&gt;
+                   // 全ての行をVec&lt;Vec&lt;String&gt;&gt;に集める
 }</code></pre></pre>
-<p>Note that using <code>impl Trait</code> as an argument type means that you cannot explicitly state what form of the function you use, i.e. <code>parse_csv_document::&lt;std::io::Empty&gt;(std::io::empty())</code> will not work with the second example.</p>
-<h2 id="as-a-return-type"><a class="header" href="#as-a-return-type">As a return type</a></h2>
-<p>If your function returns a type that implements <code>MyTrait</code>, you can write its
-return type as <code>-&gt; impl MyTrait</code>. This can help simplify your type signatures quite a lot!</p>
+<!--
+Note that using `impl Trait` as an argument type means that you cannot explicitly state what form of the function you use, i.e. `parse_csv_document::<std::io::Empty>(std::io::empty())` will not work with the second example.
+-->
+<p><code>impl Trait</code>を引数の型として利用するということは、どのような形式の関数であるか明示できないので、注意してください。
+例えば、<code>parse_csv_document::&lt;std::io::Empty&gt;(std::io::empty())</code>は2番目の例では動作しません。</p>
+<!--
+## As a return type
+-->
+<h2 id="リターン型"><a class="header" href="#リターン型">リターン型</a></h2>
+<!--
+If your function returns a type that implements `MyTrait`, you can write its
+return type as `-> impl MyTrait`. This can help simplify your type signatures quite a lot!
+-->
+<p>あなたの関数が<code>MyTrait</code>を実装する型を返す場合、
+リターン型を<code>-&gt; impl MyTrait</code>のように書けます。
+これで型シグネチャをとてもシンプルにできます。</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">use std::iter;
 use std::vec::IntoIter;
 
 // This function combines two `Vec&lt;i32&gt;` and returns an iterator over it.
 // Look how complicated its return type is!
+// この関数は2つの`Vec&lt;i32&gt;を組み合わせて、そのイテレータを返します。
+// リターン型がとても複雑です！
 fn combine_vecs_explicit_return_type(
     v: Vec&lt;i32&gt;,
     u: Vec&lt;i32&gt;,
@@ -8778,6 +8826,8 @@ fn combine_vecs_explicit_return_type(
 
 // This is the exact same function, but its return type uses `impl Trait`.
 // Look how much simpler it is!
+// これは全く同じ関数ですが、リターン型に`impl Trait`を使っています。
+// とてもシンプルですね！
 fn combine_vecs(
     v: Vec&lt;i32&gt;,
     u: Vec&lt;i32&gt;,
@@ -8796,11 +8846,18 @@ fn main() {
     assert_eq!(Some(5), v3.next());
     println!(&quot;all done&quot;);
 }</code></pre></pre>
-<p>More importantly, some Rust types can't be written out. For example, every
-closure has its own unnamed concrete type. Before <code>impl Trait</code> syntax, you had
+<!--
+More importantly, some Rust types can't be written out. For example, every
+closure has its own unnamed concrete type. Before `impl Trait` syntax, you had
 to allocate on the heap in order to return a closure. But now you can do it all
-statically, like this:</p>
+statically, like this:
+-->
+<p>より重要なことに、Rustの型には書き表せないものがあるのです。
+例えば、あらゆるクロージャは独自の無名な具象型を持ちます。
+<code>impl Trait</code>構文がない時は、クロージャを返すにはヒープ上に置かねばなりませんでした。
+しかし今では次のようにすべて静的に行えます。</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">// Returns a function that adds `y` to its input
+// 入力に`y`を加える関数を返す。
 fn make_adder_function(y: i32) -&gt; impl Fn(i32) -&gt; i32 {
     let closure = move |x: i32| { x + y };
     closure
@@ -8810,10 +8867,17 @@ fn main() {
     let plus_one = make_adder_function(1);
     assert_eq!(plus_one(2), 3);
 }</code></pre></pre>
-<p>You can also use <code>impl Trait</code> to return an iterator that uses <code>map</code> or <code>filter</code>
-closures! This makes using <code>map</code> and <code>filter</code> easier. Because closure types don't
+<!--
+You can also use `impl Trait` to return an iterator that uses `map` or `filter`
+closures! This makes using `map` and `filter` easier. Because closure types don't
 have names, you can't write out an explicit return type if your function returns
-iterators with closures. But with <code>impl Trait</code> you can do this easily:</p>
+iterators with closures. But with `impl Trait` you can do this easily:
+-->
+<p><code>impl Trait</code>を使って、<code>map</code>や<code>filter</code>クロージャを使うイテレータを返すこともできます。
+おかげで<code>map</code>や<code>filter</code>を簡単に使えます。
+クロージャ型は名前を持たないので、あなたの関数がクロージャを持つイテレータを返す場合、
+明示的なリターン型を書くことはできません。
+しかし<code>impl Trait</code>を使うことで簡単にできます：</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">fn double_positives&lt;'a&gt;(numbers: &amp;'a Vec&lt;i32&gt;) -&gt; impl Iterator&lt;Item = i32&gt; + 'a {
     numbers
         .iter()
@@ -8878,8 +8942,8 @@ fn main() {
     // エラー! `pair`は資源を失っている。
     //println!(&quot;original: {:?}&quot;, pair);
     // TODO ^ Try uncommenting this line
-
     // TODO ^ この行をアンコメントしてみましょう。
+
     // Clone `moved_pair` into `cloned_pair` (resources are included)
     // `moved_pair`を`cloned_pair`にクローンする。（資源もクローンされる。）
     let cloned_pair = moved_pair.clone();
