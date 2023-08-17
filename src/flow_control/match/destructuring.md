@@ -16,6 +16,7 @@ A `match` block can destructure items in a variety of ways.
 * [Destructuring Structures][struct]
 -->
 * [タプルのデストラクト][tuple]
+* [配列とスライスのデストラクト][slice]
 * [列挙型のデストラクト][enum]
 * [ポインタのデストラクト][refs]
 * [構造体のデストラクト][struct]
