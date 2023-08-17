@@ -34,7 +34,7 @@ fn main() {
     };
 
     // Read the file contents into a string, returns `io::Result<usize>`
-    // ファイルの中身を文字列に読み込む。`io::Result<useize>`を返す。
+    // ファイルの中身を文字列に読み込む。`io::Result<usize>`を返す。
     let mut s = String::new();
     match file.read_to_string(&mut s) {
         Err(why) => panic!("couldn't read {}: {}", display, why),
