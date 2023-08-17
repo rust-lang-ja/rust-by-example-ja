@@ -9527,6 +9527,7 @@ We can extend our `calculate!` macro from the previous section to be variadic:
     (eval $e:expr) =&gt; {
         {
             let val: usize = $e; // Force types to be integers
+                                 // 強制的に型を整数にする
             println!(&quot;{} = {}&quot;, stringify!{$e}, val);
         }
     };
@@ -14338,7 +14339,7 @@ pub struct Person {
 
 impl Person {
     /// Returns a person with the name given them
-    /// 与えられた名前を持つpersonをを返します。
+    /// 与えられた名前を持つpersonを返します。
     ///
     /// # Arguments
     ///

@@ -166,6 +166,7 @@ We can extend our `calculate!` macro from the previous section to be variadic:
     (eval $e:expr) =&gt; {
         {
             let val: usize = $e; // Force types to be integers
+                                 // 強制的に型を整数にする
             println!(&quot;{} = {}&quot;, stringify!{$e}, val);
         }
     };
