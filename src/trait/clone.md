@@ -54,8 +54,8 @@ fn main() {
     // エラー! `pair`は資源を失っている。
     //println!("original: {:?}", pair);
     // TODO ^ Try uncommenting this line
-
     // TODO ^ この行をアンコメントしてみましょう。
+
     // Clone `moved_pair` into `cloned_pair` (resources are included)
     // `moved_pair`を`cloned_pair`にクローンする。（資源もクローンされる。）
     let cloned_pair = moved_pair.clone();
