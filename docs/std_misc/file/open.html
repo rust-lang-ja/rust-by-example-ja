@@ -177,7 +177,7 @@ fn main() {
     };
 
     // Read the file contents into a string, returns `io::Result&lt;usize&gt;`
-    // ファイルの中身を文字列に読み込む。`io::Result&lt;useize&gt;`を返す。
+    // ファイルの中身を文字列に読み込む。`io::Result&lt;usize&gt;`を返す。
     let mut s = String::new();
     match file.read_to_string(&amp;mut s) {
         Err(why) =&gt; panic!(&quot;couldn't read {}: {}&quot;, display, why),
