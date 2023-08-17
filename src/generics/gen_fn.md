@@ -48,7 +48,7 @@ fn reg_fn(_s: S) {}
 // Define a function `gen_spec_t` that takes an argument `_s` of type `SGen<T>`.
 // It has been explicitly given the type parameter `A`, but because `A` has not 
 // been specified as a generic type parameter for `gen_spec_t`, it is not generic.
-// `gen_spec_t`という関数を定義。これは`A`という型を与えられた`Sgen<T>`
+// `gen_spec_t`という関数を定義。これは`A`という型を与えられた`SGen<T>`
 // という型の引数`_s`を取る。関数名の直後に`<A>`という型パラメータでAが
 // ジェネリックであることを明示していないので、この関数はAをジェネリック型
 // としては取らない
@@ -58,7 +58,7 @@ fn gen_spec_t(_s: SGen<A>) {}
 // It has been explicitly given the type parameter `i32`, which is a specific type.
 // Because `i32` is not a generic type, this function is also not generic.
 // `gen_spec_i32`という関数を定義。
-// これは明示的な型パラメータとして`i32`を与えられた`Sgen<i32>`型の引数`_s`をとる
+// これは明示的な型パラメータとして`i32`を与えられた`SGen<i32>`型の引数`_s`をとる
 // この関数もジェネリックではない
 fn gen_spec_i32(_s: SGen<i32>) {}
 
