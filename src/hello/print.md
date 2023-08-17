@@ -41,13 +41,9 @@ fn main() {
     // Positional arguments can be used. Specifying an integer inside `{}`
     // determines which additional argument will be replaced. Arguments start
     // at 0 immediately after the format string.
-    // Without a suffix, 31 becomes an i32. You can change what type 31 is
-    // by providing a suffix. The number 31i64 for example has the type i64.
-    // サフィックスで型を指定しなければ31はi32として扱われます。
-    // サフィックスの指定により、31の型を自由に変換することができます。
-    // There are various optional patterns this works with. Positional
-    // arguments can be used.
-    // 引数の位置から埋め込まれる場所を指定することができます。
+    // 位置引数を利用できます。
+    // `{}`の内側に整数を指定することで、どの引数で置換されるかが決まります。
+    // 引数は0から始まります。
     println!("{0}, this is {1}. {1}, this is {0}", "Alice", "Bob");
 
     // As can named arguments.
@@ -79,11 +75,14 @@ fn main() {
     println!("{number:>5}", number=1);
 
     // You can pad numbers with extra zeroes,
+    // 数字を0埋めすることもできます。
     println!("{number:0>5}", number=1); // 00001
     // and left-adjust by flipping the sign. This will output "10000".
+    // 記号を反対にすると左寄せになります。以下は"10000"と出力されます。
     println!("{number:0<5}", number=1); // 10000
 
     // You can use named arguments in the format specifier by appending a `$`.
+    // フォーマット指定子の中に`$`をつけることで名前付き引数を利用できます。
     println!("{number:0>width$}", number=1, width=5);
 
 
@@ -92,27 +91,30 @@ fn main() {
     // 引数の数が正しいかのチェックも行ってくれます。
     println!("My name is {0}, {1} {0}", "Bond");
     // FIXME ^ Add the missing argument: "James"
+    // FIXME ^ 不足している引数"James"を追加しましょう。
 
     // Only types that implement fmt::Display can be formatted with `{}`. User-
     // defined types do not implement fmt::Display by default.
+    // `{}`でフォーマットできるのは、fmt::Displayを実装している型のみです。
+    // ユーザーが定義した型はデフォルトではfmt::Displayを実装していません。
 
     #[allow(dead_code)] // disable `dead_code` which warn against unused module
-    // Create a structure named `Structure` which contains an `i32`.
-    // `i32`保持する `Structure` という名の構造体を定義します.
+                        // 使用されていないモジュールを警告してくれる`dead_code`を無効化
     struct Structure(i32);
 
     // This will not compile because `Structure` does not implement
     // fmt::Display.
-    // However, custom types such as this structure require more complicated
-    // handling. This will not work.
-    // このようにカスタム型を用いる場合、少々扱いが複雑になります。
-    // 以下は動作しません。
+    // `Structure`はfmt::Displayを実装していないので、
+    // 以下はコンパイルできません。
     // println!("This struct `{}` won't print...", Structure(3));
     // TODO ^ Try uncommenting this line
+    // TODO ^ この行をアンコメントしてみましょう。
 
     // For Rust 1.58 and above, you can directly capture the argument from a
     // surrounding variable. Just like the above, this will output
     // "    1", 4 white spaces and a "1".
+    // Rust 1.58以上では、周囲の変数から直接引数をキャプチャできます。
+    // 上で見たように、以下のコードは4つのスペースと1を、"    1"のように出力します。
     let number: f64 = 1.0;
     let width: usize = 5;
     println!("{number:>width$}");
@@ -146,7 +148,10 @@ Implementing the `fmt::Display` trait automatically implements the
 -->
 `fmt::Display`トレイトを実装すると、自動的に[`ToString`]トレイトが実装されます。これにより[`String`][string]型への型変換ができるようになります。
 
+<!--
 In *line 46*, `#[allow(dead_code)]` is an [attribute] which only apply to the module after it.
+-->
+*46行目* の`#[allow(dead_code)]`は、直後のモジュールにのみ適用される[アトリビュート][attribute]です。
 
 <!--
 ### Activities
@@ -164,6 +169,7 @@ In *line 46*, `#[allow(dead_code)]` is an [attribute] which only apply to the mo
   [`std::fmt`][fmt] documentation for setting the number of decimals to display)
 -->
  * 上の例を実行した際に生じるエラーを修復しましょう。
+ * `Structure`構造体をフォーマットする行をアンコメントしてみましょう。
  * `println!`マクロを追加し、表示される小数部の桁数を調整して`Pi is roughly 3.142`という文字列を出力しましょう。
    ただし、円周率の値は`let pi = 3.141592`を使ってください。（ヒント: 小数部の桁数を調整する方法については、[`std::fmt`][fmt]をチェックする必要があるかもしれません。）
 
@@ -176,7 +182,7 @@ In *line 46*, `#[allow(dead_code)]` is an [attribute] which only apply to the mo
 [`std::fmt`][fmt], [`macros`][macros], [`struct`][structs], [`traits`][traits], and [`dead_code`][dead_code]
 -->
 [`std::fmt`][fmt], [マクロ][macros], [構造体][structs],
-[トレイト][traits]
+[トレイト][traits], [`dead_code`][dead_code]
 
 [fmt]: https://doc.rust-lang.org/std/fmt/
 [macros]: ../macros.md
