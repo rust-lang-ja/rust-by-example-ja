@@ -4082,11 +4082,12 @@ Other characteristics of closures include:
     let outer_var = 42;
     
     // A regular function can't refer to variables in the enclosing environment
-    // Increment via closures and functions.
-    // 関数とクロージャのそれぞれで数値をインクリメントする
+    // 通常の関数は周辺の環境の変数を参照できない。
     //fn function(i: i32) -&gt; i32 { i + outer_var }
     // TODO: uncomment the line above and see the compiler error. The compiler
     // suggests that we define a closure instead.
+    // TODO: 上の行をアンコメントしてコンパイラエラーを見てみよう。
+    // 代わりにクロージャを定義することをコンパイラが提案してくれる。
 
     // Closures are anonymous, here we are binding them to references
     // Annotation is identical to function annotation but is optional
@@ -4103,8 +4104,10 @@ Other characteristics of closures include:
     println!(&quot;closure_annotated: {}&quot;, closure_annotated(1));
     println!(&quot;closure_inferred: {}&quot;, closure_inferred(1));
     // Once closure's type has been inferred, it cannot be inferred again with another type.
+    // クロージャの型が一度推論されると、別の型にあらためて推論することはできない。
     //println!(&quot;cannot reuse closure_inferred with another type: {}&quot;, closure_inferred(42i64));
     // TODO: uncomment the line above and see the compiler error.
+    // TODO: 上の行をアンコメントしてコンパイルエラーを見てみよう。
 
     // A closure taking no arguments which returns an `i32`.
     // The return type is inferred.
@@ -7684,23 +7687,32 @@ lifetimes relate to scopes, as well as how the two differ.
 // のスコープを完全に包含します。`borrow1`と`borrow2`の存続期間は一切重なりません。
 fn main() {
     let i = 3; // Lifetime for `i` starts. ────────────────┐
+               // `i`のライフタイム開始                       │
     //                                                     │
     { //                                                   │
         let borrow1 = &amp;i; // `borrow1` lifetime starts. ──┐│
+                          // `borrow1`のライフタイム開始     ││
         //                                                ││
         println!(&quot;borrow1: {}&quot;, borrow1); //              ││
     } // `borrow1` ends. ─────────────────────────────────┘│
+      // `borrow1`終了                                     │
     //                                                     │
     //                                                     │
     { //                                                   │
         let borrow2 = &amp;i; // `borrow2` lifetime starts. ──┐│
+                          // `borrow2`のライフタイム開始     ││
         //                                                ││
         println!(&quot;borrow2: {}&quot;, borrow2); //              ││
     } // `borrow2` ends. ─────────────────────────────────┘│
+      // `borrow2`終了                                     │
     //                                                     │
-}   // Lifetime ends. ─────────────────────────────────────┘</code></pre></pre>
-<p>Note that no names or types are assigned to label lifetimes.
-This restricts how lifetimes will be able to be used as we will see.</p>
+}   // Lifetime ends. ─────────────────────────────────────┘
+    // ライフタイム終了</code></pre></pre>
+<!--
+Note that no names or types are assigned to label lifetimes.
+This restricts how lifetimes will be able to be used as we will see.
+-->
+<p>ここで、一切の名前や型がライフタイムにアサインされていないことに注意しましょう。これにより、ライフタイムの使われ方がこれから見ていくようなやり方に制限されます。</p>
 <div style="break-before: page; page-break-before: always;"></div><!--
 # Explicit annotation
 -->
