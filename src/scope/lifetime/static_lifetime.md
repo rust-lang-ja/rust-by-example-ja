@@ -88,7 +88,7 @@ fn main() {
         let lifetime_num = 9;
 
         // Coerce `NUM` to lifetime of `lifetime_num`:
-        // `NUM`を`lifetime_num`のライフタイムへと圧縮
+        // `NUM`を`lifetime_num`のライフタイムへと強制
         let coerced_static = coerce_static(&lifetime_num);
 
         println!("coerced_static: {}", coerced_static);
