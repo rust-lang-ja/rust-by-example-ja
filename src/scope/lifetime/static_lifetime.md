@@ -49,7 +49,7 @@ are stored in the read-only memory of the binary:
 * Make a `string` literal which has type: `&'static str`.
 -->
 * `static`宣言とともに定数を作成する。
-* 文字列リテラル で`&'static str`型を持つ変数を作成する。
+* 文字列リテラルで`&'static str`型を持つ変数を作成する。
 
 <!--
 See the following example for a display of each method:
