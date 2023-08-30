@@ -17,17 +17,32 @@ let s: &'static str = "hello world";
 fn generic<T>(x: T) where T: 'static {}
 ```
 
+<!--
 Both are related but subtly different and this is a common source for
 confusion when learning Rust. Here are some examples for each situation:
+-->
+2つの状況における`static`は微妙に異なる意味を持っており、Rustを学ぶときの混乱の元になっています。
+いくつかの例とともにそれぞれの状況について見てみましょう。
 
+<!--
 ## Reference lifetime
+-->
+## 参照のライフタイム
 
+<!--
 As a reference lifetime `'static` indicates that the data pointed to by
 the reference lives for the entire lifetime of the running program.
 It can still be coerced to a shorter lifetime.
+-->
+参照のライフタイムが`'static`であることは、参照が指し示すデータがプログラムの実行中に渡って生き続けることを示します。
+また、より短いライフタイムに強制することも可能です。
 
+<!--
 There are two ways to make a variable with `'static` lifetime, and both
 are stored in the read-only memory of the binary:
+-->
+`'static`ライフタイムを持つ変数を作るには下記の2つ方法があります。
+どちらの場合も、データは読み取り専用のメモリ領域に格納されます。
 
 <!--
 * Make a constant with the `static` declaration.
