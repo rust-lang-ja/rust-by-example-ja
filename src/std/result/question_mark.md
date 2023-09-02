@@ -9,9 +9,9 @@ branch expands to an `ok` expression.
 -->
 マッチを利用して結果をチェインするのは中々面倒です。
 幸いなことに、`?`マクロを使用すればイケてるコードに戻すことができます。
-`?`は`Result`を返す式の末尾で使い、マッチ式と等価です。
-`Err(err)`の分岐は`return Err(From::from(err))`という早期リターンに展開され、
-`Ok(ok)`の分岐は`ok`の式に展開されます。
+`?`は`Result`を返す式の末尾で使います。
+`Err(err)`の分岐が`return Err(From::from(err))`という早期リターンに展開され、
+`Ok(ok)`の分岐が`ok`の式に展開されるようなマッチ式と等価です。
 
 ```rust,editable,ignore,mdbook-runnable
 mod checked {
