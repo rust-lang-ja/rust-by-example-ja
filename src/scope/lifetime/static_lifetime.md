@@ -116,7 +116,7 @@ It's important to understand this means that any owned data always passes
 a `'static` lifetime bound, but a reference to that owned data generally
 does not:
 -->
-ここで注意しなければいけないのは、所有権のあるデータが`'static`ライフタイム境界をパスするとしても、そのデータへの参照は`'static`ライフタイム境界をパスしないということです。
+次のポイントを押さえておきましょう。所有権のあるデータが`'static`ライフタイム境界をパスするとしても、そのデータへの参照が`'static`ライフタイム境界をパスするとは限りません。
 
 ```rust,editable,compile_fail
 use std::fmt::Debug;
