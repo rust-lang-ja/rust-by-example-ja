@@ -56,7 +56,7 @@ not be required as the definition of `age` would copy the data from
 -->
 この例では、`age`変数をヒープ上に保持し、部分的ムーブを説明しています。
 上記コードで`ref`を削除すると、`person.age`の所有権が`age`変数にムーブされるため、エラーになります。
-もしも`person.age`がスタック上に保持されていたら、
+もしも`Person.age`がスタック上に保持されていたら、
 `age`の定義が`person.age`をムーブすることなくデータをコピーするので、
 `ref`は必須ではないのですが、実際にはヒープ上に保持されているため`ref`は必須です。
 
