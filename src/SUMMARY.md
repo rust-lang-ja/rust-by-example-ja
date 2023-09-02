@@ -443,7 +443,7 @@
     - [Inline assembly](unsafe/asm.md)
 -->
 - [安全でない操作](unsafe.md)
-    - [Inline assembly](unsafe/asm.md)
+    - [インラインアセンブリ](unsafe/asm.md)
 
 <!--
 - [Compatibility](compatibility.md)
