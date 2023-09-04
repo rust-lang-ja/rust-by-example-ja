@@ -32,9 +32,15 @@ Inline assembly is currently supported on the following architectures:
 - AArch64
 - RISC-V
 
+<!--
 ## Basic usage
+-->
+## 基本的な使い方
 
+<!--
 Let us start with the simplest possible example:
+-->
+最も単純な例から始めましょう：
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
