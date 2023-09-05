@@ -63,10 +63,17 @@ in the first argument of the `asm!` macro as a string literal.
 というのも、インラインアセンブリは任意の命令を挿入でき、本来不変のものを変更できてしまうからです。
 挿入される命令は、`asm!`マクロの引数として文字列リテラルとして列挙されます。
 
+<!--
 ## Inputs and outputs
+-->
+## 入力と出力
 
+<!--
 Now inserting an instruction that does nothing is rather boring. Let us do something that
 actually acts on data:
+-->
+何もしない命令を挿入しても面白くないですよね。
+実際にデータを操作してみましょう：
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
@@ -80,6 +87,7 @@ assert_eq!(x, 5);
 # }
 ```
 
+<!--
 This will write the value `5` into the `u64` variable `x`.
 You can see that the string literal we use to specify instructions is actually a template string.
 It is governed by the same rules as Rust [format strings][format-syntax].
@@ -90,6 +98,17 @@ We also need to specify in what kind of register the assembly expects the variab
 In this case we put it in an arbitrary general purpose register by specifying `reg`.
 The compiler will choose an appropriate register to insert into
 the template and will read the variable from there after the inline assembly finishes executing.
+-->
+`u64`型の変数`x`に`5`の値を書き込んでいます。
+命令を指定するために利用している文字列リテラルが、実はテンプレート文字列になっています。
+これはRustの[フォーマット文字列][format-syntax]と同じルールに従います。
+ですが、テンプレートに挿入される引数が、みなさんがよく知っているものとは少し違っています。
+まず、変数がインラインアセンブリの入力なのか出力なのかを指定する必要があります。
+上記の例では出力となっています。
+`out`と書くことでそれを宣言しています。
+また、アセンブリが変数をどの種類のレジスタに格納するかも指定する必要があります。
+上の例では、`reg`を指定することで任意の汎用レジスタに格納しています。
+コンパイラはテンプレートに挿入すべき適切なレジスタを選び、インラインアセンブリの実行終了後、そのレジスタから変数を読みこみます。
 
 [format-syntax]: https://doc.rust-lang.org/std/fmt/#syntax
 
