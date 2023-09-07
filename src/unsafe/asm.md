@@ -112,7 +112,10 @@ the template and will read the variable from there after the inline assembly fin
 
 [format-syntax]: https://doc.rust-lang.org/std/fmt/#syntax
 
+<!--
 Let us see another example that also uses an input:
+-->
+入力を利用する別の例を見てみましょう：
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
@@ -132,23 +135,44 @@ assert_eq!(o, 8);
 # }
 ```
 
+<!--
 This will add `5` to the input in variable `i` and write the result to variable `o`.
 The particular way this assembly does this is first copying the value from `i` to the output,
 and then adding `5` to it.
+-->
+この例では、変数`i`の入力に`5`を加え、その結果を変数`o`に書き込んでいます。
+このアセンブリ特有のやり方として、はじめに`i`の値を出力にコピーし、それから`5`を加えています。
 
+<!--
 The example shows a few things:
+-->
+この例はいくつかのことを示します：
 
+<!--
 First, we can see that `asm!` allows multiple template string arguments; each
 one is treated as a separate line of assembly code, as if they were all joined
 together with newlines between them. This makes it easy to format assembly
 code.
+-->
+まず、`asm!`では複数のテンプレート文字列を引数として利用できます。
+それぞれの文字列は、あたかも改行を挟んで結合されたかのように、独立したアセンブリコードとして扱われます。
+このおかげで、アセンブリコードを容易にフォーマットできます。
 
+<!--
 Second, we can see that inputs are declared by writing `in` instead of `out`.
+-->
+つぎに、入力は`out`ではなく`in`と書くことで宣言されています。
 
+<!--
 Third, we can see that we can specify an argument number, or name as in any format string.
 For inline assembly templates this is particularly useful as arguments are often used more than once.
 For more complex inline assembly using this facility is generally recommended, as it improves
 readability, and allows reordering instructions without changing the argument order.
+-->
+そして、他のフォーマット文字列と同じように引数の番号や名前で指定できます。
+インラインアセンブリのテンプレートでは、引数が2回以上利用されることが多いため、これは特に有用です。
+より複雑なインラインアセンブリを書く場合、この機能を使うのが推奨されます。
+可読性が向上し、引数の順序を変えることなく命令を並べ替えることができるからです。
 
 We can further refine the above example to avoid the `mov` instruction:
 
