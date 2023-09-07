@@ -174,7 +174,10 @@ readability, and allows reordering instructions without changing the argument or
 より複雑なインラインアセンブリを書く場合、この機能を使うのが推奨されます。
 可読性が向上し、引数の順序を変えることなく命令を並べ替えることができるからです。
 
+<!--
 We can further refine the above example to avoid the `mov` instruction:
+-->
+上記の例をさらに改善して、`mov`命令を避けることもできます：
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
@@ -188,10 +191,17 @@ assert_eq!(x, 8);
 # }
 ```
 
+<!--
 We can see that `inout` is used to specify an argument that is both input and output.
 This is different from specifying an input and output separately in that it is guaranteed to assign both to the same register.
+-->
+`inout`で入力でもあり出力でもある引数を指定しています。
+こうすることで、入力と出力を個別に指定する場合と違って、入出力が同じレジスタに割り当てられることが保証されます。
 
+<!--
 It is also possible to specify different variables for the input and output parts of an `inout` operand:
+-->
+`inout`の被演算子として、入力と出力それぞれに異なる変数を指定することも可能です：
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
