@@ -201,7 +201,7 @@ This is different from specifying an input and output separately in that it is g
 <!--
 It is also possible to specify different variables for the input and output parts of an `inout` operand:
 -->
-`inout`の被演算子として、入力と出力それぞれに異なる変数を指定することも可能です：
+`inout`のオペランドとして、入力と出力それぞれに異なる変数を指定することも可能です：
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
@@ -216,8 +216,12 @@ assert_eq!(y, 8);
 # }
 ```
 
+<!--
 ## Late output operands
+-->
+## 遅延出力オペランド
 
+<!--
 The Rust compiler is conservative with its allocation of operands. It is assumed that an `out`
 can be written at any time, and can therefore not share its location with any other argument.
 However, to guarantee optimal performance it is important to use as few registers as possible,
@@ -225,6 +229,14 @@ so they won't have to be saved and reloaded around the inline assembly block.
 To achieve this Rust provides a `lateout` specifier. This can be used on any output that is
 written only after all inputs have been consumed.
 There is also a `inlateout` variant of this specifier.
+-->
+Rustコンパイラはオペランドの割り当てに保守的です。
+`out`はいつでも書き込めるので、他の引数とは場所を共有できません。
+しかし、最適なパフォーマンスを保証するためには、できるだけ少ないレジスタを使うことが重要です。
+そうすることで、インラインアセンブリブロックの前後でレジスタを保存したり再読み込みしたりする必要がありません。
+これを達成するために、Rustは`lateout`指定子を提供します。
+全ての入力が消費された後でのみ書き込まれる出力に利用できます。
+この指定子には`inlateout`という変化形もあります。
 
 Here is an example where `inlateout` *cannot* be used in `release` mode or other optimized cases:
 
