@@ -277,7 +277,10 @@ That is because in optimized cases, the compiler is free to allocate the same re
 もし`inlateout`が使われていたら、`a`と`c`に同じレジスタが割り当てられたかもしれません。
 そうすると、最初の命令によって`c`の値が上書きされ、アセンブリコードが間違った結果を引き起こします。
 
+<!--
 However the following example can use `inlateout` since the output is only modified after all input registers have been read:
+-->
+しかし、次の例では、全ての入力レジスタが読み込まれた後でのみ出力が変更されるので、`inlateout`を利用できます。
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
@@ -292,7 +295,10 @@ assert_eq!(a, 8);
 # }
 ```
 
+<!--
 As you can see, this assembly fragment will still work correctly if `a` and `b` are assigned to the same register.
+-->
+このアセンブリコードは、`a`と`b`が同じレジスタに割り当てられても、正しく動作します。
 
 ## Explicit register operands
 
