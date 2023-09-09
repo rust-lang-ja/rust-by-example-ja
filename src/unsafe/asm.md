@@ -238,7 +238,10 @@ Rustコンパイラはオペランドの割り当てに保守的です。
 全ての入力が消費された後でのみ書き込まれる出力に利用できます。
 この指定子には`inlateout`という変化形もあります。
 
+<!--
 Here is an example where `inlateout` *cannot* be used in `release` mode or other optimized cases:
+-->
+以下は、`release`モードやその他の最適化された場合に、`inout`を利用 *できない* 例です：
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
@@ -259,9 +262,20 @@ unsafe {
 assert_eq!(a, 12);
 # }
 ```
+<!--
 The above could work well in unoptimized cases (`Debug` mode), but if you want optimized performance (`release` mode or other optimized cases), it could not work.
+-->
+上記は`Debug`モードなど最適化されていない場合にはうまく動作します。
+しかし、`release`モードなど最適化されたパフォーマンスが必要な場合、動作しない可能性があります。
 
+<!--
 That is because in optimized cases, the compiler is free to allocate the same register for inputs `b` and `c` since it knows they have the same value. However it must allocate a separate register for `a` since it uses `inout` and not `inlateout`. If `inlateout` was used, then `a` and `c` could be allocated to the same register, in which case the first instruction to overwrite the value of `c` and cause the assembly code to produce the wrong result.
+-->
+というのも、最適化されている場合、コンパイラは`b`と`c`が同じ値だと知っているので、
+`b`と`c`の入力に同じレジスタを割り当てる場合があるのです。
+しかし、`a`については`inlateout`ではなく`inout`を使っているので、独立したレジスタを割り当てる必要があります。
+もし`inlateout`が使われていたら、`a`と`c`に同じレジスタが割り当てられたかもしれません。
+そうすると、最初の命令によって`c`の値が上書きされ、アセンブリコードが間違った結果を引き起こします。
 
 However the following example can use `inlateout` since the output is only modified after all input registers have been read:
 
