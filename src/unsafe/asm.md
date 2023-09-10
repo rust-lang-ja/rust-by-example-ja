@@ -300,11 +300,20 @@ As you can see, this assembly fragment will still work correctly if `a` and `b` 
 -->
 このアセンブリコードは、`a`と`b`が同じレジスタに割り当てられても、正しく動作します。
 
+<!--
 ## Explicit register operands
+-->
+## 明示的なレジスタオペランド
 
+<!--
 Some instructions require that the operands be in a specific register.
 Therefore, Rust inline assembly provides some more specific constraint specifiers.
 While `reg` is generally available on any architecture, explicit registers are highly architecture specific. E.g. for x86 the general purpose registers `eax`, `ebx`, `ecx`, `edx`, `ebp`, `esi`, and `edi` among others can be addressed by their name.
+-->
+いくつかの命令では、オペランドが特定のレジスタにある必要があります。
+したがって、Rustのインラインアセンブリでは、より具体的な制約指定子を提供しています。
+`reg`は一般的にどのアーキテクチャでも利用可能ですが、明示的レジスタはアーキテクチャに強く依存しています。
+たとえば、x86の汎用レジスタである`eax`、`ebx`、`ecx`、`edx`、`ebp`、`esi`、`edi`などは、その名前で指定できます。
 
 ```rust,no_run
 # #[cfg(target_arch = "x86_64")] {
@@ -317,9 +326,19 @@ unsafe {
 # }
 ```
 
+<!--
 In this example we call the `out` instruction to output the content of the `cmd` variable to port `0x64`. Since the `out` instruction only accepts `eax` (and its sub registers) as operand we had to use the `eax` constraint specifier.
+-->
+この例では、`out`命令を呼び出して、`cmd`変数の中身を`0x64`ポートに出力しています。
+`out`命令は`eax`とそのサブレジスタのみをオペランドとして受け取るため、
+`eax`の制約指定子を使わなければなりません。
 
+<!--
 > **Note**: unlike other operand types, explicit register operands cannot be used in the template string: you can't use `{}` and should write the register name directly instead. Also, they must appear at the end of the operand list after all other operand types.
+-->
+> **注意**: 他のオペランドタイプと異なり、明示的なレジスタオペランドはテンプレート文字列中で利用できません。
+`{}`を使えないので、レジスタの名前を直接書く必要があります。
+また、オペランドのリストの中で他のオペランドタイプの一番最後に置かれなくてはなりません。
 
 Consider this example which uses the x86 `mul` instruction:
 
