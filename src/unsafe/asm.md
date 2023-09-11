@@ -340,7 +340,10 @@ In this example we call the `out` instruction to output the content of the `cmd`
 `{}`を使えないので、レジスタの名前を直接書く必要があります。
 また、オペランドのリストの中で他のオペランドタイプの一番最後に置かれなくてはなりません。
 
+<!--
 Consider this example which uses the x86 `mul` instruction:
+-->
+x86の`mul`命令を使った次の例を考えてみましょう：
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
@@ -354,6 +357,8 @@ fn mul(a: u64, b: u64) -> u128 {
         asm!(
             // The x86 mul instruction takes rax as an implicit input and writes
             // the 128-bit result of the multiplication to rax:rdx.
+            // x86のmul命令はraxを暗黙的な入力に取り、
+            // 128ビットの乗算結果をrax:rdxに書き込む。
             "mul {}",
             in(reg) a,
             inlateout("rax") b => lo,
@@ -366,11 +371,18 @@ fn mul(a: u64, b: u64) -> u128 {
 # }
 ```
 
+<!--
 This uses the `mul` instruction to multiply two 64-bit inputs with a 128-bit result.
 The only explicit operand is a register, that we fill from the variable `a`.
 The second operand is implicit, and must be the `rax` register, which we fill from the variable `b`.
 The lower 64 bits of the result are stored in `rax` from which we fill the variable `lo`.
 The higher 64 bits are stored in `rdx` from which we fill the variable `hi`.
+-->
+`mul`命令を使って2つの64ビットの入力を128ビットの結果に出力する。
+唯一の明示的なオペランドはレジスタで、変数`a`から入力します。
+2つ目のオペランドは暗黙的であり、`rax`レジスタである必要があります。変数`b`から入力します。
+計算結果の下位64ビットは`rax`レジスタに保存され、そこから変数`lo`に出力されます。
+上位64ビットは`rdx`レジスタに保存され、そこから変数`hi`に出力されます。
 
 ## Clobbered registers
 
