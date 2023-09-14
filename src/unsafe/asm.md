@@ -384,12 +384,24 @@ The higher 64 bits are stored in `rdx` from which we fill the variable `hi`.
 計算結果の下位64ビットは`rax`レジスタに保存され、そこから変数`lo`に出力されます。
 上位64ビットは`rdx`レジスタに保存され、そこから変数`hi`に出力されます。
 
+<!--
 ## Clobbered registers
+-->
+## 上書きされたレジスタ
 
+<!--
 In many cases inline assembly will modify state that is not needed as an output.
 Usually this is either because we have to use a scratch register in the assembly or because instructions modify state that we don't need to further examine.
 This state is generally referred to as being "clobbered".
 We need to tell the compiler about this since it may need to save and restore this state around the inline assembly block.
+-->
+多くの場合、インラインレジスタは出力として必要のない状態を変更することがあります。
+これは普通、アセンブリでスクラッチレジスタを利用する必要があったり、
+私たちがこれ以上必要としていない状態を命令が変更したりするためです。
+これを一般的に「上書き」された状態と呼びます。
+私たちはコンパイラにこのことを伝える必要があります。
+なぜならコンパイラは、インラインアセンブリブロックの前後で、
+この状態を保存して復元しなくてはならない可能性があるからです。
 
 ```rust
 use std::arch::asm;
