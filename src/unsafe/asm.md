@@ -457,10 +457,21 @@ fn main() {
 # fn main() {}
 ```
 
+<!--
 In the example above we use the `cpuid` instruction to read the CPU manufacturer ID.
 This instruction writes to `eax` with the maximum supported `cpuid` argument and `ebx`, `edx`, and `ecx` with the CPU manufacturer ID as ASCII bytes in that order.
+-->
+上の例では、`cpuid`命令を使い、CPUベンタIDを読み込んでいます。
+この命令は`eax`にサポートされている最大の`cpuid`引数を書き込み、
+`ebx`、`edx`、`ecx`の順にCPUベンダIDをASCIIコードとして書き込みます。
 
+<!--
 Even though `eax` is never read we still need to tell the compiler that the register has been modified so that the compiler can save any values that were in these registers before the asm. This is done by declaring it as an output but with `_` instead of a variable name, which indicates that the output value is to be discarded.
+-->
+`eax`は読み込まれることはありません。
+しかし、コンパイラがアセンブリ以前にこれらのレジスタにあった値を保存できるように、
+レジスタが変更されたことをコンパイラに伝える必要があります。
+そのために、変数名の代わりに`_`を用いて出力を宣言し、出力の値が破棄されるということを示しています。
 
 This code also works around the limitation that `ebx` is a reserved register by LLVM. That means that LLVM assumes that it has full control over the register and it must be restored to its original state before exiting the asm block, so it cannot be used as an input or output **except** if the compiler uses it to fulfill a general register class (e.g. `in(reg)`). This makes `reg` operands dangerous when using reserved registers as we could unknowingly corrupt our input or output because they share the same register.
 
