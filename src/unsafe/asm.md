@@ -409,11 +409,16 @@ use std::arch::asm;
 # #[cfg(target_arch = "x86_64")]
 fn main() {
     // three entries of four bytes each
+    // 4バイトのエントリー3つ
     let mut name_buf = [0_u8; 12];
     // String is stored as ascii in ebx, edx, ecx in order
     // Because ebx is reserved, the asm needs to preserve the value of it.
     // So we push and pop it around the main asm.
     // (in 64 bit mode for 64 bit processors, 32 bit processors would use ebx)
+    // 文字列はasciiとしてebx, edx, ecxの順に保存されている。
+    // ebxは予約されているので、アセンブリはebxの値を維持する必要がある。
+    // 従ってメインのアセンブリの前後でプッシュおよびポップを行う。
+    // (以下は64ビットプロセッサの64ビットモードの場合。32ビットプロセッサはebxを利用する。)
 
     unsafe {
         asm!(
@@ -428,10 +433,17 @@ fn main() {
             // This is more explicit with how the asm works however, as opposed
             // to explicit register outputs such as `out("ecx") val`
             // The *pointer itself* is only an input even though it's written behind
+            // いくつかのアセンブリ命令を追加してRustのコードを単純化するために
+            // 値を格納する配列へのポインタを利用する。
+            // しかし、`out("ecx") val`のような明示的なレジスタの出力とは違い、
+            // アセンブリの動作をより明示的にする。
+            // *ポインタそのもの* は後ろに書かれていても入力にすぎない。
             in("rdi") name_buf.as_mut_ptr(),
             // select cpuid 0, also specify eax as clobbered
+            // cpuid 0を選択し、eaxを上書きする
             inout("eax") 0 => _,
             // cpuid clobbers these registers too
+            // cpuidは以下のレジスタも上書きする
             out("ecx") _,
             out("edx") _,
         );
