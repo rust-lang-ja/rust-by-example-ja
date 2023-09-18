@@ -488,13 +488,18 @@ To work around this we use `rdi` to store the pointer to the output array, save 
 `push`と`pop`は完全な64ビットの`rbx`レジスタを使って、レジスタ全体を確実に保存しています。
 32ビットの場合、`push`と`pop`において`ebx`がかわりに利用されるでしょう。
 
+<!--
 This can also be used with a general register class to obtain a scratch register for use inside the asm code:
+-->
+アセンブリコード内部で利用するスクラッチレジスタを獲得するために、
+汎用レジスタクラスとともに使用することもできます：
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
 use std::arch::asm;
 
 // Multiply x by 6 using shifts and adds
+// シフト演算と加算を利用してxに6をかける
 let mut x: u64 = 4;
 unsafe {
     asm!(
