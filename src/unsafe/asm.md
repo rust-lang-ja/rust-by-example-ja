@@ -473,9 +473,20 @@ Even though `eax` is never read we still need to tell the compiler that the regi
 レジスタが変更されたことをコンパイラに伝える必要があります。
 そのために、変数名の代わりに`_`を用いて出力を宣言し、出力の値が破棄されるということを示しています。
 
+<!--
 This code also works around the limitation that `ebx` is a reserved register by LLVM. That means that LLVM assumes that it has full control over the register and it must be restored to its original state before exiting the asm block, so it cannot be used as an input or output **except** if the compiler uses it to fulfill a general register class (e.g. `in(reg)`). This makes `reg` operands dangerous when using reserved registers as we could unknowingly corrupt our input or output because they share the same register.
+-->
+このコードは`ebx`がLLVMによって予約されたレジスタであるという制約を回避しています。
+LLVMは、自身がレジスタを完全にコントロールし、
+アセンブリブロックを抜ける前に元の状態を復元しなくてはならないと考えています。
+そのため、コンパイラが`in(reg)`のような汎用レジスタクラスを満たすために使用する場合 **を除いて** `ebx`を入力や出力として利用できません。
 
+<!--
 To work around this we use `rdi` to store the pointer to the output array, save `ebx` via `push`, read from `ebx` inside the asm block into the array and then restore `ebx` to its original state via `pop`. The `push` and `pop` use the full 64-bit `rbx` version of the register to ensure that the entire register is saved. On 32 bit targets the code would instead use `ebx` in the `push`/`pop`.
+-->
+これを回避するために、`rdi`を用いて出力の配列へのポインタを保管し、`push`で`ebx`を保存し、アセンブリブロック内で`ebx`から読み込んで配列に書き込み、`pop`で`ebx`を元の状態に戻しています。
+`push`と`pop`は完全な64ビットの`rbx`レジスタを使って、レジスタ全体を確実に保存しています。
+32ビットの場合、`push`と`pop`において`ebx`がかわりに利用されるでしょう。
 
 This can also be used with a general register class to obtain a scratch register for use inside the asm code:
 
