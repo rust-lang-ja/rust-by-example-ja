@@ -387,7 +387,7 @@ The higher 64 bits are stored in `rdx` from which we fill the variable `hi`.
 <!--
 ## Clobbered registers
 -->
-## 上書きされたレジスタ
+## クロバーレジスタ
 
 <!--
 In many cases inline assembly will modify state that is not needed as an output.
@@ -398,7 +398,7 @@ We need to tell the compiler about this since it may need to save and restore th
 多くの場合、インラインレジスタは出力として必要のない状態を変更することがあります。
 これは普通、アセンブリでスクラッチレジスタを利用する必要があったり、
 私たちがこれ以上必要としていない状態を命令が変更したりするためです。
-これを一般的に「上書き」された状態と呼びます。
+この状態を一般的に"クロバー"（訳注：上書き）と呼びます。
 私たちはコンパイラにこのことを伝える必要があります。
 なぜならコンパイラは、インラインアセンブリブロックの前後で、
 この状態を保存して復元しなくてはならない可能性があるからです。
@@ -440,10 +440,10 @@ fn main() {
             // *ポインタそのもの* は後ろに書かれていても入力にすぎない。
             in("rdi") name_buf.as_mut_ptr(),
             // select cpuid 0, also specify eax as clobbered
-            // cpuid 0を選択し、eaxを上書きする
+            // cpuid 0を選択し、eaxをクロバーに指定する
             inout("eax") 0 => _,
             // cpuid clobbers these registers too
-            // cpuidは以下のレジスタも上書きする
+            // cpuidは以下のレジスタもクロバーする
             out("ecx") _,
             out("edx") _,
         );
@@ -515,9 +515,19 @@ assert_eq!(x, 4 * 6);
 # }
 ```
 
+<!--
 ## Symbol operands and ABI clobbers
+-->
+## シンボル・オペランドとABIクロバー
 
+<!--
 By default, `asm!` assumes that any register not specified as an output will have its contents preserved by the assembly code. The [`clobber_abi`] argument to `asm!` tells the compiler to automatically insert the necessary clobber operands according to the given calling convention ABI: any register which is not fully preserved in that ABI will be treated as clobbered.  Multiple `clobber_abi` arguments may be provided and all clobbers from all specified ABIs will be inserted.
+-->
+デフォルトでは、`asm!`は、出力として指定されていないレジスタはアセンブリコードによって保存される、と考えます。
+`asm!`に渡される[`clobber_abi`]引数は、与えられた呼び出し規約のABIに従って、
+必要なクロバーオペランドを自動的に挿入するようコンパイラに伝えます。
+そのABIで完全に保存されていないレジスタは、クロバーとして扱われます。
+複数の `clobber_abi` 引数を指定すると、指定されたすべてのABIのクロバーが挿入されます。
 
 [`clobber_abi`]: ../../reference/inline-assembly.html#abi-clobbers
 
@@ -536,13 +546,17 @@ fn call_foo(arg: i32) -> i32 {
         asm!(
             "call {}",
             // Function pointer to call
+            // 呼び出す関数ポインタ
             in(reg) foo,
             // 1st argument in rdi
+            // 最初の引数はrdiにある
             in("rdi") arg,
             // Return value in rax
+            // 戻り値はraxにある
             out("rax") result,
             // Mark all registers which are not preserved by the "C" calling
             // convention as clobbered.
+            // "C"の呼び出し規約で保存されていないすべてのレジスタをクロバーに指定
             clobber_abi("C"),
         );
         result
