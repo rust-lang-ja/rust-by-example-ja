@@ -565,13 +565,27 @@ fn call_foo(arg: i32) -> i32 {
 # }
 ```
 
+<!--
 ## Register template modifiers
+-->
+レジスタテンプレート修飾子
 
+<!--
 In some cases, fine control is needed over the way a register name is formatted when inserted into the template string. This is needed when an architecture's assembly language has several names for the same register, each typically being a "view" over a subset of the register (e.g. the low 32 bits of a 64-bit register).
+-->
+テンプレート文字列に挿入されるレジスタの名前のフォーマット方法について、細かい制御が必要な場合があります。
+アーキテクチャのアセンブリ言語が、同じレジスタに別名を持っている場合です。
+典型的な例としては、レジスタの部分集合に対する"ビュー"があります（例：64ビットレジスタの下位32ビット）。
 
+<!--
 By default the compiler will always choose the name that refers to the full register size (e.g. `rax` on x86-64, `eax` on x86, etc).
+-->
+デフォルトでは、コンパイラは常に完全なレジスタサイズの名前を選択します（例：x86-64では`rax`、x86では`eax`、など）。
 
+<!--
 This default can be overridden by using modifiers on the template string operands, just like you would with format strings:
+-->
+この挙動は、フォーマット文字列と同じように、テンプレート文字列のオペランドに修飾子を利用することで上書きできます。
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
