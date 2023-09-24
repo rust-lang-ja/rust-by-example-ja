@@ -601,12 +601,24 @@ assert_eq!(x, 0xabab);
 # }
 ```
 
+<!--
 In this example, we use the `reg_abcd` register class to restrict the register allocator to the 4 legacy x86 registers (`ax`, `bx`, `cx`, `dx`) of which the first two bytes can be addressed independently.
+-->
+この例では、`reg_abcd`レジスタクラスを用いて、レジスタアロケータを4つのレガシーなx86レジスタ (`ax`, `bx`, `cx`, `dx`) に制限しています。このうち最初の2バイトは独立して指定できます。
 
+<!--
 Let us assume that the register allocator has chosen to allocate `x` in the `ax` register.
 The `h` modifier will emit the register name for the high byte of that register and the `l` modifier will emit the register name for the low byte. The asm code will therefore be expanded as `mov ah, al` which copies the low byte of the value into the high byte.
+-->
+レジスタアロケータが`x`を`ax`レジスタに割り当てることにしたと仮定しましょう。
+`h`修飾子はそのレジスタの上位バイトのレジスタ名を出力し、`l`修飾子は下位バイトのレジスタ名を出力します。
+したがって、このアセンブリコードは`mov ah, al`に展開され、値の下位バイトを上位バイトにコピーします。
 
+<!--
 If you use a smaller data type (e.g. `u16`) with an operand and forget to use template modifiers, the compiler will emit a warning and suggest the correct modifier to use.
+-->
+より小さなデータ型（例：`u16`）をオペランドに利用し、テンプレート修飾子を使い忘れた場合、
+コンパイラは警告を出力し、正しい修飾子を提案してくれます。
 
 ## Memory address operands
 
