@@ -7359,12 +7359,19 @@ can still be used.
     // `person` は使用できないが、 `person.age` はムーブしていないので使用できる
     println!(&quot;The person's age from person struct is {}&quot;, person.age);
 }</code></pre></pre>
-<p>(In this example, we store the <code>age</code> variable on the heap to 
-illustrate the partial move: deleting <code>ref</code> in the above code would 
-give an error as the ownership of <code>person.age</code> would be moved to the 
-variable <code>age</code>. If <code>Person.age</code> were stored on the stack, <code>ref</code> would 
-not be required as the definition of <code>age</code> would copy the data from 
-<code>person.age</code> without moving it.)</p>
+<!--
+(In this example, we store the `age` variable on the heap to 
+illustrate the partial move: deleting `ref` in the above code would 
+give an error as the ownership of `person.age` would be moved to the 
+variable `age`. If `Person.age` were stored on the stack, `ref` would 
+not be required as the definition of `age` would copy the data from 
+`person.age` without moving it.)
+-->
+<p>この例では、<code>age</code>変数をヒープ上に保持し、部分的ムーブを説明しています。
+上記コードで<code>ref</code>を削除すると、<code>person.age</code>の所有権が<code>age</code>変数にムーブされるため、エラーになります。
+もしも<code>Person.age</code>がスタック上に保持されていたら、
+<code>age</code>の定義が<code>person.age</code>をムーブすることなくデータをコピーするので、
+<code>ref</code>は必須ではないのですが、実際にはヒープ上に保持されているため<code>ref</code>は必須です。</p>
 <!--
 ### See also:
 -->
@@ -11595,11 +11602,18 @@ fn main() {
     println!(&quot;{}&quot;, op(1.0, 10.0));
 }</code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id=""><a class="header" href="#"><code>?</code></a></h1>
-<p>Chaining results using match can get pretty untidy; luckily, the <code>?</code> operator
-can be used to make things pretty again. <code>?</code> is used at the end of an expression
-returning a <code>Result</code>, and is equivalent to a match expression, where the 
-<code>Err(err)</code> branch expands to an early <code>return Err(From::from(err))</code>, and the <code>Ok(ok)</code>
-branch expands to an <code>ok</code> expression.</p>
+<!--
+Chaining results using match can get pretty untidy; luckily, the `?` operator
+can be used to make things pretty again. `?` is used at the end of an expression
+returning a `Result`, and is equivalent to a match expression, where the 
+`Err(err)` branch expands to an early `return Err(From::from(err))`, and the `Ok(ok)`
+branch expands to an `ok` expression.
+-->
+<p>マッチを利用して結果をチェインするのは中々面倒です。
+幸いなことに、<code>?</code>マクロを使用すればイケてるコードに戻すことができます。
+<code>?</code>は<code>Result</code>を返す式の末尾で使います。
+<code>Err(err)</code>の分岐が<code>return Err(From::from(err))</code>という早期リターンに展開され、
+<code>Ok(ok)</code>の分岐が<code>ok</code>の式に展開されるようなマッチ式と等価です。</p>
 <pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable edition2021">mod checked {
     #[derive(Debug)]
     enum MathError {
@@ -11635,11 +11649,14 @@ branch expands to an <code>ok</code> expression.</p>
     }
 
     // Intermediate function
+    // 中間関数
     fn op_(x: f64, y: f64) -&gt; MathResult {
         // if `div` &quot;fails&quot;, then `DivisionByZero` will be `return`ed
+        // `div`が&quot;失敗&quot;したら、`DivisionByZero`が`return`される。
         let ratio = div(x, y)?;
 
         // if `ln` &quot;fails&quot;, then `NonPositiveLogarithm` will be `return`ed
+        // もし`ln`が&quot;失敗&quot;したら、`NonPositiveLogarithm`が`return`される。
         let ln = ln(ratio)?;
 
         sqrt(ln)
@@ -11663,8 +11680,12 @@ branch expands to an <code>ok</code> expression.</p>
 fn main() {
     checked::op(1.0, 10.0);
 }</code></pre></pre>
-<p>Be sure to check the <a href="https://doc.rust-lang.org/std/result/index.html">documentation</a>,
-as there are many methods to map/compose <code>Result</code>.</p>
+<!--
+Be sure to check the [documentation][docs],
+as there are many methods to map/compose `Result`.
+-->
+<p><a href="https://doc.rust-lang.org/std/result/index.html">公式ドキュメント</a>をチェックすることをオススメします。
+<code>Result</code>型を扱う関数や<code>Result</code>型のメソッドが多く挙げられています。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="panic-1"><a class="header" href="#panic-1"><code>panic!</code></a></h1>
 <!--
 The `panic!` macro can be used to generate a panic and start unwinding
