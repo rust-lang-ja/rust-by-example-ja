@@ -646,13 +646,25 @@ fn load_fpu_control_word(control: u16) {
 # }
 ```
 
+<!--
 ## Labels
+-->
+## ラベル
 
+<!--
 Any reuse of a named label, local or otherwise, can result in an assembler or linker error or may cause other strange behavior. Reuse of a named label can happen in a variety of ways including:
+-->
+名前つきラベルの再利用は、ローカルかそうでないかに関わらず、アセンブラやリンカのエラーを引き起こしたり、変な挙動の原因となります。
+名前つきラベルの再利用は以下のようなケースがあります:
 
+<!--
 -   explicitly: using a label more than once in one `asm!` block, or multiple times across blocks.
 -   implicitly via inlining: the compiler is allowed to instantiate multiple copies of an `asm!` block, for example when the function containing it is inlined in multiple places.
 -   implicitly via LTO: LTO can cause code from *other crates* to be placed in the same codegen unit, and so could bring in arbitrary labels.
+-->
+- 明示的再利用: 同じラベルを1つの`asm!`ブロック中で、または複数のブロック中で2回以上利用する場合です。
+- インライン化による暗黙の再利用: コンパイラは`asm!`ブロックの複数のコピーをインスタンス化する場合があります。例えば、`asm!`ブロックを含む関数が複数箇所でインライン化される場合です。
+- LTO(訳注: Link Time Optimizationの略)による暗黙の再利用: LTOは *他のクレート* のコードを同じコード生成単位に配置するため、同じ名前のラベルを持ち込む場合があります。
 
 As a consequence, you should only use GNU assembler **numeric** [local labels] inside inline assembly code. Defining symbols in assembly code may lead to assembler and/or linker errors due to duplicate symbol definitions.
 
