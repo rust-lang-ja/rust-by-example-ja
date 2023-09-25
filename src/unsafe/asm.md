@@ -620,11 +620,19 @@ If you use a smaller data type (e.g. `u16`) with an operand and forget to use te
 より小さなデータ型（例：`u16`）をオペランドに利用し、テンプレート修飾子を使い忘れた場合、
 コンパイラは警告を出力し、正しい修飾子を提案してくれます。
 
+<!--
 ## Memory address operands
+-->
+## メモリアドレスオペランド
 
+<!--
 Sometimes assembly instructions require operands passed via memory addresses/memory locations.
 You have to manually use the memory address syntax specified by the target architecture.
 For example, on x86/x86_64 using Intel assembly syntax, you should wrap inputs/outputs in `[]` to indicate they are memory operands:
+-->
+アセンブリ命令はオペランドがメモリアドレスやメモリロケーション経由で渡される必要なこともあります。
+そのときは手動で、ターゲットのアーキテクチャによって指定されたメモリアドレスのシンタックスを利用しなくてはなりません。
+例えば、Intelのアセンブリシンタックスを使うx86/x86_64の場合、入出力を`[]`で囲んで、メモリオペランドであることを示さなくてはなりません。
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
