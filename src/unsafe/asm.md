@@ -666,9 +666,20 @@ Any reuse of a named label, local or otherwise, can result in an assembler or li
 - インライン化による暗黙の再利用: コンパイラは`asm!`ブロックの複数のコピーをインスタンス化する場合があります。例えば、`asm!`ブロックを含む関数が複数箇所でインライン化される場合です。
 - LTO(訳注: Link Time Optimizationの略)による暗黙の再利用: LTOは *他のクレート* のコードを同じコード生成単位に配置するため、同じ名前のラベルを持ち込む場合があります。
 
+<!--
 As a consequence, you should only use GNU assembler **numeric** [local labels] inside inline assembly code. Defining symbols in assembly code may lead to assembler and/or linker errors due to duplicate symbol definitions.
+-->
+そのため、インラインアセンブリコードの中では、GNUアセンブラの **数値型** [ローカルラベル][local labels]のみ使用してください。
+アセンブリコード内でシンボルを定義すると、シンボル定義の重複により、アセンブラやリンカのエラーが発生する可能性があります。
 
+<!--
 Moreover, on x86 when using the default Intel syntax, due to [an LLVM bug], you shouldn't use labels exclusively made of `0` and `1` digits, e.g. `0`, `11` or `101010`, as they may end up being interpreted as binary values. Using `options(att_syntax)` will avoid any ambiguity, but that affects the syntax of the _entire_ `asm!` block. (See [Options](#options), below, for more on `options`.)
+-->
+さらに、x86でデフォルトのIntel構文を使用する場合、[LLVMのバグ][an LLVM bug]によって、
+`0`、`11`、`101010`といった`0`と`1`だけで構成されたラベルは、
+バイナリ値として解釈されてしまうため、使用してはいけません。
+`options(att_syntax)`を使うと曖昧さを避けられますが、`asm!`ブロック _全体_ の構文に影響します。
+(`options`については、後述の[オプション](#options)を参照してください。)
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
