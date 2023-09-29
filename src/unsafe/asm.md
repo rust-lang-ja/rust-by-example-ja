@@ -703,12 +703,22 @@ assert_eq!(a, 5);
 # }
 ```
 
+<!--
 This will decrement the `{0}` register value from 10 to 3, then add 2 and store it in `a`.
+-->
+このコードは、`{0}`のレジスタの値を10から3にデクリメントし、2を加え、`a`にその値を保存します。
 
+<!--
 This example shows a few things:
+-->
+この例は、以下のことを示しています:
 
+<!--
 - First, that the same number can be used as a label multiple times in the same inline block.
 - Second, that when a numeric label is used as a reference (as an instruction operand, for example), the suffixes “b” (“backward”) or ”f” (“forward”) should be added to the numeric label. It will then refer to the nearest label defined by this number in this direction.
+-->
+- まず、ラベルとして同じ数字を複数回、同じインラインブロックで利用できます。
+- つぎに、数字のラベルが参照として(例えば、命令のオペランドに)利用された場合、"b"("後方")や"f"("前方")の接尾辞が数字のラベルに追加されなくてはなりません。そうすることで、この数字の指定された方向の最も近いラベルを参照できます。
 
 [local labels]: https://sourceware.org/binutils/docs/as/Symbol-Names.html#Local-Labels
 [an LLVM bug]: https://bugs.llvm.org/show_bug.cgi?id=36144
