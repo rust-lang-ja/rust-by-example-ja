@@ -756,11 +756,24 @@ assert_eq!(a, 8);
 # }
 ```
 
+<!--
 Options can be provided as an optional final argument to the `asm!` macro. We specified three options here:
 - `pure` means that the asm code has no observable side effects and that its output depends only on its inputs. This allows the compiler optimizer to call the inline asm fewer times or even eliminate it entirely.
 - `nomem` means that the asm code does not read or write to memory. By default the compiler will assume that inline assembly can read or write any memory address that is accessible to it (e.g. through a pointer passed as an operand, or a global).
 - `nostack` means that the asm code does not push any data onto the stack. This allows the compiler to use optimizations such as the stack red zone on x86-64 to avoid stack pointer adjustments.
+-->
+オプションは`asm!`マクロの最後の任意引数として渡されます。
+ここでは3つのオプションを利用しました:
+- `pure`は、アセンブリコードが観測可能な副作用を持っておらず、出力は入力のみに依存することを意味します。これにより、コンパイラオプティマイザはインラインアセンブリの呼び出し回数を減らしたり、インラインアセンブリを完全に削除したりできます。
+- `nomem`は、アセンブリコードがメモリの読み書きをしないことを意味します。デフォルトでは、インラインアセンブリはアクセス可能なメモリアドレス(例えばオペランドとして渡されたポインタや、グローバルなど)の読み書きを行うとコンパイラは仮定しています。
+- `nostack`は、アセンブリコードがスタックにデータをプッシュしないことを意味します。これにより、コンパイラはx86-64のスタックレッドゾーンなどの最適化を利用し、スタックポインタの調整を避けることができます。
 
+<!--
 These allow the compiler to better optimize code using `asm!`, for example by eliminating pure `asm!` blocks whose outputs are not needed.
+-->
+これにより、コンパイラは、出力が全く必要とされていない純粋な`asm!`ブロックを削除するなどして、`asm!`を使ったコードをより最適化できます。
 
+<!--
 See the [reference](../../reference/inline-assembly.html) for the full list of available options and their effects.
+-->
+利用可能なオプションとその効果の一覧は[リファレンス](https://doc.rust-lang.org/stable/reference/inline-assembly.html)を参照してください。
