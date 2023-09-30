@@ -723,11 +723,21 @@ This example shows a few things:
 [local labels]: https://sourceware.org/binutils/docs/as/Symbol-Names.html#Local-Labels
 [an LLVM bug]: https://bugs.llvm.org/show_bug.cgi?id=36144
 
+<!--
 ## Options
+-->
+## オプション
 
+<!--
 By default, an inline assembly block is treated the same way as an external FFI function call with a custom calling convention: it may read/write memory, have observable side effects, etc. However, in many cases it is desirable to give the compiler more information about what the assembly code is actually doing so that it can optimize better.
+-->
+デフォルトでは、インラインアセンブリブロックは、カスタム呼び出し規約をもつ外部のFFI関数呼び出しと同じように扱われます: メモリを読み込んだり書き込んだり、観測可能な副作用を持っていたりするかもしれません。
+しかし、多くの場合、アセンブリコードが実際に何をするかという情報を多く与えて、より最適化できる方が望ましいでしょう。
 
+<!--
 Let's take our previous example of an `add` instruction:
+-->
+先ほどの`add`命令の例を見てみましょう:
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
