@@ -34,7 +34,7 @@ As a reference lifetime `'static` indicates that the data pointed to by
 the reference lives for the entire lifetime of the running program.
 It can still be coerced to a shorter lifetime.
 -->
-参照のライフタイムが`'static`であることは、参照が指し示すデータがプログラムの実行中に渡って生き続けることを示します。
+参照のライフタイムが`'static`であることは、参照が指し示す値がプログラムの実行中に渡って生き続けることを示します。
 また、より短いライフタイムに圧縮することも可能です。
 
 <!--
@@ -42,7 +42,7 @@ There are two ways to make a variable with `'static` lifetime, and both
 are stored in the read-only memory of the binary:
 -->
 `'static`ライフタイムを持つ変数を作るには下記の2つ方法があります。
-どちらの場合も、データは読み取り専用のメモリ領域に格納されます。
+どちらの場合も、値は読み取り専用のメモリ領域に格納されます。
 
 <!--
 * Make a constant with the `static` declaration.
@@ -116,7 +116,7 @@ It's important to understand this means that any owned data always passes
 a `'static` lifetime bound, but a reference to that owned data generally
 does not:
 -->
-次のポイントを押さえておきましょう。所有権のあるデータが`'static`ライフタイム境界をパスするとしても、そのデータへの参照が`'static`ライフタイム境界をパスするとは限りません。
+次のポイントを押さえておきましょう。所有権のある値が`'static`ライフタイム境界をパスするとしても、その値への参照が`'static`ライフタイム境界をパスするとは限りません。
 
 ```rust,editable,compile_fail
 use std::fmt::Debug;
