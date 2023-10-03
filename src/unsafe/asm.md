@@ -568,7 +568,7 @@ fn call_foo(arg: i32) -> i32 {
 <!--
 ## Register template modifiers
 -->
-レジスタテンプレート修飾子
+## レジスタテンプレート修飾子
 
 <!--
 In some cases, fine control is needed over the way a register name is formatted when inserted into the template string. This is needed when an architecture's assembly language has several names for the same register, each typically being a "view" over a subset of the register (e.g. the low 32 bits of a 64-bit register).
