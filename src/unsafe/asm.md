@@ -40,7 +40,7 @@ Inline assembly is currently supported on the following architectures:
 <!--
 Let us start with the simplest possible example:
 -->
-最も単純な例から始めましょう：
+最も単純な例から始めましょう。
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
@@ -72,8 +72,8 @@ in the first argument of the `asm!` macro as a string literal.
 Now inserting an instruction that does nothing is rather boring. Let us do something that
 actually acts on data:
 -->
-何もしない命令を挿入しても面白くないですよね。
-実際にデータを操作してみましょう：
+何もしない命令を挿入しても面白くありません。
+実際にデータを操作してみましょう。
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
@@ -115,7 +115,7 @@ the template and will read the variable from there after the inline assembly fin
 <!--
 Let us see another example that also uses an input:
 -->
-入力を利用する別の例を見てみましょう：
+入力を利用する別の例を見てみましょう。
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
@@ -146,7 +146,7 @@ and then adding `5` to it.
 <!--
 The example shows a few things:
 -->
-この例はいくつかのことを示します：
+この例はいくつかのことを示します。
 
 <!--
 First, we can see that `asm!` allows multiple template string arguments; each
@@ -177,7 +177,7 @@ readability, and allows reordering instructions without changing the argument or
 <!--
 We can further refine the above example to avoid the `mov` instruction:
 -->
-上記の例をさらに改善して、`mov`命令を避けることもできます：
+上記の例をさらに改善して、`mov`命令を避けることもできます。
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
@@ -201,7 +201,7 @@ This is different from specifying an input and output separately in that it is g
 <!--
 It is also possible to specify different variables for the input and output parts of an `inout` operand:
 -->
-`inout`のオペランドとして、入力と出力それぞれに異なる変数を指定することも可能です：
+`inout`のオペランドとして、入力と出力それぞれに異なる変数を指定することも可能です。
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
@@ -241,7 +241,7 @@ Rustコンパイラはオペランドの割り当てに保守的です。
 <!--
 Here is an example where `inlateout` *cannot* be used in `release` mode or other optimized cases:
 -->
-以下は、`release`モードやその他の最適化された場合に、`inout`を利用 *できない* 例です：
+以下は、`release`モードやその他の最適化された場合に、`inout`を利用 *できない* 例です。
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
@@ -343,7 +343,7 @@ In this example we call the `out` instruction to output the content of the `cmd`
 <!--
 Consider this example which uses the x86 `mul` instruction:
 -->
-x86の`mul`命令を使った次の例を考えてみましょう：
+x86の`mul`命令を使った次の例を考えてみましょう。
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
@@ -492,7 +492,7 @@ To work around this we use `rdi` to store the pointer to the output array, save 
 This can also be used with a general register class to obtain a scratch register for use inside the asm code:
 -->
 アセンブリコード内部で利用するスクラッチレジスタを獲得するために、
-汎用レジスタクラスとともに使用することもできます：
+汎用レジスタクラスとともに使用することもできます。
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
@@ -655,7 +655,7 @@ fn load_fpu_control_word(control: u16) {
 Any reuse of a named label, local or otherwise, can result in an assembler or linker error or may cause other strange behavior. Reuse of a named label can happen in a variety of ways including:
 -->
 名前つきラベルの再利用は、ローカルかそうでないかに関わらず、アセンブラやリンカのエラーを引き起こしたり、変な挙動の原因となります。
-名前つきラベルの再利用は以下のようなケースがあります:
+名前つきラベルの再利用は以下のようなケースがあります。
 
 <!--
 -   explicitly: using a label more than once in one `asm!` block, or multiple times across blocks.
@@ -711,7 +711,7 @@ This will decrement the `{0}` register value from 10 to 3, then add 2 and store 
 <!--
 This example shows a few things:
 -->
-この例は、以下のことを示しています:
+この例は、以下のことを示しています。
 
 <!--
 - First, that the same number can be used as a label multiple times in the same inline block.
@@ -737,7 +737,7 @@ By default, an inline assembly block is treated the same way as an external FFI 
 <!--
 Let's take our previous example of an `add` instruction:
 -->
-先ほどの`add`命令の例を見てみましょう:
+先ほどの`add`命令の例を見てみましょう。
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
