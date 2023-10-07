@@ -99,16 +99,16 @@ In this case we put it in an arbitrary general purpose register by specifying `r
 The compiler will choose an appropriate register to insert into
 the template and will read the variable from there after the inline assembly finishes executing.
 -->
-`u64`型の変数`x`に`5`の値を書き込んでいます。
+これは`u64`型の変数`x`に`5`の値を書き込んでいます。
 命令を指定するために利用している文字列リテラルが、実はテンプレート文字列になっています。
 これはRustの[フォーマット文字列][format-syntax]と同じルールに従います。
 ですが、テンプレートに挿入される引数が、みなさんがよく知っているものとは少し違っています。
 まず、変数がインラインアセンブリの入力なのか出力なのかを指定する必要があります。
 上記の例では出力となっています。
-`out`と書くことでそれを宣言しています。
+`out`と書くことで出力であると宣言しています。
 また、アセンブリが変数をどの種類のレジスタに格納するかも指定する必要があります。
-上の例では、`reg`を指定することで任意の汎用レジスタに格納しています。
-コンパイラはテンプレートに挿入すべき適切なレジスタを選び、インラインアセンブリの実行終了後、そのレジスタから変数を読みこみます。
+上の例では、`reg`を指定して任意の汎用レジスタに格納しています。
+コンパイラはテンプレートに挿入する適切なレジスタを選び、インラインアセンブリの実行終了後、そのレジスタから変数を読みこみます。
 
 [format-syntax]: https://doc.rust-lang.org/std/fmt/#syntax
 
@@ -155,7 +155,7 @@ together with newlines between them. This makes it easy to format assembly
 code.
 -->
 まず、`asm!`では複数のテンプレート文字列を引数として利用できます。
-それぞれの文字列は、あたかも改行を挟んで結合されたかのように、独立したアセンブリコードとして扱われます。
+それぞれの文字列は、改行を挟んで結合されたのと同じように、独立したアセンブリコードとして扱われます。
 このおかげで、アセンブリコードを容易にフォーマットできます。
 
 <!--
@@ -169,15 +169,15 @@ For inline assembly templates this is particularly useful as arguments are often
 For more complex inline assembly using this facility is generally recommended, as it improves
 readability, and allows reordering instructions without changing the argument order.
 -->
-そして、他のフォーマット文字列と同じように引数の番号や名前で指定できます。
-インラインアセンブリのテンプレートでは、引数が2回以上利用されることが多いため、これは特に有用です。
+そして、他のフォーマット文字列と同じように引数を番号や名前で指定できます。
+インラインアセンブリのテンプレートでは、引数が2回以上利用されることが多いため、これは特に便利です。
 より複雑なインラインアセンブリを書く場合、この機能を使うのが推奨されます。
 可読性が向上し、引数の順序を変えることなく命令を並べ替えることができるからです。
 
 <!--
 We can further refine the above example to avoid the `mov` instruction:
 -->
-上記の例をさらに改善して、`mov`命令を避けることもできます。
+上記の例をさらに改善して、`mov`命令をやめることもできます。
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
@@ -272,7 +272,7 @@ The above could work well in unoptimized cases (`Debug` mode), but if you want o
 That is because in optimized cases, the compiler is free to allocate the same register for inputs `b` and `c` since it knows they have the same value. However it must allocate a separate register for `a` since it uses `inout` and not `inlateout`. If `inlateout` was used, then `a` and `c` could be allocated to the same register, in which case the first instruction to overwrite the value of `c` and cause the assembly code to produce the wrong result.
 -->
 というのも、最適化されている場合、コンパイラは`b`と`c`が同じ値だと知っているので、
-`b`と`c`の入力に同じレジスタを割り当てる場合があるのです。
+`b`と`c`の入力に同じレジスタを割り当てる場合があります。
 しかし、`a`については`inlateout`ではなく`inout`を使っているので、独立したレジスタを割り当てる必要があります。
 もし`inlateout`が使われていたら、`a`と`c`に同じレジスタが割り当てられたかもしれません。
 そうすると、最初の命令によって`c`の値が上書きされ、アセンブリコードが間違った結果を引き起こします。
