@@ -10,7 +10,7 @@ Generally this should not be necessary, but might be where the required performa
 cannot be otherwise achieved. Accessing low level hardware primitives, e.g. in kernel code, may also demand this functionality.
 -->
 Rustは`asm!`マクロによってインラインアセンブリをサポートしています。
-コンパイラによって生成されるアセンブリに、手書きのアセンブリを埋め込むことができます。
+コンパイラが生成するアセンブリに、手書きのアセンブリを埋め込むことができます。
 一般的には必要ありませんが、要求されるパフォーマンスやタイミングを達成するために必要な場合があります。
 カーネルコードのような、低レベルなハードウェアの基本要素にアクセスする場合にも、この機能が必要でしょう。
 
@@ -58,10 +58,10 @@ Note that all `asm!` invocations have to be inside an `unsafe` block, as they co
 arbitrary instructions and break various invariants. The instructions to be inserted are listed
 in the first argument of the `asm!` macro as a string literal.
 -->
-これにより、コンパイラが生成したアセンブリに、NOP (no operation) 命令が挿入されます。
+これは、コンパイラが生成したアセンブリに、NOP (no operation) 命令を挿入します。
 すべての`asm!`呼び出しは、`unsafe`ブロックの中になければいけません。
-というのも、インラインアセンブリは任意の命令を挿入でき、本来不変のものを変更できてしまうからです。
-挿入される命令は、`asm!`マクロの引数として文字列リテラルとして列挙されます。
+インラインアセンブリは任意の命令を挿入でき、本来不変のものを変更できてしまうからです。
+挿入される命令は、文字列リテラルとして`asm!`マクロの第一引数に列挙されます。
 
 <!--
 ## Inputs and outputs
