@@ -378,9 +378,9 @@ The second operand is implicit, and must be the `rax` register, which we fill fr
 The lower 64 bits of the result are stored in `rax` from which we fill the variable `lo`.
 The higher 64 bits are stored in `rdx` from which we fill the variable `hi`.
 -->
-`mul`命令を使って2つの64ビットの入力を128ビットの結果に出力する。
+`mul`命令を使って2つの64ビットの入力を128ビットの結果に出力しています。
 唯一の明示的なオペランドはレジスタで、変数`a`から入力します。
-2つ目のオペランドは暗黙的であり、`rax`レジスタである必要があります。変数`b`から入力します。
+2つ目のオペランドは暗黙的であり、`rax`レジスタである必要があります。変数`b`から`rax`レジスタに入力します。
 計算結果の下位64ビットは`rax`レジスタに保存され、そこから変数`lo`に出力されます。
 上位64ビットは`rdx`レジスタに保存され、そこから変数`hi`に出力されます。
 
