@@ -8149,21 +8149,36 @@ let s: &amp;'static str = &quot;hello world&quot;;
 
 // 'static as part of a trait bound:
 fn generic&lt;T&gt;(x: T) where T: 'static {}</code></pre></pre>
-<p>Both are related but subtly different and this is a common source for
-confusion when learning Rust. Here are some examples for each situation:</p>
-<h2 id="reference-lifetime"><a class="header" href="#reference-lifetime">Reference lifetime</a></h2>
-<p>As a reference lifetime <code>'static</code> indicates that the data pointed to by
+<!--
+Both are related but subtly different and this is a common source for
+confusion when learning Rust. Here are some examples for each situation:
+-->
+<p>2つの状況における<code>static</code>は微妙に異なる意味を持っており、Rustを学ぶときの混乱の元になっています。
+いくつかの例とともにそれぞれの使い方を見てみましょう。</p>
+<!--
+## Reference lifetime
+-->
+<h2 id="参照のライフタイム"><a class="header" href="#参照のライフタイム">参照のライフタイム</a></h2>
+<!--
+As a reference lifetime `'static` indicates that the data pointed to by
 the reference lives for the entire lifetime of the running program.
-It can still be coerced to a shorter lifetime.</p>
-<p>There are two ways to make a variable with <code>'static</code> lifetime, and both
-are stored in the read-only memory of the binary:</p>
+It can still be coerced to a shorter lifetime.
+-->
+<p>参照のライフタイムが<code>'static</code>であることは、参照が指し示す値がプログラムの実行中に渡って生き続けることを示します。
+また、より短いライフタイムに圧縮することも可能です。</p>
+<!--
+There are two ways to make a variable with `'static` lifetime, and both
+are stored in the read-only memory of the binary:
+-->
+<p><code>'static</code>ライフタイムを持つ変数を作るには下記の2つ方法があります。
+どちらの場合も、値は読み取り専用のメモリ領域に格納されます。</p>
 <!--
 * Make a constant with the `static` declaration.
 * Make a `string` literal which has type: `&'static str`.
 -->
 <ul>
 <li><code>static</code>宣言とともに定数を作成する。</li>
-<li>文字列リテラル で<code>&amp;'static str</code>型を持つ変数を作成する。</li>
+<li>文字列リテラルで<code>&amp;'static str</code>型を持つ変数を作成する。</li>
 </ul>
 <!--
 See the following example for a display of each method:
@@ -8208,13 +8223,23 @@ fn main() {
 
     println!(&quot;NUM: {} stays accessible!&quot;, NUM);
 }</code></pre></pre>
-<h2 id="trait-bound"><a class="header" href="#trait-bound">Trait bound</a></h2>
-<p>As a trait bound, it means the type does not contain any non-static
+<!--
+## Trait bound
+-->
+<h2 id="トレイト境界"><a class="header" href="#トレイト境界">トレイト境界</a></h2>
+<!--
+As a trait bound, it means the type does not contain any non-static
 references. Eg. the receiver can hold on to the type for as long as
-they want and it will never become invalid until they drop it.</p>
-<p>It's important to understand this means that any owned data always passes
-a <code>'static</code> lifetime bound, but a reference to that owned data generally
-does not:</p>
+they want and it will never become invalid until they drop it.
+-->
+<p>トレイト境界としての<code>'static</code>は型が非静的な参照を含まないことを意味します。
+言い換えると、レシーバはその型をいくらでも長く保持することができ、意図的にドロップするまでは決して無効になることはないということです。</p>
+<!--
+It's important to understand this means that any owned data always passes
+a `'static` lifetime bound, but a reference to that owned data generally
+does not:
+-->
+<p>次のポイントを押さえておきましょう。所有権のある値が<code>'static</code>ライフタイム境界をパスするとしても、その値への参照が<code>'static</code>ライフタイム境界をパスするとは限りません。</p>
 <pre><pre class="playground"><code class="language-rust editable compile_fail edition2021">use std::fmt::Debug;
 
 fn print_it( input: impl Debug + 'static ) {
@@ -8223,24 +8248,33 @@ fn print_it( input: impl Debug + 'static ) {
 
 fn main() {
     // i is owned and contains no references, thus it's 'static:
+    // i は所有されていて、かつ参照を含まないので 'static
     let i = 5;
     print_it(i);
 
     // oops, &amp;i only has the lifetime defined by the scope of
     // main(), so it's not 'static:
+    // おっと、&amp;i は main() で定義されたライフタイムしかもたないため 'static ではない
     print_it(&amp;i);
 }</code></pre></pre>
-<p>The compiler will tell you:</p>
+<!--
+The compiler will tell you:
+-->
+<p>コンパイラのメッセージはこのようになります、</p>
 <pre><code class="language-ignore">error[E0597]: `i` does not live long enough
+エラー[E0597]: `i`は十分なライフタイムを持っていません
   --&gt; src/lib.rs:15:15
    |
 15 |     print_it(&amp;i);
    |     ---------^^--
    |     |         |
    |     |         borrowed value does not live long enough
+   |     |         借用した値のライフタイムが不足
    |     argument requires that `i` is borrowed for `'static`
+   |     引数は`i`が`'static`として借用されることを要求する
 16 | }
    | - `i` dropped here while still borrowed
+   |   `i`は借用されたままここでドロップされる
 </code></pre>
 <!--
 ### See also:
