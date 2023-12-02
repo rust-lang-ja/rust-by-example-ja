@@ -60,7 +60,7 @@ in the first argument of the `asm!` macro as a string literal.
 -->
 これは、コンパイラが生成したアセンブリに、NOP (no operation) 命令を挿入します。
 すべての`asm!`呼び出しは、`unsafe`ブロックの中になければいけません。
-インラインアセンブリは任意の命令を挿入でき、本来不変のものを変更できてしまうからです。
+インラインアセンブリは任意の命令を挿入でき、不変条件を壊してしまうからです。
 挿入される命令は、文字列リテラルとして`asm!`マクロの第一引数に列挙されます。
 
 <!--
@@ -480,6 +480,7 @@ This code also works around the limitation that `ebx` is a reserved register by 
 LLVMは、自身がレジスタを完全にコントロールし、
 アセンブリブロックを抜ける前に元の状態を復元しなくてはならないと考えています。
 そのため、コンパイラが`in(reg)`のような汎用レジスタクラスを満たすために使用する場合 **を除いて** `ebx`を入力や出力として利用できません。
+つまり、予約されたレジスタを利用する場合に、`reg`オペランドは危険なのです。入力と出力が同じレジスタを共有しているので、知らないうちに入力や出力を破壊してしまうかもしれません。
 
 <!--
 To work around this we use `rdi` to store the pointer to the output array, save `ebx` via `push`, read from `ebx` inside the asm block into the array and then restore `ebx` to its original state via `pop`. The `push` and `pop` use the full 64-bit `rbx` version of the register to ensure that the entire register is saved. On 32 bit targets the code would instead use `ebx` in the `push`/`pop`.
@@ -523,7 +524,7 @@ assert_eq!(x, 4 * 6);
 <!--
 By default, `asm!` assumes that any register not specified as an output will have its contents preserved by the assembly code. The [`clobber_abi`] argument to `asm!` tells the compiler to automatically insert the necessary clobber operands according to the given calling convention ABI: any register which is not fully preserved in that ABI will be treated as clobbered.  Multiple `clobber_abi` arguments may be provided and all clobbers from all specified ABIs will be inserted.
 -->
-デフォルトでは、`asm!`は、出力として指定されていないレジスタはアセンブリコードによって保存される、と考えます。
+デフォルトでは、`asm!`は、出力として指定されていないレジスタはアセンブリコードによって中身が維持される、と考えます。
 `asm!`に渡される[`clobber_abi`]引数は、与えられた呼び出し規約のABIに従って、
 必要なクロバーオペランドを自動的に挿入するようコンパイラに伝えます。
 そのABIで完全に保存されていないレジスタは、クロバーとして扱われます。
