@@ -241,7 +241,7 @@ Rustコンパイラはオペランドの割り当てに保守的です。
 <!--
 Here is an example where `inlateout` *cannot* be used in `release` mode or other optimized cases:
 -->
-以下は、`release`モードやその他の最適化された場合に、`inout`を利用 *できない* 例です。
+以下は、`release`モードやその他の最適化された場合に、`inlateout`を利用 *できない* 例です。
 
 ```rust
 # #[cfg(target_arch = "x86_64")] {
