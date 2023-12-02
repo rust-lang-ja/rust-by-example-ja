@@ -395,7 +395,7 @@ Usually this is either because we have to use a scratch register in the assembly
 This state is generally referred to as being "clobbered".
 We need to tell the compiler about this since it may need to save and restore this state around the inline assembly block.
 -->
-多くの場合、インラインレジスタは出力として必要のない状態を変更することがあります。
+多くの場合、インラインアセンブリは出力として必要のない状態を変更することがあります。
 これは普通、アセンブリでスクラッチレジスタを利用する必要があったり、
 私たちがこれ以上必要としていない状態を命令が変更したりするためです。
 この状態を一般的に"クロバー"（訳注：上書き）と呼びます。
