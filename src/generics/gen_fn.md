@@ -79,6 +79,7 @@ fn main() {
                            // 型パラメータ`i32`を暗黙のうちに受け取る
 
     // Explicitly specified type parameter `char` to `generic()`.
+    // 型パラメータ`char`を明示的に`generic()`に渡す
     generic::<char>(SGen('a'));
 
     // Implicitly specified type parameter `char` to `generic()`.
