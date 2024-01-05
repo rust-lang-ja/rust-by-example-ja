@@ -57,7 +57,7 @@ fn main() {
 <!--
 [`std::cmp::Eq`][eq], [`std::marker::Copy`][copy], and [`trait`s][traits]
 -->
-[`std::cmp::Eq`][eq], [`std::cmp::Ord`s][ord], [トレイト][traits]
+[`std::cmp::Eq`][eq], [`std::marker::Copy`][copy], [トレイト][traits]
 
 [eq]: https://doc.rust-lang.org/std/cmp/trait.Eq.html
 [copy]: https://doc.rust-lang.org/std/marker/trait.Copy.html
