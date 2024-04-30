@@ -62,7 +62,7 @@ fn main() {
     println!("{:?} unwraps to {:?}", optional_float, optional_float.unwrap());
 
     // Unwrapping a `None` variant will `panic!`
-    // `None`をアンラップしようとすると`panic!`る
+    // `None`をアンラップしようとすると`panic!`
     println!("{:?} unwraps to {:?}", none, none.unwrap());
 }
 ```

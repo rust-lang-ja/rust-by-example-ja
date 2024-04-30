@@ -33,6 +33,6 @@ fn main() {
     // `Some`をアンラップすると中の値を取得できる。
     println!("{:?} unwraps to {:?}", optional_float, optional_float.unwrap());
 
-    // `None`をアンラップしようとすると`panic!`る
+    // `None`をアンラップしようとすると`panic!`
     println!("{:?} unwraps to {:?}", none, none.unwrap());
 }
