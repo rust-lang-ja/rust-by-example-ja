@@ -22,7 +22,7 @@ fn main() {
     println!("After mutation: {}", mutable_binding);
 
     // Error! Cannot assign a new value to an immutable variable
-    // Error!
+    // エラー! イミュータブルな変数には新しい値を代入できません
     _immutable_binding += 1;
     // FIXME ^ Comment out this line
     // FIXME ^ この行をコメントアウトしましょう
