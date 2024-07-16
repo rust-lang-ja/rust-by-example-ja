@@ -2084,7 +2084,7 @@ the `mut` modifier.
     println!(&quot;After mutation: {}&quot;, mutable_binding);
 
     // Error! Cannot assign a new value to an immutable variable
-    // Error!
+    // エラー! イミュータブルな変数には新しい値を代入できません
     _immutable_binding += 1;
     // FIXME ^ Comment out this line
     // FIXME ^ この行をコメントアウトしましょう
@@ -3488,12 +3488,13 @@ fn main() {
         Temperature::Fahrenheit(t) =&gt; println!(&quot;{}F is below 86 Fahrenheit&quot;, t),
     }
 }</code></pre></pre>
-<p>Note that the compiler won't take guard conditions into account when checking
+<!--
+Note that the compiler won't take guard conditions into account when checking
 if all patterns are covered by the match expression.
-possible conditions have been checked.  Therefore, you must use the <code>_</code> pattern
-at the end.</p>
-<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable edition2021">```rust,editable
-fn main() {
+-->
+<p>コンパイラは、match式ですべてのパターンがカバーされているかどうかを調べるときに、
+ガード条件を考慮しない点に注意してください。</p>
+<pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable edition2021">fn main() {
     let number: u8 = 4;
 
     match number {
@@ -3501,7 +3502,7 @@ fn main() {
         i if i &gt; 0 =&gt; println!(&quot;Greater than zero&quot;),
         // _ =&gt; unreachable!(&quot;Should never happen.&quot;),
         // TODO ^ uncomment to fix compilation
-        _ =&gt; println!(&quot;Fell through&quot;), // This should not be possible to reach
+        // TODO ^ アンコメントしてコンパイルを修正しよう
     }
 }</code></pre></pre>
 <!--
