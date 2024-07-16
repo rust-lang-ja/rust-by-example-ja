@@ -32,13 +32,14 @@ fn main() {
 }
 ```
 
+<!--
 Note that the compiler won't take guard conditions into account when checking
 if all patterns are covered by the match expression.
-possible conditions have been checked.  Therefore, you must use the `_` pattern
-at the end.
+-->
+コンパイラは、match式ですべてのパターンがカバーされているかどうかを調べるときに、
+ガード条件を考慮しない点に注意してください。
 
 ```rust,editable,ignore,mdbook-runnable
-```rust,editable
 fn main() {
     let number: u8 = 4;
 
@@ -47,7 +48,7 @@ fn main() {
         i if i > 0 => println!("Greater than zero"),
         // _ => unreachable!("Should never happen."),
         // TODO ^ uncomment to fix compilation
-        _ => println!("Fell through"), // This should not be possible to reach
+        // TODO ^ アンコメントしてコンパイルを修正しよう
     }
 }
 ```
