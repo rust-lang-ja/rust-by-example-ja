@@ -81,10 +81,14 @@ fn main() {
 }
 ```
 
+<!--
 In the same way, `if let` can be used to match any enum value:
+-->
+同じように、`if let`を列挙型の値にマッチさせるのに利用できます。
 
 ```rust,editable
 // Our example enum
+// 列挙型の例
 enum Foo {
     Bar,
     Baz,
@@ -93,49 +97,68 @@ enum Foo {
 
 fn main() {
     // Create example variables
+    // 変数の例を作成する
     let a = Foo::Bar;
     let b = Foo::Baz;
     let c = Foo::Qux(100);
     
     // Variable a matches Foo::Bar
+    // 変数aはFoo::Barにマッチする
     if let Foo::Bar = a {
         println!("a is foobar");
     }
     
     // Variable b does not match Foo::Bar
     // So this will print nothing
+    // 変数bはFoo::Barにマッチしないので、これは何も出力しない
     if let Foo::Bar = b {
         println!("b is foobar");
     }
     
     // Variable c matches Foo::Qux which has a value
     // Similar to Some() in the previous example
+    // 変数cはFoo::Quxにマッチし、値を持つ
+    // 以前のSome()の例と同様
     if let Foo::Qux(value) = c {
         println!("c is {}", value);
     }
 
     // Binding also works with `if let`
+    // `if let`でも束縛は動作する
     if let Foo::Qux(value @ 100) = c {
         println!("c is one hundred");
     }
 }
 ```
 
+<!--
 Another benefit is that `if let` allows us to match non-parameterized enum variants. This is true even in cases where the enum doesn't implement or derive `PartialEq`. In such cases `if Foo::Bar == a` would fail to compile, because instances of the enum cannot be equated, however `if let` will continue to work.
+-->
+`if let`を利用する別の利点は、パラメータ化されていない列挙型の値をマッチさせられることです。
+これは、列挙型が`PartialEq`を実装もderiveもしていない場合でも同様です。
+`PartialEq`がない場合には、`if Foo::Bar == a`はコンパイルできません。
+列挙型のインスタンスは比較できませんが、`if let`を使えば動作します。
 
+<!--
 Would you like a challenge? Fix the following example to use `if let`:
+-->
+次の例を`if let`を利用して修正するのにチャレンジしてみましょう。
 
 ```rust,editable,ignore,mdbook-runnable
 // This enum purposely neither implements nor derives PartialEq.
 // That is why comparing Foo::Bar == a fails below.
+// この列挙型はわざとPartialEqを実装もderiveもしていない
+// ゆえに以下でFoo::Bar == aの比較が失敗する
 enum Foo {Bar}
 
 fn main() {
     let a = Foo::Bar;
 
     // Variable a matches Foo::Bar
+    // 変数aはFoo::Barにマッチする
     if Foo::Bar == a {
     // ^-- this causes a compile-time error. Use `if let` instead.
+    // ^-- これはコンパイル時エラー。代わりに`if let`を使う。
         println!("a is foobar");
     }
 }
