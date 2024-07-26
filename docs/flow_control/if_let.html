@@ -222,8 +222,12 @@ failure options to be specified:
         println!(&quot;I don't like letters. Let's go with an emoticon :)!&quot;);
     }
 }</code></pre></pre>
-<p>In the same way, <code>if let</code> can be used to match any enum value:</p>
+<!--
+In the same way, `if let` can be used to match any enum value:
+-->
+<p>同じように、<code>if let</code>を列挙型の値にマッチさせるのに利用できます。</p>
 <pre><pre class="playground"><code class="language-rust editable edition2021">// Our example enum
+// 列挙型の例
 enum Foo {
     Bar,
     Baz,
@@ -232,44 +236,63 @@ enum Foo {
 
 fn main() {
     // Create example variables
+    // 変数の例を作成する
     let a = Foo::Bar;
     let b = Foo::Baz;
     let c = Foo::Qux(100);
     
     // Variable a matches Foo::Bar
+    // 変数aはFoo::Barにマッチする
     if let Foo::Bar = a {
         println!(&quot;a is foobar&quot;);
     }
     
     // Variable b does not match Foo::Bar
     // So this will print nothing
+    // 変数bはFoo::Barにマッチしないので、これは何も出力しない
     if let Foo::Bar = b {
         println!(&quot;b is foobar&quot;);
     }
     
     // Variable c matches Foo::Qux which has a value
     // Similar to Some() in the previous example
+    // 変数cはFoo::Quxにマッチし、値を持つ
+    // 以前のSome()の例と同様
     if let Foo::Qux(value) = c {
         println!(&quot;c is {}&quot;, value);
     }
 
     // Binding also works with `if let`
+    // `if let`でも束縛は動作する
     if let Foo::Qux(value @ 100) = c {
         println!(&quot;c is one hundred&quot;);
     }
 }</code></pre></pre>
-<p>Another benefit is that <code>if let</code> allows us to match non-parameterized enum variants. This is true even in cases where the enum doesn't implement or derive <code>PartialEq</code>. In such cases <code>if Foo::Bar == a</code> would fail to compile, because instances of the enum cannot be equated, however <code>if let</code> will continue to work.</p>
-<p>Would you like a challenge? Fix the following example to use <code>if let</code>:</p>
+<!--
+Another benefit is that `if let` allows us to match non-parameterized enum variants. This is true even in cases where the enum doesn't implement or derive `PartialEq`. In such cases `if Foo::Bar == a` would fail to compile, because instances of the enum cannot be equated, however `if let` will continue to work.
+-->
+<p><code>if let</code>を利用する別の利点は、パラメータ化されていない列挙型の値をマッチさせられることです。
+これは、列挙型が<code>PartialEq</code>を実装もderiveもしていない場合でも同様です。
+<code>PartialEq</code>がない場合には、<code>if Foo::Bar == a</code>はコンパイルできません。
+列挙型のインスタンスは比較できませんが、<code>if let</code>を使えば動作します。</p>
+<!--
+Would you like a challenge? Fix the following example to use `if let`:
+-->
+<p>次の例を<code>if let</code>を利用して修正するのにチャレンジしてみましょう。</p>
 <pre><pre class="playground"><code class="language-rust editable ignore mdbook-runnable edition2021">// This enum purposely neither implements nor derives PartialEq.
 // That is why comparing Foo::Bar == a fails below.
+// この列挙型はわざとPartialEqを実装もderiveもしていない
+// ゆえに以下でFoo::Bar == aの比較が失敗する
 enum Foo {Bar}
 
 fn main() {
     let a = Foo::Bar;
 
     // Variable a matches Foo::Bar
+    // 変数aはFoo::Barにマッチする
     if Foo::Bar == a {
     // ^-- this causes a compile-time error. Use `if let` instead.
+    // ^-- これはコンパイル時エラー。代わりに`if let`を使う。
         println!(&quot;a is foobar&quot;);
     }
 }</code></pre></pre>
